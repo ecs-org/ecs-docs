@@ -1,1 +1,0 @@
-../ecs-user-manual-de/dot-style.h
