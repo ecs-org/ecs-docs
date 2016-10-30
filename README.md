@@ -10,3 +10,13 @@
   + plantuml, graphviz with cpp support, actdiag, nwdiag, seqdiag, blockdiag
 + Additional available sphinx extensions
   + sphinxcontrib-programoutput sphinxcontrib.youtube sphinxcontrib-inlinesyntaxhighlight
+
+
+:build-static content selfserved
+
+  FROM nginx
+  COPY ecs-operators-handbook/_build/html /usr/share/nginx/html/ecs-operators-handbook
+  COPY ecs-user-manual-de/_build/html /usr/share/nginx/html/ecs-user-manual-de
+
+  copy some index files to /usr/share/nginx/html
+  done!

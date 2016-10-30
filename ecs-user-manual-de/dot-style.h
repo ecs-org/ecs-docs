@@ -46,7 +46,7 @@
 #define extcluster(name,longname,additional...) \
     cluster(name,longname, graph [color="grey" style=filled]  node [bgcolor="white"] additional)
 #define putcluster(first,anchor) { rank=same; anchor first }
-
+#define endcluster }
 
 ### actor handling
 #########################################
@@ -405,11 +405,11 @@ label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" >\
 #define sqlcolor brown
 #define rediscolor darkorange
 #define smtpcolor blue
-#define filesystemcolor pink
+#define filecolor pink
 #define memcachecolor gold
 
 #define PROTOCOLLEGEND cluster(protocol_legend,"Protocol Color Legend") \
     graph[ranksep="1.5"] \
     edge [minlen=1 style=invis] \
-    presentdir(http) -> presentdir(https) -> presentdir(sql) ->  presentdir(redis) -> presentdir(smtp) -> presentdir(filesystem) -> presentdir(memcache) \
+    presentdir(http) -> presentdir(https) -> presentdir(sql) ->  presentdir(redis) -> presentdir(smtp) -> presentdir(file) -> presentdir(memcache) \
     }
