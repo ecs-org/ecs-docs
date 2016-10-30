@@ -1,18 +1,7 @@
 # Ecs BenutzerInnen Handbuch
 
-
-```eval_rst
-.. toctree::
-  :maxdepth: 2
-
-  Test eines Markdown includes <bootstrap>
-
-```
-
 + generell für alle
-
 + als an einer studie beteiligten
-
 + als einreichende
   + als nicht presenter
   + als presenter
@@ -36,12 +25,4 @@
 + describe boardmember differences (resident, omnisiecent, )
 + describe internal and external
 
-```eval_rst
-.. graphviz::
 
-  #include "dot-style.h"
-  PROCESSFLOW("Legend")
-  PROTOCOLLEGEND
-  END
-  
-```

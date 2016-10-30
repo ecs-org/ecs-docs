@@ -8,5 +8,9 @@
 *.swp
 *.swo
 
+# python
+__pycache__
+*.pyc
+
 # sphinx
 _build

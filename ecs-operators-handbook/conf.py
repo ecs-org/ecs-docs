@@ -1,28 +1,26 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import os
+import sys
 
-extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.githubpages',
-    'sphinx.ext.graphviz',
-]
+sys.path.append(os.path.join(os.getcwd(),".."))
+from include.baseconf import *
 
-project = 'ecs-user-manual-de'
-copyright = '2016, EK-Meduniwien, EK-Medunigraz, EK-Meduniinnsbruck, EK-Linz, EK-Kepler'
+project = 'ecs-operators-handbook'
 author = 'general author name'
 version = '2'
 release = '0 TODO:use git id'
-language = 'de'
+language = 'en'
 latex_documents = [
-    (master_doc, 'ecs-user-manual-de.tex', 'Ecs BenutzerInnen Handbuch',
+    (master_doc, 'ecs-operators-handbook.tex', 'ECS Operator\'s Handbook',
      'Latex Author Name', 'howto'),
 ]
 man_pages = [
-    (master_doc, 'ecs-user-manual-de', 'Ecs BenutzerInnen Handbuch',
+    (master_doc, 'ecs-operators-handbook', 'ECS Operator\'s Handbook',
      [author], 1)
 ]
 texinfo_documents = [
-    (master_doc, 'ecs-user-manual-de', 'Ecs BenutzerInnen Handbuch',
-     author, 'ecs-user-manual-de', 'Ethikkommission Verwaltung',
+    (master_doc, 'ecs-operators-handbook', 'ECS Operator\'s Handbook',
+     author, 'ecs-operators-handbook', 'EthicsCommission Administration',
      'Miscellaneous'),
 ]

@@ -36,9 +36,12 @@ from recommonmark.transform import AutoStructify
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.ifconfig',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinx.ext.graphviz',
+    'sphinx.ext.imgmath',
 ]
 
 # change graphviz calling to prepend the c preprocessor to the calling chain
@@ -258,37 +261,28 @@ latex_elements = {
     "fontpkg": "\\usepackage{times}",
     "fncychap": "\\usepackage[Sonny]{fncychap}",
     "preamble": """
-
 % set how deep the table of contents and section numbering will be rendered
-\setcounter{secnumdepth}{2}
-\setcounter{tocdepth}{1}
+\\setcounter{secnumdepth}{2}
+\\setcounter{tocdepth}{1}
 
 % some compatibility for docutils/sphinx
-\usepackage{parskip}
+\\usepackage{parskip}
 
 % better bibliographie
-\usepackage[numbers]{natbib}
+\\usepackage[numbers]{natbib}
 
 % better tables
-%\usepackage{longtable}
+\\usepackage{longtable}
 
 % approval page needs this
-\usepackage{supertabular}
+\\usepackage{supertabular}
 
 % add inclusion of pdf pages
-\usepackage{pdfpages}
+\\usepackage{pdfpages}
 
 """,
 }
 
-"""
-"maketitle": "% use \\maketitle by yourself",
-"tableofcontents": "% use \\tableofcontents by yourself",
-"printindex": "% we dont generate an index for now but use \\printindex if you want to",
-"makeindex": % hack for mytitle.sty
-% \usepackage{mytitle}
-\makeindex
-"""
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
@@ -372,7 +366,9 @@ texinfo_documents = [
 #
 # texinfo_no_detailmenu = False
 
+
 # At the bottom of conf.py
+github_doc_root=""
 def setup(app):
     app.add_config_value('recommonmark_config', {
             'url_resolver': lambda url: github_doc_root + url,

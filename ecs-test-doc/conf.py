@@ -6,21 +6,21 @@ import sys
 sys.path.append(os.path.join(os.getcwd(),".."))
 from include.baseconf import *
 
-project = 'ecs-user-manual-de'
+project = 'ecs-test-doc'
 author = 'general author name'
 version = '2'
 release = '0 TODO:use git id'
-language = 'de'
+language = 'en'
 latex_documents = [
-    (master_doc, 'ecs-user-manual-de.tex', 'Ecs BenutzerInnen Handbuch',
+    (master_doc, 'ecs-test-doc.tex', 'Ecs Test Documentation',
      'Latex Author Name', 'howto'),
 ]
 man_pages = [
-    (master_doc, 'ecs-user-manual-de', 'Ecs BenutzerInnen Handbuch',
+    (master_doc, 'ecs-test-doc', 'Ecs Test Documentation',
      [author], 1)
 ]
 texinfo_documents = [
-    (master_doc, 'ecs-user-manual-de', 'Ecs BenutzerInnen Handbuch',
-     author, 'ecs-user-manual-de', 'Ethikkommission Verwaltung',
+    (master_doc, 'ecs-test-doc', 'Ecs Test Documentation',
+     author, 'ecs-test-doc', 'EthicsCommission Administration',
      'Miscellaneous'),
 ]
