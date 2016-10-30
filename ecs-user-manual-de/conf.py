@@ -252,31 +252,50 @@ html_static_path = ['_static']
 htmlhelp_basename = 'ecs-docsdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
-
 latex_elements = {
-     # The paper size ('letterpaper' or 'a4paper').
-     #
-     # 'papersize': 'letterpaper',
+    "papersize": "a4paper",
+    "pointsize": "10pt, naustrian",
+    "fontpkg": "\\usepackage{times}",
+    "fncychap": "\\usepackage[Sonny]{fncychap}",
+    "preamble": """
 
-     # The font size ('10pt', '11pt' or '12pt').
-     #
-     # 'pointsize': '10pt',
+% set how deep the table of contents and section numbering will be rendered
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
 
-     # Additional stuff for the LaTeX preamble.
-     #
-     # 'preamble': '',
+% some compatibility for docutils/sphinx
+\usepackage{parskip}
 
-     # Latex figure (float) alignment
-     #
-     # 'figure_align': 'htbp',
+% better bibliographie
+\usepackage[numbers]{natbib}
+
+% better tables
+%\usepackage{longtable}
+
+% approval page needs this
+\usepackage{supertabular}
+
+% add inclusion of pdf pages
+\usepackage{pdfpages}
+
+""",
 }
+
+"""
+"maketitle": "% use \\maketitle by yourself",
+"tableofcontents": "% use \\tableofcontents by yourself",
+"printindex": "% we dont generate an index for now but use \\printindex if you want to",
+"makeindex": % hack for mytitle.sty
+% \usepackage{mytitle}
+\makeindex
+"""
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'ecs-docs.tex', 'ecs-docs Documentation',
-     'Esther neumann', 'manual'),
+     'Esther neumann', 'howto'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -305,11 +324,11 @@ latex_documents = [
 # \sphinxstrong, ..., \sphinxtitleref, ... To help avoid clash with user added
 # packages.
 #
-# latex_keep_old_macro_names = True
+latex_keep_old_macro_names = False
 
 # If false, no module index is generated.
 #
-# latex_domain_indices = True
+latex_domain_indices = False
 
 
 # -- Options for manual page output ---------------------------------------

@@ -1,0 +1,73 @@
+%
+% mytitle.sty
+%
+% Adapted from the old python.sty, mostly written by Fred Drake,
+% by Georg Brandl.
+%
+
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{mytitle}[2008/05/01 LaTeX package (ourmaketitle)]
+
+\let\py@OldTitle=\@title
+\let\py@OldAuthor=\@author
+\let\py@OldRelease=\version
+\renewcommand{\@title}{
+      \py@OldTitle
+}
+\renewcommand{\@author}{Felix Erkinger (felix@ep3.at)}
+\renewcommand{\version}{\py@OldRelease}
+\renewcommand{\py@release}{\py@OldAuthor.\version}
+
+\renewcommand{\maketitle}{
+  \begin{titlepage}
+    \let\footnotesize\small
+    \let\footnoterule\relax
+    \rule{\textwidth}{1pt}
+    \ifsphinxpdfoutput
+      \begingroup
+      % This \def is required to deal with multi-line authors; it
+      % changes \\ to ', ' (comma-space), making it pass muster for
+      % generating document info in the PDF file.
+      \def\\{, }
+      \pdfinfo{
+        /Author (\@author)
+        /Title (Ethics Commitee System \py@OldTitle)
+      }
+      \endgroup
+    \fi
+    \begin{flushright}
+      {\rm\Huge\py@HeaderFamily Ethics Committee System \par}
+      {\LARGE\py@HeaderFamily \py@OldTitle \par}
+      {\em\large\py@HeaderFamily \releasename\space\version\releaseinfo \par}
+      \vfill
+      \sphinxlogo
+      \vfill
+      {\large \@author \par}
+      {\large DocumentID: \py@OldAuthor.\py@OldRelease \par}
+      {\large
+       (C) 2016 Ethikkommission Meduni Wien \par
+       \py@authoraddress \par
+      }
+    \end{flushright}
+    \@thanks
+  \end{titlepage}
+  \cleardoublepage
+  \pagestyle{plain}
+}
+
+\renewcommand{\tableofcontents}{%
+  \pagebreak%
+  {%
+    \parskip = 0mm%
+    \py@OldTableofcontents%
+    \if@openright%
+      \ifodd\value{page}%
+        \typeout{Adding blank page after the table of contents.}%
+        \pagebreak\hspace{0pt}%
+      \fi%
+    \fi%
+    \cleardoublepage%
+  }%
+  \pagenumbering{arabic}%
+  \@ifundefined{fancyhf}{}{\pagestyle{normal}}%
+}

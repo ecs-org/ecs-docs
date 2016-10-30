@@ -10,7 +10,7 @@ fi
 
 # as root
 sudo bash -c "cp -f /tmp/plantuml.jar /opt/plantuml.jar; echo -e '#!/bin/bash\njava -jar /opt/plantuml.jar $@\n' > /usr/local/bin/plantuml; chmod +x /usr/local/bin/plantuml"
-sudo bash -c "DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get install -y dvipng libjs-mathjax texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended  default-jre curl graphviz python3 python3-setuptools cpp"
+sudo bash -c "DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get install -y dvipng libjs-mathjax texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-english texlive-lang-german default-jre curl graphviz python3 python3-setuptools cpp"
 sudo bash -c "echo -e \#\!'/bin/bash\ncpp | dot \$@\n' > /usr/local/bin/cpp-dot; chmod +x /usr/local/bin/cpp-dot"
 
 # as user
