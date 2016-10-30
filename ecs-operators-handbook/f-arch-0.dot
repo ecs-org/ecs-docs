@@ -1,0 +1,10 @@
+#### perform execution via cpp | dot
+#include "dot-style.inc"
+####################################
+
+PROCESSFLOW("Legend")
+
+PROTOCOLLEGEND
+
+END
+

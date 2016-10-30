@@ -1,0 +1,12 @@
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Vim
+*~
+*.swp
+*.swo
+
+# sphinx
+_build
