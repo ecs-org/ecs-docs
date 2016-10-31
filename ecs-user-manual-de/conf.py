@@ -12,15 +12,6 @@ version = '2'
 release = '0 TODO:use git id'
 language = 'de'
 latex_documents = [
-    (master_doc, 'ecs-user-manual-de.tex', 'Ecs BenutzerInnen Handbuch',
+    (master_doc, '{}.tex'.format(project), 'Ecs BenutzerInnen Handbuch',
      'Latex Author Name', 'howto'),
-]
-man_pages = [
-    (master_doc, 'ecs-user-manual-de', 'Ecs BenutzerInnen Handbuch',
-     [author], 1)
-]
-texinfo_documents = [
-    (master_doc, 'ecs-user-manual-de', 'Ecs BenutzerInnen Handbuch',
-     author, 'ecs-user-manual-de', 'Ethikkommission Verwaltung',
-     'Miscellaneous'),
 ]
