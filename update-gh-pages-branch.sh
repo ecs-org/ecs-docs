@@ -11,6 +11,7 @@ git pull
 git reset
 rm -rf dist
 mv /tmp/ecs-dist dist
+> dist/.gitkeep
 printf "%b" "FROM nginx\nCOPY dist /usr/share/nginx/html\n" > Dockerfile
 git add Dockerfile
 git add --all dist
