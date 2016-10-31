@@ -3,10 +3,12 @@
 rm -rf _build
 mkdir -p _build
 
-for i in ecs-admin-manual ecs-user-manual-de ecs-test-doc; do
-  cd $i
+for i in `find . -name "conf.py"`; do
+  j=$(dirname $i)
+  j=${j:2}
+  cd $j
   make clean html latexpdf
-  mv	_build/html/ ../_build/$i/
-  mv  _build/latex/$i.pdf ../_build/
+  mv	_build/html/ ../_build/$j/
+  mv  _build/latex/$j.pdf ../_build/
   cd ..
 done
