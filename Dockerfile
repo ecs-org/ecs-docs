@@ -16,7 +16,7 @@ RUN chown -R app:app /app
 RUN chmod +x /app/ecs-docs/*.sh
 
 # install system dependencies
-RUN cd /app/ecs; ./scripts/install-os-deps.sh && apt-get clean -y
+RUN cd /app/ecs-docs; ./scripts/install-os-deps.sh && apt-get clean -y
 
 # install user dependencies
 WORKDIR /app/ecs-docs
@@ -26,4 +26,4 @@ RUN ./scripts/install-user-deps.sh
 # build docs as default
 EXPOSE 5000
 ENTRYPOINT ["/bin/bash", "-c"]
-CMD [""]
+CMD ["./build-all.sh"]

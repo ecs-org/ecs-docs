@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# as user
 plantuml_sha256="e500ea94600ecade4af7262b32ea20a1c884de0013f4a3f07aeae02d594424ab"
 need_download=true
 if test -e "/opt/plantuml.jar"; then
@@ -16,7 +15,6 @@ if $need_download; then
     fi
 fi
 
-# as root
 DEBIAN_FRONTEND=noninteractive
 if $need_download; then cp -f /tmp/plantuml.jar  /opt/plantuml.jar; fi;
 echo -e '#!/bin/bash\njava -jar /opt/plantuml.jar \$@\n' > /usr/local/bin/plantuml
@@ -24,21 +22,3 @@ chmod +x /usr/local/bin/plantum
 apt-get update -y && apt-get install -y dvipng libjs-mathjax texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-english texlive-lang-german default-jre curl graphviz python3 python3-setuptools cpp
 echo -e \#\!'/bin/bash\ncpp | dot \$@\n' > /usr/local/bin/cpp-dot
 chmod +x /usr/local/bin/cpp-dot
-
-OPTS=`getopt --long autoremove,clean,no-upgrade -- "$@"`
-[[ $? -eq 0 ]] || usage
-eval set -- "${OPTS}"
-
-while true; do
-    case $1 in
-    --clean)
-        echo "remove downloaded packages"
-        apt-get clean -y
-        ;;
-    --autoremove
-        echo "remove installed but unused packages"
-        apt-get autoremove -y
-        apt-get autoremove -y   # call it twice, because first remove does not remove all
-        ;;
-if test "$1" = "--clean"; then
-fi

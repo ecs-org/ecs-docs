@@ -5,7 +5,7 @@
 
 # hard update ./dist on gh-pages branch
 rm -rf /tmp/ecs-dist
-cp -r dist /tmp/ecs-dist
+cp -r _build /tmp/ecs-dist
 git checkout gh-pages
 git pull
 git reset
