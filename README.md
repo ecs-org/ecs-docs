@@ -10,3 +10,14 @@
   + plantuml, graphviz with cpp support, actdiag, nwdiag, seqdiag, blockdiag
 + Additional available sphinx extensions
   + sphinxcontrib-programoutput sphinxcontrib.youtube sphinxcontrib-inlinesyntaxhighlight
+
+
+## Quickstart
+
+```
+sudo install-os-deps.sh
+install-user-deps.sh
+build-all
+firefox _build/*/html/index.html
+evince _build/*/latex/ecs*.pdf
+```
