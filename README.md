@@ -15,6 +15,9 @@
 ## Quickstart
 
 ```
+cd
+git clone replace-with-actual-url ecs-docs
+cd ecs-docs
 sudo install-os-deps.sh
 install-user-deps.sh
 build-all

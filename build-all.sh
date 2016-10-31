@@ -2,6 +2,7 @@
 
 rm -rf _build
 mkdir -p _build
+. ~/envdoc/bin/activate
 
 for i in `find . -name "conf.py"`; do
   j=$(dirname $i)
