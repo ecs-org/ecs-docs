@@ -45,4 +45,5 @@ evince _build/*/latex/ecs*.pdf
 ```
 
 ### Howto write Restructured Text or Markdown
-Look in `ecs-test-doc/src/rest-cheatsheet.rst` and `ecs-test-doc/src/markdown-cheatsheet.md` what works by looking at both source and output html/pdf
+Look in [rest-cheatsheet.rst](ecs-test-doc/src/rest-cheatsheet.rst) and [markdown-cheatsheet.rst](ecs-test-doc/src/markdown-cheatsheet.md)
+what works by looking at both source and output html/pdf
