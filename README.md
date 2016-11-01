@@ -14,13 +14,35 @@
 
 ## Quickstart
 
+
+### clone ecs-docs source
+
+if you are ok with `~/ecs-docs`:
+
 ```
 cd
 git clone replace-with-actual-url ecs-docs
-cd ecs-docs
-sudo install-os-deps.sh
-install-user-deps.sh
-build-all
+```
+
+somewhere else:
+
+```
+git clone replace-with-actual-url targetdirectoryyouwant/ecs-docs
+ln -sft ~/ targetdirectoryyouwant/ecs-docs
+```
+
+### install (once)
+
+```
+ln -sft ~/bin ~/ecs-docs/scripts/*
+sudo os-deps-ecs-docs.sh
+user-deps-ecs-docs.sh
+```
+
+### build
+
+```
+build-all-ecs-docs.sh
 firefox _build/*/html/index.html
 evince _build/*/latex/ecs*.pdf
 ```

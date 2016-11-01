@@ -14,3 +14,4 @@ __pycache__
 
 # sphinx
 _build
+_env

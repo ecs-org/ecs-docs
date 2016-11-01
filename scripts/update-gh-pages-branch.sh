@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# fixme call same directory:
-./build-all.sh
+# build all to _build
+srcpath="$(readlink -e $(dirname $(readlink -e "$0"))/..)"
+$srcpath/build-all-ecs-docs.sh
 
-# hard update ./dist on gh-pages branch
+# hard update ./dist on gh-pages branch from current _build
 rm -rf /tmp/ecs-dist
 cp -r _build /tmp/ecs-dist
 git checkout gh-pages

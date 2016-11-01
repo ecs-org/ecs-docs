@@ -1,8 +1,10 @@
 #!/bin/bash
 
+srcpath="$(readlink -e $(dirname $(readlink -e "$0"))/..)"
+cd $srcpath
 rm -rf _build
 mkdir -p _build
-. ~/envdoc/bin/activate
+. $srcpath/_env/bin/activate
 
 for i in `find . -name "conf.py"`; do
   j=$(dirname $i)
