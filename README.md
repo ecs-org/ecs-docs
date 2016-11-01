@@ -11,6 +11,10 @@
 + Additional available sphinx extensions
   + sphinxcontrib-programoutput sphinxcontrib.youtube sphinxcontrib-inlinesyntaxhighlight
 
+## Howto write Restructured Text or Markdown
+  Look in [rest-cheatsheet.rst](ecs-test-doc/src/rest-cheatsheet.rst) and [markdown-cheatsheet.md](ecs-test-doc/src/markdown-cheatsheet.md)
+  what works by looking at both source and output html/pdf
+
 ## Quickstart
 
 ### install
@@ -43,7 +47,3 @@ build-all-ecs-docs.sh
 firefox _build/*/html/index.html
 evince _build/*/latex/ecs*.pdf
 ```
-
-### Howto write Restructured Text or Markdown
-Look in [rest-cheatsheet.rst](ecs-test-doc/src/rest-cheatsheet.rst) and [markdown-cheatsheet.rst](ecs-test-doc/src/markdown-cheatsheet.md)
-what works by looking at both source and output html/pdf
