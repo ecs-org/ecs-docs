@@ -11,16 +11,15 @@
 + Additional available sphinx extensions
   + sphinxcontrib-programoutput sphinxcontrib.youtube sphinxcontrib-inlinesyntaxhighlight
 
-
 ## Quickstart
 
+### install
 
-### clone ecs-docs source
-
+#### clone ecs-docs source
 if you are ok with `~/ecs-docs`:
 
 ```
-cd
+cd ~/
 git clone replace-with-actual-url ecs-docs
 ```
 
@@ -31,8 +30,7 @@ git clone replace-with-actual-url targetdirectoryyouwant/ecs-docs
 ln -sft ~/ targetdirectoryyouwant/ecs-docs
 ```
 
-### install (once)
-
+#### setup
 ```
 ln -sft ~/bin ~/ecs-docs/scripts/*
 sudo os-deps-ecs-docs.sh
@@ -40,9 +38,11 @@ user-deps-ecs-docs.sh
 ```
 
 ### build
-
 ```
 build-all-ecs-docs.sh
 firefox _build/*/html/index.html
 evince _build/*/latex/ecs*.pdf
 ```
+
+### Howto write Restructured Text or Markdown
+Look in `ecs-test-doc/src/rest-cheatsheet.rst` and `ecs-test-doc/src/markdown-cheatsheet.md` what works by looking at both source and output html/pdf
