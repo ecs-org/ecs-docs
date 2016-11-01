@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# build all to _build
 srcpath="$(readlink -e $(dirname $(readlink -e "$0"))/..)"
-$srcpath/build-all-ecs-docs.sh
+cd $srcpath
+# build all to _build
+scripts/build-all-ecs-docs.sh
 
 # hard update ./dist on gh-pages branch from current _build
 rm -rf /tmp/ecs-dist
