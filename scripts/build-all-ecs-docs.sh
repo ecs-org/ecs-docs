@@ -6,12 +6,8 @@ rm -rf _build
 mkdir -p _build
 . _env/bin/activate
 
-for i in `find . -name "conf.py"`; do
-  j=$(dirname $i)
-  j=${j:2}
-  cd $j
-  make clean html latexpdf
-  mv	_build/html/ ../_build/$j/
-  mv  _build/latex/$j.pdf ../_build/
-  cd ..
+for d in `dirname */conf.py`; do
+    make -C $d clean html latexpdf
+    mv $d/_build/html/ ../_build/ecs-$d
+    mv $d/_build/latex/ecs-$d.pdf ../_build/
 done
