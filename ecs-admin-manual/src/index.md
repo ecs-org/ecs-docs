@@ -5,7 +5,7 @@
 .. toctree::
   :maxdepth: 2
 
-  src/architecture
-  src/chapters-to-write
+  architecture
+  chapters-to-write
 
 ```
