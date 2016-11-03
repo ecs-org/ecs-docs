@@ -18,6 +18,7 @@ PROCESSFLOW("ECS - Appliance Architecture")
     prod(pdfas,"Tomcat-Container\nPdfas - PDF Creation")
 
     prod(redis,"Redis-Container\nQueuing-Server")
+    prod(memcache, "Memcache-Container\nMemory-Cache")
     prod(postgresql,"PostgreSQL\nDatabase Server")
     prod(storagevault,"shared filesystem\nStorage Vault")
 
@@ -31,6 +32,7 @@ PROCESSFLOW("ECS - Appliance Architecture")
 
     ecs to postgresql bidir(sql)
     ecs to redis bidir(redis)
+    ecs to memcache bidir(memcache)
     ecs to smartmx unidir(smtp)
     ecs to storagevault bidir(file)
     stunnel to ecs unidir(smtp)
