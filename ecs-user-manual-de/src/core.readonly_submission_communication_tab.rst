@@ -22,6 +22,6 @@ Um eine neue Nachricht zu schreiben, klicken Sie auf den Knopf *Neue Nachricht*.
 Person, Ältere/Neuere und Weitere
 +++++++++++++++++++++++++++++++++
 
-Die Sortierungen *Person*, *Ältere/Neuere* und *Weitere* werden in der Hilfe-Seite :doc:`dashboard.view_dashboard` im Kapitel *Box: Gesendete/Warten auf* beschrieben.
+Die Sortierungen *Person*, *Ältere/Neuere* und *Weitere* werden in der Hilfe-Seite :doc:`dashboard` im Kapitel *Box: Gesendete/Warten auf* beschrieben.
 
 

@@ -39,7 +39,7 @@ Inhaltsverzeichnis
 
 * :doc:`manual.tools`
 
-  * :doc:`dashboard.view_dashboard`
+  * :doc:`dashboard`
   * :doc:`feature_sidebar`
   * :doc:`tools_features`
   * :doc:`pdf_view`
