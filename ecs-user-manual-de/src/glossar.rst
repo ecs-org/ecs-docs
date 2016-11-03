@@ -21,9 +21,6 @@ Amendment-Knopf
 AMG-Studie
     Studie nach dem Arzneimittelgesetz
 
-Anmerkungs-Modus
-    hellblaue Markierung im PDF-Betrachter, die aktiviert wird, wenn man auf *Anmerkung* im Menü klickt. Sie können dadurch Anmerkungen zu bestimmten Stellen im PDF machen
-
 Autosafe-Funktion
     Automatisches Speichern in regelmäßigen Abständen
 

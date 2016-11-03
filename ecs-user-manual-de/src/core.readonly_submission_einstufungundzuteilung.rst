@@ -9,7 +9,7 @@ In diesem Unterreiter wird eine eingereichte Studie eingestuft und kategorisiert
 Aufgabe: Einstufung und Zuteilung
 +++++++++++++++++++++++++++++++++
 
-Um die Aufgabe "Einstufung und Zuteilung" zu erledigen, klicken Sie in der *Übersicht* auf den betreffenden Link unter *Meine Aufgaben*. Sie gelangen dadurch auf den *Einstufungs und Zuteilungs*-Unterreiter einer Studie, wo Sie die Felder zur Beurteilung bearbeiten können. *Textboxlisten*, *Autogrowing Fields*, *Textbausteine* und *Anmerkungen hinzufügen* sollen Ihnen die Bearbeitung erleichtern. (Lesen Sie mehr zu diesen Tools auf der Hilfe-Seite :doc:`tools_features`.)
+Um die Aufgabe "Einstufung und Zuteilung" zu erledigen, klicken Sie in der *Übersicht* auf den betreffenden Link unter *Meine Aufgaben*. Sie gelangen dadurch auf den *Einstufungs und Zuteilungs*-Unterreiter einer Studie, wo Sie die Felder zur Beurteilung bearbeiten können. *Textboxlisten*, *Autogrowing Fields* und *Textbausteine* sollen Ihnen die Bearbeitung erleichtern. (Lesen Sie mehr zu diesen Tools auf der Hilfe-Seite :doc:`tools_features`.)
 
 Bitte beachten Sie, dass Sie die Beurteilung nur dann bearbeiten können, wenn Sie in der *Übersicht* auf den betreffenden Aufgaben-Link geklickt haben. *Einstufung und Zuteilung* wird Ihnen sonst nur scheibgeschützt zur Ansicht gebracht.
 

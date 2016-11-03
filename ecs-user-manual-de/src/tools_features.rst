@@ -4,18 +4,6 @@ Tools/Features
 
 Die Tools/Features dienen dazu, einzelne Arbeitsvorgänge zu verkürzen/vereinfachen.
 
-Anmerkung/en einfügen
-+++++++++++++++++++++
-
-Anmerkungen werden im PDF-Betrachter gemacht und können dann über |anmerkung| ausgewählt werden. Überall, wo Sie dieses Zeichen sehen, können Sie das Tool benutzen.
-
-.. |anmerkung| image:: images/anmerkung.png
-
-Wie benutzen Sie dieses Tool
-============================
-
-Wenn Sie auf das *Anmerkungen*-Zeichen geklickt haben, erscheint ein Popup, das Ihnen alle von Ihnen vorgefertigten Anmerkungen anzeigt. (Lesen Sie in der Hilfe-Seite :doc:`pdf_view` wie Sie Anmerkungen erstellen können.) Treffen Sie eine Auswahl, indem Sie die jeweilige/n Checkbox/en aktivieren. Klicken Sie dann auf *Kopieren*. Die Anmerkung wird automatisch in das Eingabefeld eingefügt.
-
 Autogrowing Field
 +++++++++++++++++
 

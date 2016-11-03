@@ -47,13 +47,6 @@ Nachricht abgeben
 
 Sie können Ihren Nachrichtenstrang auch an eine andere Person abgeben. Klicken Sie dafür in das Feld für *Abgeben an* und wählen Sie aus der Textboxliste mittels Eingabe des/der ersten Buchstaben des Namens die betreffende Person aus. Informieren Sie gegebenenfalls den/die Empfänger/in über den neuen Nachrichtenstrang. Klicken Sie dann auf *Abschicken*. Der Nachrichtenstrang ist nun bei dem/der ausgewählten Empfänger/in.
 
-Anmerkung/en einfügen
-+++++++++++++++++++++
-
-Anmerkungen werden im PDF-Betrachter gemacht und können dann über |anmerkung| ausgewählt werden. Überall wo Sie dieses Zeichen sehen, ist dieses Tool benutzbar. Lesen Sie in der Hilfe-Seite :doc:`pdf_view` wie Sie Anmerkungen erstellen und in :doc:`tools_features` wie Sie diese Anmerkungen benutzen können.
-
-.. |anmerkung| image:: images/anmerkung.png
-
 **Bestimmten Gruppen des Systems wird noch eine zusätzliche Funktion zur Verfügung gestellt:**
 
 Textbausteine

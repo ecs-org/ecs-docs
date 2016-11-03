@@ -21,13 +21,6 @@ Nachrichtenstrang einsehen
 
 Sobald Sie eine Nachricht abgeschickt haben, können Sie in den Nachrichtenstrang einsehen. Alle gesendeten und empfangenen Nachrichten zur betreffenden Studie sind dort aufgelistet. Lesen Sie dazu Genaueres auf der Hilfe-Seite :doc:`communication.read_thread`.
 
-Anmerkungen einfügen
-++++++++++++++++++++
-
-Überall, wo Sie dieses Zeichen |anmerkung| sehen, können Sie Anmerkungen einfügen. Wie das funktioniert, erklärt Ihnen die Hilfe-Seite :doc:`tools_features`.
-
-.. |anmerkung| image:: images/anmerkung.png
-
 ------------------------
 
 **Bestimmten Gruppen des Systems werden noch weitere Funktionen zur Verfügung gestellt:**

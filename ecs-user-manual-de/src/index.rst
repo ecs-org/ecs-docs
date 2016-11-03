@@ -42,7 +42,6 @@ Inhaltsverzeichnis
   * :doc:`dashboard`
   * :doc:`feature_sidebar`
   * :doc:`tools_features`
-  * :doc:`pdf_view`
 
 * :doc:`users.profile`
 
