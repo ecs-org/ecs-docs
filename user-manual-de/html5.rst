@@ -2,17 +2,17 @@
 Für ein besseres, benutzbares & standardisiertes Netz
 =====================================================
 
-.. |html5| image:: images/html5.png
-.. |chrome_logo| image:: images/chrome_logo.jpg
+.. |html5| image:: /images/html5.png
+.. |chrome_logo| image:: /images/chrome_logo.jpg
 .. _chrome_logo: http://www.google.com/chrome/intl/de/landing_tv.html
-.. |firefox_logo| image:: images/firefox_logo.png
+.. |firefox_logo| image:: /images/firefox_logo.png
 .. _firefox_logo: http://www.mozilla-europe.org/de/firefox/
-.. |safari_logo| image:: images/safari_logo.jpg
+.. |safari_logo| image:: /images/safari_logo.jpg
 .. _safari_logo: http://www.apple.com/de/safari/download/
-.. |ie9_logo| image:: images/ie9_logo.jpg
+.. |ie9_logo| image:: /images/ie9_logo.jpg
 .. _ie9_logo: http://windows.microsoft.com/de-AT/internet-explorer/download-ie
-.. |ios_logo| image:: images/ios_logo.jpg
-.. |android_logo| image:: images/android_logo.jpg
+.. |ios_logo| image:: /images/ios_logo.jpg
+.. |android_logo| image:: /images/android_logo.jpg
 
 .. _Firefox: http://www.mozilla-europe.org/de/firefox/
 .. _Chrome: http://www.google.com/chrome/intl/de/landing_tv.html
