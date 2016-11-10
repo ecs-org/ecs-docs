@@ -47,3 +47,8 @@ build-all-ecs-docs.sh
 firefox _build/*/html/index.html
 evince _build/*/latex/ecs*.pdf
 ```
+
+### build and update gh-pages branch
+```
+update-gh-pages-branch.sh
+```
