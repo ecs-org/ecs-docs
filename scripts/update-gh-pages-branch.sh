@@ -29,11 +29,14 @@ is_cleanrepo(){
 srcpath="$(readlink -e $(dirname $(readlink -e "$0"))/..)"
 cd $srcpath
 if ! is_cleanrepo; then
-  exit 1
+    exit 1
 fi
 
 # build all to _build
-scripts/build-all-ecs-docs.sh
+if ! scripts/build-all-ecs-docs.sh; then
+    echo "Error: build-all-ecs-docs failed"
+    exit 1
+fi
 
 # hard update ./dist on gh-pages branch from current _build
 rm -rf /tmp/ecs-dist

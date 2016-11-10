@@ -8,6 +8,10 @@ mkdir -p _build
 
 for d in `dirname */conf.py`; do
     make -C $d clean html latexpdf
-    mv $d/_build/html/ ../_build/ecs-$d
-    mv $d/_build/latex/ecs-$d.pdf ../_build/
+    if test $? -ne 0; then
+        echo "Error: building of $d failed"
+        exit 1
+    fi
+    mv $d/_build/html/ _build/$d
+    mv $d/_build/latex/ecs-$d.pdf _build/
 done
