@@ -6,7 +6,7 @@ import sys
 sys.path.append(os.path.join(os.getcwd(),".."))
 from include.baseconf import *
 
-project = 'ecs-development' # fixme get current directory name as project
+project = 'ecs-development' 
 author = 'general author name'
 version = '2'
 release = '0 TODO:use git id'
