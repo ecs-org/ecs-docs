@@ -16,7 +16,7 @@ if $need_download; then
     cp -f /tmp/plantuml.jar  /opt/plantuml.jar
 fi
 
-DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get install -y dvipng libjs-mathjax texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-english texlive-lang-german default-jre curl graphviz python3 python3-setuptools cpp
+DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get install -y dvipng libjs-mathjax texlive-fonts-recommended texlive-latex-extra texlive-latex-recommended texlive-lang-english texlive-lang-german default-jre curl graphviz python3 python3-dev python3-setuptools cpp libxml2-dev libxslt-dev zlib1g-dev
 
 printf '%b' '#!/bin/bash\njava -jar /opt/plantuml.jar $@\n' > /usr/local/bin/plantuml
 chmod +x /usr/local/bin/plantuml
