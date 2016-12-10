@@ -26,7 +26,7 @@ posts_per_page = 10
 # Character use to replace non-alphanumeric characters in slug
 slug_word_separator = '_'
 # Set to page under /pages (eg. "about" for "pages/about.html")
-landing_page = 'home'
+landing_page = 'about'
 # Set to override the default name of the first page ("Home")
 first_page_title = 'News'
 

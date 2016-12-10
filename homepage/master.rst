@@ -4,8 +4,8 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
-   pages/home
+   pages/about
    pages/download
    pages/documentation
    pages/source
-   pages/about
+   pages/license
