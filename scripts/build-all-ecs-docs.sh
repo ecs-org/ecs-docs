@@ -6,7 +6,7 @@ rm -rf _build
 mkdir -p _build
 . _env/bin/activate
 
-for d in `dirname */conf.py`; do
+for d in user-manual-de admin-manual development; do
     make -C $d clean html latexpdf
     if test $? -ne 0; then
         echo "Error: building of $d failed"
@@ -15,3 +15,8 @@ for d in `dirname */conf.py`; do
     mv $d/_build/html/ _build/$d
     mv $d/_build/latex/ecs-$d.pdf _build/
 done
+
+cd $srcpath/homepage
+rm -rf blog/*
+tinker -b
+mv blog/html/ $srcpath/_build/homepage
