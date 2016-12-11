@@ -40,7 +40,6 @@ user-deps-ecs-docs.sh
 
 ### build
 ```
-. ~/ecs-docs/_env/bin/activate
 build-all-ecs-docs.sh
 firefox _build/*/html/index.html
 evince _build/ecs*.pdf
@@ -48,6 +47,5 @@ evince _build/ecs*.pdf
 
 ### build and update static target repository
 ```
-. ~/ecs-docs/_env/bin/activate
 force-push-build.sh
 ```
