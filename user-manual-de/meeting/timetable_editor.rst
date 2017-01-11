@@ -4,6 +4,9 @@ Zeitplanung
 
 Der Zeitplan gibt Ihnen eine Übersicht über alle Tagesordnungspunkte (Einreichungen, Pausen, Sonstiges). Hier können Sie die Reihenfolge und Dauer der TOPs festlegen.
 
+FIXME: Veränderungen des Startzeitpunkts sortiert alle TOP's auf diesen neuen Startzeitpunkt,
+dadurch verletzte Abhängigkeiten werden erst durch eine neue optimierung gelöst.
+
 Teilnehmer/innen
 ++++++++++++++++
 
