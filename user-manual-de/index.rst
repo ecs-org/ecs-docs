@@ -2,10 +2,6 @@
 Ecs BenutzerInnen Handbuch
 ==========================
 
-.. image:: /images/logo-optimized.jpg
-
-----
-
 Herzlich Willkommen zum Hilfesystem des elektronischen Studieneinreichsystems.
 Das `Benutzer/innenhandbuch können Sie hier <https://ekmeduniwien.at/public_html/ECS-UMA-1de-UserMAnual.pdf>`_ als PDF-Datei herunterladen.
 
