@@ -3,8 +3,6 @@
 ====================
 
 * :doc:`team`
-* :doc:`thirdparty`
-
 
 Lizenz
 ======
