@@ -7,14 +7,6 @@ So erreichen Sie das System
 
 Um das System benutzen zu können, muss vorab eine Registrierung vorgenommen werden. Das System ist unter der Adresse https://ekmeduniwien.at zu erreichen. Dort können Sie sich registrieren und/oder das öffentliche Register der Ethikkommission ansehen.
 
-.. |registrierung-logo| image:: /images/registrierung-sc-logo-s.jpg
-.. _registrierung-logo: http://youtu.be/IOvzTDZtOtQ
-
-|registrierung-logo|_
-
-`vertontes Video Tutorial auf Youtube anschauen <http://youtu.be/IOvzTDZtOtQ>`__
-
-
 Registrierungs-Link und Eingabemaske
 ====================================
 
