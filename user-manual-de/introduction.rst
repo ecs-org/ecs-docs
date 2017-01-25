@@ -33,7 +33,7 @@ Um die ECS-Applikation benutzen zu können wird ein moderner Webbrowser der HTML
 Genderisierung
 ++++++++++++++
 
-Wir bitten Sie um Verständnis, dass in manchen Kapiteln/Absätzen zwecks besserer Lesbarkeit nicht vollständig genderisiert wurde. Stattdessen wird nur die leserliche Mehrzahlform (z.B. Benutzer/innen) gegendert, der Rest bleibt auf die weibliche Form beschränkt.
+Im Sinne einer besseren Lesbarkeit der Texte wurde von uns entweder die männliche oder weibliche Form von personenbezogenen Hauptwörtern gewählt. Dies impliziert keinesfalls eine Benachteiligung des jeweils anderen Geschlechts. Frauen und Männer mögen sich von den Inhalten unserer Website gleichermaßen angesprochen fühlen.
 
 Begriffserklärungen
 +++++++++++++++++++
