@@ -29,5 +29,3 @@ Geben Sie alle teilnehmenden Auslandszentren an. Für jedes Zentrum geben Sie de
 
 .. |gruenesplus| image:: /images/gruenesplus.png
 
-- **Allgemeine Hinweise** zum Ausfüllen des Formulars finden Sie in der Hilfe-Seite :doc:`index`.
-

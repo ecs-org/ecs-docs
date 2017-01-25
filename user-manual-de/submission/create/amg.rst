@@ -12,5 +12,3 @@ Wenn Sie in den *Eckdaten* festgelegt haben, dass es sich um die klinische Prüf
 
 Geben Sie an, ob es sich um eine monozentrische Studie, um eine multizentrische Studie von der Leit-Ethikkommission oder um eine multizentrische Studie der lokalen Ethikkommission handelt. Beachten Sie, dass bei einer multizentrischen Studie alle teilnehmenden Zentren im *Zentren*-Reiter angelegt werden müssen.
 
-- **Allgemeine Hinweise** zum Ausfüllen des Formulars finden Sie in der Hilfe-Seite :doc:`index`.
-

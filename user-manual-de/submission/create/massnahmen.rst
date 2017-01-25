@@ -24,5 +24,3 @@ Durch das Klicken auf |gruenesplus| können Sie neue Eingabefelder hinzufügen. 
 
 .. |rotesx| image:: /images/rotesx.png
 
-- **Allgemeine Hinweise** zum Ausfüllen des Formulars finden Sie in der Hilfe-Seite :doc:`index`.
-

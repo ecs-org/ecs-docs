@@ -4,8 +4,6 @@ Neuer Antrag (Einreichung)
 
 Um eine Studie einreichen zu können, muss das elektronische Antragsformular ausgefüllt werden. Es bildet die Papierversion des Antragsformulars der Österreichischen Ethikkommission ab.
 
-In dieser und allen folgenden Hilfe-Seiten, die sich mit der Einreichung eines neuen Antrags beschäftigen, erhalten Sie Informationen und Hilfen für die korrekte Ausfüllung des Formulars. Allgemeine Hinweise folgen auf dieser Seite. Seitenspezifische Informationen finden Sie auf den betreffenden Hilfe-Seiten.
-
 .. |einreichung-logo| image:: /images/einreichung-sc-logo-s.jpg
 .. _einreichung-logo: http://youtu.be/JZ8eTFn5Kk0
 
@@ -82,26 +80,3 @@ Sobald Sie Ihre Studie erfolgreich an die Ethikkommission geschickt haben, wird 
 
 .. |pdf_symbol| image:: /images/pdf_symbol.png
 
----------------------------------------
-
-Links zu den seitenspezifischen Hinweisen
-+++++++++++++++++++++++++++++++++++++++++
-
-Auf den folgenden Seiten finden Sie Informationen zu den einzelnen Reitern der neuen Einreichung:
-
-
-.. toctree::
-   :titlesonly:
-
-   eckdaten
-   teilnehmer
-   kurzfassung
-   sponsor
-   antragsteller
-   amg
-   mpg
-   massnahmen
-   biometrie
-   versicherung
-   unterlagen
-   zentren

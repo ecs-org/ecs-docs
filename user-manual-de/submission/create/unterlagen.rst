@@ -30,5 +30,3 @@ Haben Sie das falsche Dokument hochgeladen, oder dieses falsch benannt, sind die
 
 Es können beliebig viele Dokumente hochgeladen werden. Dokumente gleichen Typs werden unter der gleichen Typüberschrift aufgelistet. Jedes Dokument kann mit einem Klick auf seinen Namen geöffnet werden.
 
-- **Allgemeine Hinweise** zum Ausfüllen des Formulars finden Sie in der Hilfe-Seite :doc:`index`.
-

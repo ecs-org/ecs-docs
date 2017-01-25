@@ -34,6 +34,3 @@ Achten Sie desweiteren darauf, dass das Feld *koordinierende/r Prüfärztin/arzt
 
 Bei mehreren Zentren und einer Studie nach dem Arzneimittelgesetz geben Sie im *AMG*-Reiter an, ob es sich um eine multizentrische Studie mit der Ethikkommission der MedUniWien als Leit-Ethikkommission oder als begleitende lokale Ethikkommission handelt.
 
-- **Allgemeine Hinweise** zum Ausfüllen des Formulars finden Sie in der Hilfe-Seite :doc:`index`.
-
-

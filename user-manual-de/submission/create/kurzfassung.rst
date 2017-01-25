@@ -58,8 +58,6 @@ Dies betrifft nur einen Teil der Studien (z.B.: Prüfungen von Arzneimitteln) na
 
 Geben Sie die Beträge, die als Fahrtspesen, Aufwandsentschädigungen oder Honorare an die Prüfungsteilnehmer/innen bezahlt werden, an.
 
-- **Allgemeine Hinweise** zum Ausfüllen des Formulars finden Sie in der Hilfe-Seite :doc:`index`.
-
 
 
 

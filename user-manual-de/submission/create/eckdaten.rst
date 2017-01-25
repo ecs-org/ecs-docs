@@ -20,8 +20,6 @@ Bei einer Prüfung nach dem AMG ist hier die klinische Phase anzugeben, bei eine
 
 Bitte geben Sie Ihre Vorschläge für externe Gutachter/innen an. Als externe Gutachter/innen kommen vor allem Spezialist/innen aus dem Inland oder deutschsprachigen Ausland in Frage. Personen aus dem AKH sind wegen möglicher Befangenheiten zu vermeiden und werden von der Ethikkommission nicht berücksichtigt.
 
-- **Allgemeine Hinweise** zum Ausfüllen des Formulars finden Sie in der Hilfe-Seite :doc:`index`.
-
 
 
 

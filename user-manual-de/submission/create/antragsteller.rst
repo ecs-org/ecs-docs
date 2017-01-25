@@ -11,5 +11,3 @@ Die Daten zur einreichenden Person sind im Reiter *Antragsteller/in* bereits vor
 **Diplomand/in,Dissertant/in**
 
 Handelt es sich beim Antragsteller um einen Diplomanden oder Dissertanten, müssen hier seine bzw. ihre Daten eingetragen werden.
-
-- **Allgemeine Hinweise** zum Ausfüllen des Formulars finden Sie in der Hilfe-Seite :doc:`index`

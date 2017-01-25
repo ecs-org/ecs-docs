@@ -15,5 +15,3 @@ Falls es sich bei dieser Studie um eine Dissertation oder Diplomarbeit handelt, 
 **Universität als Sponsorin**
 
 Bei nicht kommerziell gesponserten Studien ist die Medizinische Universität Wien als Sponsorin anzugeben.
-
-- **Allgemeine Hinweise** zum Ausfüllen des Formulars finden Sie in der Hilfe-Seite :doc:`index`.
