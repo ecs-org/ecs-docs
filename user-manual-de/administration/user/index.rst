@@ -36,19 +36,6 @@ Aktiv
 
 Indem Sie auf den Link neben der jeweiligen Benutzerin in der Spalte *Aktiv* klicken, können Sie die Benutzerin als aktiv bzw. inaktiv markieren. Beachten Sie, dass sich inaktive Benutzer/innen nicht in das System einloggen können.
 
-Navigation
-++++++++++
-
-Ist die Benutzer/innenliste über mehrere Seiten lang, nutzen Sie |vorwaertsbutton| um zur nächsten Seite und |rueckwaertsbutton| um zur vorherigen Seite zu gelangen. Wollen Sie auf die erste Seite, klicken Sie auf |anfangbutton|. Wollen Sie auf die letzte Seite, klicken Sie auf |endebutton|.
-
-  .. |vorwaertsbutton| image:: /images/vorwaertsbutton.png
-
-  .. |rueckwaertsbutton| image:: /images/rueckwaertsbutton.png
-
-  .. |anfangbutton| image:: /images/anfangbutton.png
-
-  .. |endebutton| image:: /images/endebutton.png
-
 
 .. toctree::
    :titlesonly:
