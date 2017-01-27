@@ -30,3 +30,5 @@ Firefox: https://addons.mozilla.org/en-US/firefox/language-tools/
 Internet Explorer: http://www.iespell.com/
 
 Safari: eingebaut
+
+.. XXX: Installation von Rechtschreiüberprüfung: Wird diese Information benötigt?

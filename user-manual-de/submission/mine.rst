@@ -7,23 +7,19 @@ Unter dem Menüunterpunkt *Meine Studien* finden Sie die Auflistung jener Studie
 Studie bearbeiten
 +++++++++++++++++
 
-Studien, die noch kein Votum bekommen haben, können bearbeitet werden. Klicken Sie dafür auf den Link *Bearbeiten*. Noch nicht eingereichte, noch zu bearbeitende Studien sind zur besseren Kenntlichkeit mit einem |wrench| gekennzeichnet. Beachten Sie, dass eine Studie, die bereits ein entgültiges Votum hat, nicht mehr bearbeitet werden kann. Falls Sie Informationen und Hilfen für die korrekte Ausfüllung des Formulars benötigen, lesen Sie dazu in der Hilfe-Seite :doc:`create/index`.
-
-.. |wrench| image:: /images/wrench.png
+Studien, die noch kein Votum bekommen haben, können bearbeitet werden. Noch nicht eingereichte, noch zu bearbeitende Studien sind gekennzeichnet. Beachten Sie, dass eine Studie, die bereits ein entgültiges Votum hat, nicht mehr bearbeitet werden kann. 
 
 Studie ansehen
 ++++++++++++++
 
-Der/Die Einreicher/in hat die Möglichkeit, in eine Studie, welche bereits ein Votum bekommen hat, mittels eines Klicks auf den Link der Studiennummer, nochmals einzusehen: Es wird Ihnen die Leseansicht präsentiert. Sollten Sie Änderungen an der Studie vornehmen müssen, können Sie dies über den Knopf *Bearbeiten* machen. Informationen zur Leseansicht finden Sie auf der Hilfe-Seite :doc:`view/index`.
+Der Einreicher hat die Möglichkeit in eine Studie, welche bereits ein Votum bekommen hat, nochmals einzusehen. Dabei wird Ihnen die Leseansicht präsentiert. Wollen Sie Änderungen an der Studie vornehmen, klicken Sie auf *Bearbeiten*.
 
-PDF-Herunterladen der Studie
-++++++++++++++++++++++++++++
+PDF einer Studie
+++++++++++++++++
 
-Der PDF-Herunterladen-Link ermöglicht ein Herunterladen der schreibgeschützten Studie.
+Sie haben die Möglichkeit, schreibgeschützte Studien herunterzuladen.
 
-Änderungen verwerfen
-++++++++++++++++++++
+Änderungen einer Studie verwerfen
++++++++++++++++++++++++++++++++++
 
 Mit dem Link *Änderungen verwerfen* können Sie alle bis dahin vorgenommenen Änderungen löschen und den Ausgangszustand wieder herstellen.
-
-

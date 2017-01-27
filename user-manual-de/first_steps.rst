@@ -7,7 +7,9 @@ Registrierung
 
 Dateneingabe: Um das System benutzen zu können, muss vorab eine Registrierung vorgenommen werden. Klicken Sie dafür auf den Link zur Registrierung und geben Sie alle erforderlichen Daten ein. Verwenden Sie Realdaten und Ihre offizielle E-Mail-Adresse. Daten wie Titel, Anschrift oder Institut werden zu einem späteren Zeitpunkt abgefragt.
 E-Mail-Bestätigung: Wenn Sie die Dateneingabe abgeschlossen haben, wird eine E-Mail an Ihre angegebene E-Mailadresse versendet. Die Zustellung der E-Mail kann unter Umständen bis zu einer Stunde dauern. Zur Sicherheit sollte auch der Spam-Ordner kontrolliert werden. Ein Klick auf den in der E-Mail enthaltenen Link führt zum zweiten Teil der Registrierung.
+
 Passwort wählen: Das Passwort sollte mindestens 8 Zeichen haben und nicht bereits in anderen Onlinediensten verwendet werden. Beachten Sie auch, dass das System zwar Sonderzeichen/Umlaute im Passwort annimmt, diese allerdings je nach Computer und Tastatur möglicherweise nicht eingebbar sind. 
+
 Einloggen: Die Erfüllung aller Angaben führt zu einer erfolgreichen Registrierung. Damit Sie sich einloggen können, müssen Sie die für die Registrierung verwendete E-Mailadresse und das selbstgewählte Passwort auf der Login-Seite eingeben.
 
 Persönliches Profil

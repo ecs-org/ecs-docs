@@ -9,7 +9,7 @@ Sie sehen die Liste aller Studien, bei denen Sie eine Aufgabe des Workflows übe
 Studie ansehen
 ++++++++++++++
 
-Klicken Sie auf einen Studiennummern-Link, um eine beliebige Leseansicht einer Studie zu öffnen. Nähere Erläuterungen zur Leseansicht finden Sie auf der Hilfe-Seite :doc:`view/index`.
+Klicken Sie auf einen Studiennummern-Link, um eine beliebige Leseansicht einer Studie zu öffnen. 
 
 PDF-Herunterladen der Studie
 ++++++++++++++++++++++++++++
