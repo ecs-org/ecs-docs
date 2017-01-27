@@ -109,6 +109,3 @@ Box: Aufgaben
 +++++++++++++
 
 Erledigen Sie Ihre Aufgabentätigkeiten in der Box oder im Menüpunkt. Lesen Sie zur Anwendung der *Aufgaben*-Box in der Hilfe-Seite :doc:`/tasks/list`.
-
-
-
