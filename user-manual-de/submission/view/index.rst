@@ -16,12 +16,12 @@ Sobald eine Studie erfolgreich eingereicht wurde, kann in die Leseansicht und in
    beurteilungen
 
 
-Durch das Wechseln eines Reiters werden automatisch auch seine Unterreiter angezeigt. Aktive/Geöffnete Reiter erkennen Sie an der helleren Hintergrundfarbe.
+Durch das Wechseln eines Tabs werden automatisch auch seine Untertabs angezeigt.
 
-**Bearbeiten-Knopf**
+**Bearbeiten**
 
-Eine eingereichte Studie kann vom/von der Antragsteller/in so lange bearbeitet werden, bis die Studie ein entgültiges Votum bekommen hat.
+Eine eingereichte Studie kann vom Antragsteller so lange bearbeitet werden, bis die Studie ein entgültiges Votum bekommen hat.
 
-**Amendment-Knopf**
+**Amendment**
 
-Über den *Amendment*-Knopf kann eine Protokolländerung einer laufenden Studie eingereicht werden. Klicken Sie am Ende auf *Korrektur absenden*. Ihre Änderungen sind erst gültig, wenn Sie von der Ethikkommission bestätigt wurden.
+Über *Amendment* kann eine Protokolländerung einer laufenden Studie eingereicht werden. Ihre Änderungen sind gültig, wenn Sie von der Ethikkommission bestätigt wurden.

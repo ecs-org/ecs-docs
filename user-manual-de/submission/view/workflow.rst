@@ -13,3 +13,5 @@ Das Workflow-Protokoll zeigt Ihnen,
 Abgeschlossene Aufgaben sind ausgegraut, noch zu erledigende Tätigkeiten werden in schwarzer Schrift angezeigt. Gelöschte Aufgaben werden Ihnen durchgestrichen zur Ansicht gebracht.
 
 Um nur Ihre Aufgaben sehen zu können, benutzen Sie den Unterreiter *Aufganbe*. Lesen Sie mehr zu diesem Unterreiter in der Hilfe-Seite :doc:`tasks`.
+
+.. XXX: Hier könnte die Workflow-Graphik hineinpassen
