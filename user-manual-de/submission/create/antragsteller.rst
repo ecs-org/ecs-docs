@@ -2,7 +2,7 @@
 Reiter Antragsteller/in
 =======================
 
-Tragen Sie die Angaben zum/zur Antragsteller/in ein.
+Das System unterscheidet zwischen Antragsteller und einreichender Person. Diese können, müssen aber nicht ident sein.
 
 **Vorausgefüllt**
 

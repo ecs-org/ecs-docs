@@ -15,6 +15,8 @@ Die ECS-Applikation ist ein Arbeitsplatz, der es dem externen Gutachter erlaubt,
 
 Durch die ECS-Applikation wird der Ethikkommission eine verlässliche, strukturierte und nachvollziehbare Qualitätsarbeit erleichtert.
 
+.. XXX: Flüssiger formulieren
+
 Welche Inhalte enthält die ECS-Applikation
 ++++++++++++++++++++++++++++++++++++++++++
 
@@ -23,12 +25,16 @@ Jeder Benutzer/innengruppe stehen gruppenrelevante Informationen zur Verfügung.
 Was steht allen Benutzer/innen zur Verfügung
 ============================================
 
-Alle Benutzer/innen haben auf ihrer Übersichtsseite Nachrichtenwidgets, durch die man Nachrichten innerhalb des Systems schreiben, versenden und empfangen kann. Eine ähnliche Funktion bietet der Menüpunkt *Nachrichten*. Ebenso ist es allen Benutzer/innen erlaubt, Studien einzureichen. Im Notizblock kann sich jede/r Benutzer/in allgemeine sowie studienspezifische Notizen machen. Die Feedback-Option ermöglicht es, Kritik, Lob oder Ideen an die Ethikkommission weiterzuleiten. Zudem enthält die Applikation Navigationselemente, mit deren Hilfe sich der/die Benutzer/in leicht zurechtfindet.
+Alle Benutzer haben auf ihrer Übersichtsseite Nachrichtenwidgets, durch die man Nachrichten innerhalb des Systems schreiben, versenden und empfangen kann. Eine ähnliche Funktion bietet der Menüpunkt *Nachrichten*. Ebenso ist es allen Benutzern erlaubt, Studien einzureichen. Im Notizblock kann sich jeder Benutzer allgemeine sowie studienspezifische Notizen machen. Zudem enthält die Applikation Navigationselemente, mit deren Hilfe sich die Benutzer leicht zurechtfinden.
 
-Was wird für die Benutzung vorausgesetzt
-++++++++++++++++++++++++++++++++++++++++
+.. XXX: besser strukturieren, nicht in einer Wurst lassen
 
-Um die ECS-Applikation benutzen zu können wird ein moderner Webbrowser der HTML5-Generation benötigt, wie zum Beispiel Firefox 4, Internet Explorer 10, Safari 5, Google Chrome 12 sowie alle neueren Versionen.
+Welche Browser unterstützen die Applikation
++++++++++++++++++++++++++++++++++++++++++++
+
+Um die ECS-Applikation benutzen zu können wird ein moderner Webbrowser der HTML5-Generation benötigt, wie zum Beispiel Firefox 28, Chrome 29, Safari 7, Microsoft Internet Explorer 11, Microsoft Edge 20, sowie alle neueren Versionen.
+
+.. XXX: 
 
 Genderisierung
 ++++++++++++++
