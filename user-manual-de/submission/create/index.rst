@@ -4,22 +4,6 @@ Neuer Antrag (Einreichung)
 
 Um eine Studie einreichen zu können, muss das elektronische Antragsformular ausgefüllt werden. Es bildet die Papierversion des Antragsformulars der Österreichischen Ethikkommission ab.
 
-.. |einreichung-logo| image:: /images/einreichung-sc-logo-s.jpg
-.. _einreichung-logo: http://youtu.be/JZ8eTFn5Kk0
-
-Ein vertontes Videotutorial zur Einreichung
-
-|einreichung-logo|_
-
-steht ihnen  `auf Youtube <http://youtu.be/JZ8eTFn5Kk0>`__ zu Verfügung.
-
-
-
-
-
-
--------------------------------------------
-
 Allgemeine Hinweise
 +++++++++++++++++++
 
@@ -42,22 +26,9 @@ Alle mit einem Sternchen gekennzeichneten Felder sind zwingend auszufüllen. Sol
 
 Wurde ein Pflichtfeld nicht ausgefüllt, erscheint der entsprechende Reiter rot markiert. In diesem Fall klicken Sie noch einmal den betreffenden Reiter an und ergänzen Sie die Eingaben oder fügen Sie "Nicht zutreffend" in das Feld ein.
 
-Tools, Features
-===============
-
-**Autosafe-Funktion**
-
-Die *Autosafe*-Funktion bewirkt ein automatisches Speichern Ihrer Änderungen; oder speichern Sie manuell, indem Sie auf den *Speichern*-Knopf klicken.
-
-**Autogrowing Fields**
-
-Manche Eingabefelder vergrößern sich bei einem Zeilenumbruch automatisch und können auch zu einem bildschirmfüllenden Format verändert werden. Lesen Sie dazu mehr in der Hilfe-Seite :doc:`/tools/tools_features` unter dem Kapitel *Autogrowing Fields*.
-
 **Speichern und Weiterbearbeiten**
 
-Sie können jederzeit die Arbeit an der Studie zwischenspeichern - indem Sie auf *Speichern* klicken - und sie zu einem anderen Zeitpunkt wieder aufnehmen. Alle Eingaben im Formular und Ihre bis zu diesem Zeitpunkt hochgeladenen Dokumente werden dadurch gespeichert. Zum Weiterbearbeiten der Studie wählen Sie in der Menüauswahl den Punkt *Übersicht* und klicken Sie dort in Ihrem *Studien*-Box auf das betreffende |in_bearbeitung|. Die noch zu bearbeitenden Reiter werden in Rot angezeigt.
-
-.. |in_bearbeitung| image:: /images/in_bearbeitung.png
+Sie können jederzeit die Arbeit an der Studie zwischenspeichern - indem Sie auf *Speichern* klicken - und sie zu einem anderen Zeitpunkt wieder aufnehmen. Alle Eingaben im Formular und Ihre bis zu diesem Zeitpunkt hochgeladenen Dokumente werden dadurch gespeichert. Zum Weiterbearbeiten der Studie gehen Sie auf *Meine Studien* und klicken Sie dort neben der betreffenden Studie auf *Bearbeiten*. Die noch zu bearbeitenden Tabs werden in Rot angezeigt.
 
 Die Einreichung
 ===============
@@ -76,7 +47,5 @@ Sie können *Einreichen* auch problemlos verwenden, um zu verifizieren, ob sie a
 
 **Fertige Studie**
 
-Sobald Sie Ihre Studie erfolgreich an die Ethikkommission geschickt haben, wird Ihnen die Leseansicht der Studie präsentiert. Wechseln Sie als nächstes in den Reiter *Generell* um mit einen Klick auf das PDF-Symbol |pdf_symbol| das ausgefüllte Antragsformular als PDF-Datei herunterzuladen. Drucken Sie das Formular aus und lassen Sie alle an der Studie beteiligten Personen an der korrespondierenden Stelle unterschreiben. Schicken oder bringen Sie das unterschriebene Antragsformular zur Ethikkommission.
-
-.. |pdf_symbol| image:: /images/pdf_symbol.png
+Sobald Sie Ihre Studie erfolgreich an die Ethikkommission geschickt haben, wird Ihnen die Leseansicht der Studie präsentiert. Wechseln Sie als nächstes in den Reiter *Generell* um mit einen Klick auf das PDF-Symbol das ausgefüllte Antragsformular als PDF-Datei herunterzuladen. Drucken Sie das Formular aus und lassen Sie alle an der Studie beteiligten Personen an der korrespondierenden Stelle unterschreiben. Schicken oder bringen Sie das unterschriebene Antragsformular zur Ethikkommission.
 
