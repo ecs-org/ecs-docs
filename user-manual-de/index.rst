@@ -18,7 +18,5 @@ Inhaltsverzeichnis
    submission/index
    communication/index
    notification/index
-   tasks/index
-   meeting/index
-   administration/index
    glossar
+   manual-ec/index
