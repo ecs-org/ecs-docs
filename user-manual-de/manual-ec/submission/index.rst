@@ -10,6 +10,7 @@ Inhaltsverzeichnis
    
    status
    beteiligteparteien
+   beurteilungen
    tasks
    workflow
 

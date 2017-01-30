@@ -13,7 +13,6 @@ Sobald eine Studie erfolgreich eingereicht wurde, kann in die Leseansicht und in
    voten
    meldungen
    nachrichten
-   beurteilungen
 
 
 Durch das Wechseln eines Tabs werden automatisch auch seine Untertabs angezeigt.
