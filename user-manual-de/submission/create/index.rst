@@ -12,7 +12,7 @@ Ausfüllhilfen
 
 **Eckige Klammern**
 
-Die Zahlen in den eckigen Klammern korrespondieren mit der Nummer des Papierformulars der Österreichischen Ethikkommissionen (z.B.: "Klinische Prüfung eines nicht registrierten Arzneimittels [2.1.1]" unter dem Reiter *Eckdaten*).
+Die Zahlen in den eckigen Klammern korrespondieren mit der Nummer des Papierformulars der Österreichischen Ethikkommissionen (z.B.: "Klinische Prüfung eines nicht registrierten Arzneimittels [2.1.1]" unter dem Tab *Eckdaten*).
 
 **Kommentare**
 
@@ -33,17 +33,13 @@ Sie können jederzeit die Arbeit an der Studie zwischenspeichern - indem Sie auf
 Die Einreichung
 ===============
 
+**Korrekte Ausfüllung**
+
+Sie können *Einreichen* auch verwenden, um zu verifizieren, ob sie alle benötigten Felder ausgefüllt haben. Sobald alle Felder korrekt ausgefüllt sind, fragt sie das System, ob Sie die Studie verbindlich an die Ethikkommission schicken wollen.
+
 **Einreichen**
 
 Sobald alle Felder vollständig ausgefüllt sind, klicken Sie auf *Einreichen*.
-
-**Rote Markierung**
-
-Sollten Sie auf *Einreichen* geklickt haben, ohne die zwingenden Felder im Formular vollständig ausgefüllt zu haben, bekommen Sie einen Hinweis vom System. Alle Reiter, in denen ein zwingendes Feld noch nicht ausgefüllt wurde, erscheinen in Rot. Ebenso sind alle noch auszufüllenden Eingabefelder rot eingerahmt.
-
-**Korrekte Ausfüllung**
-
-Sie können *Einreichen* auch problemlos verwenden, um zu verifizieren, ob sie alle benötigten Felder ausgefüllt haben. Sobald alle Felder korrekt ausgefüllt sind, fragt sie das System, ob Sie die Studie verbindlich an die Ethikkommission schicken wollen.
 
 **Fertige Studie**
 
