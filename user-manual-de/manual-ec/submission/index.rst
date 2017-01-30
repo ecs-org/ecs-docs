@@ -8,6 +8,7 @@ Inhaltsverzeichnis
 .. toctree::
    :titlesonly:
    
+   status
    beteiligteparteien
    tasks
    workflow

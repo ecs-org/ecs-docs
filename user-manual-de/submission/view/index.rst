@@ -8,7 +8,7 @@ Sobald eine Studie erfolgreich eingereicht wurde, kann in die Leseansicht und in
 .. toctree::
    :titlesonly:
 
-   generell
+   generell_status
    einreichung
    voten
    meldungen
