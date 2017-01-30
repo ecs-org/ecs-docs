@@ -16,7 +16,7 @@ Inhaltsverzeichnis
    tools/index
    user/index
    submission/index
-   communication/index
-   notification/index
+   communication
+   notification
    glossar
    manual-ec/index
