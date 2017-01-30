@@ -15,5 +15,3 @@ Interne Benutzer/innen können zusätzlich in alle Studien einsehen, die eingere
    mine
    import
    view/index
-   all
-   assigned

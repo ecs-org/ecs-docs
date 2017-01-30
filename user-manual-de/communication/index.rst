@@ -4,13 +4,13 @@ Nachrichten
 
 Lesen, beantworten und bearbeiten Sie Ihre Nachrichten
 
-- auf der *Übersicht* mittels der Boxen *Gesendete/Warten auf* und *Empfangene/Zu beantworten*,
+- über den Menüleistenpunkt *Übersicht*
 
-- unter dem Menüpunkt *Nachrichten*
+- unter dem Menüleistenpunkt *Nachrichten*
 
-- oder in jedem *Nachrichten*-Reiter einer eingereichten Studie.
+- oder in jedem *Nachrichten*-Tab einer eingereichten Studie.
 
-Die Boxen auf der *Übersicht* verschaffen Ihnen einen schnellen Überblick über alle ein- und ausgehenden Nachrichten während der Menüpunkt mehr Arbeitsfläche bietet und zusätzliche Filter bereitstellt. Der Reiter in der Leseansicht jeder eingereichten Studie ist nur für den Nachrichtenverkehr dieser bestimmten Studie vorgesehen.
+Die Boxen auf der *Übersicht* verschaffen Ihnen einen schnellen Überblick über alle ein- und ausgehenden Nachrichten während der Menüpunkt mehr Arbeitsfläche bietet und zusätzliche Filter bereitstellt. Der Tab in der Leseansicht jeder eingereichten Studie ist nur für den Nachrichtenverkehr dieser bestimmten Studie vorgesehen.
 
 .. toctree::
    :titlesonly:
