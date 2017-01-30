@@ -10,6 +10,7 @@ Sobald eine Studie erfolgreich eingereicht wurde, kann in die Leseansicht und in
 
    generell_status
    einreichung
+   beurteilungen
    voten
    meldungen
    nachrichten
