@@ -28,7 +28,7 @@ Alle Personen, die in der *Bürogruppe* tätig sind, müssen als *Intern* markie
 Textbausteine
 =============
 
-Textbausteine ermöglichen Ihnen, längere Texte, die Sie oft verwenden, unter einem Kürzel abzuspeichern. 
+Textbausteine ermöglichen Ihnen längere Texte, die Sie oft verwenden, unter einem Kürzel abzuspeichern. 
 
 Im Verwaltungsbereich des Systems (Menüpunkt *Verwaltung* -> *Textbausteine*) können Sie Textbausteine erstellen und bereits bestehende TBS bearbeiten und löschen. Zum Erstellen klicken Sie auf *Neu*, wählen Sie ein Kürzel und füllen Sie dann den dazugehörigen Text in das darunterliegende Feld ein. Sobald Sie auf *Speichern* klicken, scheint der TBS in der von Ihnen erstellten Liste von TBS auf. 
 
