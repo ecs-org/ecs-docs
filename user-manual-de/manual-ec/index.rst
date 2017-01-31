@@ -8,7 +8,7 @@ Inhaltsverzeichnis
 .. toctree::
    :titlesonly:
 
-   administration/index
+   administration
    tasks/index
    meeting/index
    submission/index
