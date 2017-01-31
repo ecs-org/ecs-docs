@@ -1,6 +1,6 @@
-=========================================
-Übersicht aller studienbezogenen Aufgaben
-=========================================
+==========================================================
+Arbeitsabläufe - Übersicht aller studienbezogenen Aufgaben
+==========================================================
 
 Die Aufgaben-Übersicht betrifft die Arbeitsschritte, die durchlaufen werden müssen, damit eine Studie akzeptiert werden kann.
 
@@ -15,7 +15,7 @@ Die Aufgaben-Übersicht betrifft die Arbeitsschritte, die durchlaufen werden mü
 Workflow-Box
 ++++++++++++
 
-Ethikkommissions-Internen steht ein **Workflow-Box** zur Verfügung, das Optionen zur Handhabung einer Aufgabe bereitstellt. Diese Box befindet sich auf jeder Seite, für die eine Aufgabe zu erledigen ist die Sie akzeptiert haben (siehe *Offene Aufgaben* -> *Meine Aufgaben*). Sie können die Aufgabe entweder abschließen oder an eine Gruppe bzw. Einzelperson abgeben. Einige Aufgaben können auf mehrere Arten abgeschlossen werden (z.B. *Formale Prüfung* bestätigen und ablehnen). Falls es zu der aktiven Aufgabe ein zugehöriges Formular gibt, erscheint der Knopf *Nur Speichern*. Dieser ermöglicht Ihnen, die Aufgabe nur zu speichern, ohne etwas am Status der Aufgabe zu ändern. Wenn Sie die Aufgabe abschließen oder abgeben, wird das Formular automatisch gespeichert.
+Ethikkommissions-Internen steht eine **Workflow-Box** zur Verfügung, die Optionen zur Handhabung einer Aufgabe bereitstellt. Diese Box befindet sich auf jeder Seite, für die eine Aufgabe zu erledigen ist die Sie akzeptiert haben (siehe *Offene Aufgaben* -> *Meine Aufgaben*). Sie können die Aufgabe entweder abschließen oder an eine Gruppe bzw. Einzelperson abgeben. Einige Aufgaben können auf mehrere Arten abgeschlossen werden (z.B. *Formale Prüfung* bestätigen und ablehnen). Falls es zu der aktiven Aufgabe ein zugehöriges Formular gibt, erscheint *Nur Speichern*. Dieser ermöglicht Ihnen, die Aufgabe nur zu speichern, ohne etwas am Status der Aufgabe zu ändern. Wenn Sie die Aufgabe abschließen oder abgeben, wird das Formular automatisch gespeichert.
 
 .. _`Votum-Workflow`:
 
@@ -26,7 +26,7 @@ Je nachdem welcher Knopf während der Bearbeitung des Tagesordnungspunktes zu di
 
 Wenn die **Executive** Gruppe die Aufgabe erhalten hat, wird danach von der **Bürogruppe** das Votum überprüft. Entscheidet die **Bürogruppe**, dass das Votum fertig ist, folgt die Unterzeichnung des Votums von der Gruppe der **Zeichnungsberechtigten**.
 
-Wenn die **Bürogruppe** die Aufgabe erhalten hat die Endbearbeitung des Votums zu machen, folgt danach die Überprüfung des Votums durch die Gruppe der **Internen Prüfer/innen**. Sollte das Votum noch nicht fertig sein, geht der Workflow zurück zur **Bürogruppe**. Ist das Votum fertig, folgt die *Prüfung Votum Executive*. Dabei wird das Votum von der **Executive** Gruppe Korrektur gelesen. Falls es ungültig ist, wird das Häkchen bei *Gültig* entfernt und die Aufgabe geschlossen und abgeschickt. Dann kommt die Votumsbearbeitung wieder zur **Bürogruppe**. Dieser Vorgang geht so lange hin und her, bis das Votum gültig ist.
+Wenn die **Bürogruppe** die Aufgabe erhalten hat die Endbearbeitung des Votums zu machen, folgt danach die Überprüfung des Votums durch die Gruppe der **Internen Prüfer**. Sollte das Votum noch nicht fertig sein, geht der Workflow zurück zur **Bürogruppe**. Ist das Votum fertig, folgt die *Prüfung Votum Executive*. Dabei wird das Votum von der **Executive** Gruppe Korrektur gelesen. Falls es ungültig ist, wird das Häkchen bei *Gültig* entfernt und die Aufgabe geschlossen und abgeschickt. Dann kommt die Votumsbearbeitung wieder zur **Bürogruppe**. Dieser Vorgang geht so lange hin und her, bis das Votum gültig ist.
 
 Falls das Votum gültig ist, macht die Gruppe der **Zeichnungsberechtigten** die *Vote Signing*-Aufgabe. Danach wird das Votum automatisch bekanntgegeben.
 

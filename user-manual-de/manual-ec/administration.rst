@@ -28,10 +28,9 @@ Alle Personen, die in der *Bürogruppe* tätig sind, müssen als *Intern* markie
 Textbausteine
 =============
 
-Mit Textbausteinen können Sie ...
-Sie finden dieses Tool in der Menüleiste unter *Verwaltung*. 
+Erstellen Sie Textbausteine über die *Verwaltung* in der Menüleiste. Klicken Sie dafür auf *Neu*, wählen Sie ein Kürzel und schreiben Sie dann den dazugehörigen Text in das zweite Feld. Sobald Sie auf *Speichern* klicken, scheint der TBS in der von Ihnen erstellten Liste von TBS auf. Sie können jeden einzelnen TBS, den Sie erstellt haben, bearbeiten und löschen. 
 
-Bereits angefertigte Textbausteine erscheinen in einer Liste. Bearbeiten oder löschen Sie einen beliebigen Textbaustein, indem Sie auf den jeweiligen Link klicken.
+Das Einfügen von Textbausteinen ist überall dort möglich, wo Sie das blaue Paragraphen-Symbol sehen. So z. B. im Notizblock oder in der Leseansicht einer Studie. Klicken Sie dafür auf das Symbol. Es wird die von Ihnen erstellte Liste von Textbausteinen angezeigt. Wählen Sie den betreffenden TBS mit einem Klick aus. Der Inhalt des TBSs wird dann in den vorliegenden Text eingefügt. 
 
 Gebührenabrechnung
 ==================
