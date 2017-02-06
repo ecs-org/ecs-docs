@@ -7,10 +7,10 @@ Der Zeitplan gibt Ihnen eine Übersicht über alle Tagesordnungspunkte (Einreich
 FIXME: Veränderungen des Startzeitpunkts sortiert alle TOP's auf diesen neuen Startzeitpunkt,
 dadurch verletzte Abhängigkeiten werden erst durch eine neue optimierung gelöst.
 
-Teilnehmer/innen
-++++++++++++++++
+Teilnehmer
+++++++++++
 
-Alle auf einen Tagesordnungspunkt bezogenen Teilnehmer/innen werden innerhalb des TOP's aufgelistet. Auf der rechten Seite der Ansicht finden Sie einen Überblick über alle anwesenden Teilnehmer/innen in dieser Sitzung.
+Alle auf einen Tagesordnungspunkt bezogenen Teilnehmer werden innerhalb des TOP's aufgelistet. Auf der rechten Seite der Ansicht finden Sie einen Überblick über alle anwesenden Teilnehmer in dieser Sitzung.
 
 Einschränkungen der Teilnehmer
 ==============================
