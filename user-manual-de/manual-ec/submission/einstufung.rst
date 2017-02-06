@@ -20,3 +20,5 @@ Erneut Einstufen
 ++++++++++++++++
 
 Als Benutzer der Gruppe *Executive* haben Sie über *Neu öffnen* die Möglichkeit, eine Studie erneut zu kategorisieren.
+
+.. XXX: keine inhaltliche Bearbeitung
