@@ -19,4 +19,6 @@ Inhaltsverzeichnis
    communication
    notification
    glossar
+   external_review
+   boardmember
    manual-ec/index
