@@ -68,7 +68,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'ecs-docs-generic'
-copyright = '2016, Generic Copyright'
+copyright = 'Copyright 2017 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften'
 author = 'General Author Name'
 
 # The version info for the project you're documenting, acts as replacement for
