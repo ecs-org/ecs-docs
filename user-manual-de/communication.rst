@@ -2,23 +2,18 @@
 Nachrichten
 ===========
 
-Lesen, beantworten und bearbeiten Sie Ihre Nachrichten
+In der Nachrichtenübersicht auf dem Dashboard sind alle Nachrichten zu sehen, die ungelesen sind, sowie Nachrichten, die mit einem Stern gekennzeichnet wurden. Gelesene Nachrichten und solche ohne Stern finden Sie unter dem Menüpunkt *Nachrichten*. Im *Nachrichten*-Tab einer Studie sehen sie alle Nachrichten, die diese Studie betreffen. Dort können Sie auch eine Nachricht zu dieser verfassen. Es können nur Nachrichten geschrieben werden, die einen Studienbezug haben.
 
-- über den Menüleistenpunkt *Übersicht*
+Ungelesene Nachrichten werden in fetter Schrift dargestellt, gelesene in normaler Schriftstärke.
 
-- unter dem Menüleistenpunkt *Nachrichten*
+Alle Nachrichten im Menüpunkt *Nachrichten* und jene innerhalb einer Leseansicht einer Studie sind zur besseren Übersicht chronologisch gelistet.
 
-- oder in jedem *Nachrichten*-Tab einer eingereichten Studie.
+Stern
+=====
 
-Die Boxen auf der *Übersicht* verschaffen Ihnen einen schnellen Überblick über alle ein- und ausgehenden Nachrichten während der Menüpunkt mehr Arbeitsfläche bietet und zusätzliche Filter bereitstellt. Der Tab in der Leseansicht jeder eingereichten Studie ist nur für den Nachrichtenverkehr dieser bestimmten Studie vorgesehen.
+Die Kennzeichnung mit dem Stern dient dazu, Nachrichten zu markieren, die nicht mehr neu, aber weiterhin relevant für Sie sind. Eine mit einem Stern gekennzeichnete Nachricht bleibt solange auf der Nachrichtenübersicht, bis Sie den Stern durch erneutes Anklicken wieder von der Nachricht entfernen. Die Aktivierung des Sterns erfolgt unter dem Menüpunkt *Nachrichten* durch einen Klick auf das Stern-Symbol. 
 
-Nachrichtenübersicht
-++++++++++++++++++++
+Als Gelesen markieren
+=====================
 
-In der Nachrichtenübersicht finden Sie alle Ihre Nachrichten, d.h. nicht nur zu einer bestimmten Studie (wie im *Nachrichten*-Tab jeder einzelnen Studie), sondern zu allen Ihren Studien. Die Nachrichten sind zur besseren Übersicht chronologisch gelistet.
-
-Ungelesene Nachrichten werden in fetter Schrift dargestellt. Gelesene in normaler Schriftdicke.
-
-Mit dem blauen Häkchen können Sie eine Nachricht als gelesen markieren ohne diese öffnen zu müssen. Dadurch verschwindet die Nachricht auf der Übersicht der ungelesenen Nachrichten. Wollen Sie eine gelesene trotzdem weiterhin auch auf der Übersicht sehen, können Sie diese mit einem Stern markieren. Damit ist diese wieder auf der Übersicht sichtbar.
-
-Um eine neue Nachricht zu erstellen, wechseln Sie in den Tab *Nachrichten* der betreffenden Studie und klicken Sie im Untertab *Meine Nachrichten* auf *Neue Nachricht*. Nur hier können neue Nachrichten verfasst werden. 
+Mit dem blauen Häkchen können Sie eine Nachricht als gelesen markieren, ohne diese öffnen zu müssen (z.B. weil es sich um eine Systemnachricht handelt, deren Inhalt sie bereits kennen). Dadurch verschwindet die Nachricht aus der Nachrichtenübersicht. Die Nachricht ist weiterhin in der Liste aller Nachrichten unter dem Menüpunkt *Nachrichten* einsehbar.  
