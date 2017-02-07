@@ -12,7 +12,7 @@ Inhaltsverzeichnis
    :titlesonly:
 
    introduction
-   first_steps
+   registration
    submission/index_submission
    communication
    notification

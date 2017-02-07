@@ -11,7 +11,6 @@ Im zweiten Teil der Registrierung können sie ein Passwort wählen. Dieses sollt
 Nach Abschluss der Registrierung können sie sich mit ihrere E-Mail-Addresse und dem gewählten Passwort auf
 der Login-Seite einloggen.
 
-===================
 Persönliches Profil
 ===================
 
