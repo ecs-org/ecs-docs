@@ -15,4 +15,4 @@ Befangene Parteien
 Parteien, die aus diversen Gründen an der Beurteilung der Studie nicht mitarbeiten dürfen, können hier festgelegt werden. Klicken Sie dafür auf den *Bearbeiten*-Knopf und wählen Sie mittels Eingabe des Anfangsbuchstaben oder der Anfangssilbe des Namens die betreffende Person aus. Die Autovervollständigung bewirkt eine automatische Suche aller Personen mit den eingegebenen Anfangsbuchstaben. Wählen Sie bei Bedarf mehrere Namen nach demselben Prinzip aus. Klicken Sie auf das Symbol neben dem Namen, um einen Namen zu entfernen. Die Auswahl muss am Ende gespeichert werden.
 
 
-.. XXX: keine inhaltliche Bearbeitung
+.. XXX: noch keine inhaltliche Bearbeitung

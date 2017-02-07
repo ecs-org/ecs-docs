@@ -12,6 +12,6 @@ Abgeschlossene Aufgaben sind ausgegraut, noch zu erledigende Tätigkeiten werden
 
 Um nur Ihre Aufgaben sehen zu können, benutzen Sie den Tab *Aufgaben*. 
 
-.. XXX: keine inhaltliche Überarbeitung
+.. XXX: noch keine inhaltliche Überarbeitung
 
-.. XXX: Platz für Workflow-Graphik
+.. XXX: möglicher Platz für Workflow-Graphik

@@ -24,4 +24,4 @@ Eine eingereichte Studie kann vom Antragsteller so lange bearbeitet werden, bis 
 
 **Amendment**
 
-Über *Amendment* kann eine Protokolländerung einer laufenden Studie eingereicht werden. Ihre Änderungen sind gültig, wenn Sie von der Ethikkommission bestätigt wurden.
+Über *Amendment* kann eine Protokolländerung einer laufenden Studie eingereicht werden. Änderungen sind erst gültig, wenn Sie von der Ethikkommission bestätigt wurden.

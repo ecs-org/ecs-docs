@@ -4,12 +4,12 @@ Tab Generell/Status
 
 Hier finden Sie alle aktuellen Prozesse sowie beteiligten Personen der betreffenden Studie.
 
-Die Untertab *Status* zeigt Ihnen den aktuellen Status der Studie sowie alle Personen, die an dieser Studie beteiligt sind.
+Der Tab *Status* zeigt Ihnen den aktuellen Status der Studie sowie alle Personen, die an dieser Studie beteiligt sind.
 
 Amendment
 =========
 
-Der Einreicher hat die Möglichkeit ein Amendment anzusehen. 
+Der Einreicher hat die Möglichkeit, ein Amendment anzusehen. 
 
 Unterschiede zur Vorversion
 ===========================
@@ -23,6 +23,8 @@ Zeigt Ihnen den Unterschied zwischen dieser Version und der aktuellen an. (Wenn 
 
 Die Links *aktuelle Änderungen* und *Unterschiede zur neuesten Version* führen auf die gleiche Seite.
 
+.. XXX: Anmerkung von Natano: mehr Inhalt zu "Amendment", "Unterschiede zur Vorversion" und "Unterschiede zur neuesten Version". Welcher Inhalt soll noch hinein? 
+
 Studienänderungen
 -----------------
 
@@ -33,10 +35,10 @@ PDF-Herunterladen
 
 Wenn Sie die Studie als PDF herunterladen wollen, klicken Sie auf den diesbezüglichen Knopf in der Tabelle *Formulare*.
 
-Neuer Einreicher
-++++++++++++++++
+Einreicher und Sicherheitsmeldungsersteller ändern
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Sie können im Status den Einreicher der Studie und den Ersteller für Sicherheitsmeldungen zu dieser Studie neu bestimmen. Sowohl der Einreicher der Studie als auch jedes Mitglied der Executive Gruppe kann einen neuen Einreicher bzw. Susar Präsentator für die Studie auswählen. Klicken Sie dafür auf *ändern*. Sie werden auf eine neue Seite geleitet. Bestimmen Sie einen neuen Einreicher/Susar Präsentator und klicken Sie dann auf *Einreicher ändern* bzw. *Susar Präsentator ändern*. Sie werden zurück zum Status geleitet, wo der neue Name sichtbar ist. Die neu bestimmte Person wird durch eine automatische Systemnachricht darüber informiert.
+Sie können im Status den Einreicher der Studie und den Ersteller für Sicherheitsmeldungen zu dieser Studie neu bestimmen. Sowohl der Einreicher der Studie als auch jedes Mitglied der Executive Gruppe kann einen neuen Einreicher bzw. Susar Präsentator für die Studie auswählen. Klicken Sie dafür auf *ändern*. Sie werden auf eine neue Seite geleitet. Bestimmen Sie einen neuen Einreicher/Sicherheitsmeldungsersteller und klicken Sie dann auf *Einreicher ändern* bzw. *Susar Präsentator ändern*. Sie werden zurück zum Status geleitet, wo der neue Name sichtbar ist. Die neu bestimmte Person wird durch eine automatische Systemnachricht darüber informiert.
 
 Sitzungstermine
 +++++++++++++++
