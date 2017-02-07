@@ -14,4 +14,5 @@ Warum habe ich keine Import-Funktion
 
 Erst wenn Sie von der Ethikkommission als Benutzer bestätigt wurden, können Sie Studien importieren. Sie werden dafür von der Ethikkommission kontaktiert.
 
+.. XXX: ist das noch der Fall, dass ich keine Import-Funktion haben könnte?
 
