@@ -13,12 +13,10 @@ Inhaltsverzeichnis
 
    introduction
    first_steps
-   tools/index
-   user/index
    submission/index
    communication
    notification
-   glossar
    external_review
    boardmember
    manual-ec/index
+   glossar

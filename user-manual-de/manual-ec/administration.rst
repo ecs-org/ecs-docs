@@ -30,7 +30,9 @@ Textbausteine
 
 Textbausteine ermöglichen Ihnen längere Texte, die Sie oft verwenden, unter einem Kürzel abzuspeichern. 
 
-Im Verwaltungsbereich des Systems (Menüpunkt *Verwaltung* -> *Textbausteine*) können Sie Textbausteine erstellen und bereits bestehende TBS bearbeiten und löschen. Zum Erstellen klicken Sie auf *Neu*, wählen Sie ein Kürzel und füllen Sie dann den dazugehörigen Text in das darunterliegende Feld ein. Sobald Sie auf *Speichern* klicken, scheint der TBS in der von Ihnen erstellten Liste von TBS auf. 
+Im Verwaltungsbereich des Systems (Menüpunkt *Verwaltung* -> *Textbausteine*) können Sie Textbausteine erstellen und bereits bestehende TBS bearbeiten und löschen. Zum Erstellen eines TBS klicken Sie auf *Neu*, wählen Sie ein Kürzel und füllen Sie dann den dazugehörigen Text in das darunterliegende Feld ein. Sobald Sie auf *Speichern* klicken, scheint der TBS in der von Ihnen erstellten Liste von TBS auf. 
+
+Um direkt im Eingabefeld einen Text einzufügen, geben Sie das dazugehörige Kürzel (oder einen Teil des Kürzels) ein, markieren Sie es und drücken dann die Tastenkombination Alt+M. Der beliebige Text erscheint automatisch im dazugehörigen Eingabefeld.
 
 Das Einfügen von Textbausteinen ist überall dort möglich, wo Sie das blaue Paragraphen-Symbol sehen. So z.B. im Notizblock oder in der Leseansicht einer Studie. Klicken Sie dafür auf das Symbol. Es wird die von Ihnen erstellte Liste von TBS angezeigt. Wählen Sie den betreffenden TBS mit einem Klick aus. Der Inhalt des TBS wird an der entsprechenden Stelle eingefügt. 
 
