@@ -13,7 +13,7 @@ Inhaltsverzeichnis
 
    introduction
    first_steps
-   submission/index
+   submission/index_submission
    communication
    notification
    external_review
