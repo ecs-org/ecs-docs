@@ -25,6 +25,21 @@ Wählen Sie unter *Gruppen* jene Gruppe aus, in der die betreffende Person eine 
 
 Alle Personen, die in der *Bürogruppe* tätig sind, müssen als *Intern* markiert werden. Dies ist nötig, damit jedes Mitglied der Bürogruppe in alle Studien einsehen kann. 
 
+Gebührenabrechnung
+==================
+
+In der Gebührenabrechnung wird die Abrechnung von unverrechneten Einreichungen erstellt. Benutzen Sie die Filter, um eine Auswahl der studienbezogenen Rechungen zu treffen. Laden Sie dann die Auflistung als xls-Datei herunter und schicken Sie diese weiter an die Finanzabteilung.
+
+Gutachter-Bezahlung
+===================
+
+In der Gutachter-Bezahlung wird die Abrechnung von unverrechneten Gutachten erstellt. Die Filter ermöglichen dabei eine Auswahl der zu bezahlenden Gutachter. Wenn Sie die Abrechnung erstellt haben, können Sie sie als xls-Datei herunterladen und weiter an die Finanzabteilung schicken. 
+
+Statistik
+=========
+
+text
+
 Textbausteine
 =============
 
@@ -36,12 +51,12 @@ Um direkt im Eingabefeld einen Text einzufügen, geben Sie das dazugehörige Kü
 
 Das Einfügen von Textbausteinen ist überall dort möglich, wo Sie das blaue Paragraphen-Symbol sehen. So z.B. im Notizblock oder in der Leseansicht einer Studie. Klicken Sie dafür auf das Symbol. Es wird die von Ihnen erstellte Liste von TBS angezeigt. Wählen Sie den betreffenden TBS mit einem Klick aus. Der Inhalt des TBS wird an der entsprechenden Stelle eingefügt. 
 
-Gebührenabrechnung
-==================
+PKI
+===
 
-In der Gebührenabrechnung wird die Abrechnung von unverrechneten Einreichungen erstellt. Benutzen Sie die Filter, um eine Auswahl der studienbezogenen Rechungen zu treffen. Laden Sie dann die Auflistung als xls-Datei herunter und schicken Sie diese weiter an die Finanzabteilung.
+text
 
-Gutachter-Bezahlung
-===================
+Tags
+====
 
-In der Gutachter-Bezahlung wird die Abrechnung von unverrechneten Gutachten erstellt. Die Filter ermöglichen dabei eine Auswahl der zu bezahlenden Gutachter. Wenn Sie die Abrechnung erstellt haben, können Sie sie als xls-Datei herunterladen und weiter an die Finanzabteilung schicken. 
+text
