@@ -7,5 +7,5 @@ Mitglieder der Executive-Gruppe und Mitarbeiter der EK können in die Sitzung, i
 
 .. XXX: Welche Gruppen haben den Sitzungslink? Stimmt "Mitglieder der Executive-Gruppe" und "Mitarbeiter der EK"?
 
-Mitglieder der Executive-Gruppe können eine Studie von einer Sitzung in eine andere verschieben. Klicken Sie dafür auf den Link *Neu planen*. Sie gelangen auf die Seite, wo die Bearbeitung vorgenommen wird. Wählen Sie nun im ersten Auswahlfeld die aktuelle Sitzung und im zweiten Auswahlfeld die Zielsitzung aus. Die Auswahlfelder zeigen Ihnen alle zur Verfügung stehenden Termine an. Klicken Sie am Ende auf *Speichern und zurück zur Studie*, wodurch Sie auf den *Status* der Leseansicht der Studie kommen. In der Tabelle *Sitzungen* sehen Sie nun den neuen Sitzungstermin.
+Mitglieder der Executive-Gruppe und Mitarbeiter der EK können eine Studie von einer Sitzung in eine andere verschieben. Klicken Sie dafür auf den Link *Neu planen*. Sie gelangen auf die Seite, wo die Bearbeitung vorgenommen wird. Wählen Sie nun im ersten Auswahlfeld die aktuelle Sitzung und im zweiten Auswahlfeld die Zielsitzung aus. Die Auswahlfelder zeigen Ihnen alle zur Verfügung stehenden Termine an. Klicken Sie am Ende auf *Speichern und zurück zur Studie*, wodurch Sie auf den *Status* der Leseansicht der Studie kommen. In der Tabelle *Sitzungen* sehen Sie nun den neuen Sitzungstermin.
 
