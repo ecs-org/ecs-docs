@@ -2,12 +2,12 @@
 Studien-Meldungen
 =================
 
-Sobald eine Studie ein positives Votum bekommen hat, kann die Studie durchgeführt und Meldungen erstellt werden. Durch die Meldungen wird alles Relevante über Berichte an die Ethikkommission dokumentiet. Sie betreffen Amendments, Sicherheitsmeldungen, Verlängerungsmeldungen und den Abschlussbericht. Erstellen Sie diese Meldungen unter dem Menüpunkt *Studien Meldungen* oder in jeder eingereichten Studie, die bereits ein Votum hat.
+Sobald eine Studie ein positives Votum bekommen hat, kann die Studie durchgeführt und Meldungen erstellt werden. Durch die Meldungen wird alles Relevante über Berichte an die Ethikkommission dokumentiet. Sie betreffen Amendments, Sicherheitsmeldungen, Verlängerungsmeldungen und den Abschlussbericht. Meldungen werden unter dem Menüpunkt *Studien Meldungen* oder in jeder eingereichten Studie, die bereits ein Votum hat, erstellt.
 
 Amendments
 ==========
 
-Amendments können erstellt werden, wenn die Studie bereits ein Votum hat. Machen Sie Ihr Amendment über die Leseansicht der betreffenden eingereichten Studie (Tab *Einreichung*, *Eckdaten*). Unterhalb des Amendments sind die Änderungen einsehbar. Sollte Ihnen ein Fehler bei der Erstellung des Amendments passiert sein, gehen Sie in die betreffende Studien-Leseansicht und machen Sie hier das Amendment neu. Erst wenn Sie das Amendment eingereicht haben, erhält die Ethikkommission eine Meldung über Ihre Änderungen.
+Amendments können erstellt werden, wenn die Studie bereits positiv beurteilt wurde. Machen Sie Ihr Amendment über die Leseansicht der betreffenden eingereichten Studie (Tab *Einreichung*, *Eckdaten*). Unterhalb des Amendments sind die Änderungen einsehbar. Sollte Ihnen ein Fehler bei der Erstellung des Amendments passiert sein, gehen Sie in die betreffende Studien-Leseansicht und machen Sie hier das Amendment neu. Erst wenn Sie das Amendment eingereicht haben, erhält die Ethikkommission eine Meldung über Ihre Änderungen.
 
 Sicherheitsmeldungen
 ====================
