@@ -11,11 +11,6 @@ Was steht allen Benutzern zur Verfügung
 
 Alle Benutzer haben auf ihrer Übersichtsseite Nachrichtenwidgets, durch die man Nachrichten innerhalb des Systems schreiben, versenden und empfangen kann. Eine ähnliche Funktion bietet der Menüpunkt *Nachrichten*. Ebenso ist es allen Benutzern erlaubt, Studien einzureichen. Im Notizblock kann sich jeder Benutzer allgemeine sowie studienspezifische Notizen machen. Zudem enthält die Applikation Navigationselemente, mit deren Hilfe sich die Benutzer leicht zurechtfinden.
 
-Dashboard
-+++++++++
-
-.. XXX: Beschreibung des Dashboards: Menüleiste, Hilfe-Button, Notizblock, Benutzer-Icon, Suche, Widgets
-
 Unterstützte Browser
 ++++++++++++++++++++
 
