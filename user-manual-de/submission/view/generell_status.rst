@@ -4,7 +4,16 @@ Tab Generell/Status
 
 Hier finden Sie alle aktuellen Prozesse sowie beteiligten Personen der betreffenden Studie.
 
-Der Tab *Status* zeigt Ihnen den aktuellen Status der Studie sowie alle Personen, die an dieser Studie beteiligt sind.
+Unter dem Tab *Status* sehen Sie den aktuellen Status der Studie sowie alle Personen, die an dieser Studie beteiligt sind.
+
+Versionen
+=========
+
+Aktuelle, noch nicht bestätigte Versionen sind mit pinkem Hintergrund gekennzeichnet
+
+Aktuelle, bestätigte Versionen sind mit blauem Hintergrund gekennzeichnet
+
+nicht-aktuelle, nicht bestätigte Versionen sind mit weißem Hintergrund gekennzeichnet
 
 Amendment
 =========
@@ -22,8 +31,6 @@ Unterschiede zur neuesten Version
 Zeigt Ihnen den Unterschied zwischen dieser Version und der aktuellen an. (Wenn Sie z.B. bei Version 1 auf *Unterschiede zur neuesten Version* klicken, und es gibt vier Versionen, sehen Sie die Änderungen zwischen der ersten und der vierten Version.)
 
 Die Links *aktuelle Änderungen* und *Unterschiede zur neuesten Version* führen auf die gleiche Seite.
-
-.. XXX: Anmerkung von Natano: mehr Inhalt zu "Amendment", "Unterschiede zur Vorversion" und "Unterschiede zur neuesten Version". Welcher Inhalt soll noch hinein? 
 
 Studienänderungen
 -----------------

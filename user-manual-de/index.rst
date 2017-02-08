@@ -19,4 +19,3 @@ Inhaltsverzeichnis
    external_review
    boardmember
    manual-ec/index
-   glossar
