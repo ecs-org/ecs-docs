@@ -14,7 +14,7 @@ Alle Benutzer haben auf ihrer Übersichtsseite Nachrichtenwidgets, durch die man
 Dashboard
 +++++++++
 
-.. XXX: Beschreibung des Dashboards
+.. XXX: Beschreibung des Dashboards: Menüleiste, Hilfe-Button, Notizblock, Benutzer-Icon, Suche, Widgets
 
 Unterstützte Browser
 ++++++++++++++++++++
