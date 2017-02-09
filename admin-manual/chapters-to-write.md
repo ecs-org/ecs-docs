@@ -1,13 +1,11 @@
 
 ## describe installation & configuration
 
-## describe signing (including setup)
+## describe signing (setup)
 
 ## describe security & user bootstrap
 
 ## describe automatic task and submission closings (ecs cleanup)
-
-## describe ecs customization
 
 ## describe the generated pdf's
 
