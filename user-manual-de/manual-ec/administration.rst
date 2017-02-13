@@ -38,14 +38,14 @@ In der Gutachter-Bezahlung wird die Abrechnung von unverrechneten Gutachten erst
 Statistik
 =========
 
-text
+In der Statistik sehen Sie die Summe aller Einreichungen sowie eine Aufschlüsselung nach bestimmten Kriterien: Die Anzahl der kommerziell gesponserten Studien, der multizentrischen Studien, der Studien nach dem AMG und jene nach dem MPG, die Studien mit einem B1, einem B2 oder einem B3 als Votum, sowie die Anzahl der abgelehnten bzw. zurückgezogenen Studien. Die Studien nach dem AMG und dem MPG sind zusätzlich nach ihrer Einreichungsart aufgeschlüsselt.
 
 Textbausteine
 =============
 
-Textbausteine ermöglichen Ihnen längere Texte, die Sie oft verwenden, unter einem Kürzel abzuspeichern. 
+Textbausteine ermöglichen Ihnen, längere Texte, die Sie oft verwenden, unter einem Kürzel abzuspeichern. 
 
-Im Verwaltungsbereich des Systems (Menüpunkt *Verwaltung* -> *Textbausteine*) können Sie Textbausteine erstellen und bereits bestehende TBS bearbeiten und löschen. Zum Erstellen eines TBS klicken Sie auf *Neu*, wählen Sie ein Kürzel und füllen Sie dann den dazugehörigen Text in das darunterliegende Feld ein. Sobald Sie auf *Speichern* klicken, scheint der TBS in der von Ihnen erstellten Liste von TBS auf. 
+Unter dem Menüunterpunkt *Textbausteine* in der Verwaltung können Sie Textbausteine erstellen und bereits bestehende TBS bearbeiten und löschen. Zum Erstellen eines TBS klicken Sie auf *Neu*, wählen Sie ein Kürzel und füllen Sie dann den dazugehörigen Text in das darunterliegende Feld ein. Sobald Sie auf *Speichern* klicken, scheint der TBS in der von Ihnen erstellten Liste von TBS auf. 
 
 Um direkt im Eingabefeld einen Text einzufügen, geben Sie das dazugehörige Kürzel (oder einen Teil des Kürzels) ein, markieren Sie es und drücken dann die Tastenkombination Alt+M. Der beliebige Text erscheint automatisch im dazugehörigen Eingabefeld.
 
@@ -54,9 +54,19 @@ Das Einfügen von Textbausteinen ist überall dort möglich, wo Sie das blaue Pa
 PKI
 ===
 
-text
+Interne Benutzer brauchen aus Sicherheitsgründen ein Client Zertifikat, um sich in das System einloggen zu können. (Zuvor muss ein Benutzerkonto erstellt worden sein.) Erstellen Sie das Client Zertifikat, indem Sie unter *User* den neuen Benutzer auswählen und geben Sie dann unter *Cn* eine Bezeichnung für das Client Zertifikat ein (z. B.: Büro_Laptop, Privater_Laptop_Mustermann, Sitzungstablet_3, o. ä.) Sobald das Zertifikat erstellt ist, wird es per Email an die betreffende Person gesendet. Übermitteln Sie nun das Passwort für die Entschlüsselung des Zertifikats. Es scheint nach der Erstellung des Zertifikats bei Ihnen auf. Wählen Sie für die Übermittlung des Codes einen sicheren Kanal (z. B. Telefon. Nicht Email!). Nun wird das Passwort eingegeben und das Client Zertifikat auf dem betreffenden Computer importiert. (Sehen Sie unten die einzelnen Schritte des Importierens im Firefox und Chrome.) Sobald das Client Zertifikat importiert ist, muss der Browser neu gestartet werden. Der neue Benutzer kann sich nun in das System einloggen. 
+
+Importvorgang bei Firefox: *Preferences* -> *Advanced* -> *Certificates* -> *View Certificates* -> *Your Certificates* -> *Import...* -> Datei auswählen -> Passwort eingeben
+
+Importvorgang bei Chrome: *Settings* -> *Show Advanced Settings...* -> *HTTPS/SSL* -> *Manage Certificates* -> *Your Certificates* -> *Import...* -> Datei auswählen -> Passwort eingeben
 
 Tags
 ====
 
-text
+Tags dienen dazu, Studien mit Schlagwörtern zu markieren. Alle Tags sind für alle internen Benutzer sichtbar und benutzbar.
+
+Das Erstellen eines Tags erfolgt in der Verwaltung unter *Tags*. Klicken Sie dort auf *Neues Tag*. Benennen Sie das Tag und wählen Sie eine Farbe. Sobald das Tag gespeichert wurde, erscheint es in einer Liste aller Tags.  
+
+Taggen Sie eine Studie auf dem *Status*-Tab der betreffenden Studie. Klicken Sie dafür auf den *Bearbeiten*-Link in der Zeile *Tags*, wählen Sie ein Tag aus der Liste aus und klicken Sie dann auf *Speichern*. Das Tag scheint nun unter *Tags* auf. Wenn Sie ein Tag entfernen möchten, klicken Sie im *Status*-Tab auf den *Bearbeiten*-Link, klicken Sie das Tag weg und speichern Sie Ihre Einstellungen. 
+
+Sobald eine Studie ein Tag hat, erscheint sie überall mit diesem Tag. Suchen Sie nach bestimmten Studien mittels Tags in der *Suche* oder in der Liste aller Studien (*Studien* -> *Alle Studien*).  
