@@ -1,5 +1,5 @@
 =====================
-Ecs-Benutzer-Handbuch
+ECS-Benutzer-Handbuch
 =====================
 
 Herzlich Willkommen zum Hilfesystem des elektronischen Studieneinreichsystems der Ethikkommission.
