@@ -6,5 +6,5 @@ Für Beurteilende
    :titlesonly:
 
    assigned_submissions
-   external_review
+   specialist
    boardmember

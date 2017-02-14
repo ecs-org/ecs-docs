@@ -1,6 +1,6 @@
-============
-Alle Studien
-============
+=============
+Studien Suche
+=============
 
 
 Interne Benutzer können unter *Alle Studien* in alle Studien einsehen, die eingereicht wurden. Je nachdem, wie Sie auf diese Seite gelangt sind, setzt sich der Inhalt der Studienliste unterschiedlich zusammen:

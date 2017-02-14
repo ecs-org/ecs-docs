@@ -16,7 +16,3 @@ Im Menüpunkt *Aufgaben* können Sie auch nach einer bestimmten Aufgabenart such
 
 Wenn Sie im Menüpunkt *Aufgaben* die momentane Filtereinstellung speichern wollen, klicken Sie mit der rechten Maustaste auf den Lesezeichen-Link. Es öffnet sich ein Feld. Klicken Sie dort auf den Link, mit dem Sie ein Lesezeichen erstellen können (z.B. "Lesezeichen erstellen"). Geben Sie dem Lesezeichen einen Namen und speichern Sie es ab.
 
-.. toctree::
-   :titlesonly:
-
-   workflow

@@ -11,7 +11,6 @@ Inhaltsverzeichnis
 .. toctree::
    :titlesonly:
 
-   introduction
    usage/index
    submitter/index
    reviewer/index

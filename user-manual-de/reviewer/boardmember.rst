@@ -1,5 +1,7 @@
-===========
-Boardmember
-===========
+=============================
+als Ethikkommissions Mitglied
+=============================
 
-bla bla
+
++ SitzungsTab aus EKMitglied sicht beschreiben
++ verschiedene BM beschreiben (oder besser in geschäftsstelle?)

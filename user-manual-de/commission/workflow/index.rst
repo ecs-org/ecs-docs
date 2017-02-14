@@ -187,18 +187,22 @@ B1 Votum
 
 Positives Votum. Die Studie kann beginnen.
 
-B2 Votum
-========
+B2 Meldung
+==========
 
-Unter der Bedingung von Nachbesserungen wird die Studie befürwortet. Das Board der Ethik-Kommission beauftragt das EK-Büro, die Änderungen zu überwachen.
+Unter der Bedingung von Nachbesserungen wird die Studie befürwortet. Das Board der Ethik-Kommission beauftragt die Geschäftsstelle, die Änderungen zu überwachen.
 
-B3 Votum
-========
+B3 Meldung
+==========
 
-Vertagung. Es bestehen Einwände gegen die Studie, der Einreicher hat drei Sitzungsperioden Zeit, diese Einwände auszuräumen. Sollten die Einwände nicht ausgebessert werden, wird die Studie nicht befürwortet und als zurückgezogen gewertet.
+Vertagung. Es bestehen Einwände gegen die Studie, der Einreicher hat je nach Satzung mehrere Sitzungsperioden Zeit, diese Einwände auszuräumen.
 
 B4 Votum
 ========
 
 Die Studie wird nicht befürwortet.
 
+B5 Meldung
+==========
+
+Die Studie gilt als zurückgezogen.
