@@ -1,6 +1,6 @@
-===========================================
-Ethikkommissions-spezifische Funktionalität
-===========================================
+===================
+Als Geschäftsstelle
+===================
 
 Inhaltsverzeichnis
 ==================
