@@ -2,33 +2,20 @@
 Neuer Antrag (Einreichung)
 ==========================
 
-Um eine Studie einreichen zu können, muss das elektronische Antragsformular ausgefüllt werden. Es bildet die Papierversion des Antragsformulars der Österreichischen Ethikkommission ab.
+Um eine Studie einreichen zu können, muss das elektronische Antragsformular ausgefüllt werden. Es bildet die Papierversion des Formulars des Forums der österreichischen Ethikkommissionen ab. Das Einreichformular wird über die Menüpunkte *Studien* -> *Neuer Antrag* erreicht. 
 
 Allgemeine Hinweise
-+++++++++++++++++++
+===================
 
-Ausfüllhilfen
-=============
+- Die Tabs in der Kopfzeile und die Nummern in eckigen Klammern nach den Textzeilen entsprechen den jeweiligen Punkten des Papierformulars. Das System öffnet das Formular im Tab *Eckdaten*. 
 
-**Eckige Klammern**
+- Sie können an jeder Stelle der Einreichung zwischenspeichern und die Arbeit zu einem beliebigen Zeitpunkt fortsetzen, auch nach Aussteigen aus dem System. Sie finden Ihre Einreichung unter dem Tab *Studien* -> *Meine Studien* und können problemlos fortsetzen.
 
-Die Zahlen in den eckigen Klammern korrespondieren mit der Nummer des Papierformulars der Österreichischen Ethikkommissionen (z.B.: "Klinische Prüfung eines nicht registrierten Arzneimittels [2.1.1]" unter dem Tab *Eckdaten*).
+- Zu einigen zu beantwortenden Punkten des Formulars erscheinen unter oder über dem Eingabefeld Kommentare. Diese sollen die Punkte für den Antragsteller näher erläutern.
 
-**Kommentare**
+- Alle mit einem Sternchen gekennzeichneten Felder sind zwingend auszufüllen. Sollte ein Feld für Ihre Studie nicht zutreffend sein, fügen Sie "Nicht zutreffend" in das Feld ein.
 
-Zu einigen zu beantwortenden Punkten des Formulars erscheinen unter oder über dem Eingabefeld Kommentare. Diese sollen die Punkte für den Antragsteller / die Antragstellerin näher erläutern.
-
-**Sternchen**
-
-Alle mit einem Sternchen gekennzeichneten Felder sind zwingend auszufüllen. Sollte ein Feld für Ihre Studie nicht zutreffend sein, fügen Sie "Nicht zutreffend" in das Feld ein.
-
-**Rote Markierung**
-
-Wurde ein Pflichtfeld nicht ausgefüllt, erscheint der entsprechende Reiter rot markiert. In diesem Fall klicken Sie noch einmal den betreffenden Reiter an und ergänzen Sie die Eingaben oder fügen Sie "Nicht zutreffend" in das Feld ein.
-
-**Speichern und Weiterbearbeiten**
-
-Sie können jederzeit die Arbeit an der Studie zwischenspeichern - indem Sie auf *Speichern* klicken - und sie zu einem anderen Zeitpunkt wieder aufnehmen. Alle Eingaben im Formular und Ihre bis zu diesem Zeitpunkt hochgeladenen Dokumente werden dadurch gespeichert. Zum Weiterbearbeiten der Studie gehen Sie auf *Meine Studien* und klicken Sie dort neben der betreffenden Studie auf *Bearbeiten*. Die noch zu bearbeitenden Tabs werden in Rot angezeigt.
+- Wurde ein Pflichtfeld nicht ausgefüllt, erscheint der entsprechende Tab rot markiert. In diesem Fall klicken Sie noch einmal den betreffenden Tab an und ergänzen Sie die Eingaben oder fügen Sie "Nicht zutreffend" in das Feld ein.
 
 Die Einreichung
 ===============
