@@ -16,6 +16,7 @@ Inhaltsverzeichnis
    submission/index_submission
    communication
    notification
+   notepad
    external_review
    boardmember
    manual-ec/index
