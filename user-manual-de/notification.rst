@@ -2,7 +2,7 @@
 Studien-Meldungen
 =================
 
-Sobald eine Studie ein positives Votum bekommen hat, kann die Studie durchgeführt und Meldungen erstellt werden. Durch die Meldungen wird alles Relevante über Berichte an die Ethikkommission dokumentiert. Sie betreffen Amendments, Sicherheitsmeldungen, Verlängerungsmeldungen und den Abschlussbericht. Erstellen Sie eine neue Meldung, indem Sie auf den Menüpunkt *Studien* klicken und dort auf *Neue Meldung*. Unter *Offene Meldungen* sehen alle internen Benutzer alle Meldungen, die noch nicht beantwortet wurden.
+Sobald eine Studie ein positives Votum bekommen hat, kann die Studie durchgeführt und Meldungen erstellt werden. Durch die Meldungen wird alles Relevante über Berichte an die Ethikkommission dokumentiert. Sie betreffen Amendments, Sicherheitsmeldungen, Verlängerungsmeldungen und den Abschlussbericht. Erstellen Sie eine neue Meldung, indem Sie auf den Menüpunkt *Studien* klicken und dort auf *Neue Meldung*. 
 
 Amendments
 ==========
