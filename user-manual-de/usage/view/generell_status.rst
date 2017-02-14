@@ -11,20 +11,12 @@ Sie sehen hier die unterschiedlichen Versionen des Einreichformulars. Die aktuel
 
 Bei jeder Version, die im Zuge eines Amendments erstellt wurde, ist dieses über einen Link einsehbar. 
 
-Einreicher und Sicherheitsmeldungsersteller ändern
-++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Der Einreicher der Studie kann einen neuen Einreicher, der Sicherheitsmeldungsersteller einen neuen Sicherheitsmeldungsersteller bestimmen. Dies erfolgt über den Button "Ändern" in der entsprechenden Zeile. Sie werden auf eine neue Seite geleitet. Bestimmen Sie nun den neuen Einreicher/Sicherheitsmeldungsersteller und klicken Sie dann auf *Einreicher ändern* bzw. *Sicherheitsmeldungsersteller ändern*. Sie werden zurück zum Status geleitet, wo der neue Name aufscheint. Die neu bestimmte Person wird durch eine automatische Systemnachricht darüber informiert.
 
 Sitzungstermine
 +++++++++++++++
 
 Sobald die Studie einem Sitzungstermin zugeordnet wurde, erscheint in der Tabelle *Sitzungen* ein Sitzungs-Link. Sie können auf den Sitzungs-Link klicken, um sich die Zeitplanung im Detail anzusehen. Es öffnet sich dafür der Untertab *Zeitplanung* des Tabs *Sitzung*. 
 
-Exportieren der Studie
-++++++++++++++++++++++
-
-Wenn Sie eine Studie exportieren wollen, klicken Sie auf *Export* und speichern Sie die Datei. (Beachten Sie, dass der vorgeschlagene Speicherplatz eine Einstellung Ihres Browsers ist und sich die Datei daher, je nach Einstellung Ihres Browsers, in einem anderen Ordner befindet.) Gehen Sie dann zur Menüleiste und klicken Sie auf den Menüunterpunkt *Import* im Menüpunkt *Studien*. Sie können die importierte Studie bearbeiten, zwischenspeichern oder gleich einreichen.
 
 PDF-Erstellung der Studie
 +++++++++++++++++++++++++

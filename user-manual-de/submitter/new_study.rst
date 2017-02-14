@@ -2,6 +2,8 @@
 Neuer Antrag (Einreichung)
 ==========================
 
+Unter dem Menüpunkt *Studien* öffnet sich ein Auswahl-Menü: *Meine Studien* zeigt eine Übersicht aller Studien, an denen Sie beteiligt sind. *Neuer Antrag* führt zum elektronischen Antragsformular der Österreichischen Ethikkommission. Die Funktion *Import* ermöglicht es allen Benutzern, Studien zu importieren.
+
 Um eine Studie einreichen zu können, muss das elektronische Antragsformular ausgefüllt werden. Es bildet die Papierversion des Formulars des Forums der österreichischen Ethikkommissionen ab. Das Einreichformular wird über die Menüpunkte *Studien* -> *Neuer Antrag* erreicht. 
 
 Allgemeine Hinweise

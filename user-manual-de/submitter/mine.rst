@@ -9,6 +9,11 @@ Studie ansehen
 
 Der Einreicher hat die Möglichkeit in eine Studie, welche bereits ein Votum bekommen hat, nochmals einzusehen. Dabei wird Ihnen die Leseansicht präsentiert. Wollen Sie Änderungen an der Studie vornehmen, klicken Sie auf *Bearbeiten*.
 
+Exportieren der Studie
+++++++++++++++++++++++
+
+Wenn Sie eine Studie exportieren wollen, klicken Sie auf *Export* und speichern Sie die Datei. (Beachten Sie, dass der vorgeschlagene Speicherplatz eine Einstellung Ihres Browsers ist und sich die Datei daher, je nach Einstellung Ihres Browsers, in einem anderen Ordner befindet.) Gehen Sie dann zur Menüleiste und klicken Sie auf den Menüunterpunkt *Import* im Menüpunkt *Studien*. Sie können die importierte Studie bearbeiten, zwischenspeichern oder gleich einreichen.
+
 PDF einer Studie
 ++++++++++++++++
 

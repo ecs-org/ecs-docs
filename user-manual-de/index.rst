@@ -12,11 +12,7 @@ Inhaltsverzeichnis
    :titlesonly:
 
    introduction
-   registration
-   submission/index_submission
-   communication
-   notification
-   notepad
-   external_review
-   boardmember
-   manual-ec/index
+   usage/index
+   submitter/index
+   reviewer/index
+   commission/index

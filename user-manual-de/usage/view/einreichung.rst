@@ -4,7 +4,6 @@ Tab Einreichung
 
 Es wird Ihnen die eingereichte Leseansicht der Studie präsentiert.
 
-Sie können die Studie bearbeiten solang diese noch kein permanentes Votum hat (positiv ohne Vorbehalte, negativ, zurückgezogen). Wurde für die Studie bereits ein positives Votum ausgestellt, können sie ein Amendment erstellen.
 
 Unterlagen
 ==========

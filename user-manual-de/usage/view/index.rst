@@ -1,5 +1,5 @@
 =================================
-Eingereichte Studie (Leseansicht)
+Leseansicht einer Studie
 =================================
 
 Sobald eine Studie erfolgreich eingereicht wurde, kann in die Leseansicht und in alle kontextbezogenen Tätigkeiten dieser Studie eingesehen werden.
