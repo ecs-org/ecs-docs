@@ -8,7 +8,10 @@ Ungelesene Nachrichten werden in fetter Schrift dargestellt, gelesene in normale
 
 Alle Nachrichten im Menüpunkt *Nachrichten* und jene innerhalb einer Leseansicht einer Studie sind zur besseren Übersicht chronologisch gelistet. Die Nachrichten werden mit Studiennummer, Absender, Betreff, Datum und Uhrzeit angezeigt. Sie können die Nachrichten nach "Einkommend" oder "Ausgehend" filtern. 
 
-Es ist nicht erforderlich, laufend den Nachrichteneingang zu kontrollieren. Nach einer (einstellbaren) Wartezeit wird die Nachricht vom System an die angegebene Emailadresse geschickt und kann auch von dort beantwortet werden. Für die Einstellung der Wartezeit klicken Sie auf Ihr Profil und dort auf *Profil bearbeiten*. Hier können Sie unter *Einstellungen* die Wartezeit auswählen. 
+Weiterleitung der Nachrichten als Email
+=======================================
+
+Nach einer (einstellbaren) Wartezeit wird die Nachricht vom System an die angegebene Emailadresse geschickt und kann auch von dort beantwortet werden. Für die Einstellung der Wartezeit klicken Sie auf Ihr Profil und dort auf *Profil bearbeiten*. Hier können Sie unter *Einstellungen* die Wartezeit auswählen. 
 
 Stern
 =====
