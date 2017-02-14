@@ -2,7 +2,7 @@
 Import
 ======
 
-Der Menüunterpunkt *Import* ermöglicht es allen Benutzern des Systems, exportierte Studien zu importieren.
+Der Menüunterpunkt *Import* ist eine Komfort-Funktion, mit der alle Benutzer des Systems eine bereits vorhandene Studie als neue Einreichung hochladen können.
 
 Wie importiere ich eine Studie
 ++++++++++++++++++++++++++++++

@@ -2,7 +2,7 @@
 Meine Studien
 =============
 
-Unter dem Menüunterpunkt *Meine Studien* finden Sie die Auflistung jener Studien, die Sie selbst erstellt haben. Dies betrifft sowohl die eingereichten, als auch die sich noch in Bearbeitung befindlichen Studien.
+Unter dem Menüunterpunkt *Meine Studien* werden Ihnen alle Studien angezeigt, in denen Sie eine Rolle im ECS haben (z.B. Einreicher, Antragsteller, Prüfarzt, Sponsor, Sicherheitsmeldungsersteller). Sie sehen sowohl die eingereichten, als auch die sich noch in Bearbeitung befindlichen Studien.
 
 Studie ansehen
 ++++++++++++++
