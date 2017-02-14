@@ -8,6 +8,8 @@ Ungelesene Nachrichten werden in fetter Schrift dargestellt, gelesene in normale
 
 Alle Nachrichten im Menüpunkt *Nachrichten* und jene innerhalb einer Leseansicht einer Studie sind zur besseren Übersicht chronologisch gelistet.
 
+Es ist nicht erforderlich, laufend den Nachrichteneingang zu kontrollieren. Nach einer (einstellbaren) Wartezeit wird die Nachricht vom System an die angegebene Emailadresse geschickt und kann auch von dort beantwortet werden. Für die Einstellung der Wartezeit klicken Sie auf Ihr Profil und dort auf *Profil bearbeiten*. Hier können Sie unter *Einstellungen* die Wartezeit auswählen. 
+
 Stern
 =====
 
