@@ -17,7 +17,7 @@ Wenn Sie eine Studie exportieren wollen, klicken Sie auf *Export* und speichern 
 PDF einer Studie
 ++++++++++++++++
 
-Sie haben die Möglichkeit, schreibgeschützte Studien herunterzuladen.
+Über den PDF-Link können Sie die neueste Version des Einreichformulars als PDF herunterladen.
 
 Studie bearbeiten
 +++++++++++++++++
