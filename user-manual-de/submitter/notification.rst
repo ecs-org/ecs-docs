@@ -22,5 +22,5 @@ In der Verlängerungsmeldung kann die Gültigkeit des Votums verlängert werden.
 Abschlussbericht
 ================
 
-Der Abschlussbericht markiert die Beendigung einer Studie. Er ist verpflichtend, d.h. sie ist unabhängig von der Gültigkeitsdauer des Votums zu machen. Geben Sie unter den Allgemeinen Angaben die Ergebnisse und Schlussfolgerungen der betreffenden Studie an. Die Meldung zur Beendigung der Studie kann sich nur auf eine Studie beziehen. Im Studien-Status wird der Endstatus der Studie angegeben. 
+Der Abschlussbericht markiert die Beendigung einer Studie. Er ist verpflichtend, d.h. er ist unabhängig von der Gültigkeitsdauer des Votums zu machen. Geben Sie unter den Allgemeinen Angaben die Ergebnisse und Schlussfolgerungen der betreffenden Studie an. Die Meldung zur Beendigung der Studie kann sich nur auf eine Studie beziehen. Im Studien-Status wird der Endstatus der Studie angegeben. 
 

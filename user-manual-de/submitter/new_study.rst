@@ -2,14 +2,14 @@
 Neuer Antrag (Einreichung)
 ==========================
 
-Unter dem Menüpunkt *Studien* öffnet sich ein Auswahl-Menü: *Meine Studien* zeigt eine Übersicht aller Studien, an denen Sie beteiligt sind. *Neuer Antrag* führt zum elektronischen Antragsformular der Österreichischen Ethikkommission. Die Funktion *Import* ermöglicht es allen Benutzern, Studien zu importieren.
+Unter dem Menüpunkt *Studien* öffnet sich ein Auswahl-Menü: *Meine Studien* zeigt eine Übersicht aller Studien, an denen Sie beteiligt sind. *Neuer Antrag* führt zum elektronischen Antragsformular der Österreichischen Ethikkommission. Die Funktion *Import* ermöglicht es, Studien zu importieren.
 
 Um eine Studie einreichen zu können, muss das elektronische Antragsformular ausgefüllt werden. Es bildet die Papierversion des Formulars des Forums der österreichischen Ethikkommissionen ab. Das Einreichformular wird über die Menüpunkte *Studien* -> *Neuer Antrag* erreicht. 
 
 Allgemeine Hinweise
 ===================
 
-- Die Tabs in der Kopfzeile und die Nummern in eckigen Klammern nach den Textzeilen entsprechen den jeweiligen Punkten des Papierformulars. Das System öffnet das Formular im Tab *Eckdaten*. 
+- Die Tabs in der Kopfzeile und die Nummern in den eckigen Klammern nach den Textzeilen entsprechen den jeweiligen Punkten des Papierformulars. Das System öffnet das Formular im Tab *Eckdaten*. 
 
 - Sie können an jeder Stelle der Einreichung zwischenspeichern und die Arbeit zu einem beliebigen Zeitpunkt fortsetzen, auch nach Aussteigen aus dem System. Sie finden Ihre Einreichung unter dem Tab *Studien* -> *Meine Studien* und können problemlos fortsetzen.
 
@@ -24,7 +24,7 @@ Die Einreichung
 
 **Korrekte Ausfüllung**
 
-Sie können *Einreichen* auch verwenden, um zu verifizieren, ob sie alle benötigten Felder ausgefüllt haben. Sobald alle Felder korrekt ausgefüllt sind, fragt sie das System, ob Sie die Studie verbindlich an die Ethikkommission schicken wollen.
+Sie können *Einreichen* auch verwenden, um zu verifizieren, ob Sie alle benötigten Felder ausgefüllt haben. Sobald alle Felder korrekt ausgefüllt sind, fragt Sie das System, ob Sie die Studie verbindlich an die Ethikkommission schicken wollen.
 
 **Einreichen**
 
@@ -32,7 +32,7 @@ Sobald alle Felder vollständig ausgefüllt sind, klicken Sie auf *Einreichen*.
 
 **Fertige Studie**
 
-Sobald Sie Ihre Studie erfolgreich an die Ethikkommission geschickt haben, wird Ihnen die Leseansicht der Studie präsentiert. Wechseln Sie als nächstes in den Reiter *Generell* um mit einen Klick auf das PDF-Symbol das ausgefüllte Antragsformular als PDF-Datei herunterzuladen. Drucken Sie das Formular aus und lassen Sie alle an der Studie beteiligten Personen an der korrespondierenden Stelle unterschreiben. Schicken oder bringen Sie das unterschriebene Antragsformular zur Ethikkommission.
+Sobald Sie Ihre Studie erfolgreich an die Ethikkommission geschickt haben, wird Ihnen die Leseansicht der Studie präsentiert. Wechseln Sie als nächstes in den Reiter *Generell*, um mit einen Klick auf das PDF-Symbol das ausgefüllte Antragsformular als PDF-Datei herunterzuladen. Drucken Sie das Formular aus und lassen Sie alle an der Studie beteiligten Personen an der korrespondierenden Stelle unterschreiben. Schicken oder bringen Sie das unterschriebene Antragsformular zur Ethikkommission.
 
 Erläuterungen zu den einzelnen Tabs
 ===================================
@@ -64,9 +64,9 @@ Teilnehmer
 
 Im Tab *Teilnehmer* werden die Prüfungsteilnehmer und die Zentren angegeben.
 
-**Mindest- Höchstalter der Prüfungsteilnehmer/innen**
+**Mindest- Höchstalter der Prüfungsteilnehmer**
 
-Grundsätzlich ist bei den Prüfungsteilnehmer immer ein Mindest- und ein Höchstalter anzugeben. Sollte das Höchstalter unbestimmt sein, bzw. es keine obere Altersgrenze geben, oder eine Altersangabe möglicherweise nicht sinnvoll sein (z.B. Studie an archiviertem Material,  Anatomieleichen...) sollte die Zahl "999" in das betreffende Feld eingetragen werden.
+Grundsätzlich ist bei den Prüfungsteilnehmern immer ein Mindest- und ein Höchstalter anzugeben. Sollte das Höchstalter unbestimmt sein, bzw. es keine obere Altersgrenze geben, oder eine Altersangabe möglicherweise nicht sinnvoll sein (z.B. Studie an archiviertem Material,  Anatomieleichen...) sollte die Zahl "999" in das betreffende Feld eingetragen werden.
 
 **Gebärfähige Frauen, schwangere Frauen, nicht-persönlich-Einwilligungsfähige**
 
@@ -148,7 +148,7 @@ Geben Sie die Beträge, die als Fahrtspesen, Aufwandsentschädigungen oder Honor
 Sponsor
 +++++++
 
-Geben Sie im Reiter *Sponsor* die zuständige Sponsororganisation dieser Studie an.
+Geben Sie im Tab *Sponsor* die zuständige Sponsororganisation dieser Studie an.
 
 **Angaben zum Sponsor**
 
@@ -191,11 +191,11 @@ Geben Sie an, ob es sich um eine monozentrische Studie, um eine multizentrische 
 MPG
 +++
 
-Sollte es sich um eine Studie gemäß des Medizinproduktgesetzes handeln, ist dieser Reiter verpflichtend auszufüllen.
+Sollte es sich um eine Studie gemäß des Medizinproduktgesetzes handeln, ist dieser Tab verpflichtend auszufüllen.
 
 **Angabe unter Eckdaten**
 
-Um diesen Tab ausfüllen zu können, muss unter dem Tab *Eckdaten* angegeben sein, dass es sich um die klinische Prüfung eines Medizinproduktes handelt. Aktivieren Sie dafür den entsprechenden Filter. Der ausgegraute Tab *MPG* wird dadurch editierbar. Dies gilt auch für den *AMG*-Reiter.
+Um diesen Tab ausfüllen zu können, muss unter dem Tab *Eckdaten* angegeben sein, dass es sich um die klinische Prüfung eines Medizinproduktes handelt. Aktivieren Sie dafür den entsprechenden Filter. Der ausgegraute Tab *MPG* wird dadurch editierbar. Dies gilt auch für den *AMG*-Tab.
 
 Maßnahmen
 +++++++++
@@ -210,7 +210,7 @@ Es ist eine vollständige Aufzählung aller Maßnahmen (z.B. Medikamentengabe, U
 
 Beispiel: In einer Studie an Patienten mit einer Knie-Endoprothese soll deren Lebensqualität ein halbes Jahr nach dem Eingriff mit Hilfe eines Fragebogens erhoben werden. Die Patienten werden dazu zu einem kurzen Termin einberufen.
 
-Studienbezogene Maßnahmen: Einberufung des Patient/innen, Fragebogenerhebung. Nicht Studienbezogen ist die Knieoperation.
+Studienbezogene Maßnahmen: Einberufung des Patienten, Fragebogenerhebung. Nicht-studienbezogen ist die Knieoperation.
 
 Falls die Patienten im Rahmen einer ohnehin durchgeführten Routine-Nachkontrolle befragt werden, wäre ausschließlich das Ausfüllen des Fragebogens die studienbezogene Maßnahme.
 
@@ -225,7 +225,7 @@ Geben Sie im *Biometrie*-Tab Biometrie, Statistik und Datenschutz an.
 
 **Nicht zutreffend**
 
-Markieren Sie Felder, die nicht auf Ihre Studie zutreffen, mit "nicht zutreffend".
+Markieren Sie Felder, die nicht auf Ihre Studie zutreffen, mit "Nicht zutreffend".
 
 Versicherung
 ++++++++++++
@@ -240,7 +240,7 @@ Unterlagen
 ++++++++++
 
 Bitte beachten Sie, dass das System ausschließlich PDF-Dateien annimmt. Sollten Sie andere Dokumente einzureichen versuchen, erhalten Sie eine Fehlermeldung. Passwort-geschützte PDF's oder PDF's mit Lese-, Kopier- oder Druckeinschränkungen eignen sich nicht für Langzeit-Archivierung. Wir empfehlen Ihnen stattdessen PDFA-Dateien.
-Falls Sie ein Dokument mit Typ *Prüferinformation (Investigator's Brochure)* hochladen, kann dies aus Sicherheitsgründen zum Schutz des Dokuments nur angesehen werden. Daher wird kein *Herunterladen* - Link angezeigt.
+Falls Sie ein Dokument mit Typ *Prüferinformation (Investigator's Brochure)* hochladen, kann dies aus Sicherheitsgründen zum Schutz des Dokuments nur angesehen werden. Daher wird kein Link zum Herunterladen angezeigt.
 
 **Dokumentenname**
 
@@ -248,7 +248,7 @@ Sie können den vorausgefüllten Namen umbenennen, falls er nicht zutreffend gen
 
 **Versionsbezeichnung**
 
-Geben Sie unter Version zum Beispiel die Versionsbezeichnung 1.2 oder 1.3 usw. an.
+Geben Sie unter Version zum Beispiel die Versionsbezeichnung 1.2 oder 1.3 an.
 
 **Datumsangabe**
 
@@ -281,7 +281,7 @@ Linux/BSD/Solaris
 Zentren
 +++++++
 
-Unter dem Tab *Zentren* können sie die im Teil B des Papierantragsformulars angegebenen Zentren mit den jeweiligen verantwortlichen Prüfärzten eintragen.
+Unter dem Tab *Zentren* können Sie die im Teil B des Papierantragsformulars angegebenen Zentren mit den jeweiligen verantwortlichen Prüfärzten eintragen.
 
 **Pro Zentrum**
 
@@ -289,7 +289,7 @@ Tragen Sie pro Zentrum den Namen des Zentrums, die Anzahl der Teilnehmer, die zu
 
 **Diplomarbeit/Dissertation**
 
-Sollte es sich um eine Diplomarbeit oder eine Dissertation handeln, geben Sie unter den Prüfärztindetails die Angaben zur Diplomarbeits- bzw. Dissertationsbetreuerin an.
+Sollte es sich um eine Diplomarbeit oder eine Dissertation handeln, geben Sie unter den Prüfarztdetails die Angaben zum Diplomarbeits- bzw. Dissertationsbetreuer an.
 
 **Zentrum hinzufügen**
 

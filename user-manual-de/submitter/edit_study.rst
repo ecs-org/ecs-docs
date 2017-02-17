@@ -4,8 +4,7 @@ Bearbeiten von eingereichten Studien
 
 **Bearbeiten**
 
-Eine eingereichte Studie kann vom Antragsteller so lange bearbeitet werden, bis die Studie ein entgültiges Votum bekommen hat.
-Sie können die Studie bearbeiten solang diese noch kein permanentes Votum hat (positiv ohne Vorbehalte, negativ, zurückgezogen). Wurde für die Studie bereits ein positives Votum ausgestellt, können sie ein Amendment erstellen.
+Eine eingereichte Studie kann vom Antragsteller bearbeitet werden, solange diese noch kein permanentes Votum hat (positiv ohne Vorbehalte, negativ, zurückgezogen). Wurde für die Studie bereits ein positives Votum ausgestellt, können sie ein Amendment erstellen.
 
 **Amendment**
 
