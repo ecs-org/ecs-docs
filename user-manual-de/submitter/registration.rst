@@ -4,7 +4,7 @@ Registrierung
 
 Um das System benutzen zu können, muss vorab eine Registrierung vorgenommen werden. Klicken Sie dafür auf den Link zur Registrierung und geben Sie alle erforderlichen Daten ein. Bitte verwenden sie wahrheitsgemäße Angaben und Ihre offizielle E-Mail-Adresse. Daten wie Titel, Anschrift oder Institut werden zu einem späteren Zeitpunkt abgefragt.
 
-Wenn Sie die Dateneingabe abgeschlossen haben, wird eine E-Mail an Ihre angegebene E-Mailadresse versendet. Die Zustellung der E-Mail kann unter Umständen bis zu einer Stunde dauern. Falls sie die E-Mail nicht erhalten haben kontrollieren sie bitte auch den Inhalt ihres Spam-Ordners. Ein Klick auf den in der E-Mail enthaltenen Link führt zum zweiten Teil der Registrierung.
+Wenn Sie die Dateneingabe abgeschlossen haben, wird eine E-Mail an Ihre angegebene E-Mail-Adresse versendet. Die Zustellung der E-Mail kann unter Umständen bis zu einer Stunde dauern. Falls sie die E-Mail nicht erhalten haben, kontrollieren sie bitte auch den Inhalt ihres Spam-Ordners. Ein Klick auf den in der E-Mail enthaltenen Link führt zum zweiten Teil der Registrierung.
 
 Im zweiten Teil der Registrierung können sie ein Passwort wählen. Dieses sollte mindestens 8 Zeichen haben und nicht bereits in anderen Onlinediensten verwendet werden. Beachten Sie auch, dass das System zwar Sonderzeichen/Umlaute im Passwort annimmt, diese allerdings je nach Computer und Tastatur möglicherweise nicht eingebbar sind. 
 
