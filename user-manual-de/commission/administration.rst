@@ -35,6 +35,11 @@ Gutachter-Bezahlung
 
 In der Gutachter-Bezahlung wird die Abrechnung von unverrechneten Gutachten erstellt. Die Filter ermöglichen dabei eine Auswahl der zu bezahlenden Gutachter. Wenn Sie die Abrechnung erstellt haben, können Sie sie als xls-Datei herunterladen und weiter an die Finanzabteilung schicken. 
 
+Erweiterte Einstellungen
+========================
+
+text
+
 Statistik
 =========
 

@@ -11,7 +11,7 @@ Neue Sitzung
 
 Jede zukünftige Sitzung muss neu angelegt werden. Geben Sie dafür den Namen (z.B. "Mai 2017 Sitzung"), den Zeitpunkt für die Sitzung und den letzten Einreichtermin an. Das Eingabefeld *Letzter Einreichtermin für Diplomarbeiten/Dissertationen* bezeichnet den letzten Zeitpunkt, an dem eine Diplomarbeits-/Dissertationsstudie einem Meeting zugeordnet wird/werden kann. Sie können das Datum mittels eines Kalenders auswählen. Uhrzeiten müssen manuell eingegeben werden.
 
-Wenn Sie die Eingaben abgeschlossen haben und speichern, kommen Sie auf den Status-Tab der Sitzungsübersicht. Hier sind die Eintragungen, die Sie bezüglich der neuen Sitzung gemacht haben (Datum der Sitzung, Deadlines), auch editierbar. 
+Wenn Sie die Eingaben abgeschlossen haben und speichern, kommen Sie auf den *Status*-Tab der Sitzungsübersicht. Hier sind die Eintragungen, die Sie bezüglich der neuen Sitzung gemacht haben (Datum der Sitzung, Deadlines), auch editierbar. 
 
 In der Sitzungsübersicht haben Sie Einblick über die offenen Aufgaben, Einreichungen und Meldungen für die zukünftige Sitzung. Zusätzlich haben Sie unter dem Tab *Einreichungen* eine Übersicht der Tagesordnungspunkte.
 

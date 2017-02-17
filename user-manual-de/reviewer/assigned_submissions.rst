@@ -2,9 +2,7 @@
 Mir zugeordnete Studien
 =======================
 
-Sie sehen die Liste aller Studien, bei denen Sie eine Aufgabe des Workflows übernommen haben.
+Sie sehen die Liste aller Studien, bei denen Sie eine Aufgabe des Arbeitsablaufs übernommen haben.
 
-Studie ansehen: Klicken Sie auf einen Studiennummern-Link, um eine beliebige Leseansicht einer Studie zu öffnen. 
-
-PDF-Herunterladen der Studie: Sie haben die Möglichkeit, die eingereichte Studie als PDF herunterzuladen.
+Über die Filtereinstellungen können Sie auswählen, welche Studien Sie sehen möchten. Um die Leseansicht einer Studie zu öffnen, klicken Sie auf den Studiennummern-Link.
 

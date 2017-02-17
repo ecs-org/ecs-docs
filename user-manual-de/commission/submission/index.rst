@@ -2,12 +2,6 @@
 Eingereichte Studie (Leseansicht)
 =================================
 
-generell_status
-classification
-involved_parties
-tasks
-workflow
-
 Generell/Status
 ===============
 
