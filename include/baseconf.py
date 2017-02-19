@@ -17,12 +17,13 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+#import os
+#import sys
+#sys.path.insert(0, os.path.abspath('/usr/local/lib/python2.7/dist-packages'))
 
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
+from better import better_theme_path
 
 # -- General configuration ------------------------------------------------
 
@@ -138,14 +139,20 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
+html_theme_path = [better_theme_path]
+html_theme = 'better'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
 html_theme_options = {
-    'logo': 'logo.png',
+    'showheader': False,
+    'cssfiles': ['_static/custom.css'],
+    'showrelbartop': False,
+    'linktotheme': False,
+     'textcolor': '#292b2c',
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -158,18 +165,18 @@ html_theme_options = {
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-# html_short_title = None
+html_short_title = "Ecs BenutzerInnen Handbuch"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-# html_logo = None
+#html_logo = 'images/logo-optimized.jpg'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-# html_favicon = None
+#html_favicon = '_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

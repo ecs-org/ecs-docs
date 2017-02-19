@@ -1,0 +1,32 @@
+body {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+a:link, a:visited {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #014c8c;
+    text-decoration: none;
+}
+
+div.sphinxsidebarwrapper {
+    background-color: #f7f7f7;
+    padding: 1rem;
+    margin: 1rem 1rem 0 0;  
+}
+
+form.search > div > input[name="q"] {
+    width: 100%;
+}
+
+div.sphinxsidebarwrapper > p.logo > a > img.logo {
+    width: 100%;
+}
+
+footer#pagefooter {
+    font-size: small;
+    padding-top: 1rem;
+}

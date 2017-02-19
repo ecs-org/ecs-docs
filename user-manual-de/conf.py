@@ -15,3 +15,5 @@ latex_documents = [
     (master_doc, '{}.tex'.format(project), 'Ecs BenutzerInnen Handbuch',
      'Latex Author Name', 'howto'),
 ]
+html_favicon = '_static/favicon.ico'
+html_show_sphinx = False
