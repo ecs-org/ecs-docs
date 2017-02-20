@@ -34,8 +34,8 @@ ln -sft ~/ targetdirectoryyouwant/ecs-docs
 #### setup
 ```
 ln -sft ~/bin ~/ecs-docs/scripts/*
-sudo os-deps-ecs-docs.sh
-user-deps-ecs-docs.sh
+sudo scripts/os-deps-ecs-docs.sh
+scipts/user-deps-ecs-docs.sh
 ```
 
 ### build
@@ -44,6 +44,17 @@ build-all-ecs-docs.sh
 firefox _build/*/html/index.html
 evince _build/ecs*.pdf
 ```
+
+### build only user-manual-de
+```
+# activate environment
+. _env/bin/activate
+cd user-manual-de
+make clean html latexpdf
+firefox _build/html/index.html
+```
+
+loop: `make html; firefox _build/html/index.html`
 
 ### build and update static target repository
 ```
