@@ -4,14 +4,17 @@ Sitzungen
 
 In einer Sitzung werden Beschlüsse zu den der Sitzung zugeordneten Studien gefasst.
 
-Die Menüpunkte *Nächste Sitzung*, *Kommende Sitzungen*, *Vergangene Sitzungen* und *Neue Sitzung* dienen bestimmten Gruppen des Systems, um die Tagesordnungspunkte für die Sitzungen festzulegen und zu koordinieren.
+Die Menüpunkte *Nächste Sitzung*, *Kommende Sitzungen*, *Vergangene Sitzungen* und *Neue Sitzung* dienen dazu, die Tagesordnungspunkte für die Sitzungen festzulegen und zu koordinieren.
 
 Neue Sitzung
 ============
 
-Jede zukünftige Sitzung muss neu angelegt werden. Geben Sie dafür den Namen (z.B. "Mai 2017 Sitzung"), den Zeitpunkt für die Sitzung und den letzten Einreichtermin an. Das Eingabefeld *Letzter Einreichtermin für Diplomarbeiten/Dissertationen* bezeichnet den letzten Zeitpunkt, an dem eine Diplomarbeits-/Dissertationsstudie einem Meeting zugeordnet wird/werden kann. Sie können das Datum mittels eines Kalenders auswählen. Uhrzeiten müssen manuell eingegeben werden.
+Jede zukünftige Sitzung muss neu angelegt werden. Geben Sie dafür den Namen (z.B. "Mai 20.. Sitzung"), den Zeitpunkt für die Sitzung und den letzten Einreichtermin an. Das Eingabefeld *Letzter Einreichtermin für Diplomarbeiten/Dissertationen* bezeichnet den letzten Zeitpunkt, an dem eine Diplomarbeits-/Dissertationsstudie einem Meeting zugeordnet wird/werden kann. Sie können das Datum mittels eines Kalenders auswählen. Uhrzeiten müssen manuell eingegeben werden.
 
 Wenn Sie die Eingaben abgeschlossen haben und speichern, kommen Sie auf den *Status*-Tab der Sitzungsübersicht. Hier sind die Eintragungen, die Sie bezüglich der neuen Sitzung gemacht haben (Datum der Sitzung, Deadlines), auch editierbar. 
+
+Sitzungsübersicht
+=================
 
 In der Sitzungsübersicht haben Sie Einblick über die offenen Aufgaben, Einreichungen und Meldungen für die zukünftige Sitzung. Zusätzlich haben Sie unter dem Tab *Einreichungen* eine Übersicht der Tagesordnungspunkte.
 
@@ -33,29 +36,33 @@ Sitzungsansicht
 Status und Statistik
 ++++++++++++++++++++
 
-Im Reiter *Status und Statistik* finden Sie tabellarisch dargestellte Detailinformationen zur angelegten Sitzung sowie eine Übersicht davon, wie viele Studien pro Studienart in der Sitzung behandelt werden.
+Im *Status* finden Sie tabellarisch dargestellte Detailinformationen zur angelegten Sitzung sowie eine Übersicht davon, wie viele Studien pro Studienart in der Sitzung behandelt werden.
 
 Status
 ------
 
-- Der Titel wird sowohl in der Liste der Sitzungen, als auch in den Schriftstücken, die diese Sitzung betreffen (Agenda-PDF, Einladung der Teilnehmer/innen, etc.), angezeigt.
+- Der Titel wird sowohl in der Liste der Sitzungen, als auch in den Schriftstücken, die diese Sitzung betreffen (Agenda-PDF, Einladung der Teilnehmer, etc.), angezeigt.
 
-- Sie können den Sitzungstermin ändern. Klicken Sie dafür auf *Bearbeiten*. Das System leitet Sie zur entsprechenden Seite weiter.
-
-- Sie können die Tagesordnung, den Zeitplan und das Sitzungsprotokoll als PDF-Datei herunterladen.
-
-- Als Benutzer der Gruppe "Office" können Sie über den entsprechenden Link das Sitzungsprotokoll verschicken. Wenn Sie ein Protokoll für die Sitzung erstellen wollen, klicken Sie auf den Link "PDF erstellen". Warten Sie, bis sich das Rädchen dreht und laden Sie nach einer Weile die Seite neu, damit der Link "Als PDF herunterladen" erscheint. Klicken Sie dafür neben der Url auf Reload. Das Protokoll kann nun mittels eines Links heruntergeladen werden. Bei Bedarf kann es auch verworfen und neu erstellt werden. 
-
-  - Das Protokoll wird an alle Ethikkommissionsmitglieder, die bei der Sitzung als Spezialisten anwesend waren, sowie an alle "Resident"-Mitglieder und an Mitglieder der Gruppe "Meeting Protocol Receiver" versendet.
+- Sie können den Sitzungstermin ändern. Klicken Sie dafür in der Zeile *Geplant für* auf *Bearbeiten*. Das System leitet Sie zur entsprechenden Seite weiter. Machen Sie dort Ihre Änderungen und klicken Sie dann auf *Speichern*. Sie werden zurück auf den Status geleitet, wo die Änderungen aufscheinen. 
 
 - Zeigt der Status *gestartet* an, ist die Sitzung gerade am Laufen. Zeigt der Status *beendet* an, wurde die Sitzung gerade abgeschlossen. Zeigt der Status *neu* an, dann handelt es sich um eine Sitzung, die noch nicht als *gestartet* oder *beendet* markiert wurde.
 
+- Einladungen für Expedited Reviews können hier verschickt werden. Wählen Sie dafür Datum und Uhrzeit und klicken Sie dann auf *Einladung verschicken*.
+
+- Die Tagesordnung kann als PDF-Datei heruntergeladen werden. 
+
 - *Agenda für Sitzungsmitglieder*: Wenn Sie auf diesen Link klicken, wird den Sitzungsmitgliedern die Agenda als PDF-Datei zugesandt.
+
+- Der Zeitplan kann als PDF-Datei heruntergeladen werden.
+
+- Das Sitzungsprotokoll kann als PDF-Datei heruntergeladen werden. Klicken Sie dafür auf den Link *PDF erstellen* und warten Sie, bis sich das Rädchen dreht. Laden Sie nach einer Weile die Seite neu, damit der Link "Als PDF herunterladen" erscheint. Klicken Sie dafür neben der Url auf Reload. Das Protokoll kann nun mittels eines Links heruntergeladen werden. Wenn Änderungen vorgenommen wurden, können Sie das Protokoll auch mittels Link verwerfen und neu erstellen.
+
+  - Das Protokoll wird an alle Ethikkommissionsmitglieder, die bei der Sitzung als Spezialisten anwesend waren, sowie an alle "Resident"-Mitglieder und an Mitglieder der Gruppe "Meeting Protocol Receiver" versendet.
 
 Statistik
 ---------
 
-Bei den Kategorien des oberen Blocks (*Normal*, *Retrospektive Diplomarbeit*, *Expedited*, *Lokale EK*) handelt es sich um die Einteilungen des Arbeitsablaufs, d. h. als was die Studie von der Ethikkommission behandelt wird. Der zweite Block (*Dissertation*, *Diplomarbeit*, *Leitethikkommission*, *Gebührenbefreiung*, *B3 (behandelt)*, *B3 (nicht behandelt)*) betrifft Zusatzinformationen, die sich auf den ersten Block beziehen. Als Gesamtzahl werden daher nur die Kategorien des oberen Blocks angegeben.
+Bei den Kategorien des oberen Blocks (*Standard*, *AMG*, *MPG*, *AMG/MPG*, *Andere*) handelt es sich um die Einteilungen des Arbeitsablaufs, d. h. als was die Studie von der Ethikkommission behandelt wird. Der zweite Block (*Retro. Thesis*, *Expedited*, *Lokale EK*, *Dissertation*, *Diplomarbeit*, *Leitethikkommission*, *Gebührenpflichtig*, *B3 (behandelt)*, *B3 (nicht behandelt)*), *Substantielle Amendments* betrifft Zusatzinformationen, die sich auf den ersten Block beziehen. Als Gesamtzahl werden daher nur die Kategorien des oberen Blocks angegeben.
 
 Alle Studien dieser Sitzung sind für berechtigte Gruppen als Link neben der jeweiligen Kategorie zu finden.
 
