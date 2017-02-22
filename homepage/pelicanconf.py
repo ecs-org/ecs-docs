@@ -58,3 +58,15 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
+
+# Article info is not needed
+SHOW_ARTICLE_AUTHOR = False
+SHOW_ARTICLE_CATEGORY = False
+SHOW_DATE_MODIFIED = False
+
+# Add custom CSS
+CUSTOM_CSS = 'static/custom.css'
+
+# Theme options
+HIDE_SIDEBAR = True
+BOOTSTRAP_NAVBAR_INVERSE = True
