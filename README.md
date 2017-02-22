@@ -1,17 +1,18 @@
 # ECS-Documentation
 
-+ Documentation is written using sphinx
-+ Sourcefiles can be restructured text and markdown
-  + markdown support using https://github.com/rtfd/recommonmark
-+ HTML and PDF documentation is generated as output
-  + latex is used to generate pdfs
-  + Html Theme is Alabaster http://alabaster.readthedocs.io/en/latest/customization.html
-+ The Blog (homepage) is rendered using tinkerer/sphinx and Html Theme: flat
-+ Available graph support
-  + plantuml, graphviz with cpp support, actdiag, nwdiag, seqdiag, blockdiag
-+ Additional available sphinx extensions
-  + sphinxcontrib-programoutput sphinxcontrib.youtube sphinxcontrib-inlinesyntaxhighlight
-
++ Documentation is written using [Sphinx](http://sphinx-doc.org/)
+    + Sourcefiles can be restructured text and markdown
+        + markdown support is using [recommonmark](https://github.com/rtfd/recommonmark/)
+    + HTML and PDF documentation is generated as output
+        + latex is used to generate pdfs
+    + Available graph support
+        + plantuml, graphviz with cpp support, actdiag, nwdiag, seqdiag, blockdiag
+    + Additional available sphinx extensions
+        + sphinxcontrib-programoutput sphinxcontrib.youtube sphinxcontrib-inlinesyntaxhighlight
++ The Homepage is rendered using [Pelican](https://blog.getpelican.com/)
+    + Sourcefiles can be restructured text and markdown
+    + HTML is generated as output
+  
 ## Quickstart
 
 ### install
@@ -21,13 +22,13 @@ if you are ok with `~/ecs-docs`:
 
 ```
 cd ~/
-git clone replace-with-actual-url ecs-docs
+git clone https://github.com/ecs-org/ecs-docs ecs-docs
 ```
 
 somewhere else:
 
 ```
-git clone replace-with-actual-url targetdirectoryyouwant/ecs-docs
+git clone https://github.com/ecs-org/ecs-docs targetdirectoryyouwant/ecs-docs
 ln -sft ~/ targetdirectoryyouwant/ecs-docs
 ```
 
@@ -41,11 +42,11 @@ scipts/user-deps-ecs-docs.sh
 ### build
 ```
 build-all-ecs-docs.sh
-firefox _build/*/html/index.html
+firefox _build/index.html
 evince _build/ecs*.pdf
 ```
 
-### build only user-manual-de
+### build single item
 ```
 # activate environment
 . _env/bin/activate

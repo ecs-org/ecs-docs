@@ -16,13 +16,9 @@ for d in user-manual-de admin-manual development; do
     mv $d/_build/latex/ecs-$d.pdf _build/
 done
 
-echo "homepage build is disabled"
-
 cd $srcpath/homepage
-#rm -rf blog/*
-#tinker -b
-#mv blog/html/ $srcpath/_build/homepage
-pelican 
+make clean html
+mv _build/ $srcpath/_build/homepage
 
 cd $srcpath/_build
 > .nojekyll
