@@ -10,4 +10,4 @@ fi
 ghp_remote="origin"
 ghp_branch="gh-pages"
 
-ghp-import -r $ghp_remote -b $ghp_branch -m "regenerate docs" $srcpath/_build/
+ghp-import -r $ghp_remote -b $ghp_branch -m "regenerate docs" -p $srcpath/_build/ 
