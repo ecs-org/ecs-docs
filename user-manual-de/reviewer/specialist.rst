@@ -2,9 +2,9 @@
 Fachgutachten
 =============
 
-Wenn die Ethikkommission ein externes Gutachten von Ihnen anfordert, werden Sie über E-Mail darüber informiert. Die Nachricht kann durch einen Klick auf den Nachrichten-Link gelesen werden. Innerhalb der Nachricht befindet sich ein Link zur Erstellung des Gutachtens.
+Wenn die Ethikkommission ein externes Gutachten von Ihnen anfordert, werden Sie über E-Mail darüber informiert. Innerhalb der Nachricht befindet sich ein Link zur Erstellung des Gutachtens.
 
-Begründen bzw. Kommentieren Sie Ihre Beurteilungen in den Eingabefeldern. Sie können die Erstellung des Gutachtens zwischenspeichern (*Nur Speichern*), um zu einem späteren Zeitpunkt fortzufahren, oder die Erstellung des Gutachtens abschließen. Klicken Sie dafür auf *Fertig*. 
+Über den Link gelangen Sie direkt zum *Beurteilungs*-Tab in der Leseansicht der Studie. Wenn Sie die Beurteilung abgeschlossen haben, klicken Sie auf *Fertig*. Sie können Ihre Arbeit aber auch zwischenspeichern (*Nur Speichern*), um zu einem späteren Zeitpunkt fortzufahren.
 
-Im Tab *Einreichung* sehen Sie die eingereichte Studie. Über die Tabs *Generell*, *Beurteilungen*, *Voten*, *Meldungen* und *Nachrichten* haben Sie Einblick in die studienbezogenen Vorgänge. Im Tab *Nachrichten* können Sie eine neue Nachricht schreiben. Unter *Aufgaben* im Tab *Generell* sehen Sie die Ihnen zugeteilten Aufgaben zu dieser Studie.
+Neben dem *Beurteilungs*-Tab stehen Ihnen noch weitere Tabs zur Einsicht in die Studie und alle wichtigen Vorgänge zur Verfügung. Der Tab *Einreichung* zeigt Ihnen die eingereichte Studie. Einblick in die studienbezogenen Vorgänge geben Ihnen die Tabs *Generell*, *Beurteilungen*, *Voten*, *Meldungen* und *Nachrichten*. Studienbezogene Nachrichten lassen sich über den Tab *Nachrichten* schreiben. Die Ihnen zugeteilten Aufgaben zu der dieser Studie finden Sie im Tab *Generell* unter *Aufgaben*.
 
