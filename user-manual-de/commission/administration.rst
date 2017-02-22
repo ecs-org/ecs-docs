@@ -7,23 +7,33 @@ Benutzerverwaltung
 
 In der Benutzerverwaltung scheinen alle Personen auf, die im ECS-System aktiv sind (sowohl bestätigte als auch nicht-bestätigte). Hier können Benutzer bestätigt, deren Daten bearbeitet und bestimmte Personen (z.B. Gutachter) eingeladen werden.
 
-Abwesenheit / Anwesenheit markieren
-+++++++++++++++++++++++++++++++++++
-
-Damit der interne Arbeitsprozess der Ethikkommission weiterlaufen kann, hat die Bürogruppe die Möglichkeit, einen temporär ausfallenden internen Benutzer als abwesend zu markieren und einen zeitweiligen Ersatz für die erhaltenen Nachrichten auszuwählen.
-
-Die abwesende Person wird zunächst in der Benutzerverwaltung mit einem Klick auf den entsprechenden Link als "verhindert" angezeigt und dann durch eine Vertretungsperson ersetzt. Diese Person erhält alle Nachrichten, die im Abwesenheitszeitraum an die abwesende Person geschickt werden. Die angenommenen Aufgaben der abwesenden Person werden für die jeweilige Gruppe in der *Aufgaben*-Box unter der Überschrift *Vertretungsaufgaben* angezeigt. 
-
-Wenn eine Person als "abwesend" markiert wurde, wechselt in der Benutzerverwaltung der Link *Als Verhindert markieren* zu *Als Anwesend markieren*. Damit Sie die Anzeige zur Abwesenheit aufheben können, klicken Sie auf den Link *Als Anwesend markieren*. Wenn Sie die Änderung speichern, wird der betreffende Benutzer wieder als "anwesend" angezeigt. 
-
 Benutzer einladen
 +++++++++++++++++
 
-Sie haben die Möglichkeit, einen neuen Benutzer (z.B. einen externen Gutachter) einzuladen. Jede Gruppe wird für bestimmte Aufgaben freigeschalten.
+Über die Benutzerverwaltung kann ein neuer Benutzer (z.B. ein externer Gutachter) eingeladen werden. Die Aufgaben, die dem eingeladenen Benutzer zufallen, werden durch die Einladung freigeschalten.
 
-Wählen Sie unter *Gruppen* jene Gruppe aus, in der die betreffende Person eine Funktion erfüllt (z.B. Executive, Überprüfer des Gutachtens, externer Gutachter, Versicherungsprüfer, usw.). Bsp.: Bei der Einladung eines Sitzungsmitgliedes muss unter *Gruppe* "Sitzungsmitglied" ausgewählt werden. Zusätzlich wird eine medizinische Kategorie benötigt. Es kann auch ein Fachgebiet für ein Expedited Review ausgewählt werden.
+Geben Sie Name, Geschlecht, Titel und E-Mail-Adresse an und wählen Sie unter *Gruppen* jene Gruppe aus, in der die betreffende Person eine Funktion erfüllt (z.B. Executive, Überprüfer des Gutachtens, externer Gutachter, Versicherungsprüfer, usw.). Beispiel: Bei der Einladung eines Sitzungsmitgliedes muss unter *Gruppe* "Sitzungsmitglied" ausgewählt werden. Wählen Sie desweiteren die Aufgabenart und die medizinische Kategorie. Es kann auch ein Fachgebiet für ein Expedited Review ausgewählt werden. Mit einem Klick auf *Einladen* wird der neue Benutzer angelegt.
 
 Alle Personen, die in der *Bürogruppe* tätig sind, müssen als *Intern* markiert werden. Dies ist nötig, damit jedes Mitglied der Bürogruppe in alle Studien einsehen kann. 
+
+Benutzerdetails ändern
+++++++++++++++++++++++
+
+Die Daten eines bereits angelegten Benutzers können über den Link *Details ändern* geändert werden. Klicken Sie dafür auf den betreffenden Namen in der Liste der Benutzer. Es öffnet sich die Detailansicht des Benutzers und der betreffende Link. Klicken Sie auf den Link. Sie werden auf eine neue Seite geleitet, wo Angaben geändert werden können. Klicken Sie zum Schluss auf *Speichern*.
+
+Benutzersuche
++++++++++++++
+
+Nutzen Sie die Eingabefelder *Tätigkeit*, *Gruppen*, *Aufgabenarten*, *Medizinische Kategorien* und *Name/E-Mail* um nach einzelnen Personen, Gruppen oder Aufgabenarten zu suchen. Wenn Sie eine Liste aller Benutzer haben wollen, achten Sie darauf, dass Sie in den Auswahlfeldern keine Sucheinschränkungen machen. 
+
+Abwesenheit / Anwesenheit markieren
++++++++++++++++++++++++++++++++++++
+
+Damit der interne Arbeitsprozess der Ethikkommission weiterlaufen kann wenn ein interner Benutzer temporär ausfällt, hat die Bürogruppe die Möglichkeit, ihn als abwesend zu markieren und einen zeitweiligen Ersatz für die erhaltenen Nachrichten auszuwählen.
+
+Die abwesende Person bekommt dafür in der Benutzerverwaltung den Status *Verhindert* und wird durch eine Vertretungsperson ersetzt. Klicken Sie dafür auf den Namen der verhinderten Person. Es öffnet sich eine detailierte Aufstellung ihrer Daten. Hier finden Sie auch den Link *Als Verhindert markieren*. Wenn Sie auf den Link klicken, werden Sie auf die Seite geleitet, wo die Person mittels einer Checkbox als verhindert markiert und die Nachrichtenvertretung ausgewählt wird. Sobald Sie auf *Speichern* geklickt haben, erscheint der Benutzer in der Benutzerliste als verhindert. Die Nachrichtenvertretung erhält alle Nachrichten, die im Abwesenheitszeitraum an die abwesende Person geschickt werden. Die angenommenen Aufgaben der abwesenden Person werden für die jeweilige Gruppe in der *Aufgaben*-Box unter der Überschrift *Vertretungsaufgaben* angezeigt. 
+
+Wenn eine Person als "abwesend" markiert wurde, wechselt in der Benutzerverwaltung der Link *Als Verhindert markieren* zu *Als Anwesend markieren*. Damit Sie die Anzeige zur Abwesenheit aufheben können, klicken Sie auf den Link *Als Anwesend markieren* und speichern Sie die Änderungen.
 
 Gebührenabrechnung
 ==================

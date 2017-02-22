@@ -75,7 +75,7 @@ Nachricht an einen Beteiligten senden
 Befristete Autorisierung
 ++++++++++++++++++++++++
 
-Es können zeitbegrenzte Zugriffe auf eine Studie zugelassen werden. Die Zulassung erfolgt von einem Mitglied der Executive-Gruppe. Wählen Sie dafür den für die Autorisierung bestimmten Benutzer mittels Eingabe des Anfangsbuchstaben oder der Anfangssilbe des Namens aus. Die Autovervollständigung bewirkt eine automatische Suche aller Personen mit den eingegebenen Anfangsbuchstaben. Bestimmen Sie nun Anfang und Ende der Frist. Sobald Sie auf *Autorisieren* geklickt haben, erscheint die Partei in der Spalte der befristeten Autorisierungen. Wenn Sie die Autorisierung löschen wollen, klicken Sie auf das Löschen-Symbol am rechten Rand der betreffenden Zeile.
+Die befristete Autorisierung ermöglicht einen temporären Lesezugriff auf die Studie für einen Benutzer, der sonst keinen Zugriff hat. Die Autorisierung erfolgt von einem Mitglied der Executive-Gruppe. Wählen Sie dafür den für die Autorisierung bestimmten Benutzer mittels Eingabe des Anfangsbuchstaben oder der Anfangssilbe des Namens aus. Die Autovervollständigung bewirkt eine automatische Suche aller Personen mit den eingegebenen Anfangsbuchstaben. Bestimmen Sie nun Anfang und Ende der Frist. Sobald Sie auf *Autorisieren* geklickt haben, erscheint die Partei in der Spalte der befristeten Autorisierungen. Wenn Sie die Autorisierung löschen wollen, klicken Sie auf das Löschen-Symbol am rechten Rand der betreffenden Zeile.
  
 Befangene Parteien
 ++++++++++++++++++

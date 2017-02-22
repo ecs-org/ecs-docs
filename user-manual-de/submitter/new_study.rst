@@ -276,8 +276,6 @@ Linux/BSD/Solaris
 
   Bei diesen Sytemen können Sie über einen "CUPS"-Treiber PDF-Dateien erstellen. Diese Funktionalität erreichen Sie über den Druckdialog. Hinweise zur Installation dieses Treibers lesen Sie bitte im Administrationshandbuch Ihres Systems nach. Falls Sie eine Linux-Desktop-Distribution verwenden (z.B. Ubuntu) ist dieser Treiber möglicherweise schon installiert.
   
-  .. XXX: Sind die Angaben zur Erstellung von PDF-Dateien noch aktuell?
-
 Zentren
 +++++++
 
