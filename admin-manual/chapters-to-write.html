@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>describe installation &amp; configuration &#8212; ecs-admin-manual 0 TODO:use git id documentation</title>
+    
+    <link rel="stylesheet" href="_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0 TODO:use git id',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="ecs-admin-manual 0 TODO:use git id documentation" href="index.html" />
+    <link rel="prev" title="Appliance architecture" href="architecture.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="describe-installation-configuration">
+<span id="describe-installation-configuration"></span><h1>describe installation &amp; configuration<a class="headerlink" href="#describe-installation-configuration" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="describe-signing-setup">
+<span id="describe-signing-setup"></span><h1>describe signing (setup)<a class="headerlink" href="#describe-signing-setup" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="describe-security-user-bootstrap">
+<span id="describe-security-user-bootstrap"></span><h1>describe security &amp; user bootstrap<a class="headerlink" href="#describe-security-user-bootstrap" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="describe-automatic-task-and-submission-closings-ecs-cleanup">
+<span id="describe-automatic-task-and-submission-closings-ecs-cleanup"></span><h1>describe automatic task and submission closings (ecs cleanup)<a class="headerlink" href="#describe-automatic-task-and-submission-closings-ecs-cleanup" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="describe-the-generated-pdf-s">
+<span id="describe-the-generated-pdf-s"></span><h1>describe the generated pdf&#8217;s<a class="headerlink" href="#describe-the-generated-pdf-s" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>pdf&#8217;s:<ul>
+<li>with ec_head:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">templates</span><span class="o">/</span><span class="n">checklists</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">checklist</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">email</span><span class="o">/</span><span class="n">agenda</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">agenda</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">protocol</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">timetable</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">vote</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">notifications</span><span class="o">/</span><span class="n">answers</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">base</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="n">without</span> <span class="n">ec_head</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">email</span><span class="o">/</span><span class="n">timetable</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;wkhtml2pdf/skeleton.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">vote_preview</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;wkhtml2pdf/skeleton.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">notifications</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">base</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;wkhtml2pdf/skeleton.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">view</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;wkhtml2pdf/skeleton.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="describe-the-types-of-messages-the-ecs-sends">
+<span id="describe-the-types-of-messages-the-ecs-sends"></span><h1>describe the types of messages the ecs sends<a class="headerlink" href="#describe-the-types-of-messages-the-ecs-sends" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">grep</span> <span class="s2">&quot;send_.*message&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;from.*import&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;def.*(.*):&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>emails from text template: find . -name &#8220;*.txt&#8221;</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">presenter_change_new</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">acknowledge_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">change_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">new_version_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">creation_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">presenter_change_previous</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">susar_presenter_change_new</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">susar_presenter_change_previous</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">decline_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">vote_publish</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">new_signing_user</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">indisposed_proxy</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">division_of_work</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">search</span><span class="o">/</span><span class="n">indexes</span><span class="o">/</span><span class="n">help</span><span class="o">/</span><span class="n">page_text</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">checklists</span><span class="o">/</span><span class="n">external_review_publish</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">checklists</span><span class="o">/</span><span class="n">external_review_declined</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">checklists</span><span class="o">/</span><span class="n">external_reviewer_invitation</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">notifications</span><span class="o">/</span><span class="n">answers</span><span class="o">/</span><span class="n">new_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">communication</span><span class="o">/</span><span class="n">mail</span><span class="o">/</span><span class="n">digest</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">msg_core</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">email</span><span class="o">/</span><span class="n">basg</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="n">primary_investigator_invitation</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="n">expedited_reviewer_invitation</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>emails from html template: find . -name &#8220;*email.html&#8221;</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">registration</span><span class="o">/</span><span class="n">activation_email</span><span class="o">.</span><span class="n">html</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">invitation</span><span class="o">/</span><span class="n">invitation_email</span><span class="o">.</span><span class="n">html</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">password_reset</span><span class="o">/</span><span class="n">reset_email</span><span class="o">.</span><span class="n">html</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">password_reset</span><span class="o">/</span><span class="n">register_email</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>python code sending non template emails:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">grep</span> <span class="s2">&quot;send_.*message&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;from.*import&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;def.*(.*):&quot;</span>  <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;/.*\.txt&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="n">send_message_on_close</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="n">message_template</span> <span class="o">|</span><span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="n">tests</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span> <span class="o">|</span> <span class="n">manual</span> <span class="nb">filter</span>
+<span class="n">ecs</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">views</span><span class="o">/</span><span class="n">submissions</span><span class="o">.</span><span class="n">py</span>
+<span class="n">ecs</span><span class="o">/</span><span class="n">documents</span><span class="o">/</span><span class="n">tasks</span><span class="o">.</span><span class="n">py</span>
+<span class="n">ecs</span><span class="o">/</span><span class="n">tasks</span><span class="o">/</span><span class="n">tasks</span><span class="o">.</span><span class="n">py</span>
+<span class="n">ecs</span><span class="o">/</span><span class="n">votes</span><span class="o">/</span><span class="n">tasks</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe installation &amp; configuration</a></li>
+<li><a class="reference internal" href="#describe-signing-setup">describe signing (setup)</a></li>
+<li><a class="reference internal" href="#describe-security-user-bootstrap">describe security &amp; user bootstrap</a></li>
+<li><a class="reference internal" href="#describe-automatic-task-and-submission-closings-ecs-cleanup">describe automatic task and submission closings (ecs cleanup)</a></li>
+<li><a class="reference internal" href="#describe-the-generated-pdf-s">describe the generated pdf&#8217;s</a></li>
+<li><a class="reference internal" href="#describe-the-types-of-messages-the-ecs-sends">describe the types of messages the ecs sends</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="architecture.html"
+                        title="previous chapter">Appliance architecture</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="related bottom">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="architecture.html" title="Previous document">Appliance architecture</a>
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="index.html">Ecs BenutzerInnen Handbuch</a></li> 
+    </ul>
+  </nav>
+  </div>
+  <footer id="pagefooter">&copy; Copyright 2017 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a>
+      1.4.8.
+
+  </footer>
+
+  
+  </body>
+</html>

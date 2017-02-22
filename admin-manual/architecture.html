@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Appliance architecture &#8212; ecs-admin-manual 0 TODO:use git id documentation</title>
+    
+    <link rel="stylesheet" href="_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0 TODO:use git id',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="ecs-admin-manual 0 TODO:use git id documentation" href="index.html" />
+    <link rel="next" title="describe installation &amp; configuration" href="chapters-to-write.html" />
+    <link rel="prev" title="Ecs Administration Handbook" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="appliance-architecture">
+<span id="appliance-architecture"></span><h1>Appliance architecture<a class="headerlink" href="#appliance-architecture" title="Permalink to this headline">¶</a></h1>
+<img src="_images/graphviz-df40701b01c85ccf7f7096e1975c4428a49fc418.png" alt="#### perform execution via cpp | dot
+#include &quot;dot-style.h&quot;
+#define to -&gt;
+
+PROCESSFLOW(&quot;ECS - Appliance Architecture&quot;)
+    edge [style=dashed]
+    cluster(user,&quot;User&quot;)
+        prod(webclient,&quot;Webbrowser&quot;)
+        prod(emailclient,&quot;Emailclient&quot;)
+    endcluster
+
+    prod(nginx,&quot;Nginx\nWebserver&quot;)
+    prod(stunnel,&quot;Stunnel\nIncoming Mail Proxy&quot;)
+    prod(smartmx,&quot;Postfix\nOutgoing Mailserver&quot;)
+
+    prod(ecs,&quot;ECS-Container\nWebserver\nQueue-Worker\nQueue-Beat\nMailserver&quot;)
+    prod(mocca,&quot;Tomcat-Container\nMocca - Citizen Card System&quot;)
+    prod(pdfas,&quot;Tomcat-Container\nPdfas - PDF Creation&quot;)
+
+    prod(redis,&quot;Redis-Container\nQueuing-Server&quot;)
+    prod(memcache, &quot;Memcache-Container\nMemory-Cache&quot;)
+    prod(postgresql,&quot;PostgreSQL\nDatabase Server&quot;)
+    prod(storagevault,&quot;shared filesystem\nStorage Vault&quot;)
+
+    webclient to nginx bidir(https)
+    emailclient to stunnel unidir(smtp)
+    smartmx to emailclient unidir(smtp)
+
+    nginx to ecs bidir(http)
+    nginx to pdfas bidir(http)
+    nginx to mocca bidir(http)
+
+    ecs to postgresql bidir(sql)
+    ecs to redis bidir(redis)
+    ecs to memcache bidir(memcache)
+    ecs to smartmx unidir(smtp)
+    ecs to storagevault bidir(file)
+    stunnel to ecs unidir(smtp)
+END" />
+<img src="_images/graphviz-a6acc2d50705911b524fbe024656b458d1dc8eb9.png" alt="#include &quot;dot-style.h&quot;
+PROCESSFLOW(&quot;Test Von Graphviz mit cpp dot-style.h&quot;)
+  PROTOCOLLEGEND
+END" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Ecs Administration Handbook</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="chapters-to-write.html"
+                        title="next chapter">describe installation &amp; configuration</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="related bottom">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="index.html" title="Previous document">Ecs Administration Handbook</a>
+        </li>
+        <li>
+          <a href="chapters-to-write.html" title="Next document">describe installation &amp; configuration</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="index.html">Ecs BenutzerInnen Handbuch</a></li> 
+    </ul>
+  </nav>
+  </div>
+  <footer id="pagefooter">&copy; Copyright 2017 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a>
+      1.4.8.
+
+  </footer>
+
+  
+  </body>
+</html>

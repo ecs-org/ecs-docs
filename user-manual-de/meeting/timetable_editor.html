@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Zeitplanung &#8212; ecs-user-manual-de 0 TODO:use git id Dokumentation</title>
+    
+    <link rel="stylesheet" href="../_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0 TODO:use git id',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="Über dieses Dokument" href="../about.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="top" title="ecs-user-manual-de 0 TODO:use git id Dokumentation" href="../index.html" />
+    <link rel="up" title="Sitzungen" href="index.html" />
+    <link rel="next" title="Sitzungsassistent" href="assistent.html" />
+    <link rel="prev" title="Spezialistenzuordnung" href="expert_assignment.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="zeitplanung">
+<h1>Zeitplanung<a class="headerlink" href="#zeitplanung" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Der Zeitplan gibt Ihnen eine Übersicht über alle Tagesordnungspunkte (Einreichungen, Pausen, Sonstiges). Hier können Sie die Reihenfolge und Dauer der TOPs festlegen.</p>
+<p>FIXME: Veränderungen des Startzeitpunkts sortiert alle TOP&#8217;s auf diesen neuen Startzeitpunkt,
+dadurch verletzte Abhängigkeiten werden erst durch eine neue optimierung gelöst.</p>
+<div class="section" id="teilnehmer-innen">
+<h2>Teilnehmer/innen<a class="headerlink" href="#teilnehmer-innen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Alle auf einen Tagesordnungspunkt bezogenen Teilnehmer/innen werden innerhalb des TOP&#8217;s aufgelistet. Auf der rechten Seite der Ansicht finden Sie einen Überblick über alle anwesenden Teilnehmer/innen in dieser Sitzung.</p>
+<div class="section" id="einschrankungen-der-teilnehmer-innen">
+<h3>Einschränkungen der Teilnehmer/innen<a class="headerlink" href="#einschrankungen-der-teilnehmer-innen" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Wenn eine Teilnehmerin zu einer bestimmten Zeit nicht anwesend sein kann (weil sie erst später kommt, früher gehen muss oder zwischendurch abwesend ist), besteht die Möglichkeit über den Link <em>Einschränkungen bearbeiten</em> die betreffende zeitliche Einschränkung anzugeben. Zu jeder Teilnehmerin gibt es einen eigenen Link über den Sie zur entsprechenden Bearbeitungsseite gelangen.</p>
+</div>
+<div class="section" id="teilnehmer-innen-einschrankungen-festlegen">
+<h3>Teilnehmer/innen-Einschränkungen festlegen<a class="headerlink" href="#teilnehmer-innen-einschrankungen-festlegen" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Geben Sie in dieser Ansicht die zeitliche Einschränkung der betreffenden Person an. Klicken Sie dafür auf <img alt="gruenesplus" src="../_images/gruenesplus.png" />. Dadurch öffnen sich Felder, in denen Sie den Zeitraum eintragen können. Zusätzlich besteht die Möglichkeit einer Gewichtungsangabe, d.h., Sie können mittels eines Auswahlfeldes angeben, ob der betreffende Zeitraum für die Person <em>ungünstig</em> oder <em>unmöglich</em> ist. Geben Sie mehrere Zeiträume an, wenn das der Fall sein sollte. Klicken Sie dafür jedes Mal auf <img alt="gruenesplus" src="../_images/gruenesplus.png" />, damit sich neue Felder öffnen. Sollten Sie einen Zeitraum entfernen wollen, klicken Sie auf <img alt="rotesx" src="../_images/rotesx.png" />.</p>
+<p>Die Bearbeitung muss gespeichert werden, damit sie in die Zeitplanung aufgenommen werden kann.</p>
+</div>
+<div class="section" id="verletzte-einschrankungen">
+<h3>Verletzte Einschränkungen<a class="headerlink" href="#verletzte-einschrankungen" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Wurde im Zeitraum, in dem eine Teilnehmerin nicht anwesend ist (diese Zeit wird unter <em>Einschränkungen bearbeiten</em> angegeben), ein ihre Anwesenheit erforderlicher TOP geplant, so scheint diese Kollision unter der Überschrift <em>Verletzte Einschränkungen</em> auf. Der Hinweis soll Ihnen helfen, mögliche Organisationsfehler zu verhindern.</p>
+</div>
+</div>
+<div class="section" id="optimierungen">
+<h2>Optimierungen<a class="headerlink" href="#optimierungen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Wenn Sie auf den Link <em>Optimieren</em> klicken, wird Ihnen automatisch - unter Berücksichtigung der zeitlichen Einschränkungen der Sitzungsteilnehmer/innen - eine vorteilhafte Sortierung erstellt. Dieser Vorgang kann einige Sekunden in Anspruch nehmen. Während die Optimierung läuft, kann der Zeitplan nicht manuell bearbeitet werden. Sind Sie mit der Verteilung nicht zufrieden, können Sie den Vorgang wiederholen.</p>
+<p>Falls Sie mehr Zeit für die Planung der TOPs zur Verfügung haben, besteht die Möglichkeit, die Funktion <em>Lange Optimieren</em> zu nutzen. Die Wartedauer ist etwas länger als bei der normalen Optimierung, aber das Ergebnis fällt vorteilhafter aus.</p>
+</div>
+<div class="section" id="tagesordungspunkte-selbst-erstellen">
+<h2>Tagesordungspunkte selbst erstellen<a class="headerlink" href="#tagesordungspunkte-selbst-erstellen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Sie können ein neues TOP hinzufügen (z.B. eine Pause oder einen TOP, der keinen Bezug zu einer Studie hat), indem Sie auf den Link <em>Termin hinzufügen</em> klicken. Sie werden auf die entsprechende Seite weitergeleitet. Geben Sie einen Titel ein. Wenn es sich dabei um eine Pause handelt, schreiben Sie &#8220;Pause&#8221;, &#8220;Mittagspause&#8221; o.ä. in das Titel-Eingabefeld und aktivieren Sie zusätzlich die Checkbox. Tragen Sie außerdem die ideale Startzeit und die Dauer ein. Die von Ihnen angegebene ideale Startzeit wird bei einer gegebenenfalls durchgeführten Optimierung berücksichtigt. Wenn Sie während der Erstellung abbrechen wollen, klicken Sie auf den entsprechenden Knopf. Wenn Sie die Angaben speichern, werden Sie zurück auf die Übersicht aller TOPs geführt, wo das neu erstellte TOP automatisch als Letztes eingereiht wird. Klicken Sie auf eine der beiden Optimierungs-Optionen, um das neue TOP möglichst gut in den Tagesablauf zu integrieren oder verschieben Sie es manuell.</p>
+<p>TOPs, die unter <em>Termin hinzufügen</em> erstellt wurden, können wieder gelöscht werden. Klicken Sie dafür auf <img alt="delete_top" src="../_images/delete_top.png" /> innerhalb des TOP&#8217;s.</p>
+</div>
+<div class="section" id="umsortierung-der-tops">
+<h2>Umsortierung der TOPs<a class="headerlink" href="#umsortierung-der-tops" title="Link zu dieser Überschrift">¶</a></h2>
+<p><img alt="timetabledragdrop" src="../_images/timetabledragdrop.png" /> Um die Einträge des Zeitplans manuell umzusortieren, nehmen Sie ein Element des Zeitplans am Pfeilkreuz und ziehen Sie es an die gewünschte Position. Beachten Sie, dass eine Optimierung in die Sortierreihenfolge eingreift und möglicherweise die von Ihnen gewählte Position des Elements verändert.</p>
+</div>
+<div class="section" id="zeitdauer-eines-top-s-andern">
+<h2>Zeitdauer eines TOP&#8217;s ändern<a class="headerlink" href="#zeitdauer-eines-top-s-andern" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Innerhalb eines jeden TOP&#8217;s gibt es ein Eingabefeld, in dem Sie die Zeitdauer auf einen längeren oder kürzeren Zeitraum ändern können. (z.B. 10:15:00). Betätigen Sie anschließend die Eingabetaste.</p>
+</div>
+<div class="section" id="pausen-top">
+<h2>Pausen-TOP<a class="headerlink" href="#pausen-top" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Im Pausen-TOP sehen Sie die Anzahl der Teilnehmer/innen vor, nach und während der Pause. Dadurch kann das System errechnen, für wie viele Teilnehmer/innen Catering bestellt werden muss.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Zeitplanung</a><ul>
+<li><a class="reference internal" href="#teilnehmer-innen">Teilnehmer/innen</a><ul>
+<li><a class="reference internal" href="#einschrankungen-der-teilnehmer-innen">Einschränkungen der Teilnehmer/innen</a></li>
+<li><a class="reference internal" href="#teilnehmer-innen-einschrankungen-festlegen">Teilnehmer/innen-Einschränkungen festlegen</a></li>
+<li><a class="reference internal" href="#verletzte-einschrankungen">Verletzte Einschränkungen</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optimierungen">Optimierungen</a></li>
+<li><a class="reference internal" href="#tagesordungspunkte-selbst-erstellen">Tagesordungspunkte selbst erstellen</a></li>
+<li><a class="reference internal" href="#umsortierung-der-tops">Umsortierung der TOPs</a></li>
+<li><a class="reference internal" href="#zeitdauer-eines-top-s-andern">Zeitdauer eines TOP&#8217;s ändern</a></li>
+<li><a class="reference internal" href="#pausen-top">Pausen-TOP</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Vorheriges Thema</h4>
+  <p class="topless"><a href="expert_assignment.html"
+                        title="vorheriges Kapitel">Spezialistenzuordnung</a></p>
+  <h4>Nächstes Thema</h4>
+  <p class="topless"><a href="assistent.html"
+                        title="nächstes Kapitel">Sitzungsassistent</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="related bottom">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="expert_assignment.html" title="Previous document">Spezialistenzuordnung</a>
+        </li>
+        <li>
+          <a href="assistent.html" title="Next document">Sitzungsassistent</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="../index.html">Ecs BenutzerInnen Handbuch</a></li>
+      <li>
+        <a href="index.html">Sitzungen</a>
+      </li> 
+    </ul>
+  </nav>
+  </div>
+  <footer id="pagefooter">&copy; Copyright 2017 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften.
+
+  </footer>
+
+  
+  </body>
+</html>
