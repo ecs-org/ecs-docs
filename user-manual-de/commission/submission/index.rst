@@ -20,7 +20,7 @@ Sitzungsansicht
 Sitzung verschieben
 +++++++++++++++++++
 
-Über den Link *Neu planen* kann eine Studie von einer Sitzung in eine andere verschoben werden. Der Link führt Sie auf die Seite, wo die Bearbeitung vorgenommen wird. Wählen Sie im ersten Auswahlfeld die aktuelle Sitzung und im zweiten Auswahlfeld die Zielsitzung aus. Die Auswahlfelder zeigen Ihnen alle zur Verfügung stehenden Termine an. Klicken Sie am Ende auf *Speichern und zurück zur Studie*, wodurch Sie auf den Status der Leseansicht der Studie kommen. In der Tabelle *Sitzungen* sehen Sie nun den neuen Sitzungstermin.
+Mitglieder der Executive-Gruppe können über den Link *Neu planen* eine Studie von einer Sitzung in eine andere verschieben. Der Link führt Sie auf die Seite, wo die Bearbeitung vorgenommen wird. Wählen Sie im ersten Auswahlfeld die aktuelle Sitzung und im zweiten Auswahlfeld die Zielsitzung aus. Die Auswahlfelder zeigen Ihnen alle zur Verfügung stehenden Termine an. Klicken Sie am Ende auf *Speichern und zurück zur Studie*, wodurch Sie auf den Status der Leseansicht der Studie kommen. In der Tabelle *Sitzungen* sehen Sie nun den neuen Sitzungstermin.
 
 Generell/Aufgaben
 =================
@@ -32,7 +32,7 @@ Wenn Sie eine Aufgabe erledigen, können Sie zwischenspeichern und zu einem ande
 Generell/Einstufung
 ===================
 
-In der Einstufung wird eine eingereichte Studie eingestuft und kategorisiert, z.B. nach AMG, MPG, medizinischen Kategorien, welche Beurteilungen nötig sind, wer die Studie begutachten soll, usw.
+In der Einstufung, die durch die Executive-Gruppe erfolgt, wird eine eingereichte Studie eingestuft und kategorisiert, z.B. nach AMG, MPG, medizinischen Kategorien, welche Beurteilungen nötig sind, wer die Studie begutachten soll, usw.
 
 Beachten Sie, dass Sie die Einstufung nur dann machen können, wenn Sie die Aufgabe für sich reseviert haben.
 
@@ -75,7 +75,7 @@ Nachricht an einen Beteiligten senden
 Befristete Autorisierung
 ++++++++++++++++++++++++
 
-Die befristete Autorisierung ermöglicht einen temporären Lesezugriff auf die Studie für einen Benutzer, der sonst keinen Zugriff hat. Die Autorisierung erfolgt von einem Mitglied der Executive-Gruppe. Wählen Sie dafür den für die Autorisierung bestimmten Benutzer mittels Eingabe des Anfangsbuchstaben oder der Anfangssilbe des Namens aus. Die Autovervollständigung bewirkt eine automatische Suche aller Personen mit den eingegebenen Anfangsbuchstaben. Bestimmen Sie nun Anfang und Ende der Frist. Sobald Sie auf *Autorisieren* geklickt haben, erscheint die Partei in der Spalte der befristeten Autorisierungen. Wenn Sie die Autorisierung löschen wollen, klicken Sie auf das Löschen-Symbol am rechten Rand der betreffenden Zeile.
+Die befristete Autorisierung ermöglicht einen temporären Lesezugriff auf die Studie für einen Benutzer, der sonst keinen Zugriff hat. Die Autorisierung erfolgt von einem Mitglied der Executive-Gruppe. Wählen Sie dafür den für die Autorisierung bestimmten Benutzer mittels Eingabe des Anfangsbuchstaben oder der Anfangssilbe des Namens aus. Die Autovervollständigung bewirkt eine automatische Suche aller Personen mit den eingegebenen Anfangsbuchstaben. Bestimmen Sie nun Anfang und Ende der Frist. Sobald Sie auf *Autorisieren* geklickt haben, erscheint die Partei in der Spalte der befristeten Autorisierungen. Wenn Sie die Autorisierung zurückziehen wollen, klicken Sie auf das Löschen-Symbol am rechten Rand der betreffenden Zeile.
  
 Befangene Parteien
 ++++++++++++++++++

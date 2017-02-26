@@ -35,13 +35,18 @@ Die abwesende Person bekommt dafür in der Benutzerverwaltung den Status *Verhin
 
 Wenn eine Person als "abwesend" markiert wurde, wechselt in der Benutzerverwaltung der Link *Als Verhindert markieren* zu *Als Anwesend markieren*. Damit Sie die Anzeige zur Abwesenheit aufheben können, klicken Sie auf den Link *Als Anwesend markieren* und speichern Sie die Änderungen.
 
+Abrechnung
+==========
+
+Die Abrechnung von unverrechneten Einreichungen und Gutachten erfolgt durch Mitglieder der Executive- und Office-Gruppe.
+
 Gebührenabrechnung
-==================
+++++++++++++++++++
 
 In der Gebührenabrechnung wird die Abrechnung von unverrechneten Einreichungen erstellt. Benutzen Sie die Filter, um eine Auswahl der studienbezogenen Rechungen zu treffen. Laden Sie dann die Auflistung als xls-Datei herunter und schicken Sie diese weiter an die Finanzabteilung.
 
 Gutachter-Bezahlung
-===================
++++++++++++++++++++
 
 In der Gutachter-Bezahlung wird die Abrechnung von unverrechneten Gutachten erstellt. Die Filter ermöglichen dabei eine Auswahl der zu bezahlenden Gutachter. Wenn Sie die Abrechnung erstellt haben, können Sie sie als xls-Datei herunterladen und weiter an die Finanzabteilung schicken. 
 

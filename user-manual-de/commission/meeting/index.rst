@@ -9,7 +9,7 @@ Die Menüpunkte *Nächste Sitzung*, *Kommende Sitzungen*, *Vergangene Sitzungen*
 Neue Sitzung
 ============
 
-Jede zukünftige Sitzung muss neu angelegt werden. Geben Sie dafür den Namen (z.B. "Mai 20.. Sitzung"), den Zeitpunkt für die Sitzung und den letzten Einreichtermin an. Das Eingabefeld *Letzter Einreichtermin für Diplomarbeiten/Dissertationen* bezeichnet den letzten Zeitpunkt, an dem eine Diplomarbeits-/Dissertationsstudie einem Meeting zugeordnet wird/werden kann. Sie können das Datum mittels eines Kalenders auswählen. Uhrzeiten müssen manuell eingegeben werden.
+Jede zukünftige Sitzung muss neu angelegt werden. Dies passiert durch die Office-Gruppe. Geben Sie dafür den Namen (z.B. "Mai 20.. Sitzung"), den Zeitpunkt für die Sitzung und den letzten Einreichtermin an. Das Eingabefeld *Letzter Einreichtermin für Diplomarbeiten/Dissertationen* bezeichnet den letzten Zeitpunkt, an dem eine Diplomarbeits-/Dissertationsstudie einem Meeting zugeordnet wird/werden kann. Sie können das Datum mittels eines Kalenders auswählen. Uhrzeiten müssen manuell eingegeben werden.
 
 Wenn Sie die Eingaben abgeschlossen haben und speichern, kommen Sie auf den *Status*-Tab der Sitzungsübersicht. Hier sind die Eintragungen, die Sie bezüglich der neuen Sitzung gemacht haben (Datum der Sitzung, Deadlines), auch editierbar. 
 
@@ -55,7 +55,7 @@ Status
 
 - Der Zeitplan kann als PDF-Datei heruntergeladen werden.
 
-- Das Sitzungsprotokoll kann als PDF-Datei heruntergeladen werden. Klicken Sie dafür auf den Link *PDF erstellen* und warten Sie, bis sich das Rädchen dreht. Laden Sie nach einer Weile die Seite neu, damit der Link "Als PDF herunterladen" erscheint. Klicken Sie dafür neben der Url auf Reload. Das Protokoll kann nun mittels eines Links heruntergeladen werden. Wenn Änderungen vorgenommen wurden, können Sie das Protokoll auch mittels Link verwerfen und neu erstellen.
+- Das Sitzungsprotokoll kann als PDF-Datei heruntergeladen werden. Klicken Sie dafür auf den Link *PDF erstellen* und warten Sie, bis sich das Rädchen dreht. Laden Sie nach einer Weile die Seite neu, damit der Link "Als PDF herunterladen" erscheint. Klicken Sie dafür neben der Url auf Reload. Das Protokoll kann nun mittels eines Links heruntergeladen werden. Wenn Änderungen vorgenommen wurden, können Sie mittels Link das Protokoll verwerfen und neu erstellen.
 
   - Das Protokoll wird an alle Ethikkommissionsmitglieder, die bei der Sitzung als Spezialisten anwesend waren, sowie an alle "Resident"-Mitglieder und an Mitglieder der Gruppe "Meeting Protocol Receiver" versendet.
 
@@ -73,8 +73,8 @@ In der Einstufung und Zuteilung wurden die Studien bestimmten medizinischen Kate
 
 Zeitplanung
 +++++++++++
-
-Der Zeitplan gibt Ihnen eine Übersicht über alle Tagesordnungspunkte (Einreichungen, Pausen, Sonstiges). Hier können Sie die Reihenfolge und Dauer der TOPs festlegen.
+ 
+Der Zeitplan wird durch die Mitglieder der Office-Gruppe erstellt. Er gibt eine Übersicht über alle Tagesordnungspunkte (Einreichungen, Pausen, Sonstiges), deren Reihenfolge und Dauer hier festgelegt werden kann.
 
 FIXME: Veränderungen des Startzeitpunkts sortiert alle TOP's auf diesen neuen Startzeitpunkt,
 dadurch verletzte Abhängigkeiten werden erst durch eine neue optimierung gelöst.
@@ -82,22 +82,19 @@ dadurch verletzte Abhängigkeiten werden erst durch eine neue optimierung gelös
 Teilnehmer
 ----------
 
-Alle auf einen Tagesordnungspunkt bezogenen Teilnehmer werden innerhalb des TOP's aufgelistet. Auf der rechten Seite der Ansicht finden Sie einen Überblick über alle anwesenden Teilnehmer in dieser Sitzung.
+Alle auf einen Tagesordnungspunkt bezogenen Teilnehmer werden innerhalb des TOPs aufgelistet. Auf der rechten Seite der Ansicht finden Sie einen Überblick über alle anwesenden Teilnehmer in dieser Sitzung.
 
 Einschränkungen der Teilnehmer
 ------------------------------
 
-Wenn eine Teilnehmerin zu einer bestimmten Zeit nicht anwesend sein kann (weil sie erst später kommt, früher gehen muss oder zwischendurch abwesend ist), besteht die Möglichkeit über den Link *Einschränkungen bearbeiten* die betreffende zeitliche Einschränkung anzugeben. Zu jeder Teilnehmerin gibt es einen eigenen Link über den Sie zur entsprechenden Bearbeitungsseite gelangen.
+Wenn ein Teilnehmer zu einer bestimmten Zeit nicht anwesend sein kann (weil sie erst später kommt, früher gehen muss oder zwischendurch abwesend ist), besteht die Möglichkeit über den Link *Einschränkungen bearbeiten* die betreffende zeitliche Einschränkung anzugeben. Zu jedem Teilnehmer gibt es einen eigenen Link, über den Sie zur entsprechenden Bearbeitungsseite gelangen.
 
 Teilnehmer-Einschränkungen festlegen
 ------------------------------------
 
-Geben Sie in dieser Ansicht die zeitliche Einschränkung der betreffenden Person an. Klicken Sie dafür auf das grüne Plus. Dadurch öffnen sich Felder, in denen Sie den Zeitraum eintragen können. Zusätzlich besteht die Möglichkeit einer Gewichtungsangabe, d.h., Sie können mittels eines Auswahlfeldes angeben, ob der betreffende Zeitraum für die Person *ungünstig* oder *unmöglich* ist. Geben Sie mehrere Zeiträume an, wenn das der Fall sein sollte. Klicken Sie dafür jedes Mal auf das grüne Plus, damit sich neue Felder öffnen. Sollten Sie einen Zeitraum entfernen wollen, klicken Sie auf das rote Plus.
+Geben Sie in dieser Ansicht die zeitliche Einschränkung der betreffenden Person an. Klicken Sie dafür auf das grüne-Plus-Symbol. Dadurch öffnen sich Felder, in denen Sie den Zeitraum eintragen können. Zusätzlich besteht die Möglichkeit einer Gewichtungsangabe, d.h., Sie können mittels eines Auswahlfeldes angeben, ob der betreffende Zeitraum für die Person *ungünstig* oder *unmöglich* ist. Geben Sie mehrere Zeiträume an, wenn das der Fall sein sollte. Klicken Sie dafür jedes Mal auf das grüne-Plus-Symbol, damit sich neue Felder öffnen. Sollten Sie einen Zeitraum entfernen wollen, klicken Sie auf das rote-Plus-Symbol.
 
 Die Bearbeitung muss gespeichert werden, damit sie in die Zeitplanung aufgenommen werden kann.
-
-.. XXX: grünes Plus rotes Plus
-
 
 Verletzte Einschränkungen
 -------------------------
@@ -114,7 +111,7 @@ Falls Sie mehr Zeit für die Planung der TOPs zur Verfügung haben, besteht die 
 Tagesordungspunkte selbst erstellen
 -----------------------------------
 
-Sie können ein neues TOP hinzufügen (z.B. eine Pause oder einen TOP, der keinen Bezug zu einer Studie hat), indem Sie auf den Link *Termin hinzufügen* klicken. Sie werden auf die entsprechende Seite weitergeleitet. Geben Sie einen Titel ein. Wenn es sich dabei um eine Pause handelt, schreiben Sie "Pause", "Mittagspause" o.ä. in das Titel-Eingabefeld und aktivieren Sie zusätzlich die Checkbox. Tragen Sie außerdem die ideale Startzeit und die Dauer ein. Die von Ihnen angegebene ideale Startzeit wird bei einer gegebenenfalls durchgeführten Optimierung berücksichtigt. Wenn Sie während der Erstellung abbrechen wollen, klicken Sie auf den entsprechenden Knopf. Wenn Sie die Angaben speichern, werden Sie zurück auf die Übersicht aller TOPs geführt, wo das neu erstellte TOP automatisch als Letztes eingereiht wird. Klicken Sie auf eine der beiden Optimierungs-Optionen, um das neue TOP möglichst gut in den Tagesablauf zu integrieren oder verschieben Sie es manuell.
+Sie können ein neues TOP hinzufügen (z.B. eine Pause oder einen TOP, der keinen Bezug zu einer Studie hat), indem Sie auf den Link *Termin hinzufügen* klicken. Sie werden auf die entsprechende Seite weitergeleitet. Geben Sie einen Titel ein. Wenn es sich dabei um eine Pause handelt, schreiben Sie "Pause", "Mittagspause" o.ä. in das Titel-Eingabefeld und aktivieren Sie zusätzlich die Checkbox. Tragen Sie außerdem die ideale Startzeit und die Dauer ein. Die von Ihnen angegebene ideale Startzeit wird bei einer gegebenenfalls durchgeführten Optimierung berücksichtigt. Wenn Sie während der Erstellung abbrechen wollen, klicken Sie auf den entsprechenden Knopf. Wenn Sie die Angaben speichern, werden Sie zurück auf die Übersicht aller TOPs geführt, wo das neu erstellte TOP automatisch als letztes eingereiht wird. Klicken Sie auf eine der beiden Optimierungs-Optionen, um das neue TOP möglichst gut in den Tagesablauf zu integrieren oder verschieben Sie es manuell.
 
 TOPs, die unter *Termin hinzufügen* erstellt wurden, können wieder gelöscht werden.
 
@@ -126,7 +123,7 @@ Um die Einträge des Zeitplans manuell umzusortieren, nehmen Sie ein Element des
 Zeitdauer eines TOP's ändern
 ----------------------------
 
-Innerhalb eines jeden TOP's gibt es ein Eingabefeld, in dem Sie die Zeitdauer auf einen längeren oder kürzeren Zeitraum ändern können. (z.B. 10:15:00).
+Innerhalb eines jeden TOPs gibt es ein Eingabefeld, in dem Sie die Zeitdauer auf einen längeren oder kürzeren Zeitraum ändern können. (z.B. 10:15:00).
 
 Pausen-TOP
 ----------
@@ -136,7 +133,7 @@ Im Pausen-TOP sehen Sie die Anzahl der Teilnehmer vor, nach und während der Pau
 Sitzungsassistent
 +++++++++++++++++
 
-Der *Sitzungsassistent* ist Ihr permanenter Begleiter im Zeitraum der Sitzung.
+Der *Sitzungsassistent* wird von einem Mitglied der Office-Gruppe bedient. Er wird zu Beginn jeder Sitzung aktiviert und begleitet Sie durch den Zeitraum der Sitzung.
 
 Navigation
 ----------
