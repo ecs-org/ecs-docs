@@ -1,3 +1,3 @@
 =============================
-als Ethikkommissions-Mitglied
+Als Ethikkommissions-Mitglied
 =============================
