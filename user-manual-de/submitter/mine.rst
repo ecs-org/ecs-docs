@@ -28,3 +28,9 @@ Studien, die noch kein Votum bekommen haben, können bearbeitet werden. Noch nic
 +++++++++++++++++++++++++++++++++
 
 Mit dem Link *Änderungen verwerfen* in der Leseansicht der Studie können Sie alle bis dahin vorgenommenen Änderungen löschen und den Ausgangszustand wieder herstellen.
+
+Studien-Suche
++++++++++++++
+
+Im Such-Feld in der Menüleiste können Sie nach Studien suchen. Die Suche erfolgt mittels Stichwort oder Nummer der Studie.
+
