@@ -20,7 +20,7 @@ Wenn die **Office**-Gruppe die Aufgabe erhalten hat, die Endbearbeitung des Votu
 
 Falls das Votum gültig ist, macht die Gruppe der **Zeichnungsberechtigten** die *Vote Signing*-Aufgabe. Danach wird das Votum automatisch bekanntgegeben.
 
-Signierfunktion: Für die Signierfunktion wird eine E-card benötigt die für die Signierung aktiviert wurde. Siehe dazu: www.buergerkarte.at. Speziell zu beachten ist bei Mac OS 10.6 und 10.7 noch die spezielle Java Einstellung. Weitere Information dazu:  http://www.buergerkarte.at/mvnforum/mvnforum/viewthread_thread,316
+Signierfunktion: Für die Signierfunktion wird eine E-Card benötigt, die für die Signierung aktiviert wurde. Siehe dazu: www.buergerkarte.at. Speziell zu beachten ist bei Mac OS 10.6 und 10.7 noch die spezielle Java Einstellung. Weitere Information dazu:  http://www.buergerkarte.at/mvnforum/mvnforum/viewthread_thread,316
 
 Arbeitsabläufe
 ++++++++++++++
