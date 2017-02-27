@@ -56,6 +56,11 @@ Das Anfordern einer Begutachtung erfolgt in der Studienansicht im *Einstufungs*-
  
 Eine angeforderte Begutachtung kann abgebrochen und neu erstellt werden. (z.B. Patienteninformationsbewertung). Eine Erinnerung, wenn die Aufgabe abgeschlossen wurde und eine Erinnerung, wenn die Aufgabe nicht abgeschlossen wurde (diese ist zeitlich einstellbar) dienen zur Benachrichtigung wenn eine Begutachtung angefordert wird.
 
+Aufgabe löschen
++++++++++++++++
+
+Manuell erstellte Aufgaben (siehe *Begutachtung anfordern*) können von Mitgliedern der Executive- und der Office-Gruppe gelöscht werden. Klicken Sie dafür im Tab *Generell* -> *Arbeitsablauf* auf das Löschen-Symbol am rechten Rand der Aufgaben-Zeile. Die Aufgabe erscheint nun durchgestrichen. Sobald eine Aufgabe gelöscht wurde, kann dies nicht mehr rückgängig gemacht werden. Sie können unter *Begutachtung anfordern* eine neue Aufgabe erstellen.
+
 Filtereinstellungen
 ===================
 
