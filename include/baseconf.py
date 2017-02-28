@@ -19,7 +19,7 @@
 #
 #import os
 #import sys
-#sys.path.insert(0, os.path.abspath('/usr/local/lib/python2.7/dist-packages'))
+#sys.path.insert(0, os.path.abspath('.'))
 
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
@@ -49,7 +49,7 @@ extensions = [
 graphviz_dot = '/usr/local/bin/cpp-dot'
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['templates']
 
 source_parsers = {
     '.md': CommonMarkParser,
@@ -149,7 +149,7 @@ html_theme = 'better'
 #
 html_theme_options = {
     'showheader': False,
-    'cssfiles': ['_static/custom.css'],
+    'cssfiles': ['static/custom.css'],
     'showrelbartop': False,
     'linktotheme': False,
      'textcolor': '#292b2c',
@@ -165,7 +165,7 @@ html_theme_options = {
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-html_short_title = "Ecs BenutzerInnen Handbuch"
+#html_short_title = "Ecs Handbook"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -176,12 +176,13 @@ html_short_title = "Ecs BenutzerInnen Handbuch"
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-#html_favicon = '_static/favicon.ico'
+#html_favicon = 'static/favicon.ico'
+html_favicon = 'static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ['static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -228,6 +229,7 @@ html_show_sourcelink = False
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #
 # html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #
