@@ -1,0 +1,5557 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<head>
+    <title>ECX Documention</title>
+    <style type="text/css">
+        .item{
+            border-top: 2px solid $cold-grey;
+        }
+        .item .choices{
+            margin-left: 30px;
+        }
+        .key{
+            font-family: monospace;
+        }
+        .key:before{
+            content: "\"";
+        }
+        .key:after{
+            content: "\":";
+        }
+        .subset{
+            margin-left: 30px;
+        }
+        .subset:before{
+            content: "{";
+        }
+        .subset:after{
+            content: "}";
+        }
+        .paperform{
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<h1>The ECX Document Format &mdash; Version 1.3</h1>
+<p>
+    An ecx document is a ZIP file that contains a single <a href="http://json.org">JSON</a> encoded data file (<i>data.json</i>) and any number of auxiliary data files.
+    The zip container MAY use compression.
+</p>
+
+<p>
+    The current specification only uses data files for attached documents. They SHOULD be stored below an <i>attachments/</i> directory inside the ZIP archive.
+    JSON fields that have a <tt>null</tt> value, MAY be ommitted from the document.
+</p>
+
+<p>
+    The suggested file extension is <i>ecx</i>, the mimetype <i>application/ecx</i>.
+</p>
+
+<h2>data.json</h2>
+<div class="item">
+    <span class="key">version</span> STRING, MUST be <tt>"1.3"</tt>
+</div>
+<div class="item">
+    <span class="key">type</span> STRING, MUST be <tt>"SubmissionForm"</tt>
+</div>
+<div class="item">
+    <span class="key">data</span> OBJECT
+    <div class="subset">
+    
+        <div class="item">
+    <span class="key">additional_therapy_info</span>
+    
+        STRING
+        
+        
+            <span class="paperform">
+                (6.3 Additional information on study-related activities and any necessary deviations from the routine treatment)
+            </span>
+        
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">already_voted</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.8 There are already votes of other ethics commissions.)
+            </span>
+        
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">clinical_phase</span>
+    
+        STRING
+        max. 10 characters, may be null
+        
+            <span class="paperform">
+                (2.5 Clinical Phase)
+            </span>
+        
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">created_at</span>
+    
+        STRING
+        RFC 3339 with timezone UTC+1 (e.g. 2010-07-14T16:04:35+01:00)
+        
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">documents</span>
+    
+        OBJECT[]
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">date</span>
+    
+        STRING
+        RFC 3339 with timezone UTC+1 (e.g. 2010-07-14T16:04:35+01:00)
+        
+            <span class="paperform">
+                ( date of document creation)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">doctype</span>
+    
+        STRING
+        
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;Covering Letter&quot;</tt></dt>
+            <dd>Covering Letter</dd>
+            
+            <dt><tt>&quot;patient information&quot;</tt></dt>
+            <dd>patient information</dd>
+            
+            <dt><tt>&quot;insurancecertificate&quot;</tt></dt>
+            <dd>insurancecertificate</dd>
+            
+            <dt><tt>&quot;study protocol&quot;</tt></dt>
+            <dd>study protocol</dd>
+            
+            <dt><tt>&quot;Investigator&#39;s Brochure&quot;</tt></dt>
+            <dd>Investigator&#39;s Brochure</dd>
+            
+            <dt><tt>&quot;Amendment&quot;</tt></dt>
+            <dd>Amendment</dd>
+            
+            <dt><tt>&quot;Curriculum Vitae (CV)&quot;</tt></dt>
+            <dd>Curriculum Vitae (CV)</dd>
+            
+            <dt><tt>&quot;Conflict of Interest&quot;</tt></dt>
+            <dd>Conflict of Interest</dd>
+            
+            <dt><tt>&quot;Case Report Form (CRF)&quot;</tt></dt>
+            <dd>Case Report Form (CRF)</dd>
+            
+            <dt><tt>&quot;EudraCT Form&quot;</tt></dt>
+            <dd>EudraCT Form</dd>
+            
+            <dt><tt>&quot;adverse reaction report&quot;</tt></dt>
+            <dd>adverse reaction report</dd>
+            
+            <dt><tt>&quot;Statement on a review&quot;</tt></dt>
+            <dd>Statement on a review</dd>
+            
+            <dt><tt>&quot;Questionnaire&quot;</tt></dt>
+            <dd>Questionnaire</dd>
+            
+            <dt><tt>&quot;Signed Page&quot;</tt></dt>
+            <dd>Signed Page</dd>
+            
+            <dt><tt>&quot;Manual&quot;</tt></dt>
+            <dd>Manual</dd>
+            
+            <dt><tt>&quot;Declaration of conformity&quot;</tt></dt>
+            <dd>Declaration of conformity</dd>
+            
+            <dt><tt>&quot;other&quot;</tt></dt>
+            <dd>other</dd>
+            
+            <dt><tt>&quot;Submission Form&quot;</tt></dt>
+            <dd>Submission Form</dd>
+            
+            <dt><tt>&quot;Checklist&quot;</tt></dt>
+            <dd>Checklist</dd>
+            
+            <dt><tt>&quot;vote&quot;</tt></dt>
+            <dd>vote</dd>
+            
+            <dt><tt>&quot;Notification&quot;</tt></dt>
+            <dd>Notification</dd>
+            
+            <dt><tt>&quot;Notification Answer&quot;</tt></dt>
+            <dd>Notification Answer</dd>
+            
+            <dt><tt>&quot;Invoice&quot;</tt></dt>
+            <dd>Invoice</dd>
+            
+            <dt><tt>&quot;Checklist Payment&quot;</tt></dt>
+            <dd>Checklist Payment</dd>
+            
+            <dt><tt>&quot;Meeting Protocol&quot;</tt></dt>
+            <dd>Meeting Protocol</dd>
+            
+            <dt><tt>&quot;Meeting ZIP&quot;</tt></dt>
+            <dd>Meeting ZIP</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">mimetype</span>
+    
+        STRING
+        max. 100 characters
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">name</span>
+    
+        STRING
+        max. 250 characters
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">original_file_name</span>
+    
+        STRING
+        max. 250 characters, may be null
+        
+            <span class="paperform">
+                ( file name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">version</span>
+    
+        STRING
+        max. 250 characters
+        
+            <span class="paperform">
+                ( version)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">eudract_number</span>
+    
+        STRING
+        max. 60 characters, may be null
+        
+            <span class="paperform">
+                (1.2.1 EudraCT-Nr.)
+            </span>
+        
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">foreignparticipatingcenter_set</span>
+    
+        OBJECT[]
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">investigator_name</span>
+    
+        STRING
+        max. 60 characters
+        
+            <span class="paperform">
+                ( investigator)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">name</span>
+    
+        STRING
+        max. 60 characters
+        
+            <span class="paperform">
+                ( name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">german</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">abort_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.19 Rules for the suspension or premature termination of the study at the test center, at the Member State or the entire study)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">additional_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.22 additional information)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">aftercare_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.17 Plan for treatment or care after the person has completed their participation in the study)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">benefits_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.11 Expected benefits for the included test participants)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">concurrent_study_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.13 Procedures on the site, to determine whether a person at a time to be included in another study, participate or whether a required period of time has elapsed since a participation in another study)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">consent_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.9 Approach at test center(s), for informing and  obtaining an informed consent of candidates)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">dataaccess_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.20 Agreement on access of the examiner(s) to data, publication guidelines, etc)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">dataprotection_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.16 Methods used to protect the confidentiality of the data collected, the source documents and the samples)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">ethical_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.6 ethical considerations)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">financing_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.21 Financing of the study and information on financial or other interests of the examiner)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">inclusion_exclusion_crit</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.5 Relevant in- and exclusion criteria)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">payment_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.18 Amount and method of compensation or remuneration to the test participants)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">preclinical_results</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.3 Results of pre-clinical tests or justification for the waiving of pre-clinical tests)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">primary_hypothesis</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.4 Primary hypothesis of the study)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">project_title</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.1 project title (kraut-speak))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">protected_subjects_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.7 Justification for the inclusion of persons from protected groups)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">recruitment_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.8 Description of the recruitment process)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">relationship_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.12 Relation between subject and investigator)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">risks_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.10 Risk assessment)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">sideeffects_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.14 Methods to identify, record, and report undesirable effects)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">statistical_info</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.15 Statistical considerations and reasons for the number of people who should be included in the study)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">summary</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (7.2 project summary)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">insurance</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">address</span>
+    
+        STRING
+        max. 80 characters, may be null
+        
+            <span class="paperform">
+                (5.1.2 address)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contract_number</span>
+    
+        STRING
+        max. 60 characters, may be null
+        
+            <span class="paperform">
+                (5.1.4 policy number)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">name</span>
+    
+        STRING
+        max. 125 characters, may be null
+        
+            <span class="paperform">
+                (5.1.1 insurance company)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">not_required</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                ( No insurance is required)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">phone</span>
+    
+        STRING
+        max. 30 characters, may be null
+        
+            <span class="paperform">
+                (5.1.3 phone)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">validity</span>
+    
+        STRING
+        max. 60 characters, may be null
+        
+            <span class="paperform">
+                (5.1.5 validity)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">investigators</span>
+    
+        OBJECT[]
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">certified</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (10.9 certified)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_first_name</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (10.1 first name of the Investigator)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_gender</span>
+    
+        STRING
+        max. 1 characters, may be null
+        
+            <span class="paperform">
+                (10.1 salutation of the Investigator)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;f&quot;</tt></dt>
+            <dd>Ms</dd>
+            
+            <dt><tt>&quot;m&quot;</tt></dt>
+            <dd>Mr</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_last_name</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (10.1 last name of the Investigator)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_title</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (10.1 title of the Investigator)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">email</span>
+    
+        STRING
+        max. 254 characters
+        
+            <span class="paperform">
+                (10.6 e-mail)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">employees</span>
+    
+        OBJECT[]
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">firstname</span>
+    
+        STRING
+        max. 40 characters
+        
+            <span class="paperform">
+                ( first name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">organisation</span>
+    
+        STRING
+        max. 80 characters
+        
+            <span class="paperform">
+                ( Institution)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">sex</span>
+    
+        STRING
+        max. 1 characters
+        
+            <span class="paperform">
+                ( Ms/Mr)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;m&quot;</tt></dt>
+            <dd>Mr</dd>
+            
+            <dt><tt>&quot;f&quot;</tt></dt>
+            <dd>Ms</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">surname</span>
+    
+        STRING
+        max. 40 characters
+        
+            <span class="paperform">
+                ( last name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">title</span>
+    
+        STRING
+        max. 40 characters
+        
+            <span class="paperform">
+                ( title)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+        
+        </div>
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">ethics_commission</span>
+    
+        STRING
+        
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;23d805c6b5f14d8b9196a12005fd2961&quot;</tt></dt>
+            <dd>Ethikkommission der Medizinischen Universität Wien</dd>
+            
+            <dt><tt>&quot;7b51f38bde8a4161a0dc34647fc7e654&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Brüder - Wien</dd>
+            
+            <dt><tt>&quot;85dc386061584fbe8549ce4e4d828fbd&quot;</tt></dt>
+            <dd>Ethikkommission der Stadt Wien gemäß KAG, AMG und MPG</dd>
+            
+            <dt><tt>&quot;d6a22c635a584521b107481ac18318f6&quot;</tt></dt>
+            <dd>Ethikkommission Forschungsinstitut des Wiener Roten Kreuzes</dd>
+            
+            <dt><tt>&quot;55ae93ec9df04d6abfc8d233ec5ccf8e&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Schwestern - Wien</dd>
+            
+            <dt><tt>&quot;7cd6d52120b3474ba502931b9f60a5f3&quot;</tt></dt>
+            <dd>Ethikkommission Confraternität-Priv.Klin. Josefstadt und Priv.Klin. Döbling</dd>
+            
+            <dt><tt>&quot;7df9ebaf15434709b09c3def9a6c8769&quot;</tt></dt>
+            <dd>Ethikkommission St.Anna Kinderspital</dd>
+            
+            <dt><tt>&quot;f122f144616541d391fde2dcc761aff4&quot;</tt></dt>
+            <dd>Ethikkommission Österreichische Arbeitsgemeinschaft für Klinische Pharmakologie</dd>
+            
+            <dt><tt>&quot;25b6744780434a3f96a1e43b405d3848&quot;</tt></dt>
+            <dd>Ethikkommission Privatkrankenanstalt Rudolfinerhaus</dd>
+            
+            <dt><tt>&quot;d542994ced34403db841786a1c1ab892&quot;</tt></dt>
+            <dd>Ethikkommission Rheuma-Zentrum Wien-Oberlaa</dd>
+            
+            <dt><tt>&quot;5615dfbaf8c8445d960d1e2cd9c00dc3&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus des Göttlichen Heilandes</dd>
+            
+            <dt><tt>&quot;4d3a2d5f138940f293ee87fe6ec1d5b2&quot;</tt></dt>
+            <dd>Ethikkommission Evangelisches Krankenhaus</dd>
+            
+            <dt><tt>&quot;8d2950e3a0294f68bde647a54df6d823&quot;</tt></dt>
+            <dd>Ethikkommission der Allgemeinen Unfallversicherungsanstalt</dd>
+            
+            <dt><tt>&quot;9f6b509e716e413f865d95bdd630e9bc&quot;</tt></dt>
+            <dd>Ethikkommission Immunologische Tagesklinik</dd>
+            
+            <dt><tt>&quot;b17f32f604fa4452b5ff3a2baa9e0704&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Niederösterreich</dd>
+            
+            <dt><tt>&quot;6688ce16a3b84d42b1531389e6039891&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Elisabethinen</dd>
+            
+            <dt><tt>&quot;e4dcd05a31ad475ca72dea7b84ef030e&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Oberösterreich</dd>
+            
+            <dt><tt>&quot;e269491bb9c040aaad6a5f11df343f38&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Brüder - Linz</dd>
+            
+            <dt><tt>&quot;1cca34032077445d95dabf7802fade28&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Schwestern - Linz</dd>
+            
+            <dt><tt>&quot;39cbb589ef044d27bceb6ee5ac796ae7&quot;</tt></dt>
+            <dd>Ethikkommission für das Bundesland Salzburg</dd>
+            
+            <dt><tt>&quot;280414583b894c809a9baa8134d7fe4b&quot;</tt></dt>
+            <dd>Ethikkommission der Medizinischen Universität Innsbruck</dd>
+            
+            <dt><tt>&quot;183881da8200493aa7edd8bebeea75b9&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Vorarlberg</dd>
+            
+            <dt><tt>&quot;95821eba88f34b2195f96e747d7f6b16&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Burgenland gemäß KAG, AMG und MPG</dd>
+            
+            <dt><tt>&quot;6e7cfab5f8cd40df83c9de4fac9bb20f&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Steiermark gemäß AMG und MPG</dd>
+            
+            <dt><tt>&quot;75b5a9714f354a5b842aa01029148036&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Brüder - Graz</dd>
+            
+            <dt><tt>&quot;9287fb0878b94f9f9d90b5582d1cefca&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Brüder - Eggenberg</dd>
+            
+            <dt><tt>&quot;e17ee744e4e840778f316cf3f79de6b4&quot;</tt></dt>
+            <dd>Ethikkommission der Medizinischen Universität Graz</dd>
+            
+            <dt><tt>&quot;ec9f179a52a04a7aa52446232c3fd4bd&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Kärnten</dd>
+            
+            <dt><tt>&quot;c890205dcb7543c8a76bf324512c5f81&quot;</tt></dt>
+            <dd>Ethikkommission des Krankenhaus St. Josef</dd>
+            
+            <dt><tt>&quot;dc1b115d9809461ba3ea9450b079ddd6&quot;</tt></dt>
+            <dd>Kommission für Scientific Integrity und Ethik der Karl Landsteiner Privatuniversität</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">fax</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (10.5 FAX)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">jus_practicandi</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (10.7 Jus practicandi)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">main</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                ( principal investigator)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">mobile</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (10.4 mobile)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">organisation</span>
+    
+        STRING
+        max. 80 characters
+        
+            <span class="paperform">
+                (10.2 study site)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">phone</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (10.3 phone)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">specialist</span>
+    
+        STRING
+        max. 80 characters
+        
+            <span class="paperform">
+                (10.8 specialist for)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">subject_count</span>
+    
+        INTEGER
+        
+        
+            <span class="paperform">
+                (11. number of participants)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">invoice</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">address</span>
+    
+        STRING
+        max. 60 characters, may be null
+        
+            <span class="paperform">
+                (1.5.2 address)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">city</span>
+    
+        STRING
+        max. 80 characters, may be null
+        
+            <span class="paperform">
+                (1.5.2 city)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_first_name</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (1.5.3 first name of contact person)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_gender</span>
+    
+        STRING
+        max. 1 characters, may be null
+        
+            <span class="paperform">
+                (1.5.3 sex of contact person)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;f&quot;</tt></dt>
+            <dd>Ms</dd>
+            
+            <dt><tt>&quot;m&quot;</tt></dt>
+            <dd>Mr</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_last_name</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (1.5.3 last name of contact person)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_title</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (1.5.3 title of contact person)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">email</span>
+    
+        STRING
+        max. 254 characters, may be null
+        
+            <span class="paperform">
+                (1.5.6 e-mail)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">fax</span>
+    
+        STRING
+        max. 45 characters, may be null
+        
+            <span class="paperform">
+                (1.5.5 fax)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">name</span>
+    
+        STRING
+        max. 160 characters, may be null
+        
+            <span class="paperform">
+                (1.5.1 invoice name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">phone</span>
+    
+        STRING
+        max. 50 characters, may be null
+        
+            <span class="paperform">
+                (1.5.4 telephone)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">uid</span>
+    
+        STRING
+        max. 35 characters, may be null
+        
+            <span class="paperform">
+                (1.5.7 UID-Number)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">zip_code</span>
+    
+        STRING
+        max. 10 characters, may be null
+        
+            <span class="paperform">
+                (1.5.2 postal code)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">measures</span>
+    
+        OBJECT[]
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">category</span>
+    
+        STRING
+        max. 3 characters
+        
+            <span class="paperform">
+                ( study reference)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;6.1&quot;</tt></dt>
+            <dd>only study-related</dd>
+            
+            <dt><tt>&quot;6.2&quot;</tt></dt>
+            <dd>for routine purposes</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">count</span>
+    
+        STRING
+        max. 150 characters
+        
+            <span class="paperform">
+                ( number/dose)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">period</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                ( period)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">total</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                ( total)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">type</span>
+    
+        STRING
+        max. 150 characters
+        
+            <span class="paperform">
+                ( type)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">medtech</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">ce_symbol</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (4.5 The medical product carries a CE mark)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">certified_for_exact_indications</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (4.3 Certified for this indication)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">certified_for_other_indications</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (4.4 Certified, but for another indication)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">checked_product</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (2.4.1 Test products(e))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">departure_from_regulations</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (4.8 Any deviations from the above provisions (standards))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">manual_included</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (4.6 The product brochure is included.)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">manufacturer</span>
+    
+        STRING
+        max. 80 characters, may be null
+        
+            <span class="paperform">
+                (4.2 Manufacturer)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">product_name</span>
+    
+        STRING
+        max. 210 characters, may be null
+        
+            <span class="paperform">
+                (4.1 Name of the product)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">reference_substance</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (2.4.2 reference product)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">technical_safety_regulations</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (4.7 What rules or standards have been used for the construction and testing of the medical product (technical safety))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">nontesteduseddrug_set</span>
+    
+        OBJECT[]
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">dosage</span>
+    
+        STRING
+        max. 40 characters
+        
+            <span class="paperform">
+                ( dosage)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">generic_name</span>
+    
+        STRING
+        max. 40 characters
+        
+            <span class="paperform">
+                ( Generic Name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">preparation_form</span>
+    
+        STRING
+        max. 40 characters
+        
+            <span class="paperform">
+                ( dosage Form)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">participatingcenternonsubject_set</span>
+    
+        OBJECT[]
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">ethics_commission</span>
+    
+        STRING
+        
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;23d805c6b5f14d8b9196a12005fd2961&quot;</tt></dt>
+            <dd>Ethikkommission der Medizinischen Universität Wien</dd>
+            
+            <dt><tt>&quot;7b51f38bde8a4161a0dc34647fc7e654&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Brüder - Wien</dd>
+            
+            <dt><tt>&quot;85dc386061584fbe8549ce4e4d828fbd&quot;</tt></dt>
+            <dd>Ethikkommission der Stadt Wien gemäß KAG, AMG und MPG</dd>
+            
+            <dt><tt>&quot;d6a22c635a584521b107481ac18318f6&quot;</tt></dt>
+            <dd>Ethikkommission Forschungsinstitut des Wiener Roten Kreuzes</dd>
+            
+            <dt><tt>&quot;55ae93ec9df04d6abfc8d233ec5ccf8e&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Schwestern - Wien</dd>
+            
+            <dt><tt>&quot;7cd6d52120b3474ba502931b9f60a5f3&quot;</tt></dt>
+            <dd>Ethikkommission Confraternität-Priv.Klin. Josefstadt und Priv.Klin. Döbling</dd>
+            
+            <dt><tt>&quot;7df9ebaf15434709b09c3def9a6c8769&quot;</tt></dt>
+            <dd>Ethikkommission St.Anna Kinderspital</dd>
+            
+            <dt><tt>&quot;f122f144616541d391fde2dcc761aff4&quot;</tt></dt>
+            <dd>Ethikkommission Österreichische Arbeitsgemeinschaft für Klinische Pharmakologie</dd>
+            
+            <dt><tt>&quot;25b6744780434a3f96a1e43b405d3848&quot;</tt></dt>
+            <dd>Ethikkommission Privatkrankenanstalt Rudolfinerhaus</dd>
+            
+            <dt><tt>&quot;d542994ced34403db841786a1c1ab892&quot;</tt></dt>
+            <dd>Ethikkommission Rheuma-Zentrum Wien-Oberlaa</dd>
+            
+            <dt><tt>&quot;5615dfbaf8c8445d960d1e2cd9c00dc3&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus des Göttlichen Heilandes</dd>
+            
+            <dt><tt>&quot;4d3a2d5f138940f293ee87fe6ec1d5b2&quot;</tt></dt>
+            <dd>Ethikkommission Evangelisches Krankenhaus</dd>
+            
+            <dt><tt>&quot;8d2950e3a0294f68bde647a54df6d823&quot;</tt></dt>
+            <dd>Ethikkommission der Allgemeinen Unfallversicherungsanstalt</dd>
+            
+            <dt><tt>&quot;9f6b509e716e413f865d95bdd630e9bc&quot;</tt></dt>
+            <dd>Ethikkommission Immunologische Tagesklinik</dd>
+            
+            <dt><tt>&quot;b17f32f604fa4452b5ff3a2baa9e0704&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Niederösterreich</dd>
+            
+            <dt><tt>&quot;6688ce16a3b84d42b1531389e6039891&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Elisabethinen</dd>
+            
+            <dt><tt>&quot;e4dcd05a31ad475ca72dea7b84ef030e&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Oberösterreich</dd>
+            
+            <dt><tt>&quot;e269491bb9c040aaad6a5f11df343f38&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Brüder - Linz</dd>
+            
+            <dt><tt>&quot;1cca34032077445d95dabf7802fade28&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Schwestern - Linz</dd>
+            
+            <dt><tt>&quot;39cbb589ef044d27bceb6ee5ac796ae7&quot;</tt></dt>
+            <dd>Ethikkommission für das Bundesland Salzburg</dd>
+            
+            <dt><tt>&quot;280414583b894c809a9baa8134d7fe4b&quot;</tt></dt>
+            <dd>Ethikkommission der Medizinischen Universität Innsbruck</dd>
+            
+            <dt><tt>&quot;183881da8200493aa7edd8bebeea75b9&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Vorarlberg</dd>
+            
+            <dt><tt>&quot;95821eba88f34b2195f96e747d7f6b16&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Burgenland gemäß KAG, AMG und MPG</dd>
+            
+            <dt><tt>&quot;6e7cfab5f8cd40df83c9de4fac9bb20f&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Steiermark gemäß AMG und MPG</dd>
+            
+            <dt><tt>&quot;75b5a9714f354a5b842aa01029148036&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Brüder - Graz</dd>
+            
+            <dt><tt>&quot;9287fb0878b94f9f9d90b5582d1cefca&quot;</tt></dt>
+            <dd>Ethikkommission Krankenhaus Barmh.Brüder - Eggenberg</dd>
+            
+            <dt><tt>&quot;e17ee744e4e840778f316cf3f79de6b4&quot;</tt></dt>
+            <dd>Ethikkommission der Medizinischen Universität Graz</dd>
+            
+            <dt><tt>&quot;ec9f179a52a04a7aa52446232c3fd4bd&quot;</tt></dt>
+            <dd>Ethikkommission des Landes Kärnten</dd>
+            
+            <dt><tt>&quot;c890205dcb7543c8a76bf324512c5f81&quot;</tt></dt>
+            <dd>Ethikkommission des Krankenhaus St. Josef</dd>
+            
+            <dt><tt>&quot;dc1b115d9809461ba3ea9450b079ddd6&quot;</tt></dt>
+            <dd>Kommission für Scientific Integrity und Ethik der Karl Landsteiner Privatuniversität</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">investigator_name</span>
+    
+        STRING
+        max. 60 characters
+        
+            <span class="paperform">
+                ( investigator)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">name</span>
+    
+        STRING
+        max. 60 characters
+        
+            <span class="paperform">
+                ( name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">pharma_checked_substance</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (2.3.1 Test substances)
+            </span>
+        
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">pharma_reference_substance</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (2.3.2 Reference substance)
+            </span>
+        
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">project_title</span>
+    
+        STRING
+        
+        
+            <span class="paperform">
+                (1.1 project title (english))
+            </span>
+        
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">project_type</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">basic_research</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.5 Non-therapeutic biomedical research involving human subjects (basic research))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">biobank</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.11 Biobank)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">education_context</span>
+    
+        INTEGER
+        may be null
+        
+            <span class="paperform">
+                (2.1.8/9 Dissertation / Thesis)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>1</tt></dt>
+            <dd>Dissertation</dd>
+            
+            <dt><tt>2</tt></dt>
+            <dd>Diplomarbeit</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">gender_medicine</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.17 Gender medicine)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">genetic_study</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.6 Genetic survey)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">medical_device</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.4 Clinical investigation of medical devices)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">medical_device_performance_evaluation</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.4.3 Performance evaluation (in-vitro diagnostics))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">medical_device_with_ce</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.4.1 with CE-marking)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">medical_device_without_ce</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.4.2 without CE-marking)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">medical_method</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.3 Clinical testing of a new medical method)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">misc</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (2.1.7 Other, please specify)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">non_interventional_study</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.16 Non-interventional Study (NIS))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">non_reg_drug</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.1 Clinical trial of an unregistered drug)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">nursing_study</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.15 Nursing Scientific Study)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">psychological_study</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.14 Psychological study)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">questionnaire</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.13 Questionnaire investigation)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">reg_drug</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.2 Clinical testing of a registered product)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">reg_drug_not_within_indication</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.2.2 not according to the indication)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">reg_drug_within_indication</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.2.1 according to the indication)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">register</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.10 Register)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">retrospective</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.1.12 Retrospective data analysis)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">specialism</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (2.2 special field)
+            </span>
+        
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">sponsor</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">address</span>
+    
+        STRING
+        max. 60 characters, may be null
+        
+            <span class="paperform">
+                (1.5.2 address)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">city</span>
+    
+        STRING
+        max. 80 characters, may be null
+        
+            <span class="paperform">
+                (1.5.2 city)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_first_name</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (1.5.3 first name of contact person)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_gender</span>
+    
+        STRING
+        max. 1 characters, may be null
+        
+            <span class="paperform">
+                (1.5.3 sex of contact person)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;f&quot;</tt></dt>
+            <dd>Ms</dd>
+            
+            <dt><tt>&quot;m&quot;</tt></dt>
+            <dd>Mr</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_last_name</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (1.5.3 last name of contact person)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_title</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (1.5.3 title of contact person)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">email</span>
+    
+        STRING
+        max. 254 characters, may be null
+        
+            <span class="paperform">
+                (1.5.6 e-mail)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">fax</span>
+    
+        STRING
+        max. 30 characters, may be null
+        
+            <span class="paperform">
+                (1.5.5 fax)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">name</span>
+    
+        STRING
+        max. 100 characters, may be null
+        
+            <span class="paperform">
+                (1.5.1 sponsor name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">phone</span>
+    
+        STRING
+        max. 30 characters, may be null
+        
+            <span class="paperform">
+                (1.5.4 telephone)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">uid</span>
+    
+        STRING
+        max. 35 characters, may be null
+        
+            <span class="paperform">
+                (1.5.7 UID-Number)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">zip_code</span>
+    
+        STRING
+        max. 10 characters, may be null
+        
+            <span class="paperform">
+                (1.5.2 postal code)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">study_plan</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">abort_crit</span>
+    
+        STRING
+        max. 265 characters, may be null
+        
+            <span class="paperform">
+                (8.3.3 Termination criteria)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">alpha</span>
+    
+        STRING
+        max. 80 characters
+        
+            <span class="paperform">
+                (8.2.1 Alpha)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">alpha_sided</span>
+    
+        INTEGER
+        may be null
+        
+            <span class="paperform">
+                (  )
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>0</tt></dt>
+            <dd>single-sided</dd>
+            
+            <dt><tt>1</tt></dt>
+            <dd>double-sided</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">alternative_hypothesis</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.1.21 alternative hypothesis)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">biometric_planning</span>
+    
+        STRING
+        max. 260 characters
+        
+            <span class="paperform">
+                (8.5.1 Who did the biometric planning (if applicable, proof of qualification)?)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">blind</span>
+    
+        INTEGER
+        
+        
+            <span class="paperform">
+                ( Open / Blind / Double-blind)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>0</tt></dt>
+            <dd>open</dd>
+            
+            <dt><tt>1</tt></dt>
+            <dd>blind</dd>
+            
+            <dt><tt>2</tt></dt>
+            <dd>double-blind</dd>
+            
+            <dt><tt>3</tt></dt>
+            <dd>not applicable</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">controlled</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.1.6 controlled)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">cross_over</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.1.7 cross-over)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">datamanagement</span>
+    
+        STRING
+        
+        
+            <span class="paperform">
+                (8.4.2 Information on data management)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">dataprotection_anonalgoritm</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.6.3 How is the anonymization done?)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">dataprotection_choice</span>
+    
+        STRING
+        max. 15 characters
+        
+            <span class="paperform">
+                (8.6.1 Information privacy)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;personal&quot;</tt></dt>
+            <dd>individual-related</dd>
+            
+            <dt><tt>&quot;non-personal&quot;</tt></dt>
+            <dd>implicit individual-related</dd>
+            
+            <dt><tt>&quot;anonymous&quot;</tt></dt>
+            <dd>completely anonymous</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">dataprotection_dvr</span>
+    
+        STRING
+        max. 180 characters, may be null
+        
+            <span class="paperform">
+                (8.6.2 DPR-Nr.)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">dataprotection_reason</span>
+    
+        STRING
+        max. 120 characters, may be null
+        
+            <span class="paperform">
+                (8.6.2 Justification)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">dataquality_checking</span>
+    
+        STRING
+        
+        
+            <span class="paperform">
+                (8.4.1 Information on the data quality audit)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">dropout_ratio</span>
+    
+        STRING
+        max. 80 characters
+        
+            <span class="paperform">
+                (8.2.5 Expected number of study dropouts(Drop-out-Quota))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">equivalence_testing</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.1.14 equivalence testing)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">factorized</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.1.11 factorized)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">interim_evaluation</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.3.3 Interim evaluation)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">misc</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.1.15 misc)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">multiple_test</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.2.4 multiple testing)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">multiple_test_correction_algorithm</span>
+    
+        STRING
+        max. 100 characters, may be null
+        
+            <span class="paperform">
+                (8.2.4 correctionalgorithm)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">null_hypothesis</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.1.20 null hypothesis)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">number_of_groups</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.1.16 number of groups)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">observer_blinded</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.1.13 observer-blinded)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">parallelgroups</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.1.3 parallel groups)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">pilot_project</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.1.12 pilot project)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">placebo</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.1.10 placebo)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">planned_statalgorithm</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.3.4 Planned use of statistical methods)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">population_intention_to_treat</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.3.1 Intention-to-treat)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">population_per_protocol</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.3.2 Per Protocol)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">power</span>
+    
+        STRING
+        max. 80 characters
+        
+            <span class="paperform">
+                (8.2.2 Power)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">primary_objectives</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.1.19 primary objectives)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">randomized</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (8.1.2 randomized)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">sample_frequency</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.1.18 sample frequency)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">secondary_objectives</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.1.22 secondary objectives)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">statalgorithm</span>
+    
+        STRING
+        max. 80 characters
+        
+            <span class="paperform">
+                (8.2.3 statistical algorithm)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">statistics_implementation</span>
+    
+        STRING
+        max. 270 characters
+        
+            <span class="paperform">
+                (8.5.2 Who will conduct the statistical analysis (if applicable, proof of qualification)?)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">stratification</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (8.1.17 stratification)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">subject</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">childbearing</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.10.5 women of childbearing age)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">count</span>
+    
+        INTEGER
+        
+        
+            <span class="paperform">
+                (2.9 Planned number of trial participants total)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">duration</span>
+    
+        STRING
+        max. 200 characters
+        
+            <span class="paperform">
+                (2.11 Duration of participation of the individual test participants in the study)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">duration_active</span>
+    
+        STRING
+        max. 200 characters
+        
+            <span class="paperform">
+                (2.11.1 active phase)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">duration_controls</span>
+    
+        STRING
+        max. 200 characters, may be null
+        
+            <span class="paperform">
+                (2.11.2 Follow-up inspections)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">females</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.10.4 female participants)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">males</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.10.4 male participants)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">maxage</span>
+    
+        INTEGER
+        may be null
+        
+            <span class="paperform">
+                (2.10.2 maximum age)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">minage</span>
+    
+        INTEGER
+        may be null
+        
+            <span class="paperform">
+                (2.10.1 minimum age)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">noncompetents</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (2.10.3 non competent participants)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">planned_total_duration</span>
+    
+        STRING
+        max. 250 characters
+        
+            <span class="paperform">
+                (2.12 Expected total duration of the study)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">submission</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">ec_number</span>
+    
+        INTEGER
+        
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">submission_type</span>
+    
+        INTEGER
+        may be null
+        
+            <span class="paperform">
+                ( Submit as)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>1</tt></dt>
+            <dd>monocentric</dd>
+            
+            <dt><tt>2</tt></dt>
+            <dd>multicentric, main ethics commission</dd>
+            
+            <dt><tt>6</tt></dt>
+            <dd>multicentric, local ethics commission</dd>
+            
+        </dl>
+        
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">submitter</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">contact_first_name</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (9.1 first name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_gender</span>
+    
+        STRING
+        max. 1 characters, may be null
+        
+            <span class="paperform">
+                (9.1 salutation)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;f&quot;</tt></dt>
+            <dd>Ms</dd>
+            
+            <dt><tt>&quot;m&quot;</tt></dt>
+            <dd>Mr</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_last_name</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (9.1 last name)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">contact_title</span>
+    
+        STRING
+        max. 30 characters
+        
+            <span class="paperform">
+                (9.1 title)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">email</span>
+    
+        STRING
+        max. 254 characters, may be null
+        
+            <span class="paperform">
+                ( e-mail)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">is_authorized_by_sponsor</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (9.4.4 The submitter is a person/organization authorized by the sponsor)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">is_coordinator</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (9.4.1 The submitter is a coordinating examiner (multicentric study))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">is_main_investigator</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (9.4.2 The submitter is a principal investigator (monocentric study))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">is_sponsor</span>
+    
+        BOOLEAN
+        
+        
+            <span class="paperform">
+                (9.4.3 The submitter is a sponsor / representative of the sponsor)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">jobtitle</span>
+    
+        STRING
+        max. 130 characters
+        
+            <span class="paperform">
+                (9.3 position)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">organisation</span>
+    
+        STRING
+        max. 180 characters
+        
+            <span class="paperform">
+                (9.2 Institution / Company)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+        <div class="item">
+    <span class="key">substance</span>
+    
+        OBJECT
+        <div class="subset">
+        
+            
+                <div class="item">
+    <span class="key">p_c_t_application_type</span>
+    
+        STRING
+        max. 145 characters, may be null
+        
+            <span class="paperform">
+                (3.2.4 application type(s))
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">p_c_t_countries</span>
+    
+        STRING[]
+        max. 2 characters
+        
+            <span class="paperform">
+                (3.2.1 3.2.1 Countries in which the tests were conducted)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;AF&quot;</tt></dt>
+            <dd>Afghanistan</dd>
+            
+            <dt><tt>&quot;AX&quot;</tt></dt>
+            <dd>Åland Islands</dd>
+            
+            <dt><tt>&quot;AL&quot;</tt></dt>
+            <dd>Albania</dd>
+            
+            <dt><tt>&quot;DZ&quot;</tt></dt>
+            <dd>Algeria</dd>
+            
+            <dt><tt>&quot;AS&quot;</tt></dt>
+            <dd>American Samoa</dd>
+            
+            <dt><tt>&quot;AD&quot;</tt></dt>
+            <dd>Andorra</dd>
+            
+            <dt><tt>&quot;AO&quot;</tt></dt>
+            <dd>Angola</dd>
+            
+            <dt><tt>&quot;AI&quot;</tt></dt>
+            <dd>Anguilla</dd>
+            
+            <dt><tt>&quot;AQ&quot;</tt></dt>
+            <dd>Antarctica</dd>
+            
+            <dt><tt>&quot;AG&quot;</tt></dt>
+            <dd>Antigua and Barbuda</dd>
+            
+            <dt><tt>&quot;AR&quot;</tt></dt>
+            <dd>Argentina</dd>
+            
+            <dt><tt>&quot;AM&quot;</tt></dt>
+            <dd>Armenia</dd>
+            
+            <dt><tt>&quot;AW&quot;</tt></dt>
+            <dd>Aruba</dd>
+            
+            <dt><tt>&quot;AU&quot;</tt></dt>
+            <dd>Australia</dd>
+            
+            <dt><tt>&quot;AT&quot;</tt></dt>
+            <dd>Austria</dd>
+            
+            <dt><tt>&quot;AZ&quot;</tt></dt>
+            <dd>Azerbaijan</dd>
+            
+            <dt><tt>&quot;BS&quot;</tt></dt>
+            <dd>Bahamas</dd>
+            
+            <dt><tt>&quot;BH&quot;</tt></dt>
+            <dd>Bahrain</dd>
+            
+            <dt><tt>&quot;BD&quot;</tt></dt>
+            <dd>Bangladesh</dd>
+            
+            <dt><tt>&quot;BB&quot;</tt></dt>
+            <dd>Barbados</dd>
+            
+            <dt><tt>&quot;BY&quot;</tt></dt>
+            <dd>Belarus</dd>
+            
+            <dt><tt>&quot;BE&quot;</tt></dt>
+            <dd>Belgium</dd>
+            
+            <dt><tt>&quot;BZ&quot;</tt></dt>
+            <dd>Belize</dd>
+            
+            <dt><tt>&quot;BJ&quot;</tt></dt>
+            <dd>Benin</dd>
+            
+            <dt><tt>&quot;BM&quot;</tt></dt>
+            <dd>Bermuda</dd>
+            
+            <dt><tt>&quot;BT&quot;</tt></dt>
+            <dd>Bhutan</dd>
+            
+            <dt><tt>&quot;BO&quot;</tt></dt>
+            <dd>Bolivia</dd>
+            
+            <dt><tt>&quot;BQ&quot;</tt></dt>
+            <dd>Bonaire, Sint Eustatius and Saba</dd>
+            
+            <dt><tt>&quot;BA&quot;</tt></dt>
+            <dd>Bosnia and Herzegovina</dd>
+            
+            <dt><tt>&quot;BW&quot;</tt></dt>
+            <dd>Botswana</dd>
+            
+            <dt><tt>&quot;BV&quot;</tt></dt>
+            <dd>Bouvet Island</dd>
+            
+            <dt><tt>&quot;BR&quot;</tt></dt>
+            <dd>Brazil</dd>
+            
+            <dt><tt>&quot;IO&quot;</tt></dt>
+            <dd>British Indian Ocean Territory</dd>
+            
+            <dt><tt>&quot;BN&quot;</tt></dt>
+            <dd>Brunei</dd>
+            
+            <dt><tt>&quot;BG&quot;</tt></dt>
+            <dd>Bulgaria</dd>
+            
+            <dt><tt>&quot;BF&quot;</tt></dt>
+            <dd>Burkina Faso</dd>
+            
+            <dt><tt>&quot;BI&quot;</tt></dt>
+            <dd>Burundi</dd>
+            
+            <dt><tt>&quot;CV&quot;</tt></dt>
+            <dd>Cabo Verde</dd>
+            
+            <dt><tt>&quot;KH&quot;</tt></dt>
+            <dd>Cambodia</dd>
+            
+            <dt><tt>&quot;CM&quot;</tt></dt>
+            <dd>Cameroon</dd>
+            
+            <dt><tt>&quot;CA&quot;</tt></dt>
+            <dd>Canada</dd>
+            
+            <dt><tt>&quot;KY&quot;</tt></dt>
+            <dd>Cayman Islands</dd>
+            
+            <dt><tt>&quot;CF&quot;</tt></dt>
+            <dd>Central African Republic</dd>
+            
+            <dt><tt>&quot;TD&quot;</tt></dt>
+            <dd>Chad</dd>
+            
+            <dt><tt>&quot;CL&quot;</tt></dt>
+            <dd>Chile</dd>
+            
+            <dt><tt>&quot;CN&quot;</tt></dt>
+            <dd>China</dd>
+            
+            <dt><tt>&quot;CX&quot;</tt></dt>
+            <dd>Christmas Island</dd>
+            
+            <dt><tt>&quot;CC&quot;</tt></dt>
+            <dd>Cocos (Keeling) Islands</dd>
+            
+            <dt><tt>&quot;CO&quot;</tt></dt>
+            <dd>Colombia</dd>
+            
+            <dt><tt>&quot;KM&quot;</tt></dt>
+            <dd>Comoros</dd>
+            
+            <dt><tt>&quot;CG&quot;</tt></dt>
+            <dd>Congo</dd>
+            
+            <dt><tt>&quot;CD&quot;</tt></dt>
+            <dd>Congo (the Democratic Republic of the)</dd>
+            
+            <dt><tt>&quot;CK&quot;</tt></dt>
+            <dd>Cook Islands</dd>
+            
+            <dt><tt>&quot;CR&quot;</tt></dt>
+            <dd>Costa Rica</dd>
+            
+            <dt><tt>&quot;CI&quot;</tt></dt>
+            <dd>Côte d&#39;Ivoire</dd>
+            
+            <dt><tt>&quot;HR&quot;</tt></dt>
+            <dd>Croatia</dd>
+            
+            <dt><tt>&quot;CU&quot;</tt></dt>
+            <dd>Cuba</dd>
+            
+            <dt><tt>&quot;CW&quot;</tt></dt>
+            <dd>Curaçao</dd>
+            
+            <dt><tt>&quot;CY&quot;</tt></dt>
+            <dd>Cyprus</dd>
+            
+            <dt><tt>&quot;CZ&quot;</tt></dt>
+            <dd>Czech Republic</dd>
+            
+            <dt><tt>&quot;DK&quot;</tt></dt>
+            <dd>Denmark</dd>
+            
+            <dt><tt>&quot;DJ&quot;</tt></dt>
+            <dd>Djibouti</dd>
+            
+            <dt><tt>&quot;DM&quot;</tt></dt>
+            <dd>Dominica</dd>
+            
+            <dt><tt>&quot;DO&quot;</tt></dt>
+            <dd>Dominican Republic</dd>
+            
+            <dt><tt>&quot;EC&quot;</tt></dt>
+            <dd>Ecuador</dd>
+            
+            <dt><tt>&quot;EG&quot;</tt></dt>
+            <dd>Egypt</dd>
+            
+            <dt><tt>&quot;SV&quot;</tt></dt>
+            <dd>El Salvador</dd>
+            
+            <dt><tt>&quot;GQ&quot;</tt></dt>
+            <dd>Equatorial Guinea</dd>
+            
+            <dt><tt>&quot;ER&quot;</tt></dt>
+            <dd>Eritrea</dd>
+            
+            <dt><tt>&quot;EE&quot;</tt></dt>
+            <dd>Estonia</dd>
+            
+            <dt><tt>&quot;ET&quot;</tt></dt>
+            <dd>Ethiopia</dd>
+            
+            <dt><tt>&quot;FK&quot;</tt></dt>
+            <dd>Falkland Islands  [Malvinas]</dd>
+            
+            <dt><tt>&quot;FO&quot;</tt></dt>
+            <dd>Faroe Islands</dd>
+            
+            <dt><tt>&quot;FJ&quot;</tt></dt>
+            <dd>Fiji</dd>
+            
+            <dt><tt>&quot;FI&quot;</tt></dt>
+            <dd>Finland</dd>
+            
+            <dt><tt>&quot;FR&quot;</tt></dt>
+            <dd>France</dd>
+            
+            <dt><tt>&quot;GF&quot;</tt></dt>
+            <dd>French Guiana</dd>
+            
+            <dt><tt>&quot;PF&quot;</tt></dt>
+            <dd>French Polynesia</dd>
+            
+            <dt><tt>&quot;TF&quot;</tt></dt>
+            <dd>French Southern Territories</dd>
+            
+            <dt><tt>&quot;GA&quot;</tt></dt>
+            <dd>Gabon</dd>
+            
+            <dt><tt>&quot;GM&quot;</tt></dt>
+            <dd>Gambia</dd>
+            
+            <dt><tt>&quot;GE&quot;</tt></dt>
+            <dd>Georgia</dd>
+            
+            <dt><tt>&quot;DE&quot;</tt></dt>
+            <dd>Germany</dd>
+            
+            <dt><tt>&quot;GH&quot;</tt></dt>
+            <dd>Ghana</dd>
+            
+            <dt><tt>&quot;GI&quot;</tt></dt>
+            <dd>Gibraltar</dd>
+            
+            <dt><tt>&quot;GR&quot;</tt></dt>
+            <dd>Greece</dd>
+            
+            <dt><tt>&quot;GL&quot;</tt></dt>
+            <dd>Greenland</dd>
+            
+            <dt><tt>&quot;GD&quot;</tt></dt>
+            <dd>Grenada</dd>
+            
+            <dt><tt>&quot;GP&quot;</tt></dt>
+            <dd>Guadeloupe</dd>
+            
+            <dt><tt>&quot;GU&quot;</tt></dt>
+            <dd>Guam</dd>
+            
+            <dt><tt>&quot;GT&quot;</tt></dt>
+            <dd>Guatemala</dd>
+            
+            <dt><tt>&quot;GG&quot;</tt></dt>
+            <dd>Guernsey</dd>
+            
+            <dt><tt>&quot;GN&quot;</tt></dt>
+            <dd>Guinea</dd>
+            
+            <dt><tt>&quot;GW&quot;</tt></dt>
+            <dd>Guinea-Bissau</dd>
+            
+            <dt><tt>&quot;GY&quot;</tt></dt>
+            <dd>Guyana</dd>
+            
+            <dt><tt>&quot;HT&quot;</tt></dt>
+            <dd>Haiti</dd>
+            
+            <dt><tt>&quot;HM&quot;</tt></dt>
+            <dd>Heard Island and McDonald Islands</dd>
+            
+            <dt><tt>&quot;VA&quot;</tt></dt>
+            <dd>Holy See</dd>
+            
+            <dt><tt>&quot;HN&quot;</tt></dt>
+            <dd>Honduras</dd>
+            
+            <dt><tt>&quot;HK&quot;</tt></dt>
+            <dd>Hong Kong</dd>
+            
+            <dt><tt>&quot;HU&quot;</tt></dt>
+            <dd>Hungary</dd>
+            
+            <dt><tt>&quot;IS&quot;</tt></dt>
+            <dd>Iceland</dd>
+            
+            <dt><tt>&quot;IN&quot;</tt></dt>
+            <dd>India</dd>
+            
+            <dt><tt>&quot;ID&quot;</tt></dt>
+            <dd>Indonesia</dd>
+            
+            <dt><tt>&quot;IR&quot;</tt></dt>
+            <dd>Iran</dd>
+            
+            <dt><tt>&quot;IQ&quot;</tt></dt>
+            <dd>Iraq</dd>
+            
+            <dt><tt>&quot;IE&quot;</tt></dt>
+            <dd>Ireland</dd>
+            
+            <dt><tt>&quot;IM&quot;</tt></dt>
+            <dd>Isle of Man</dd>
+            
+            <dt><tt>&quot;IL&quot;</tt></dt>
+            <dd>Israel</dd>
+            
+            <dt><tt>&quot;IT&quot;</tt></dt>
+            <dd>Italy</dd>
+            
+            <dt><tt>&quot;JM&quot;</tt></dt>
+            <dd>Jamaica</dd>
+            
+            <dt><tt>&quot;JP&quot;</tt></dt>
+            <dd>Japan</dd>
+            
+            <dt><tt>&quot;JE&quot;</tt></dt>
+            <dd>Jersey</dd>
+            
+            <dt><tt>&quot;JO&quot;</tt></dt>
+            <dd>Jordan</dd>
+            
+            <dt><tt>&quot;KZ&quot;</tt></dt>
+            <dd>Kazakhstan</dd>
+            
+            <dt><tt>&quot;KE&quot;</tt></dt>
+            <dd>Kenya</dd>
+            
+            <dt><tt>&quot;KI&quot;</tt></dt>
+            <dd>Kiribati</dd>
+            
+            <dt><tt>&quot;KW&quot;</tt></dt>
+            <dd>Kuwait</dd>
+            
+            <dt><tt>&quot;KG&quot;</tt></dt>
+            <dd>Kyrgyzstan</dd>
+            
+            <dt><tt>&quot;LA&quot;</tt></dt>
+            <dd>Laos</dd>
+            
+            <dt><tt>&quot;LV&quot;</tt></dt>
+            <dd>Latvia</dd>
+            
+            <dt><tt>&quot;LB&quot;</tt></dt>
+            <dd>Lebanon</dd>
+            
+            <dt><tt>&quot;LS&quot;</tt></dt>
+            <dd>Lesotho</dd>
+            
+            <dt><tt>&quot;LR&quot;</tt></dt>
+            <dd>Liberia</dd>
+            
+            <dt><tt>&quot;LY&quot;</tt></dt>
+            <dd>Libya</dd>
+            
+            <dt><tt>&quot;LI&quot;</tt></dt>
+            <dd>Liechtenstein</dd>
+            
+            <dt><tt>&quot;LT&quot;</tt></dt>
+            <dd>Lithuania</dd>
+            
+            <dt><tt>&quot;LU&quot;</tt></dt>
+            <dd>Luxembourg</dd>
+            
+            <dt><tt>&quot;MO&quot;</tt></dt>
+            <dd>Macao</dd>
+            
+            <dt><tt>&quot;MK&quot;</tt></dt>
+            <dd>Macedonia</dd>
+            
+            <dt><tt>&quot;MG&quot;</tt></dt>
+            <dd>Madagascar</dd>
+            
+            <dt><tt>&quot;MW&quot;</tt></dt>
+            <dd>Malawi</dd>
+            
+            <dt><tt>&quot;MY&quot;</tt></dt>
+            <dd>Malaysia</dd>
+            
+            <dt><tt>&quot;MV&quot;</tt></dt>
+            <dd>Maldives</dd>
+            
+            <dt><tt>&quot;ML&quot;</tt></dt>
+            <dd>Mali</dd>
+            
+            <dt><tt>&quot;MT&quot;</tt></dt>
+            <dd>Malta</dd>
+            
+            <dt><tt>&quot;MH&quot;</tt></dt>
+            <dd>Marshall Islands</dd>
+            
+            <dt><tt>&quot;MQ&quot;</tt></dt>
+            <dd>Martinique</dd>
+            
+            <dt><tt>&quot;MR&quot;</tt></dt>
+            <dd>Mauritania</dd>
+            
+            <dt><tt>&quot;MU&quot;</tt></dt>
+            <dd>Mauritius</dd>
+            
+            <dt><tt>&quot;YT&quot;</tt></dt>
+            <dd>Mayotte</dd>
+            
+            <dt><tt>&quot;MX&quot;</tt></dt>
+            <dd>Mexico</dd>
+            
+            <dt><tt>&quot;FM&quot;</tt></dt>
+            <dd>Micronesia (Federated States of)</dd>
+            
+            <dt><tt>&quot;MD&quot;</tt></dt>
+            <dd>Moldova</dd>
+            
+            <dt><tt>&quot;MC&quot;</tt></dt>
+            <dd>Monaco</dd>
+            
+            <dt><tt>&quot;MN&quot;</tt></dt>
+            <dd>Mongolia</dd>
+            
+            <dt><tt>&quot;ME&quot;</tt></dt>
+            <dd>Montenegro</dd>
+            
+            <dt><tt>&quot;MS&quot;</tt></dt>
+            <dd>Montserrat</dd>
+            
+            <dt><tt>&quot;MA&quot;</tt></dt>
+            <dd>Morocco</dd>
+            
+            <dt><tt>&quot;MZ&quot;</tt></dt>
+            <dd>Mozambique</dd>
+            
+            <dt><tt>&quot;MM&quot;</tt></dt>
+            <dd>Myanmar</dd>
+            
+            <dt><tt>&quot;NA&quot;</tt></dt>
+            <dd>Namibia</dd>
+            
+            <dt><tt>&quot;NR&quot;</tt></dt>
+            <dd>Nauru</dd>
+            
+            <dt><tt>&quot;NP&quot;</tt></dt>
+            <dd>Nepal</dd>
+            
+            <dt><tt>&quot;NL&quot;</tt></dt>
+            <dd>Netherlands</dd>
+            
+            <dt><tt>&quot;NC&quot;</tt></dt>
+            <dd>New Caledonia</dd>
+            
+            <dt><tt>&quot;NZ&quot;</tt></dt>
+            <dd>New Zealand</dd>
+            
+            <dt><tt>&quot;NI&quot;</tt></dt>
+            <dd>Nicaragua</dd>
+            
+            <dt><tt>&quot;NE&quot;</tt></dt>
+            <dd>Niger</dd>
+            
+            <dt><tt>&quot;NG&quot;</tt></dt>
+            <dd>Nigeria</dd>
+            
+            <dt><tt>&quot;NU&quot;</tt></dt>
+            <dd>Niue</dd>
+            
+            <dt><tt>&quot;NF&quot;</tt></dt>
+            <dd>Norfolk Island</dd>
+            
+            <dt><tt>&quot;KP&quot;</tt></dt>
+            <dd>North Korea</dd>
+            
+            <dt><tt>&quot;MP&quot;</tt></dt>
+            <dd>Northern Mariana Islands</dd>
+            
+            <dt><tt>&quot;NO&quot;</tt></dt>
+            <dd>Norway</dd>
+            
+            <dt><tt>&quot;OM&quot;</tt></dt>
+            <dd>Oman</dd>
+            
+            <dt><tt>&quot;PK&quot;</tt></dt>
+            <dd>Pakistan</dd>
+            
+            <dt><tt>&quot;PW&quot;</tt></dt>
+            <dd>Palau</dd>
+            
+            <dt><tt>&quot;PS&quot;</tt></dt>
+            <dd>Palestine, State of</dd>
+            
+            <dt><tt>&quot;PA&quot;</tt></dt>
+            <dd>Panama</dd>
+            
+            <dt><tt>&quot;PG&quot;</tt></dt>
+            <dd>Papua New Guinea</dd>
+            
+            <dt><tt>&quot;PY&quot;</tt></dt>
+            <dd>Paraguay</dd>
+            
+            <dt><tt>&quot;PE&quot;</tt></dt>
+            <dd>Peru</dd>
+            
+            <dt><tt>&quot;PH&quot;</tt></dt>
+            <dd>Philippines</dd>
+            
+            <dt><tt>&quot;PN&quot;</tt></dt>
+            <dd>Pitcairn</dd>
+            
+            <dt><tt>&quot;PL&quot;</tt></dt>
+            <dd>Poland</dd>
+            
+            <dt><tt>&quot;PT&quot;</tt></dt>
+            <dd>Portugal</dd>
+            
+            <dt><tt>&quot;PR&quot;</tt></dt>
+            <dd>Puerto Rico</dd>
+            
+            <dt><tt>&quot;QA&quot;</tt></dt>
+            <dd>Qatar</dd>
+            
+            <dt><tt>&quot;RE&quot;</tt></dt>
+            <dd>Réunion</dd>
+            
+            <dt><tt>&quot;RO&quot;</tt></dt>
+            <dd>Romania</dd>
+            
+            <dt><tt>&quot;RU&quot;</tt></dt>
+            <dd>Russia</dd>
+            
+            <dt><tt>&quot;RW&quot;</tt></dt>
+            <dd>Rwanda</dd>
+            
+            <dt><tt>&quot;BL&quot;</tt></dt>
+            <dd>Saint Barthélemy</dd>
+            
+            <dt><tt>&quot;SH&quot;</tt></dt>
+            <dd>Saint Helena, Ascension and Tristan da Cunha</dd>
+            
+            <dt><tt>&quot;KN&quot;</tt></dt>
+            <dd>Saint Kitts and Nevis</dd>
+            
+            <dt><tt>&quot;LC&quot;</tt></dt>
+            <dd>Saint Lucia</dd>
+            
+            <dt><tt>&quot;MF&quot;</tt></dt>
+            <dd>Saint Martin (French part)</dd>
+            
+            <dt><tt>&quot;PM&quot;</tt></dt>
+            <dd>Saint Pierre and Miquelon</dd>
+            
+            <dt><tt>&quot;VC&quot;</tt></dt>
+            <dd>Saint Vincent and the Grenadines</dd>
+            
+            <dt><tt>&quot;WS&quot;</tt></dt>
+            <dd>Samoa</dd>
+            
+            <dt><tt>&quot;SM&quot;</tt></dt>
+            <dd>San Marino</dd>
+            
+            <dt><tt>&quot;ST&quot;</tt></dt>
+            <dd>Sao Tome and Principe</dd>
+            
+            <dt><tt>&quot;SA&quot;</tt></dt>
+            <dd>Saudi Arabia</dd>
+            
+            <dt><tt>&quot;SN&quot;</tt></dt>
+            <dd>Senegal</dd>
+            
+            <dt><tt>&quot;RS&quot;</tt></dt>
+            <dd>Serbia</dd>
+            
+            <dt><tt>&quot;SC&quot;</tt></dt>
+            <dd>Seychelles</dd>
+            
+            <dt><tt>&quot;SL&quot;</tt></dt>
+            <dd>Sierra Leone</dd>
+            
+            <dt><tt>&quot;SG&quot;</tt></dt>
+            <dd>Singapore</dd>
+            
+            <dt><tt>&quot;SX&quot;</tt></dt>
+            <dd>Sint Maarten (Dutch part)</dd>
+            
+            <dt><tt>&quot;SK&quot;</tt></dt>
+            <dd>Slovakia</dd>
+            
+            <dt><tt>&quot;SI&quot;</tt></dt>
+            <dd>Slovenia</dd>
+            
+            <dt><tt>&quot;SB&quot;</tt></dt>
+            <dd>Solomon Islands</dd>
+            
+            <dt><tt>&quot;SO&quot;</tt></dt>
+            <dd>Somalia</dd>
+            
+            <dt><tt>&quot;ZA&quot;</tt></dt>
+            <dd>South Africa</dd>
+            
+            <dt><tt>&quot;GS&quot;</tt></dt>
+            <dd>South Georgia and the South Sandwich Islands</dd>
+            
+            <dt><tt>&quot;KR&quot;</tt></dt>
+            <dd>South Korea</dd>
+            
+            <dt><tt>&quot;SS&quot;</tt></dt>
+            <dd>South Sudan</dd>
+            
+            <dt><tt>&quot;ES&quot;</tt></dt>
+            <dd>Spain</dd>
+            
+            <dt><tt>&quot;LK&quot;</tt></dt>
+            <dd>Sri Lanka</dd>
+            
+            <dt><tt>&quot;SD&quot;</tt></dt>
+            <dd>Sudan</dd>
+            
+            <dt><tt>&quot;SR&quot;</tt></dt>
+            <dd>Suriname</dd>
+            
+            <dt><tt>&quot;SJ&quot;</tt></dt>
+            <dd>Svalbard and Jan Mayen</dd>
+            
+            <dt><tt>&quot;SZ&quot;</tt></dt>
+            <dd>Swaziland</dd>
+            
+            <dt><tt>&quot;SE&quot;</tt></dt>
+            <dd>Sweden</dd>
+            
+            <dt><tt>&quot;CH&quot;</tt></dt>
+            <dd>Switzerland</dd>
+            
+            <dt><tt>&quot;SY&quot;</tt></dt>
+            <dd>Syria</dd>
+            
+            <dt><tt>&quot;TW&quot;</tt></dt>
+            <dd>Taiwan</dd>
+            
+            <dt><tt>&quot;TJ&quot;</tt></dt>
+            <dd>Tajikistan</dd>
+            
+            <dt><tt>&quot;TZ&quot;</tt></dt>
+            <dd>Tanzania</dd>
+            
+            <dt><tt>&quot;TH&quot;</tt></dt>
+            <dd>Thailand</dd>
+            
+            <dt><tt>&quot;TL&quot;</tt></dt>
+            <dd>Timor-Leste</dd>
+            
+            <dt><tt>&quot;TG&quot;</tt></dt>
+            <dd>Togo</dd>
+            
+            <dt><tt>&quot;TK&quot;</tt></dt>
+            <dd>Tokelau</dd>
+            
+            <dt><tt>&quot;TO&quot;</tt></dt>
+            <dd>Tonga</dd>
+            
+            <dt><tt>&quot;TT&quot;</tt></dt>
+            <dd>Trinidad and Tobago</dd>
+            
+            <dt><tt>&quot;TN&quot;</tt></dt>
+            <dd>Tunisia</dd>
+            
+            <dt><tt>&quot;TR&quot;</tt></dt>
+            <dd>Turkey</dd>
+            
+            <dt><tt>&quot;TM&quot;</tt></dt>
+            <dd>Turkmenistan</dd>
+            
+            <dt><tt>&quot;TC&quot;</tt></dt>
+            <dd>Turks and Caicos Islands</dd>
+            
+            <dt><tt>&quot;TV&quot;</tt></dt>
+            <dd>Tuvalu</dd>
+            
+            <dt><tt>&quot;UG&quot;</tt></dt>
+            <dd>Uganda</dd>
+            
+            <dt><tt>&quot;UA&quot;</tt></dt>
+            <dd>Ukraine</dd>
+            
+            <dt><tt>&quot;AE&quot;</tt></dt>
+            <dd>United Arab Emirates</dd>
+            
+            <dt><tt>&quot;GB&quot;</tt></dt>
+            <dd>United Kingdom</dd>
+            
+            <dt><tt>&quot;UM&quot;</tt></dt>
+            <dd>United States Minor Outlying Islands</dd>
+            
+            <dt><tt>&quot;US&quot;</tt></dt>
+            <dd>United States of America</dd>
+            
+            <dt><tt>&quot;UY&quot;</tt></dt>
+            <dd>Uruguay</dd>
+            
+            <dt><tt>&quot;UZ&quot;</tt></dt>
+            <dd>Uzbekistan</dd>
+            
+            <dt><tt>&quot;VU&quot;</tt></dt>
+            <dd>Vanuatu</dd>
+            
+            <dt><tt>&quot;VE&quot;</tt></dt>
+            <dd>Venezuela</dd>
+            
+            <dt><tt>&quot;VN&quot;</tt></dt>
+            <dd>Vietnam</dd>
+            
+            <dt><tt>&quot;VG&quot;</tt></dt>
+            <dd>Virgin Islands (British)</dd>
+            
+            <dt><tt>&quot;VI&quot;</tt></dt>
+            <dd>Virgin Islands (U.S.)</dd>
+            
+            <dt><tt>&quot;WF&quot;</tt></dt>
+            <dd>Wallis and Futuna</dd>
+            
+            <dt><tt>&quot;EH&quot;</tt></dt>
+            <dd>Western Sahara</dd>
+            
+            <dt><tt>&quot;YE&quot;</tt></dt>
+            <dd>Yemen</dd>
+            
+            <dt><tt>&quot;ZM&quot;</tt></dt>
+            <dd>Zambia</dd>
+            
+            <dt><tt>&quot;ZW&quot;</tt></dt>
+            <dd>Zimbabwe</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">p_c_t_final_report</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (3.2.6 Does a final report exist?)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">p_c_t_gcp_rules</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (3.2.5 Were the clinical tests made according to GCP guidelines)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">p_c_t_period</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (3.2.3 period)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">p_c_t_phase</span>
+    
+        STRING
+        max. 80 characters, may be null
+        
+            <span class="paperform">
+                (3.2.2 Phase)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">preexisting_clinical_tries</span>
+    
+        STRING
+        may be null
+        
+            <span class="paperform">
+                (3.2 Are there already results of clinical trials for the tested drug?)
+            </span>
+        
+        
+    
+</div>
+
+            
+        
+            
+                <div class="item">
+    <span class="key">registered_in_countries</span>
+    
+        STRING[]
+        max. 2 characters
+        
+            <span class="paperform">
+                (3.1 Registration in other states?)
+            </span>
+        
+        
+        - choices:
+        <dl class="choices">
+            
+            <dt><tt>&quot;AF&quot;</tt></dt>
+            <dd>Afghanistan</dd>
+            
+            <dt><tt>&quot;AX&quot;</tt></dt>
+            <dd>Åland Islands</dd>
+            
+            <dt><tt>&quot;AL&quot;</tt></dt>
+            <dd>Albania</dd>
+            
+            <dt><tt>&quot;DZ&quot;</tt></dt>
+            <dd>Algeria</dd>
+            
+            <dt><tt>&quot;AS&quot;</tt></dt>
+            <dd>American Samoa</dd>
+            
+            <dt><tt>&quot;AD&quot;</tt></dt>
+            <dd>Andorra</dd>
+            
+            <dt><tt>&quot;AO&quot;</tt></dt>
+            <dd>Angola</dd>
+            
+            <dt><tt>&quot;AI&quot;</tt></dt>
+            <dd>Anguilla</dd>
+            
+            <dt><tt>&quot;AQ&quot;</tt></dt>
+            <dd>Antarctica</dd>
+            
+            <dt><tt>&quot;AG&quot;</tt></dt>
+            <dd>Antigua and Barbuda</dd>
+            
+            <dt><tt>&quot;AR&quot;</tt></dt>
+            <dd>Argentina</dd>
+            
+            <dt><tt>&quot;AM&quot;</tt></dt>
+            <dd>Armenia</dd>
+            
+            <dt><tt>&quot;AW&quot;</tt></dt>
+            <dd>Aruba</dd>
+            
+            <dt><tt>&quot;AU&quot;</tt></dt>
+            <dd>Australia</dd>
+            
+            <dt><tt>&quot;AT&quot;</tt></dt>
+            <dd>Austria</dd>
+            
+            <dt><tt>&quot;AZ&quot;</tt></dt>
+            <dd>Azerbaijan</dd>
+            
+            <dt><tt>&quot;BS&quot;</tt></dt>
+            <dd>Bahamas</dd>
+            
+            <dt><tt>&quot;BH&quot;</tt></dt>
+            <dd>Bahrain</dd>
+            
+            <dt><tt>&quot;BD&quot;</tt></dt>
+            <dd>Bangladesh</dd>
+            
+            <dt><tt>&quot;BB&quot;</tt></dt>
+            <dd>Barbados</dd>
+            
+            <dt><tt>&quot;BY&quot;</tt></dt>
+            <dd>Belarus</dd>
+            
+            <dt><tt>&quot;BE&quot;</tt></dt>
+            <dd>Belgium</dd>
+            
+            <dt><tt>&quot;BZ&quot;</tt></dt>
+            <dd>Belize</dd>
+            
+            <dt><tt>&quot;BJ&quot;</tt></dt>
+            <dd>Benin</dd>
+            
+            <dt><tt>&quot;BM&quot;</tt></dt>
+            <dd>Bermuda</dd>
+            
+            <dt><tt>&quot;BT&quot;</tt></dt>
+            <dd>Bhutan</dd>
+            
+            <dt><tt>&quot;BO&quot;</tt></dt>
+            <dd>Bolivia</dd>
+            
+            <dt><tt>&quot;BQ&quot;</tt></dt>
+            <dd>Bonaire, Sint Eustatius and Saba</dd>
+            
+            <dt><tt>&quot;BA&quot;</tt></dt>
+            <dd>Bosnia and Herzegovina</dd>
+            
+            <dt><tt>&quot;BW&quot;</tt></dt>
+            <dd>Botswana</dd>
+            
+            <dt><tt>&quot;BV&quot;</tt></dt>
+            <dd>Bouvet Island</dd>
+            
+            <dt><tt>&quot;BR&quot;</tt></dt>
+            <dd>Brazil</dd>
+            
+            <dt><tt>&quot;IO&quot;</tt></dt>
+            <dd>British Indian Ocean Territory</dd>
+            
+            <dt><tt>&quot;BN&quot;</tt></dt>
+            <dd>Brunei</dd>
+            
+            <dt><tt>&quot;BG&quot;</tt></dt>
+            <dd>Bulgaria</dd>
+            
+            <dt><tt>&quot;BF&quot;</tt></dt>
+            <dd>Burkina Faso</dd>
+            
+            <dt><tt>&quot;BI&quot;</tt></dt>
+            <dd>Burundi</dd>
+            
+            <dt><tt>&quot;CV&quot;</tt></dt>
+            <dd>Cabo Verde</dd>
+            
+            <dt><tt>&quot;KH&quot;</tt></dt>
+            <dd>Cambodia</dd>
+            
+            <dt><tt>&quot;CM&quot;</tt></dt>
+            <dd>Cameroon</dd>
+            
+            <dt><tt>&quot;CA&quot;</tt></dt>
+            <dd>Canada</dd>
+            
+            <dt><tt>&quot;KY&quot;</tt></dt>
+            <dd>Cayman Islands</dd>
+            
+            <dt><tt>&quot;CF&quot;</tt></dt>
+            <dd>Central African Republic</dd>
+            
+            <dt><tt>&quot;TD&quot;</tt></dt>
+            <dd>Chad</dd>
+            
+            <dt><tt>&quot;CL&quot;</tt></dt>
+            <dd>Chile</dd>
+            
+            <dt><tt>&quot;CN&quot;</tt></dt>
+            <dd>China</dd>
+            
+            <dt><tt>&quot;CX&quot;</tt></dt>
+            <dd>Christmas Island</dd>
+            
+            <dt><tt>&quot;CC&quot;</tt></dt>
+            <dd>Cocos (Keeling) Islands</dd>
+            
+            <dt><tt>&quot;CO&quot;</tt></dt>
+            <dd>Colombia</dd>
+            
+            <dt><tt>&quot;KM&quot;</tt></dt>
+            <dd>Comoros</dd>
+            
+            <dt><tt>&quot;CG&quot;</tt></dt>
+            <dd>Congo</dd>
+            
+            <dt><tt>&quot;CD&quot;</tt></dt>
+            <dd>Congo (the Democratic Republic of the)</dd>
+            
+            <dt><tt>&quot;CK&quot;</tt></dt>
+            <dd>Cook Islands</dd>
+            
+            <dt><tt>&quot;CR&quot;</tt></dt>
+            <dd>Costa Rica</dd>
+            
+            <dt><tt>&quot;CI&quot;</tt></dt>
+            <dd>Côte d&#39;Ivoire</dd>
+            
+            <dt><tt>&quot;HR&quot;</tt></dt>
+            <dd>Croatia</dd>
+            
+            <dt><tt>&quot;CU&quot;</tt></dt>
+            <dd>Cuba</dd>
+            
+            <dt><tt>&quot;CW&quot;</tt></dt>
+            <dd>Curaçao</dd>
+            
+            <dt><tt>&quot;CY&quot;</tt></dt>
+            <dd>Cyprus</dd>
+            
+            <dt><tt>&quot;CZ&quot;</tt></dt>
+            <dd>Czech Republic</dd>
+            
+            <dt><tt>&quot;DK&quot;</tt></dt>
+            <dd>Denmark</dd>
+            
+            <dt><tt>&quot;DJ&quot;</tt></dt>
+            <dd>Djibouti</dd>
+            
+            <dt><tt>&quot;DM&quot;</tt></dt>
+            <dd>Dominica</dd>
+            
+            <dt><tt>&quot;DO&quot;</tt></dt>
+            <dd>Dominican Republic</dd>
+            
+            <dt><tt>&quot;EC&quot;</tt></dt>
+            <dd>Ecuador</dd>
+            
+            <dt><tt>&quot;EG&quot;</tt></dt>
+            <dd>Egypt</dd>
+            
+            <dt><tt>&quot;SV&quot;</tt></dt>
+            <dd>El Salvador</dd>
+            
+            <dt><tt>&quot;GQ&quot;</tt></dt>
+            <dd>Equatorial Guinea</dd>
+            
+            <dt><tt>&quot;ER&quot;</tt></dt>
+            <dd>Eritrea</dd>
+            
+            <dt><tt>&quot;EE&quot;</tt></dt>
+            <dd>Estonia</dd>
+            
+            <dt><tt>&quot;ET&quot;</tt></dt>
+            <dd>Ethiopia</dd>
+            
+            <dt><tt>&quot;FK&quot;</tt></dt>
+            <dd>Falkland Islands  [Malvinas]</dd>
+            
+            <dt><tt>&quot;FO&quot;</tt></dt>
+            <dd>Faroe Islands</dd>
+            
+            <dt><tt>&quot;FJ&quot;</tt></dt>
+            <dd>Fiji</dd>
+            
+            <dt><tt>&quot;FI&quot;</tt></dt>
+            <dd>Finland</dd>
+            
+            <dt><tt>&quot;FR&quot;</tt></dt>
+            <dd>France</dd>
+            
+            <dt><tt>&quot;GF&quot;</tt></dt>
+            <dd>French Guiana</dd>
+            
+            <dt><tt>&quot;PF&quot;</tt></dt>
+            <dd>French Polynesia</dd>
+            
+            <dt><tt>&quot;TF&quot;</tt></dt>
+            <dd>French Southern Territories</dd>
+            
+            <dt><tt>&quot;GA&quot;</tt></dt>
+            <dd>Gabon</dd>
+            
+            <dt><tt>&quot;GM&quot;</tt></dt>
+            <dd>Gambia</dd>
+            
+            <dt><tt>&quot;GE&quot;</tt></dt>
+            <dd>Georgia</dd>
+            
+            <dt><tt>&quot;DE&quot;</tt></dt>
+            <dd>Germany</dd>
+            
+            <dt><tt>&quot;GH&quot;</tt></dt>
+            <dd>Ghana</dd>
+            
+            <dt><tt>&quot;GI&quot;</tt></dt>
+            <dd>Gibraltar</dd>
+            
+            <dt><tt>&quot;GR&quot;</tt></dt>
+            <dd>Greece</dd>
+            
+            <dt><tt>&quot;GL&quot;</tt></dt>
+            <dd>Greenland</dd>
+            
+            <dt><tt>&quot;GD&quot;</tt></dt>
+            <dd>Grenada</dd>
+            
+            <dt><tt>&quot;GP&quot;</tt></dt>
+            <dd>Guadeloupe</dd>
+            
+            <dt><tt>&quot;GU&quot;</tt></dt>
+            <dd>Guam</dd>
+            
+            <dt><tt>&quot;GT&quot;</tt></dt>
+            <dd>Guatemala</dd>
+            
+            <dt><tt>&quot;GG&quot;</tt></dt>
+            <dd>Guernsey</dd>
+            
+            <dt><tt>&quot;GN&quot;</tt></dt>
+            <dd>Guinea</dd>
+            
+            <dt><tt>&quot;GW&quot;</tt></dt>
+            <dd>Guinea-Bissau</dd>
+            
+            <dt><tt>&quot;GY&quot;</tt></dt>
+            <dd>Guyana</dd>
+            
+            <dt><tt>&quot;HT&quot;</tt></dt>
+            <dd>Haiti</dd>
+            
+            <dt><tt>&quot;HM&quot;</tt></dt>
+            <dd>Heard Island and McDonald Islands</dd>
+            
+            <dt><tt>&quot;VA&quot;</tt></dt>
+            <dd>Holy See</dd>
+            
+            <dt><tt>&quot;HN&quot;</tt></dt>
+            <dd>Honduras</dd>
+            
+            <dt><tt>&quot;HK&quot;</tt></dt>
+            <dd>Hong Kong</dd>
+            
+            <dt><tt>&quot;HU&quot;</tt></dt>
+            <dd>Hungary</dd>
+            
+            <dt><tt>&quot;IS&quot;</tt></dt>
+            <dd>Iceland</dd>
+            
+            <dt><tt>&quot;IN&quot;</tt></dt>
+            <dd>India</dd>
+            
+            <dt><tt>&quot;ID&quot;</tt></dt>
+            <dd>Indonesia</dd>
+            
+            <dt><tt>&quot;IR&quot;</tt></dt>
+            <dd>Iran</dd>
+            
+            <dt><tt>&quot;IQ&quot;</tt></dt>
+            <dd>Iraq</dd>
+            
+            <dt><tt>&quot;IE&quot;</tt></dt>
+            <dd>Ireland</dd>
+            
+            <dt><tt>&quot;IM&quot;</tt></dt>
+            <dd>Isle of Man</dd>
+            
+            <dt><tt>&quot;IL&quot;</tt></dt>
+            <dd>Israel</dd>
+            
+            <dt><tt>&quot;IT&quot;</tt></dt>
+            <dd>Italy</dd>
+            
+            <dt><tt>&quot;JM&quot;</tt></dt>
+            <dd>Jamaica</dd>
+            
+            <dt><tt>&quot;JP&quot;</tt></dt>
+            <dd>Japan</dd>
+            
+            <dt><tt>&quot;JE&quot;</tt></dt>
+            <dd>Jersey</dd>
+            
+            <dt><tt>&quot;JO&quot;</tt></dt>
+            <dd>Jordan</dd>
+            
+            <dt><tt>&quot;KZ&quot;</tt></dt>
+            <dd>Kazakhstan</dd>
+            
+            <dt><tt>&quot;KE&quot;</tt></dt>
+            <dd>Kenya</dd>
+            
+            <dt><tt>&quot;KI&quot;</tt></dt>
+            <dd>Kiribati</dd>
+            
+            <dt><tt>&quot;KW&quot;</tt></dt>
+            <dd>Kuwait</dd>
+            
+            <dt><tt>&quot;KG&quot;</tt></dt>
+            <dd>Kyrgyzstan</dd>
+            
+            <dt><tt>&quot;LA&quot;</tt></dt>
+            <dd>Laos</dd>
+            
+            <dt><tt>&quot;LV&quot;</tt></dt>
+            <dd>Latvia</dd>
+            
+            <dt><tt>&quot;LB&quot;</tt></dt>
+            <dd>Lebanon</dd>
+            
+            <dt><tt>&quot;LS&quot;</tt></dt>
+            <dd>Lesotho</dd>
+            
+            <dt><tt>&quot;LR&quot;</tt></dt>
+            <dd>Liberia</dd>
+            
+            <dt><tt>&quot;LY&quot;</tt></dt>
+            <dd>Libya</dd>
+            
+            <dt><tt>&quot;LI&quot;</tt></dt>
+            <dd>Liechtenstein</dd>
+            
+            <dt><tt>&quot;LT&quot;</tt></dt>
+            <dd>Lithuania</dd>
+            
+            <dt><tt>&quot;LU&quot;</tt></dt>
+            <dd>Luxembourg</dd>
+            
+            <dt><tt>&quot;MO&quot;</tt></dt>
+            <dd>Macao</dd>
+            
+            <dt><tt>&quot;MK&quot;</tt></dt>
+            <dd>Macedonia</dd>
+            
+            <dt><tt>&quot;MG&quot;</tt></dt>
+            <dd>Madagascar</dd>
+            
+            <dt><tt>&quot;MW&quot;</tt></dt>
+            <dd>Malawi</dd>
+            
+            <dt><tt>&quot;MY&quot;</tt></dt>
+            <dd>Malaysia</dd>
+            
+            <dt><tt>&quot;MV&quot;</tt></dt>
+            <dd>Maldives</dd>
+            
+            <dt><tt>&quot;ML&quot;</tt></dt>
+            <dd>Mali</dd>
+            
+            <dt><tt>&quot;MT&quot;</tt></dt>
+            <dd>Malta</dd>
+            
+            <dt><tt>&quot;MH&quot;</tt></dt>
+            <dd>Marshall Islands</dd>
+            
+            <dt><tt>&quot;MQ&quot;</tt></dt>
+            <dd>Martinique</dd>
+            
+            <dt><tt>&quot;MR&quot;</tt></dt>
+            <dd>Mauritania</dd>
+            
+            <dt><tt>&quot;MU&quot;</tt></dt>
+            <dd>Mauritius</dd>
+            
+            <dt><tt>&quot;YT&quot;</tt></dt>
+            <dd>Mayotte</dd>
+            
+            <dt><tt>&quot;MX&quot;</tt></dt>
+            <dd>Mexico</dd>
+            
+            <dt><tt>&quot;FM&quot;</tt></dt>
+            <dd>Micronesia (Federated States of)</dd>
+            
+            <dt><tt>&quot;MD&quot;</tt></dt>
+            <dd>Moldova</dd>
+            
+            <dt><tt>&quot;MC&quot;</tt></dt>
+            <dd>Monaco</dd>
+            
+            <dt><tt>&quot;MN&quot;</tt></dt>
+            <dd>Mongolia</dd>
+            
+            <dt><tt>&quot;ME&quot;</tt></dt>
+            <dd>Montenegro</dd>
+            
+            <dt><tt>&quot;MS&quot;</tt></dt>
+            <dd>Montserrat</dd>
+            
+            <dt><tt>&quot;MA&quot;</tt></dt>
+            <dd>Morocco</dd>
+            
+            <dt><tt>&quot;MZ&quot;</tt></dt>
+            <dd>Mozambique</dd>
+            
+            <dt><tt>&quot;MM&quot;</tt></dt>
+            <dd>Myanmar</dd>
+            
+            <dt><tt>&quot;NA&quot;</tt></dt>
+            <dd>Namibia</dd>
+            
+            <dt><tt>&quot;NR&quot;</tt></dt>
+            <dd>Nauru</dd>
+            
+            <dt><tt>&quot;NP&quot;</tt></dt>
+            <dd>Nepal</dd>
+            
+            <dt><tt>&quot;NL&quot;</tt></dt>
+            <dd>Netherlands</dd>
+            
+            <dt><tt>&quot;NC&quot;</tt></dt>
+            <dd>New Caledonia</dd>
+            
+            <dt><tt>&quot;NZ&quot;</tt></dt>
+            <dd>New Zealand</dd>
+            
+            <dt><tt>&quot;NI&quot;</tt></dt>
+            <dd>Nicaragua</dd>
+            
+            <dt><tt>&quot;NE&quot;</tt></dt>
+            <dd>Niger</dd>
+            
+            <dt><tt>&quot;NG&quot;</tt></dt>
+            <dd>Nigeria</dd>
+            
+            <dt><tt>&quot;NU&quot;</tt></dt>
+            <dd>Niue</dd>
+            
+            <dt><tt>&quot;NF&quot;</tt></dt>
+            <dd>Norfolk Island</dd>
+            
+            <dt><tt>&quot;KP&quot;</tt></dt>
+            <dd>North Korea</dd>
+            
+            <dt><tt>&quot;MP&quot;</tt></dt>
+            <dd>Northern Mariana Islands</dd>
+            
+            <dt><tt>&quot;NO&quot;</tt></dt>
+            <dd>Norway</dd>
+            
+            <dt><tt>&quot;OM&quot;</tt></dt>
+            <dd>Oman</dd>
+            
+            <dt><tt>&quot;PK&quot;</tt></dt>
+            <dd>Pakistan</dd>
+            
+            <dt><tt>&quot;PW&quot;</tt></dt>
+            <dd>Palau</dd>
+            
+            <dt><tt>&quot;PS&quot;</tt></dt>
+            <dd>Palestine, State of</dd>
+            
+            <dt><tt>&quot;PA&quot;</tt></dt>
+            <dd>Panama</dd>
+            
+            <dt><tt>&quot;PG&quot;</tt></dt>
+            <dd>Papua New Guinea</dd>
+            
+            <dt><tt>&quot;PY&quot;</tt></dt>
+            <dd>Paraguay</dd>
+            
+            <dt><tt>&quot;PE&quot;</tt></dt>
+            <dd>Peru</dd>
+            
+            <dt><tt>&quot;PH&quot;</tt></dt>
+            <dd>Philippines</dd>
+            
+            <dt><tt>&quot;PN&quot;</tt></dt>
+            <dd>Pitcairn</dd>
+            
+            <dt><tt>&quot;PL&quot;</tt></dt>
+            <dd>Poland</dd>
+            
+            <dt><tt>&quot;PT&quot;</tt></dt>
+            <dd>Portugal</dd>
+            
+            <dt><tt>&quot;PR&quot;</tt></dt>
+            <dd>Puerto Rico</dd>
+            
+            <dt><tt>&quot;QA&quot;</tt></dt>
+            <dd>Qatar</dd>
+            
+            <dt><tt>&quot;RE&quot;</tt></dt>
+            <dd>Réunion</dd>
+            
+            <dt><tt>&quot;RO&quot;</tt></dt>
+            <dd>Romania</dd>
+            
+            <dt><tt>&quot;RU&quot;</tt></dt>
+            <dd>Russia</dd>
+            
+            <dt><tt>&quot;RW&quot;</tt></dt>
+            <dd>Rwanda</dd>
+            
+            <dt><tt>&quot;BL&quot;</tt></dt>
+            <dd>Saint Barthélemy</dd>
+            
+            <dt><tt>&quot;SH&quot;</tt></dt>
+            <dd>Saint Helena, Ascension and Tristan da Cunha</dd>
+            
+            <dt><tt>&quot;KN&quot;</tt></dt>
+            <dd>Saint Kitts and Nevis</dd>
+            
+            <dt><tt>&quot;LC&quot;</tt></dt>
+            <dd>Saint Lucia</dd>
+            
+            <dt><tt>&quot;MF&quot;</tt></dt>
+            <dd>Saint Martin (French part)</dd>
+            
+            <dt><tt>&quot;PM&quot;</tt></dt>
+            <dd>Saint Pierre and Miquelon</dd>
+            
+            <dt><tt>&quot;VC&quot;</tt></dt>
+            <dd>Saint Vincent and the Grenadines</dd>
+            
+            <dt><tt>&quot;WS&quot;</tt></dt>
+            <dd>Samoa</dd>
+            
+            <dt><tt>&quot;SM&quot;</tt></dt>
+            <dd>San Marino</dd>
+            
+            <dt><tt>&quot;ST&quot;</tt></dt>
+            <dd>Sao Tome and Principe</dd>
+            
+            <dt><tt>&quot;SA&quot;</tt></dt>
+            <dd>Saudi Arabia</dd>
+            
+            <dt><tt>&quot;SN&quot;</tt></dt>
+            <dd>Senegal</dd>
+            
+            <dt><tt>&quot;RS&quot;</tt></dt>
+            <dd>Serbia</dd>
+            
+            <dt><tt>&quot;SC&quot;</tt></dt>
+            <dd>Seychelles</dd>
+            
+            <dt><tt>&quot;SL&quot;</tt></dt>
+            <dd>Sierra Leone</dd>
+            
+            <dt><tt>&quot;SG&quot;</tt></dt>
+            <dd>Singapore</dd>
+            
+            <dt><tt>&quot;SX&quot;</tt></dt>
+            <dd>Sint Maarten (Dutch part)</dd>
+            
+            <dt><tt>&quot;SK&quot;</tt></dt>
+            <dd>Slovakia</dd>
+            
+            <dt><tt>&quot;SI&quot;</tt></dt>
+            <dd>Slovenia</dd>
+            
+            <dt><tt>&quot;SB&quot;</tt></dt>
+            <dd>Solomon Islands</dd>
+            
+            <dt><tt>&quot;SO&quot;</tt></dt>
+            <dd>Somalia</dd>
+            
+            <dt><tt>&quot;ZA&quot;</tt></dt>
+            <dd>South Africa</dd>
+            
+            <dt><tt>&quot;GS&quot;</tt></dt>
+            <dd>South Georgia and the South Sandwich Islands</dd>
+            
+            <dt><tt>&quot;KR&quot;</tt></dt>
+            <dd>South Korea</dd>
+            
+            <dt><tt>&quot;SS&quot;</tt></dt>
+            <dd>South Sudan</dd>
+            
+            <dt><tt>&quot;ES&quot;</tt></dt>
+            <dd>Spain</dd>
+            
+            <dt><tt>&quot;LK&quot;</tt></dt>
+            <dd>Sri Lanka</dd>
+            
+            <dt><tt>&quot;SD&quot;</tt></dt>
+            <dd>Sudan</dd>
+            
+            <dt><tt>&quot;SR&quot;</tt></dt>
+            <dd>Suriname</dd>
+            
+            <dt><tt>&quot;SJ&quot;</tt></dt>
+            <dd>Svalbard and Jan Mayen</dd>
+            
+            <dt><tt>&quot;SZ&quot;</tt></dt>
+            <dd>Swaziland</dd>
+            
+            <dt><tt>&quot;SE&quot;</tt></dt>
+            <dd>Sweden</dd>
+            
+            <dt><tt>&quot;CH&quot;</tt></dt>
+            <dd>Switzerland</dd>
+            
+            <dt><tt>&quot;SY&quot;</tt></dt>
+            <dd>Syria</dd>
+            
+            <dt><tt>&quot;TW&quot;</tt></dt>
+            <dd>Taiwan</dd>
+            
+            <dt><tt>&quot;TJ&quot;</tt></dt>
+            <dd>Tajikistan</dd>
+            
+            <dt><tt>&quot;TZ&quot;</tt></dt>
+            <dd>Tanzania</dd>
+            
+            <dt><tt>&quot;TH&quot;</tt></dt>
+            <dd>Thailand</dd>
+            
+            <dt><tt>&quot;TL&quot;</tt></dt>
+            <dd>Timor-Leste</dd>
+            
+            <dt><tt>&quot;TG&quot;</tt></dt>
+            <dd>Togo</dd>
+            
+            <dt><tt>&quot;TK&quot;</tt></dt>
+            <dd>Tokelau</dd>
+            
+            <dt><tt>&quot;TO&quot;</tt></dt>
+            <dd>Tonga</dd>
+            
+            <dt><tt>&quot;TT&quot;</tt></dt>
+            <dd>Trinidad and Tobago</dd>
+            
+            <dt><tt>&quot;TN&quot;</tt></dt>
+            <dd>Tunisia</dd>
+            
+            <dt><tt>&quot;TR&quot;</tt></dt>
+            <dd>Turkey</dd>
+            
+            <dt><tt>&quot;TM&quot;</tt></dt>
+            <dd>Turkmenistan</dd>
+            
+            <dt><tt>&quot;TC&quot;</tt></dt>
+            <dd>Turks and Caicos Islands</dd>
+            
+            <dt><tt>&quot;TV&quot;</tt></dt>
+            <dd>Tuvalu</dd>
+            
+            <dt><tt>&quot;UG&quot;</tt></dt>
+            <dd>Uganda</dd>
+            
+            <dt><tt>&quot;UA&quot;</tt></dt>
+            <dd>Ukraine</dd>
+            
+            <dt><tt>&quot;AE&quot;</tt></dt>
+            <dd>United Arab Emirates</dd>
+            
+            <dt><tt>&quot;GB&quot;</tt></dt>
+            <dd>United Kingdom</dd>
+            
+            <dt><tt>&quot;UM&quot;</tt></dt>
+            <dd>United States Minor Outlying Islands</dd>
+            
+            <dt><tt>&quot;US&quot;</tt></dt>
+            <dd>United States of America</dd>
+            
+            <dt><tt>&quot;UY&quot;</tt></dt>
+            <dd>Uruguay</dd>
+            
+            <dt><tt>&quot;UZ&quot;</tt></dt>
+            <dd>Uzbekistan</dd>
+            
+            <dt><tt>&quot;VU&quot;</tt></dt>
+            <dd>Vanuatu</dd>
+            
+            <dt><tt>&quot;VE&quot;</tt></dt>
+            <dd>Venezuela</dd>
+            
+            <dt><tt>&quot;VN&quot;</tt></dt>
+            <dd>Vietnam</dd>
+            
+            <dt><tt>&quot;VG&quot;</tt></dt>
+            <dd>Virgin Islands (British)</dd>
+            
+            <dt><tt>&quot;VI&quot;</tt></dt>
+            <dd>Virgin Islands (U.S.)</dd>
+            
+            <dt><tt>&quot;WF&quot;</tt></dt>
+            <dd>Wallis and Futuna</dd>
+            
+            <dt><tt>&quot;EH&quot;</tt></dt>
+            <dd>Western Sahara</dd>
+            
+            <dt><tt>&quot;YE&quot;</tt></dt>
+            <dd>Yemen</dd>
+            
+            <dt><tt>&quot;ZM&quot;</tt></dt>
+            <dd>Zambia</dd>
+            
+            <dt><tt>&quot;ZW&quot;</tt></dt>
+            <dd>Zimbabwe</dd>
+            
+        </dl>
+        
+    
+</div>
+
+            
+        
+        </div>
+    
+</div>
+
+    
+</div>
+</body>
+</html>
