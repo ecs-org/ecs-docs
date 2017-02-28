@@ -11,7 +11,7 @@ THEME = '_themes/pelican-bootstrap3'
 PLUGIN_PATHS = [
     os.path.abspath(os.path.join(os.path.dirname(__file__), '_plugins')),
   ]
-PLUGINS = ['i18n_subsites']
+PLUGINS = ['i18n_subsites',]
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
 OUTPUT_SOURCES = False
