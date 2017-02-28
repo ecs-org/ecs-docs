@@ -50,6 +50,35 @@ Gutachter-Bezahlung
 
 In der Gutachter-Bezahlung wird die Abrechnung von unverrechneten Gutachten erstellt. Die Filter ermöglichen dabei eine Auswahl der zu bezahlenden Gutachter. Wenn Sie die Abrechnung erstellt haben, können Sie sie als xls-Datei herunterladen und weiter an die Finanzabteilung schicken. 
 
+Erweiterte Einstellungen
+========================
+
+Mitglieder der Executive- und Office-Gruppe können hier systemweite Einstellungen ändern. 
+
+Anpassungen
++++++++++++
+
+Unter *Anpassungen* können Sie den Standard-Empfänger, das Logo, die Adresse und die Sitzungsadresse, Kontakt-E-Mail, Kontakt-URL, die Liste der Mitglieder-URL sowie die Nachrichten-Signatur festlegen.
+
+Wählen Sie mittels Checkboxen aus, ob Meldungen im Protokoll angezeigt werden sollen, ob Befangene in der Amendment-Antwort angezeigt werden sollen und ob eine interne Votums-Prüfung erforderlich ist.
+
+Logo ändern
+-----------
+
+Wählen Sie das Logo Ihrer Wahl aus Ihrer Datei. Klicken Sie dann auf *Speichern* und laden Sie die Seite neu. Das neue Logo erscheint nun statt dem alten in der Menüleiste der Seite. 
+
+Sie können hier auch das Logo für den Ausdruck ändern. Dieses sollte im Querformat sein und einen transparenten Hintergrund haben, um eine optimale Darstellung zu garantieren.
+
+Voten
++++++
+
+Zusatztexte, die hier eingetragen werden, scheinen so in ausgestellten Voten nach dem allgemeinen Beschluss auf.
+
+Votenempfänger
+++++++++++++++
+
+Andere Ethikkommissionen werden automatisch über sie betreffende multizentrische Arzneimittelstudien benachrichtigt, die im ECS positiv beurteilt wurden. Damit dies passieren kann, müssen hier die E-Mail-Adressen aller anderen Ethikkommissionen eingetragen sein.
+
 Statistik
 =========
 
