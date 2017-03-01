@@ -1,7 +1,7 @@
-# Storage and Memory Research
+# Storage and Memory
 
 + Units: all data size units in this document are 1024 based
-  + 1 GB = 1024 MB, 1 MB = 1024 KB , 1 KB = 1024 bytes
+    + 1 GB = 1024 MB, 1 MB = 1024 KB , 1 KB = 1024 bytes
 
 ## Limits
 The current ecs implementation can sustain 250 Studies per Month for 10 years.
@@ -54,58 +54,72 @@ Backup Space Calculation (10 Years):
 After 10 Years, the values noted will be reached.
 
 #### 100 Studies per Month
-
-Name | Size | Calc
---- | --- | ---
-Base & Temp | 50GB | 
-Database | 8GB |  4074220 / 59 * 120
-Document-Storage | 195GB | 100684328 / 59 * 120
-Disksize | 253GB |  52428800 + 8286549 + 204781684
-Backup | 444GB |  2 x 204781684+ 52428800+ 204781684/120*2
-recommended Cores | 6 |
-recommended Memory | 16GB+ | 2+ 8+ 6
+```eval_rst
+==================  ======  ======================================== 
+Items               Size    Calculation
+==================  ======  ========================================
+Base & Temp         50GB 
+Database            8GB     4074220 / 59 * 120
+Document-Storage    195GB   100684328 / 59 * 120
+Disksize            253GB   52428800 + 8286549 + 204781684
+Backup              444GB   2 x 204781684+ 52428800+ 204781684/120*2
+recommended Cores   6
+recommended Memory  16GB+   2+ 8+ 6
+==================  ======  ========================================
+```
 
 #### 250 Studies per Month
-
-Name | Size
---- | ---
-Base & Temp | 50GB 
-Database | 20GB 
-Document-Storage | 500GB 
-Disksize | 570GB 
-Backup | 1332GB 
-recommended Cores | 8 
-recommended Memory | 30GB+ 
+```eval_rst
+==================  ======
+Items               Size  
+==================  ======
+Base & Temp         50GB 
+Database            20GB 
+Document-Storage    500GB 
+Disksize            570GB 
+Backup              1332GB
+recommended Cores   8 
+recommended Memory  30GB+ 
+==================  ======
+```
 
 #### 40 Studies per Month
-
-Name | Size
---- | --- 
-Base & Temp | 50GB
-Database | 3,2GB
-Document-Storage | 78GB
-Disksize | 131GB
-Backup | 178GB
-recommended Cores | 4 
-recommended Memory | 9,5GB+ 
+```eval_rst
+==================  ======
+Items               Size  
+==================  ======
+Base & Temp         50GB 
+Database            3,2GB
+Document-Storage    78GB 
+Disksize            131GB 
+Backup              178GB
+recommended Cores   4
+recommended Memory  9,5GB+
+==================  ======
+```
 
 #### 20 Studies per Month
-
-Name | Size
---- | ---
-Base & Temp | 50GB 
-Database | 1,6GB 
-Document-Storage | 40GB 
-Disksize | 92GB 
-Backup | 89GB 
-recommended Cores | 2
-recommended Memory | 6GB+
+```eval_rst
+==================  ======
+Items               Size  
+==================  ======
+Base & Temp         50GB 
+Database            1,6GB
+Document-Storage    40GB 
+Disksize            92GB 
+Backup              89GB
+recommended Cores   2
+recommended Memory  6GB+
+==================  ======
+```
 
 #### Test Instance
-
-Name | Size
---- | ---
-Disksize | 20-40GB
-recommended Cores | 1-2
-recommended Memory | 4GB
-
+```eval_rst
+==================  =======
+Items               Size  
+==================  =======
+Disksize            20-40GB
+recommended Cores   1-2
+recommended Memory  4GB+
+==================  =======
+```

@@ -52,14 +52,15 @@ All snippets expect root.
     + enter a django shell_plus as app user in a running container
         + `docker exec -it ecs_ecs.web_1 /start run ./manage.py shell_plus`
 
-+ ./manage.py commands (with activated environment)
-    + make all workflow graphs
++ make all workflow graphs (with activated environment)
+
 ```
 ./manage.py workflow_dot core.submission | dot -Tpng -osubmission.png
 ./manage.py workflow_dot notifications.notification | dot -Tpng -onotification.png
 ./manage.py workflow_dot votes.vote | dot -Tpng -ovote.png
 ```
-    + generate ECX-Format Documentation
+
++ generate ECX-Format Documentation (with activated environment)
 
 ```
 ./manage.py ecx_format -t html -o ecx-format.html
@@ -98,6 +99,7 @@ systemctl restart appliance
     + most spent time in high.state:
         + `journalctl -u appliance-update | grep -B 5 -E "Duration: [0-9]{3,5}\."`
         + `journalctl -u appliance-update | grep "ID:" -A6 | grep -E "(ID:|Function:|Duration:)" | sed -r "s/.*(ID:|Function:|Duration)(.*)/\1 \2/g" | paste -s -d '  \n'  - | sed -r "s/ID: +([^ ]+) Function: +([^ ]+) Duration : ([^ ]+ ms)/\3 \2 \1/g" |sort -n`
+
 ### Logging
 
 Container:
@@ -139,11 +141,11 @@ the appliance will report the following items to sentry:
     stored by a prometheus server and alerts are issued using email to root
     using the prometheus alert server
     + there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh
-    + the prometheus gui is at http://172.17.0.1:9090
-    + the prometheus alert gui is at  http://172.17.0.1:9093
+    + the prometheus gui is at [http://172.17.0.1:9090](http://172.17.0.1:9090)
+    + the prometheus alert gui is at [http://172.17.0.1:9093](http://172.17.0.1:9093)
 + if APPLIANCE_METRIC_GUI is set, start a grafana server for displaying the collected metrics
-    + grafana is available at http://localhost:3000
+    + grafana is available at [http://localhost:3000](http://localhost:3000)
 + if APPLIANCE_METRIC_PGHERO is set, a pghero instance for postgres inspection
-    + pghero is avaiable at http://localhost:5081 
+    + pghero is avaiable at [http://localhost:5081](http://localhost:5081)
 
 Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use "ssh root@hostname -L 9090:172.17.0.1:9090"

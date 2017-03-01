@@ -3,11 +3,11 @@
 The base of the appliance is Ubuntu Xenial (16.04).
 
 You either need:
-+ a standard ubuntu cloud image from http://cloud-images.ubuntu.com/xenial/current/ for executing on your hypervisor
++ a standard ubuntu cloud image from [Ubunu Xenial Cloud Images](http://cloud-images.ubuntu.com/xenial/current/)
     + a cloud-init cidata iso volume with your public key 
         + a prebuilt cidata iso with the vagrant user and the insecure vagrant ssh key
-            + https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-growroot.iso
-        + you can build your own iso using https://github.com/ecs-org/cidata-seed/
+            + [vagrant-growroot.iso](https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-growroot.iso)
+        + you can build your own iso using [github.com/ecs-org/cidata-seed](https://github.com/ecs-org/cidata-seed/)
 + an already running empty Ubuntu Xenial and a ssh key to login
     + eg. if your rootserver hoster has a default xenial image
 + a local development machine with vagrant and a hypervisor for vagrant installed.

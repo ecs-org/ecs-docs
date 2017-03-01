@@ -10,25 +10,29 @@
 
 ### Repository Layout
 
-Path | Description
---- | ---
-/pillar/*.sls                   | salt environment
-/pillar/top.sls                 | defines the root of the environment tree
-/pillar/default-env.sls         | fallback env yaml and example localhost ecs config
-/salt/*.sls                     | salt states (to be executed)
-/salt/top.sls                   | defines the root of the state tree
-/salt/common/init.sls           | common install
-/salt/common/env-template.yml   | template used to generate a new env.yml
-/salt/common/env-create.sh      | cli for env generation
-/salt/common/env-package.sh     | cli for building pdf,iso,tar.gz.gpg out of env
-/salt/common/env-update.sh      | get env, test conversion and write to /run/active-env.yml
-/salt/appliance/init.sls        | ecs appliance install
-/salt/appliance/scripts/prepare-env.sh       | script started first to read environment
-/salt/appliance/scripts/prepare-appliance.sh | script started next to setup services
-/salt/appliance/scripts/prepare-ecs.sh       | script started next to build container
-/salt/appliance/scripts/appliance-update.sh  | script triggerd from appliance-update.service
-/salt/appliance/ecs/docker-compose.yml       | main container group definition
-/salt/appliance/systemd/appliance.service    | systemd appliance service that ties all together
+```eval_rst
+============================================  ==================================================
+Path                                          Description
+============================================  ==================================================
+/pillar/*.sls                                 salt environment
+/pillar/top.sls                               defines the root of the environment tree
+/pillar/default-env.sls                       fallback env yaml and example localhost ecs config
+/salt/*.sls                                   salt states (to be executed)
+/salt/top.sls                                 defines the root of the state tree
+/salt/common/init.sls                         common install
+/salt/common/env-template.yml                 template used to generate a new env.yml
+/salt/common/env-create.sh                    cli for env generation
+/salt/common/env-package.sh                   cli for building pdf,iso,tar.gz.gpg out of env
+/salt/common/env-update.sh                    get env, test conversion and write to /run/active-env.yml
+/salt/appliance/init.sls                      ecs appliance install
+/salt/appliance/scripts/prepare-env.sh        script started first to read environment
+/salt/appliance/scripts/prepare-appliance.sh  script started next to setup services
+/salt/appliance/scripts/prepare-ecs.sh        script started next to build container
+/salt/appliance/scripts/appliance-update.sh   script triggerd from appliance-update.service
+/salt/appliance/ecs/docker-compose.yml        main container group definition
+/salt/appliance/systemd/appliance.service     systemd appliance service that ties all together
+============================================  ==================================================
+```
 
 ### Execution Order
 
@@ -67,60 +71,73 @@ Path | Description
 
 Application:
 
-path | remark
---- | ---
-/app/env.yml        | local (nocloud) environment configuration location
-/app/ecs            | ecs repository used for container creation
-/app/appliance      | ecs-appliance repository active on host
- |
-/app/etc            | runtime configuration (symlink of /data/etc)
-/app/etc/tags       | runtime tags
-/app/etc/flags      | runtime flags
- |
-/app/ecs-ca        | client certificate ca and crl directory
- | (symlink of /data/ecs-ca)
-/app/ecs-gpg       | storage-vault gpg keys directory
- | (symlink of /data/ecs-gpg)
-/app/ecs-cache | temporary storage directory
- | (symlink of /volatile/ecs-cache)
- |
-/run/active-env.yml | current activated configuration
-/run/appliance-failed | flag that needs to be cleared,
- | before a restart of a failed appliance is possible
-/usr/local/share/appliance | scripts from the appliance salt source
-/usr/local/[s]bin | user callable programs
+```eval_rst
+====================================  ===========================================
+Path                                  Description
+====================================  ===========================================
+/app/env.yml                          local (nocloud) environment configuration
+/app/ecs                              ecs repository used for container creation
+/app/appliance                        ecs-appliance repository active on host
+/app/etc                              runtime configuration (symlink of /data/etc)
+/app/etc/tags                         runtime tags
+/app/etc/flags                        runtime flags
+/app/ecs-ca                           client certificate ca and crl directory
+                                      (symlink of /data/ecs-ca)
+/app/ecs-gpg                          storage-vault gpg keys directory
+                                      (symlink of /data/ecs-gpg)
+/app/ecs-cache                        temporary storage directory
+                                      (symlink of /volatile/ecs-cache)  
+/run/active-env.yml                   current activated configuration
+/run/appliance-failed                 flag that needs to be cleared, before a 
+                                      restart of a failed appliance is possible
+/usr/local/share/appliance            scripts from the appliance salt source
+/usr/local/[s]bin                     user callable programs
+====================================  ===========================================
+```
 
 Data:
 
-path | remark
---- | ---
-/data | data to keep
-/data/ecs-ca | symlink target of /app/ecs-ca
-/data/ecs-gpg | symlink target of /app/ecs-gpg
-/data/ecs-storage-vault | symlink target of /app/ecs-storage-vault
-/data/etc        | symlink target of /app/etc
-/data/ecs-pgdump | database migration dump and backup dump diretory
-/data/postgresql | referenced from moved /var/lib/postgresql
+```eval_rst
+==========================  ===========================================
+Path                        Description
+==========================  ===========================================
+/data                       data to keep
+/data/ecs-ca                symlink target of /app/ecs-ca
+/data/ecs-gpg               symlink target of /app/ecs-gpg
+/data/ecs-storage-vault     symlink target of /app/ecs-storage-vault
+/data/etc                   symlink target of /app/etc
+/data/ecs-pgdump            database migration dump and backup dump diretory
+/data/postgresql            referenced from moved /var/lib/postgresql
+==========================  ===========================================
+```
 
 Volatile:
 
-path | remark
---- | ---
-/volatile  | data that can get deleted
-/volatile/docker | referenced from moved /var/lib/docker
-/volatile/ecs-cache | Shared Cache Directory
-/volatile/ecs-backup-test | default target directory of unconfigured backup
-/volatile/redis | redis container database volume
+```eval_rst
+==========================  ===========================================
+Path                        Description
+==========================  ===========================================
+/volatile                   data that can get deleted
+/volatile/docker            referenced from moved /var/lib/docker
+/volatile/ecs-cache         Shared Cache Directory
+/volatile/ecs-backup-test   default target directory of unconfigured backup
+/volatile/redis             redis container database volume
+==========================  ===========================================
+```
 
 ### Container Volume Mapping
 
-hostpath | container | container-path
---- | --- | ---
-/data/ecs-ca | ecs | /app/ecs-ca
-/data/ecs-gpg | ecs | /app/ecs-gpg
-/data/ecs-storage-vault | ecs | /app/ecs-storage-vault
-/volatile/ecs-cache | ecs | /app/ecs-cache
-/app/etc/server.cert.pem | pdfas/mocca | /app/import/server.cert.pem:ro
+```eval_rst
+========================  ============  ===============================
+Host-Path                 Container     Container-Path
+========================  ============  ===============================
+/data/ecs-ca              ecs           /app/ecs-ca
+/data/ecs-gpg             ecs           /app/ecs-gpg
+/data/ecs-storage-vault   ecs           /app/ecs-storage-vault
+/volatile/ecs-cache       ecs           /app/ecs-cache
+/app/etc/server.cert.pem  pdfas/mocca   /app/import/server.cert.pem:ro
+========================  ============  ===============================
+```
 
 ### Environment Mapping
 
