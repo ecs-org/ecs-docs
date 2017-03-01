@@ -1,5 +1,9 @@
 # ECS-Documentation
 
+This is the documentation repository of the ethics committee system.
+
+See [the ECS-Hompage](https://ecs-org.github.io/ecs-docs) for Information about ECS.
+
 + Documentation is written using [Sphinx](http://sphinx-doc.org/)
     + Sourcefiles can be restructured text and markdown
         + markdown support is using [recommonmark](https://github.com/rtfd/recommonmark/)
