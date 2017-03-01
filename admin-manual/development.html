@@ -27,7 +27,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="ecs-admin-manual 0 TODO:use git id documentation" href="index.html" />
-    <link rel="prev" title="Maintenance" href="maintenance.html" />
+    <link rel="prev" title="Digital signed pdf documents" href="mocca-pdfas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="static/custom.css" type="text/css" />
   </head>
@@ -40,13 +40,30 @@
             
   <div class="section" id="development">
 <span id="development"></span><h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="architecture">
-<span id="architecture"></span><h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
-<img src="_images/graphviz-df40701b01c85ccf7f7096e1975c4428a49fc418.png" alt="#### perform execution via cpp | dot
+<div class="section" id="service-architecture">
+<span id="service-architecture"></span><h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Services running on the host system<ul>
+<li>Postgresql Database</li>
+<li>Stunnel</li>
+<li>NGINX Webserver</li>
+<li>SSH Daemon</li>
+</ul>
+</li>
+<li>Services running inside docker container<ul>
+<li>The ECS Application (Web, Worker, incoming Mail)</li>
+<li>Redis</li>
+<li>Memcache</li>
+<li>tomcat with PDF/AS</li>
+<li>tomcat with Mocca</li>
+</ul>
+</li>
+</ul>
+<img src="_images/graphviz-25b9323c26f05a6026efaefe73d14fadf7d396b3.png" alt="#### perform execution via cpp | dot
 #include &quot;dot-style.h&quot;
 #define to -&gt;
 
-PROCESSFLOW(&quot;ECS - Appliance Architecture&quot;)
+PROCESSFLOW(&quot;ECS Service Interconnect&quot;)
     edge [style=dashed]
     cluster(user,&quot;User&quot;)
         prod(webclient,&quot;Webbrowser&quot;)
@@ -81,6 +98,16 @@ PROCESSFLOW(&quot;ECS - Appliance Architecture&quot;)
     ecs to storagevault bidir(file)
     stunnel to ecs unidir(smtp)
 END" />
+<ul class="simple">
+<li>The Appliance uses the default docker network (72.17.0.1/16) for docker container</li>
+<li>Public (Outside) facing Ports<ul>
+<li>NGINX Webserver Ports 80(http) and 443(https)</li>
+<li>Stunnel Ports 25(smtp) and 465(smtpssl)</li>
+<li>SSH Daemon 22(ssh)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="_images/network.svg.png" /></p>
 </div>
 <div class="section" id="repository-layout">
 <span id="repository-layout"></span><h2>Repository Layout<a class="headerlink" href="#repository-layout" title="Permalink to this headline">¶</a></h2>
@@ -395,7 +422,7 @@ but will use /run/active-env.yml if available</li>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Development</a><ul>
-<li><a class="reference internal" href="#architecture">Architecture</a></li>
+<li><a class="reference internal" href="#service-architecture">Service Architecture</a></li>
 <li><a class="reference internal" href="#repository-layout">Repository Layout</a></li>
 <li><a class="reference internal" href="#execution-order">Execution Order</a></li>
 <li><a class="reference internal" href="#runtime-layout">Runtime Layout</a></li>
@@ -406,8 +433,8 @@ but will use /run/active-env.yml if available</li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="maintenance.html"
-                        title="previous chapter">Maintenance</a></p>
+  <p class="topless"><a href="mocca-pdfas.html"
+                        title="previous chapter">Digital signed pdf documents</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -428,7 +455,7 @@ but will use /run/active-env.yml if available</li>
     <ul>
         <li>
           &larr;
-          <a href="maintenance.html" title="Previous document">Maintenance</a>
+          <a href="mocca-pdfas.html" title="Previous document">Digital signed pdf documents</a>
         </li>
     </ul>
   </nav>
