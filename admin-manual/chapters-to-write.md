@@ -1,6 +1,4 @@
 
-## describe installation & configuration
-
 ## describe signing (setup)
 
 ## describe security & user bootstrap
