@@ -27,7 +27,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="ecs-admin-manual 0 TODO:use git id documentation" href="#" />
-    <link rel="next" title="Appliance architecture" href="architecture.html" />
+    <link rel="next" title="Install Appliance" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="static/custom.css" type="text/css" />
   </head>
@@ -40,15 +40,48 @@
             
   <div class="section" id="ecs-administration-handbook">
 <span id="ecs-administration-handbook"></span><h1>Ecs Administration Handbook<a class="headerlink" href="#ecs-administration-handbook" title="Permalink to this headline">¶</a></h1>
+<p>The ecs appliance is a selfservice production setup virtual machine builder and executor.
+it can be stacked on top of the developer vm, but is independent of it.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">Appliance architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters-to-write.html">describe installation &amp; configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters-to-write.html#describe-signing-setup">describe signing (setup)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters-to-write.html#describe-security-user-bootstrap">describe security &amp; user bootstrap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters-to-write.html#describe-automatic-task-and-submission-closings-ecs-cleanup">describe automatic task and submission closings (ecs cleanup)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters-to-write.html#describe-the-generated-pdf-s">describe the generated pdf&#8217;s</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters-to-write.html#describe-the-types-of-messages-the-ecs-sends">describe the types of messages the ecs sends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install Appliance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#partitioning">Partitioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-via-ssh-to-a-empty-xenial-vm">install via ssh to a empty xenial vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-using-vagrant">install using vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#upgrade-a-developer-vm">upgrade a developer vm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage-and-memory.html">Storage and Memory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage-and-memory.html#limits">Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage-and-memory.html#available-research-data">Available research data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage-and-memory.html#requirements">Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configure Appliance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#create-config">Create Config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#on-an-installed-but-unconfigured-appliance">on an installed but unconfigured appliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#activate-config">Activate Config</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance.html">Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#reconfigure-a-running-appliance">Reconfigure a running Appliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#start-stop-update-appliance">Start, Stop &amp; Update Appliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#desaster-recovery-from-backup">Desaster Recovery from backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#howto">Howto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#alerting">Alerting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#metrics">Metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#repository-layout">Repository Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#execution-order">Execution Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#runtime-layout">Runtime Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#container-volume-mapping">Container Volume Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#environment-mapping">Environment Mapping</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -60,8 +93,8 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Next topic</h4>
-  <p class="topless"><a href="architecture.html"
-                        title="next chapter">Appliance architecture</a></p>
+  <p class="topless"><a href="installation.html"
+                        title="next chapter">Install Appliance</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -81,7 +114,7 @@
   <nav id="rellinks">
     <ul>
         <li>
-          <a href="architecture.html" title="Next document">Appliance architecture</a>
+          <a href="installation.html" title="Next document">Install Appliance</a>
           &rarr;
         </li>
     </ul>

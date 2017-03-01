@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Development &#8212; ecs-admin-manual 0 TODO:use git id documentation</title>
+    
+    <link rel="stylesheet" href="_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0 TODO:use git id',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="ecs-admin-manual 0 TODO:use git id documentation" href="index.html" />
+    <link rel="prev" title="Maintenance" href="maintenance.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="development">
+<span id="development"></span><h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="architecture">
+<span id="architecture"></span><h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<img src="_images/graphviz-df40701b01c85ccf7f7096e1975c4428a49fc418.png" alt="#### perform execution via cpp | dot
+#include &quot;dot-style.h&quot;
+#define to -&gt;
+
+PROCESSFLOW(&quot;ECS - Appliance Architecture&quot;)
+    edge [style=dashed]
+    cluster(user,&quot;User&quot;)
+        prod(webclient,&quot;Webbrowser&quot;)
+        prod(emailclient,&quot;Emailclient&quot;)
+    endcluster
+
+    prod(nginx,&quot;Nginx\nWebserver&quot;)
+    prod(stunnel,&quot;Stunnel\nIncoming Mail Proxy&quot;)
+    prod(smartmx,&quot;Postfix\nOutgoing Mailserver&quot;)
+
+    prod(ecs,&quot;ECS-Container\nWebserver\nQueue-Worker\nQueue-Beat\nMailserver&quot;)
+    prod(mocca,&quot;Tomcat-Container\nMocca - Citizen Card System&quot;)
+    prod(pdfas,&quot;Tomcat-Container\nPdfas - PDF Creation&quot;)
+
+    prod(redis,&quot;Redis-Container\nQueuing-Server&quot;)
+    prod(memcache, &quot;Memcache-Container\nMemory-Cache&quot;)
+    prod(postgresql,&quot;PostgreSQL\nDatabase Server&quot;)
+    prod(storagevault,&quot;shared filesystem\nStorage Vault&quot;)
+
+    webclient to nginx bidir(https)
+    emailclient to stunnel unidir(smtp)
+    smartmx to emailclient unidir(smtp)
+
+    nginx to ecs bidir(http)
+    nginx to pdfas bidir(http)
+    nginx to mocca bidir(http)
+
+    ecs to postgresql bidir(sql)
+    ecs to redis bidir(redis)
+    ecs to memcache bidir(memcache)
+    ecs to smartmx unidir(smtp)
+    ecs to storagevault bidir(file)
+    stunnel to ecs unidir(smtp)
+END" />
+</div>
+<div class="section" id="repository-layout">
+<span id="repository-layout"></span><h2>Repository Layout<a class="headerlink" href="#repository-layout" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Path</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/pillar/<a href="#id1"><span class="problematic" id="id2">*</span></a>.sls</td>
+<td>salt environment</td>
+</tr>
+<tr class="row-odd"><td>/pillar/top.sls</td>
+<td>defines the root of the environment tree</td>
+</tr>
+<tr class="row-even"><td>/pillar/default-env.sls</td>
+<td>fallback env yaml and example localhost ecs config</td>
+</tr>
+<tr class="row-odd"><td>/salt/<a href="#id3"><span class="problematic" id="id4">*</span></a>.sls</td>
+<td>salt states (to be executed)</td>
+</tr>
+<tr class="row-even"><td>/salt/top.sls</td>
+<td>defines the root of the state tree</td>
+</tr>
+<tr class="row-odd"><td>/salt/common/init.sls</td>
+<td>common install</td>
+</tr>
+<tr class="row-even"><td>/salt/common/env-template.yml</td>
+<td>template used to generate a new env.yml</td>
+</tr>
+<tr class="row-odd"><td>/salt/common/env-create.sh</td>
+<td>cli for env generation</td>
+</tr>
+<tr class="row-even"><td>/salt/common/env-package.sh</td>
+<td>cli for building pdf,iso,tar.gz.gpg out of env</td>
+</tr>
+<tr class="row-odd"><td>/salt/common/env-update.sh</td>
+<td>get env, test conversion and write to /run/active-env.yml</td>
+</tr>
+<tr class="row-even"><td>/salt/appliance/init.sls</td>
+<td>ecs appliance install</td>
+</tr>
+<tr class="row-odd"><td>/salt/appliance/scripts/prepare-env.sh</td>
+<td>script started first to read environment</td>
+</tr>
+<tr class="row-even"><td>/salt/appliance/scripts/prepare-appliance.sh</td>
+<td>script started next to setup services</td>
+</tr>
+<tr class="row-odd"><td>/salt/appliance/scripts/prepare-ecs.sh</td>
+<td>script started next to build container</td>
+</tr>
+<tr class="row-even"><td>/salt/appliance/scripts/appliance-update.sh</td>
+<td>script triggerd from appliance-update.service</td>
+</tr>
+<tr class="row-odd"><td>/salt/appliance/ecs/docker-compose.yml</td>
+<td>main container group definition</td>
+</tr>
+<tr class="row-even"><td>/salt/appliance/systemd/appliance.service</td>
+<td>systemd appliance service that ties all together</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="execution-order">
+<span id="execution-order"></span><h2>Execution Order<a class="headerlink" href="#execution-order" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[on start]
+|
+|-- prepare-env
+|-- prepare-appliance
+|   |
+|   |-- optional: call salt-call state.sls appliance.storage.setup
+|---|
+|
+|-- prepare-ecs
+|-- appliance
+|   |
+|   |-- docker-compose up
+:
+:   (post-start)
+|-- appliance-cleanup
+
+[on error]
+|
+|-- appliance-failed
+
+[on update]
+|
+|-- appliance-update
+|   |
+|   |-- apt-daily unattended-upgrades
+|   |-- salt-call state.highstate
+?   ?-- optional reboot
+|   |-- systemctl restart appliance
+</pre></div>
+</div>
+</div>
+<div class="section" id="runtime-layout">
+<span id="runtime-layout"></span><h2>Runtime Layout<a class="headerlink" href="#runtime-layout" title="Permalink to this headline">¶</a></h2>
+<p>Application:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Path</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/app/env.yml</td>
+<td>local (nocloud) environment configuration</td>
+</tr>
+<tr class="row-odd"><td>/app/ecs</td>
+<td>ecs repository used for container creation</td>
+</tr>
+<tr class="row-even"><td>/app/appliance</td>
+<td>ecs-appliance repository active on host</td>
+</tr>
+<tr class="row-odd"><td>/app/etc</td>
+<td>runtime configuration (symlink of /data/etc)</td>
+</tr>
+<tr class="row-even"><td>/app/etc/tags</td>
+<td>runtime tags</td>
+</tr>
+<tr class="row-odd"><td>/app/etc/flags</td>
+<td>runtime flags</td>
+</tr>
+<tr class="row-even"><td>/app/ecs-ca</td>
+<td>client certificate ca and crl directory
+(symlink of /data/ecs-ca)</td>
+</tr>
+<tr class="row-odd"><td>/app/ecs-gpg</td>
+<td>storage-vault gpg keys directory
+(symlink of /data/ecs-gpg)</td>
+</tr>
+<tr class="row-even"><td>/app/ecs-cache</td>
+<td>temporary storage directory
+(symlink of /volatile/ecs-cache)</td>
+</tr>
+<tr class="row-odd"><td>/run/active-env.yml</td>
+<td>current activated configuration</td>
+</tr>
+<tr class="row-even"><td>/run/appliance-failed</td>
+<td>flag that needs to be cleared, before a
+restart of a failed appliance is possible</td>
+</tr>
+<tr class="row-odd"><td>/usr/local/share/appliance</td>
+<td>scripts from the appliance salt source</td>
+</tr>
+<tr class="row-even"><td>/usr/local/[s]bin</td>
+<td>user callable programs</td>
+</tr>
+</tbody>
+</table>
+<p>Data:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Path</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/data</td>
+<td>data to keep</td>
+</tr>
+<tr class="row-odd"><td>/data/ecs-ca</td>
+<td>symlink target of /app/ecs-ca</td>
+</tr>
+<tr class="row-even"><td>/data/ecs-gpg</td>
+<td>symlink target of /app/ecs-gpg</td>
+</tr>
+<tr class="row-odd"><td>/data/ecs-storage-vault</td>
+<td>symlink target of /app/ecs-storage-vault</td>
+</tr>
+<tr class="row-even"><td>/data/etc</td>
+<td>symlink target of /app/etc</td>
+</tr>
+<tr class="row-odd"><td>/data/ecs-pgdump</td>
+<td>database migration dump and backup dump diretory</td>
+</tr>
+<tr class="row-even"><td>/data/postgresql</td>
+<td>referenced from moved /var/lib/postgresql</td>
+</tr>
+</tbody>
+</table>
+<p>Volatile:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Path</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/volatile</td>
+<td>data that can get deleted</td>
+</tr>
+<tr class="row-odd"><td>/volatile/docker</td>
+<td>referenced from moved /var/lib/docker</td>
+</tr>
+<tr class="row-even"><td>/volatile/ecs-cache</td>
+<td>Shared Cache Directory</td>
+</tr>
+<tr class="row-odd"><td>/volatile/ecs-backup-test</td>
+<td>default target directory of unconfigured backup</td>
+</tr>
+<tr class="row-even"><td>/volatile/redis</td>
+<td>redis container database volume</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="container-volume-mapping">
+<span id="container-volume-mapping"></span><h2>Container Volume Mapping<a class="headerlink" href="#container-volume-mapping" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="18%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Host-Path</th>
+<th class="head">Container</th>
+<th class="head">Container-Path</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/data/ecs-ca</td>
+<td>ecs</td>
+<td>/app/ecs-ca</td>
+</tr>
+<tr class="row-odd"><td>/data/ecs-gpg</td>
+<td>ecs</td>
+<td>/app/ecs-gpg</td>
+</tr>
+<tr class="row-even"><td>/data/ecs-storage-vault</td>
+<td>ecs</td>
+<td>/app/ecs-storage-vault</td>
+</tr>
+<tr class="row-odd"><td>/volatile/ecs-cache</td>
+<td>ecs</td>
+<td>/app/ecs-cache</td>
+</tr>
+<tr class="row-even"><td>/app/etc/server.cert.pem</td>
+<td>pdfas/mocca</td>
+<td>/app/import/server.cert.pem:ro</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="environment-mapping">
+<span id="environment-mapping"></span><h2>Environment Mapping<a class="headerlink" href="#environment-mapping" title="Permalink to this headline">¶</a></h2>
+<p>Types of environments:</p>
+<ul class="simple">
+<li>saltstack get the environment as pillar either from /run/active-env.yml or from a default</li>
+<li>shell-scripts and executed programs from these shellscripts get a flattend yaml representation in the environment (see flatyaml.py) usually restricted to ecs,appliance tree of the yaml file</li>
+</ul>
+<p>Buildtime Environment:</p>
+<ul class="simple">
+<li>the build time call of <code class="docutils literal"><span class="pre">salt-call</span> <span class="pre">state.highstate</span></code> does not need an environment,
+but will use /run/active-env.yml if available</li>
+</ul>
+<p>Runtime Environment:</p>
+<ul class="simple">
+<li>prepare-env<ul>
+<li>get a environment yaml from all local and network sources</li>
+<li>writes the result to /run/active-env.yml</li>
+</ul>
+</li>
+<li>appliance-update, prepare-appliance, prepare-ecs, appliance.service<ul>
+<li>parse /run/active-env.yml</li>
+<li>include defaults from appliance.include (GIT_SOURCE*)</li>
+</ul>
+</li>
+<li>Storage Setup (<code class="docutils literal"><span class="pre">salt-call</span> <span class="pre">state.sls</span> <span class="pre">appliance.storage.setup</span></code>) parses /run/active-env.yml</li>
+<li>appliance-update will call <code class="docutils literal"><span class="pre">salt-call</span> <span class="pre">state.highstate</span></code> which will use /run/active-env.yml</li>
+<li>appliance.service calls docker-compose up with active env from /run/active-env.yml<ul>
+<li>docker compose passes the following to the ecs/ecs* container<ul>
+<li>service_urls.env, database_url.env</li>
+<li>ECS_SETTINGS</li>
+</ul>
+</li>
+<li>docker compose passes the following to the mocca and pdfas container<ul>
+<li>APPLIANCE_DOMAIN as HOSTNAME</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development</a><ul>
+<li><a class="reference internal" href="#architecture">Architecture</a></li>
+<li><a class="reference internal" href="#repository-layout">Repository Layout</a></li>
+<li><a class="reference internal" href="#execution-order">Execution Order</a></li>
+<li><a class="reference internal" href="#runtime-layout">Runtime Layout</a></li>
+<li><a class="reference internal" href="#container-volume-mapping">Container Volume Mapping</a></li>
+<li><a class="reference internal" href="#environment-mapping">Environment Mapping</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="maintenance.html"
+                        title="previous chapter">Maintenance</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="related bottom">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="maintenance.html" title="Previous document">Maintenance</a>
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="index.html">ecs-admin-manual 0 TODO:use git id documentation</a></li> 
+    </ul>
+  </nav>
+  </div>
+  <footer id="pagefooter">&copy; Copyright 2017 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften.
+
+  </footer>
+
+  
+  </body>
+</html>

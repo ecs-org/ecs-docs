@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Install Appliance &#8212; ecs-admin-manual 0 TODO:use git id documentation</title>
+    
+    <link rel="stylesheet" href="_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0 TODO:use git id',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="ecs-admin-manual 0 TODO:use git id documentation" href="index.html" />
+    <link rel="next" title="Storage and Memory" href="storage-and-memory.html" />
+    <link rel="prev" title="Ecs Administration Handbook" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="install-appliance">
+<span id="install-appliance"></span><h1>Install Appliance<a class="headerlink" href="#install-appliance" title="Permalink to this headline">¶</a></h1>
+<p>The base of the appliance is Ubuntu Xenial (16.04).</p>
+<p>You either need:</p>
+<ul class="simple">
+<li>a standard ubuntu cloud image from <a class="reference external" href="http://cloud-images.ubuntu.com/xenial/current/">Ubunu Xenial Cloud Images</a><ul>
+<li>a cloud-init cidata iso volume with your public key<ul>
+<li>a prebuilt cidata iso with the vagrant user and the insecure vagrant ssh key<ul>
+<li><a class="reference external" href="https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-growroot.iso">vagrant-growroot.iso</a></li>
+</ul>
+</li>
+<li>you can build your own iso using <a class="reference external" href="https://github.com/ecs-org/cidata-seed/">github.com/ecs-org/cidata-seed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>an already running empty Ubuntu Xenial and a ssh key to login<ul>
+<li>eg. if your rootserver hoster has a default xenial image</li>
+</ul>
+</li>
+<li>a local development machine with vagrant and a hypervisor for vagrant installed.<ul>
+<li>vagrant will setup the base machine for you</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="partitioning">
+<span id="partitioning"></span><h2>Partitioning<a class="headerlink" href="#partitioning" title="Permalink to this headline">¶</a></h2>
+<p>Unless there is a good reason to do otherwise, the partition layout should be the same
+as the default xenial cloud &amp; vagrant images layout.</p>
+<p>This image consists of a DOS-MBR and partition one taking all the space as the root partition.
+The Vagrant version has initrd grow-root support, so p1 will resize to maximum on reboot.</p>
+<div class="section" id="custom-storage-partitions-or-network-attached-storage">
+<span id="custom-storage-partitions-or-network-attached-storage"></span><h3>custom storage partitions or network attached storage<a class="headerlink" href="#custom-storage-partitions-or-network-attached-storage" title="Permalink to this headline">¶</a></h3>
+<p>Add a custom storage:setup object to setup storage partitions.
+To have seperate volatile and/or data partitions,
+change storage:ignore:volatile and/or storage:ignore:data to false.
+Setup will add mountpoints for /data and /volatile.
+The volatile volume must be labeled &#8220;ecs-volatile&#8221;, the data volume &#8220;ecs-data&#8221;.
+Use appliance:extra:states and :packages if storage setup needs additional packages installed.
+See salt/storage/README.md for further information about storage:setup.</p>
+</div>
+</div>
+<div class="section" id="install-via-ssh-to-a-empty-xenial-vm">
+<span id="install-via-ssh-to-a-empty-xenial-vm"></span><h2>install via ssh to a empty xenial vm<a class="headerlink" href="#install-via-ssh-to-a-empty-xenial-vm" title="Permalink to this headline">¶</a></h2>
+<p>ssh into target vm:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">update</span><span class="p">;</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">git</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">appliance</span>
+<span class="n">cd</span> <span class="o">/</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">salt</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">appliance</span><span class="o">/</span><span class="n">salt</span><span class="o">/</span><span class="n">minion</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">salt</span><span class="o">/</span><span class="n">minion</span>
+<span class="n">curl</span> <span class="o">-</span><span class="n">o</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap_salt</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">L</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">saltstack</span><span class="o">.</span><span class="n">com</span>
+<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap_salt</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap_salt</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">X</span>
+<span class="n">salt</span><span class="o">-</span><span class="n">call</span> <span class="n">state</span><span class="o">.</span><span class="n">highstate</span> <span class="n">pillar</span><span class="o">=</span><span class="s1">&#39;{&quot;appliance&quot;: {&quot;enabled&quot;: true}}&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-using-vagrant">
+<span id="install-using-vagrant"></span><h2>install using vagrant<a class="headerlink" href="#install-using-vagrant" title="Permalink to this headline">¶</a></h2>
+<p>on your local machine:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span> <span class="o">~/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span>
+<span class="n">vagrant</span> <span class="n">up</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="upgrade-a-developer-vm">
+<span id="upgrade-a-developer-vm"></span><h2>upgrade a developer vm<a class="headerlink" href="#upgrade-a-developer-vm" title="Permalink to this headline">¶</a></h2>
+<p>Requirement: you need at least 3gb total memory for the appliance.</p>
+<p>on a developer vm:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clone from public repository</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">appliance</span>
+<span class="c1"># install saltstack and start appliance install</span>
+<span class="n">curl</span> <span class="o">-</span><span class="n">o</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap_salt</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">L</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">saltstack</span><span class="o">.</span><span class="n">com</span>
+<span class="n">sudo</span> <span class="n">bash</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;mkdir -p /etc/salt; cp /app/appliance/salt/minion /etc/salt/minion; </span><span class="se">\</span>
+<span class="s2">    chmod +x /tmp/bootstrap_salt.sh; /tmp/bootstrap_salt.sh -X&quot;</span>
+<span class="n">sudo</span> <span class="n">salt</span><span class="o">-</span><span class="n">call</span> <span class="n">state</span><span class="o">.</span><span class="n">highstate</span> <span class="n">pillar</span><span class="o">=</span><span class="s1">&#39;{&quot;appliance&quot;: {&quot;enabled&quot;: true}}&#39;</span>
+</pre></div>
+</div>
+<p>if you also want the builder (for building the appliance image) installed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">salt</span><span class="o">-</span><span class="n">call</span> <span class="n">state</span><span class="o">.</span><span class="n">highstate</span> <span class="n">pillar</span><span class="o">=</span><span class="s1">&#39;{&quot;builder&quot;: {&quot;enabled&quot;: true}, &quot;appliance&quot;: {&quot;enabled&quot;: true}}&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Install Appliance</a><ul>
+<li><a class="reference internal" href="#partitioning">Partitioning</a><ul>
+<li><a class="reference internal" href="#custom-storage-partitions-or-network-attached-storage">custom storage partitions or network attached storage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-via-ssh-to-a-empty-xenial-vm">install via ssh to a empty xenial vm</a></li>
+<li><a class="reference internal" href="#install-using-vagrant">install using vagrant</a></li>
+<li><a class="reference internal" href="#upgrade-a-developer-vm">upgrade a developer vm</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Ecs Administration Handbook</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="storage-and-memory.html"
+                        title="next chapter">Storage and Memory</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="related bottom">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="index.html" title="Previous document">Ecs Administration Handbook</a>
+        </li>
+        <li>
+          <a href="storage-and-memory.html" title="Next document">Storage and Memory</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="index.html">ecs-admin-manual 0 TODO:use git id documentation</a></li> 
+    </ul>
+  </nav>
+  </div>
+  <footer id="pagefooter">&copy; Copyright 2017 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften.
+
+  </footer>
+
+  
+  </body>
+</html>

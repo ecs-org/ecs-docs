@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configure Appliance &#8212; ecs-admin-manual 0 TODO:use git id documentation</title>
+    
+    <link rel="stylesheet" href="_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0 TODO:use git id',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="ecs-admin-manual 0 TODO:use git id documentation" href="index.html" />
+    <link rel="next" title="Maintenance" href="maintenance.html" />
+    <link rel="prev" title="Storage and Memory" href="storage-and-memory.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configure-appliance">
+<span id="configure-appliance"></span><h1>Configure Appliance<a class="headerlink" href="#configure-appliance" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-config">
+<span id="create-config"></span><h2>Create Config<a class="headerlink" href="#create-config" title="Permalink to this headline">¶</a></h2>
+<p>for a development server, run <code class="docutils literal"><span class="pre">cp</span> <span class="pre">/app/appliance/salt/pillar/default-env.sls</span> <span class="pre">/app/env.yml</span></code>
+and edit settings in /app/env.yml .</p>
+<p>for offline environment creation, using your local machine:</p>
+<ul class="simple">
+<li>have saltstack installed (minion does not need to run)</li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ecs-org/ecs-appliance</span> <span class="pre">~/path-to-project/ecs-appliance</span></code></li>
+<li>use env-create.sh and env-package.sh like explained below,
+but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</li>
+<li>copy ~/domainname.domain/env.yml to appliance machine at /app/env.yml</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">root</span><span class="nd">@target</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">ip</span> <span class="s1">&#39;/bin/bash -c &quot;mkdir -p /app/&quot;&#39;</span>
+<span class="n">scp</span> <span class="n">env</span><span class="o">.</span><span class="n">yml</span> <span class="n">root</span><span class="nd">@target</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">ip</span><span class="p">:</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-an-installed-but-unconfigured-appliance">
+<span id="on-an-installed-but-unconfigured-appliance"></span><h2>on an installed but unconfigured appliance<a class="headerlink" href="#on-an-installed-but-unconfigured-appliance" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>enter installed but empty appliance</li>
+<li>make a new env.yml: <code class="docutils literal"><span class="pre">env-create.sh</span> <span class="pre">domainname.domain</span> <span class="pre">~/domainname.domain/</span></code></li>
+<li>edit settings in ~/domainname.domain/env.yml , see comments inside file</li>
+<li>optional, package env into different formats<ul>
+<li><code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">~/domainname.domain/env.yml</span></code></li>
+</ul>
+</li>
+<li>print out ~/domainname.domain/env.yml.pdf</li>
+<li>transfer and keep ~/domainname.domain/domainname.env.date_time.tar.gz.gpg</li>
+</ul>
+</div>
+<div class="section" id="activate-config">
+<span id="activate-config"></span><h2>Activate Config<a class="headerlink" href="#activate-config" title="Permalink to this headline">¶</a></h2>
+<p>on the target vm:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create a empty ecs database</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">createdb</span> <span class="n">ecs</span> <span class="o">-</span><span class="n">T</span> <span class="n">template0</span>  <span class="o">-</span><span class="n">l</span> <span class="n">de_DE</span><span class="o">.</span><span class="n">utf8</span>
+
+<span class="c1"># activate env and apply new environment settings</span>
+<span class="n">chmod</span> <span class="mi">0600</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">active</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">reboot</span>
+</pre></div>
+</div>
+<div class="section" id="first-internal-user-setup">
+<span id="first-internal-user-setup"></span><h3>First Internal User setup<a class="headerlink" href="#first-internal-user-setup" title="Permalink to this headline">¶</a></h3>
+<p>After the appliance has rebooted, it configures itself to the new environment.
+See the progress of the preperation by browsing to https://domainname.domainAfter the appliance is ready and shows the login screen, login via ssh to create
+the first internal office user, with a corresponding client certificate.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create first internal office user (f=female, m=male)</span>
+<span class="n">create</span><span class="o">-</span><span class="n">internal</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;First Name&quot;</span> <span class="s2">&quot;Second Name&quot;</span> <span class="s2">&quot;f&quot;</span> 
+
+<span class="c1"># create and send matching client certificate</span>
+<span class="n">create</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="n">cert_name</span> <span class="p">[</span><span class="n">daysvalid</span><span class="p">]</span>
+
+<span class="c1"># Communicate certificate transport password over a secure channel</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configure Appliance</a><ul>
+<li><a class="reference internal" href="#create-config">Create Config</a></li>
+<li><a class="reference internal" href="#on-an-installed-but-unconfigured-appliance">on an installed but unconfigured appliance</a></li>
+<li><a class="reference internal" href="#activate-config">Activate Config</a><ul>
+<li><a class="reference internal" href="#first-internal-user-setup">First Internal User setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="storage-and-memory.html"
+                        title="previous chapter">Storage and Memory</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="maintenance.html"
+                        title="next chapter">Maintenance</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="related bottom">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="storage-and-memory.html" title="Previous document">Storage and Memory</a>
+        </li>
+        <li>
+          <a href="maintenance.html" title="Next document">Maintenance</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="index.html">ecs-admin-manual 0 TODO:use git id documentation</a></li> 
+    </ul>
+  </nav>
+  </div>
+  <footer id="pagefooter">&copy; Copyright 2017 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften.
+
+  </footer>
+
+  
+  </body>
+</html>
