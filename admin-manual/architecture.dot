@@ -2,7 +2,7 @@
 #include "dot-style.h"
 #define to ->
 
-PROCESSFLOW("ECS - Appliance Architecture")
+PROCESSFLOW("ECS Service Interconnect")
     edge [style=dashed]
     cluster(user,"User")
         prod(webclient,"Webbrowser")

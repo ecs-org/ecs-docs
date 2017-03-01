@@ -44,7 +44,7 @@ reboot
 #### First Internal User setup
 
 After the appliance has rebooted, it configures itself to the new environment.
-See the progress of the preperation by browsing to https://domainname.domain  
+See the progress of the preperation by browsing to https://domainname.domain .
 After the appliance is ready and shows the login screen, login via ssh to create
 the first internal office user, with a corresponding client certificate.
 

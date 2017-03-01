@@ -1,0 +1,55 @@
+nwdiag {
+  network {
+      "ecs.worker" 
+      "ecs.beat";
+      "redis";
+      "memcached";
+  }
+  network docker {
+      address = "72.17.0.1/16";
+      "postgres:5432" [address = "72.17.0.1"];
+      "postfix:25" [address = "72.17.0.1"];
+      "mocca" [address = ":8080"];
+      "pdfas" [address = ":8080"];
+      "ecs.smtpd" [address = ":8025"];
+      "ecs.web" [address = ":5000"];
+      "ecs.worker" 
+      "ecs.beat";
+      "redis";
+      "memcached";
+  }
+  network localhost {
+      address = "127.0.0.1/24";
+      "postgres:5432";
+      "postfix:25";
+      "mocca" [address = ":5090"];
+      "pdfas"[address = ":5095"];
+      "ecs.smtpd" [address = ":5025"];
+      "ecs.web" [address = ":5000"];
+      "stunnel:25:465";
+      "nginx:80:443";
+      "ssh:22";
+  }
+  network public {
+      "stunnel:25:465" [address = ":25,465"];
+      "nginx:80:443" [address = ":80,443"];
+      "ssh:22" [address = ":22"];
+  }
+  group host {
+      "postgres:5432";
+      "postfix:25";
+      "stunnel:25:465";
+      "nginx:80:443";
+      "ssh:22";
+  }
+  group container {
+      "mocca" [address = ":8080"];
+      "pdfas" [address = ":8080"];
+      "ecs.smtpd" [address = ":8025"];
+      "ecs.web" [address = ":5000"];
+      "ecs.worker" 
+      "ecs.beat";
+      "redis";
+      "memcached";    
+  }
+}

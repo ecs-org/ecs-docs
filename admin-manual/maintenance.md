@@ -126,7 +126,7 @@ the appliance will report the following items to sentry:
 + salt-call exceptions and state returns with error states
 + systemd service exceptions where appliance-failed is triggered,
     or appliance_failed, appliance_exit, sentry_entry is called
-+ mails to root, eg. prometheus alerts, smartmond
++ internal mails to root, eg. prometheus alerts, smartmond
 
 ### Metrics
 

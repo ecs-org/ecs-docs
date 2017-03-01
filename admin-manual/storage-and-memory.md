@@ -1,31 +1,7 @@
-# Storage and Memory
+# Choosing the right values for Cores, Memory, Harddisk & Backup
 
-+ Units: all data size units in this document are 1024 based
-    + 1 GB = 1024 MB, 1 MB = 1024 KB , 1 KB = 1024 bytes
-
-## Limits
-The current ecs implementation can sustain 250 Studies per Month for 10 years.
-Larger implementations need some refactoring in certain parts of the ecs to be efficient.
-
-## Available research data
-
-+ EC with ~100 Studies per Month
-+ Runtime: ~5 Years (59 month) (15.1.2012 - 15.12.2016 ~ 4 Years, 11 Months)
-+ Studies: 5861 in 59 Months, or ~100 (99,339) Studies per Month
-
-### Document Storage
-+ Current space used: 97GB (100684328KB)
-+ Directories: 69K Directories
-+ Files: 296K Files
-+ Files per Directory: Peak at 4-6 Files per Directory
-+ average 339KB per File
-+ average space per study: 17178KB ~ 16,78MB
-
-### Postgres Database
-+ compressed migrated production dump: 475MB
-+ diskspace used: ~4GB (4074220 KB, 1GB pg_xlog)
-
-## Requirements
+All data size units in this document are 1024 based
+    (1 GB = 1024 MB, 1 MB = 1024 KB , 1 KB = 1024 bytes)
 
 + Minimum Cpu/Memory (without monitoring): 1 Core, 3GB
 + Minimum Cpu/Memory: 2 Cores, 4GB
@@ -48,6 +24,10 @@ Storage Calculation (10 Years):
 
 Backup Space Calculation (10 Years):
 + Data: 2 (Fullbackups) * max(Document-Storage) + max(Database) + 2 Months delta grow
+
+Limits:
+The current ecs implementation can sustain 250 Studies per Month for 10 years.
+Larger implementations need some refactoring in certain parts of the ecs to be efficient.
 
 ### 10 Years Calculation
 
@@ -123,3 +103,22 @@ recommended Cores   1-2
 recommended Memory  4GB+
 ==================  =======
 ```
+
+
+## Research data
+
++ EC with ~100 Studies per Month
++ Runtime: ~5 Years (59 month) (15.1.2012 - 15.12.2016 ~ 4 Years, 11 Months)
++ Studies: 5861 in 59 Months, or ~100 (99,339) Studies per Month
+
+### Document Storage
++ Current space used: 97GB (100684328KB)
++ Directories: 69K Directories
++ Files: 296K Files
++ Files per Directory: Peak at 4-6 Files per Directory
++ average 339KB per File
++ average space per study: 17178KB ~ 16,78MB
+
+### Postgres Database
++ compressed migrated production dump: 475MB
++ diskspace used: ~4GB (4074220 KB, 1GB pg_xlog)

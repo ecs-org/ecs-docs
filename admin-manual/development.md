@@ -1,12 +1,35 @@
 ## Development
 
-### Architecture
+### Service Architecture
+
++ Services running on the host system
+    + Postgresql Database
+    + Stunnel
+    + NGINX Webserver
+    + SSH Daemon
+
++ Services running inside docker container
+  + The ECS Application (Web, Worker, incoming Mail) 
+  + Redis 
+  + Memcache
+  + tomcat with PDF/AS
+  + tomcat with Mocca
+
 
 ```eval_rst
 .. graphviz:: architecture.dot
 
-
 ```
+
++ The Appliance uses the default docker network (72.17.0.1/16) for docker container
+
++ Public (Outside) facing Ports
+    + NGINX Webserver Ports 80(http) and 443(https)
+    + Stunnel Ports 25(smtp) and 465(smtpssl)
+    + SSH Daemon 22(ssh)
+
+![alt text](network.svg.png "Appliance Network Layout")
+
 
 ### Repository Layout
 
