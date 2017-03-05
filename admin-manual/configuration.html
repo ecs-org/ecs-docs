@@ -41,6 +41,17 @@
             
   <div class="section" id="configure-appliance">
 <span id="configure-appliance"></span><h1>Configure Appliance<a class="headerlink" href="#configure-appliance" title="Permalink to this headline">¶</a></h1>
+<p>The Applinace is configured using a yaml confiuration file
+which can be placed in one of the following locations:</p>
+<ul class="simple">
+<li>absolute filepath set via environment variable ENV_YML</li>
+<li>local file at <code class="docutils literal"><span class="pre">/app/env.yml</span></code></li>
+<li>a attached drive with label cidata (cloud-init: no-cloud config)</li>
+<li>a attached drive with label config-2 (cloud-init: openstack config)</li>
+<li>aws-ec2 (amazon elastic computing cloud) meta-data server</li>
+<li>gce (google compute engine) meta-data server</li>
+</ul>
+<p>It will be copied to <code class="docutils literal"><span class="pre">/run/active-env.yml</span></code> (ramdisk) on each appliance startup.</p>
 <div class="section" id="create-config">
 <span id="create-config"></span><h2>Create Config<a class="headerlink" href="#create-config" title="Permalink to this headline">¶</a></h2>
 <p>for a development server, run <code class="docutils literal"><span class="pre">cp</span> <span class="pre">/app/appliance/salt/pillar/default-env.sls</span> <span class="pre">/app/env.yml</span></code>
@@ -57,9 +68,7 @@ but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</li>
 <span class="n">scp</span> <span class="n">env</span><span class="o">.</span><span class="n">yml</span> <span class="n">root</span><span class="nd">@target</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">ip</span><span class="p">:</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="on-an-installed-but-unconfigured-appliance">
-<span id="on-an-installed-but-unconfigured-appliance"></span><h2>on an installed but unconfigured appliance<a class="headerlink" href="#on-an-installed-but-unconfigured-appliance" title="Permalink to this headline">¶</a></h2>
+<p>on an installed but unconfigured appliance:</p>
 <ul class="simple">
 <li>enter installed but empty appliance</li>
 <li>make a new env.yml: <code class="docutils literal"><span class="pre">env-create.sh</span> <span class="pre">domainname.domain</span> <span class="pre">~/domainname.domain/</span></code></li>
@@ -71,6 +80,237 @@ but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</li>
 <li>print out ~/domainname.domain/env.yml.pdf</li>
 <li>transfer and keep ~/domainname.domain/domainname.env.date_time.tar.gz.gpg</li>
 </ul>
+</div>
+<div class="section" id="modify-config">
+<span id="modify-config"></span><h2>Modify Config<a class="headerlink" href="#modify-config" title="Permalink to this headline">¶</a></h2>
+<p>Any change in the config file will reconfigure the appliance on the next appliance-update run to the new values found in the configuration.
+Eg. if you want to change your backup target to a different location,
+just change the value and restart the appliance, it will detect and configure
+all needed changes to the environment.</p>
+<p>See the comments in the configuration for different possibilities for the appliance configuration.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#cloud-config</span>
+<span class="c1"># XXX keep the &quot;#cloud-config&quot; line first and unchanged, software expects this header</span>
+
+<span class="n">ssh_authorized_keys</span><span class="p">:</span>
+  <span class="c1"># # you can put your ssh keys here, this is also used by cloud-init</span>
+  <span class="c1"># - &quot;ssh-rsa and some long glibberish somebody@somewhere&quot;</span>
+<span class="n">ssh_deprecated_keys</span><span class="p">:</span>
+  <span class="c1"># # you can copy deprecated keys here,</span>
+  <span class="c1"># # state.highstate will remove these keys from allowed login,</span>
+  <span class="c1"># # additionaly this section serves as log of past access keys</span>
+  <span class="c1"># - &quot;ssh-rsa and some long glibberish somebody@somewhere&quot;</span>
+<span class="n">disable_root</span><span class="p">:</span> <span class="n">false</span>
+<span class="c1"># disable_root set to false for cloud-init compatibility, appliance expects root to be usable</span>
+
+<span class="n">appliance</span><span class="p">:</span>
+  <span class="c1"># # standby: default false, if set appliance will not activate</span>
+  <span class="c1"># standby: true</span>
+  <span class="n">domain</span><span class="p">:</span> <span class="p">{{</span> <span class="n">domain</span> <span class="p">}}</span>
+  <span class="n">allowed_hosts</span><span class="p">:</span> <span class="p">{{</span> <span class="n">domain</span> <span class="p">}}</span>
+  <span class="n">ssl</span><span class="p">:</span>
+    <span class="n">letsencrypt</span><span class="p">:</span>
+      <span class="n">enabled</span><span class="p">:</span> <span class="n">true</span>
+    <span class="c1"># # client_certs_mandatory, default false, if true, always need a client certificate</span>
+    <span class="c1"># client_certs_mandatory: true</span>
+    <span class="n">client_certs_mandatory</span><span class="p">:</span> <span class="n">false</span>
+    <span class="c1"># # key: if set ssl key for https host will be used, default empty</span>
+    <span class="c1"># key: filename-key.pem</span>
+    <span class="c1"># # cert: if set ssl key for https host will be used, default empty</span>
+    <span class="c1"># cert: filename-cert.pem</span>
+  <span class="c1"># # sentry:dsn set to your sentry url, may be the same as ecs:settings:SENTRY_DSN</span>
+  <span class="c1"># sentry:</span>
+  <span class="c1">#   dsn: &#39;https://url&#39;</span>
+  <span class="c1"># metric:</span>
+  <span class="c1">#   exporter: false</span>
+  <span class="c1">#   server: false</span>
+  <span class="c1">#   gui: false</span>
+  <span class="c1">#   pghero: false</span>
+  <span class="c1"># git:</span>
+  <span class="c1">#   # default see appliance.include</span>
+  <span class="c1">#   branch: master</span>
+  <span class="c1">#   source: git_url</span>
+  <span class="c1"># extra:  # write out extra files on appliance configure</span>
+  <span class="c1">#   files:</span>
+  <span class="c1">#     - path: /path/of/filename</span>
+  <span class="c1">#       content: |</span>
+  <span class="c1">#           # Your content here</span>
+  <span class="c1">#       owner: user:group</span>
+  <span class="c1">#       permissions: &quot;0600&quot;</span>
+  <span class="c1">#   states: # include extra states at state.highstate</span>
+  <span class="c1">#     - qrcode</span>
+  <span class="c1">#   packages: # include extra packages at state.highstate</span>
+  <span class="c1">#     - ghostscript</span>
+  <span class="n">storage</span><span class="p">:</span>
+    <span class="c1"># # setup: optional, will be executed by appliance.storage.setup if volatile or data can not be found</span>
+    <span class="c1"># setup: |</span>
+    <span class="c1"># proxy_cache: true</span>
+    <span class="c1"># # default false, if true 10 additional GB diskspace are used</span>
+    <span class="c1"># # for operating polipo, a http proxy cache</span>
+    <span class="n">ignore</span><span class="p">:</span> <span class="c1"># default false, if true: will not look for ecs-volatile or ecs-data filesystem</span>
+      <span class="n">volatile</span><span class="p">:</span> <span class="n">true</span>
+      <span class="n">data</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">backup</span><span class="p">:</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">volatile</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">test</span><span class="o">/</span>
+    <span class="c1"># options: &quot;string of options directly passed to duplicity&quot;</span>
+    <span class="c1"># # mount default empty, script will mount &amp; unmount source to target on backup run</span>
+    <span class="c1"># mount:</span>
+    <span class="c1">#   type: &quot;cifs&quot;</span>
+    <span class="c1">#   source: &quot;//1.2.3.4/datavolume&quot;</span>
+    <span class="c1">#   target: &quot;/mnt/appliance-backup-mount&quot;</span>
+    <span class="c1">#   options: &quot;user=username,pass=password&quot;</span>
+    <span class="c1"># # options are passed to mount via &quot;-o&quot;</span>
+    <span class="n">encrypt</span><span class="p">:</span> <span class="o">|</span>
+        <span class="n">a</span> <span class="n">ascii</span> <span class="n">armored</span> <span class="n">GPG</span> <span class="n">Key</span> 
+<span class="n">ecs</span><span class="p">:</span>
+  <span class="c1"># git: # default see appliance.include</span>
+  <span class="c1">#   branch: stable</span>
+  <span class="c1">#   source: git_url</span>
+  <span class="n">userswitcher</span><span class="p">:</span>
+    <span class="n">enabled</span><span class="p">:</span> <span class="n">false</span>
+    <span class="c1"># set userswitcher to enabled on a test instance to change to different users</span>
+  <span class="n">settings</span><span class="p">:</span> <span class="o">|</span>
+      <span class="n">DOMAIN</span> <span class="o">=</span> <span class="s1">&#39;{{ domain }}&#39;</span>
+      <span class="n">ABSOLUTE_URL_PREFIX</span> <span class="o">=</span> <span class="s1">&#39;https://</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">DOMAIN</span><span class="p">)</span>
+      <span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="n">DOMAIN</span><span class="p">,</span> <span class="p">]</span>
+      <span class="n">PDFAS_SERVICE</span> <span class="o">=</span> <span class="n">ABSOLUTE_URL_PREFIX</span><span class="o">+</span> <span class="s1">&#39;/pdf-as-web/&#39;</span>
+      <span class="c1"># use PDFAS_SERVICE = &quot;mock:&quot; for mock signing</span>
+      <span class="n">SECURE_PROXY_SSL</span> <span class="o">=</span> <span class="kc">True</span>
+      <span class="n">ECS_REQUIRE_CLIENT_CERTS</span> <span class="o">=</span> <span class="kc">True</span>
+      <span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+      <span class="c1"># SENTRY_DSN = &#39;https://url&#39; # set to sentry url if available</span>
+      <span class="n">ETHICS_COMMISSION_UUID</span> <span class="o">=</span> <span class="s1">&#39;ecececececececececececececececec&#39;</span>
+      <span class="c1"># set ETHICS_COMMISSION_UUID to the desired UUID of the target commission </span>
+
+      <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s1">&#39;{{ ssl_secret() }}&#39;</span>
+      <span class="n">REGISTRATION_SECRET</span> <span class="o">=</span> <span class="s1">&#39;{{ ssl_secret() }}&#39;</span>
+      <span class="n">PASSWORD_RESET_SECRET</span> <span class="o">=</span> <span class="s1">&#39;{{ ssl_secret() }}&#39;</span>
+
+      <span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="s1">&#39;django.core.mail.backends.console.EmailBackend&#39;</span>
+      <span class="n">EMAIL_BACKEND_UNFILTERED</span> <span class="o">=</span> <span class="s1">&#39;django.core.mail.backends.smtp.EmailBackend&#39;</span>
+      <span class="n">EMAIL_UNFILTERED_DOMAINS</span> <span class="o">=</span> <span class="p">()</span> <span class="c1"># = (&#39;example.com&#39;,)</span>
+
+      <span class="n">SMTPD_CONFIG</span><span class="p">[</span><span class="s1">&#39;listen_addr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8025</span><span class="p">)</span>
+      <span class="n">SMTPD_CONFIG</span><span class="p">[</span><span class="s1">&#39;domain&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DOMAIN</span>
+
+      <span class="c1"># User registration, password reset, send client certificate and mail to</span>
+      <span class="c1"># receivers at a domain included in EMAIL_UNFILTERED_DOMAINS will be sent via</span>
+      <span class="c1"># EMAIL_BACKEND_UNFILTERED. All other mail will be sent via EMAIL_BACKEND.</span>
+      <span class="c1">#</span>
+      <span class="c1"># Backend to use to NOT sent email but log email to console:</span>
+      <span class="c1">#   django.core.mail.backends.console.EmailBackend</span>
+      <span class="c1">#</span>
+      <span class="c1"># Backend to use to send via EMAIL_* smtp settings:</span>
+      <span class="c1">#   django.core.mail.backends.smtp.EmailBackend</span>
+      <span class="c1">#</span>
+
+  <span class="n">vault_encrypt</span><span class="p">:</span> <span class="o">|</span>
+      <span class="n">a</span> <span class="n">ascii</span> <span class="n">armored</span> <span class="n">GPG</span> <span class="n">Key</span> 
+
+  <span class="n">vault_sign</span><span class="p">:</span> <span class="o">|</span>
+      <span class="n">a</span> <span class="n">ascii</span> <span class="n">armored</span> <span class="n">GPG</span> <span class="n">Key</span> 
+</pre></div>
+</div>
+<div class="section" id="ethics-commission-uuid-s">
+<span id="ethics-commission-uuid-s"></span><h3>Ethics Commission UUID&#8217;s<a class="headerlink" href="#ethics-commission-uuid-s" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>23d805c6b5f14d8b9196a12005fd2961</td>
+<td>Ethikkommission der Medizinischen Universität Wien</td>
+</tr>
+<tr class="row-even"><td>7b51f38bde8a4161a0dc34647fc7e654</td>
+<td>Ethikkommission Krankenhaus Barmh.Brüder - Wien</td>
+</tr>
+<tr class="row-odd"><td>85dc386061584fbe8549ce4e4d828fbd</td>
+<td>Ethikkommission der Stadt Wien gemäß KAG, AMG und MPG</td>
+</tr>
+<tr class="row-even"><td>d6a22c635a584521b107481ac18318f6</td>
+<td>Ethikkommission Forschungsinstitut des Wiener Roten Kreuzes</td>
+</tr>
+<tr class="row-odd"><td>55ae93ec9df04d6abfc8d233ec5ccf8e</td>
+<td>Ethikkommission Krankenhaus Barmh.Schwestern - Wien</td>
+</tr>
+<tr class="row-even"><td>7cd6d52120b3474ba502931b9f60a5f3</td>
+<td>Ethikkommission Confraternität-Priv.Klin. Josefstadt und Priv.Klin. Döbling</td>
+</tr>
+<tr class="row-odd"><td>7df9ebaf15434709b09c3def9a6c8769</td>
+<td>Ethikkommission St.Anna Kinderspital</td>
+</tr>
+<tr class="row-even"><td>f122f144616541d391fde2dcc761aff4</td>
+<td>Ethikkommission Österreichische Arbeitsgemeinschaft für Klinische Pharmakologie</td>
+</tr>
+<tr class="row-odd"><td>25b6744780434a3f96a1e43b405d3848</td>
+<td>Ethikkommission Privatkrankenanstalt Rudolfinerhaus</td>
+</tr>
+<tr class="row-even"><td>d542994ced34403db841786a1c1ab892</td>
+<td>Ethikkommission Rheuma-Zentrum Wien-Oberlaa</td>
+</tr>
+<tr class="row-odd"><td>5615dfbaf8c8445d960d1e2cd9c00dc3</td>
+<td>Ethikkommission Krankenhaus des Göttlichen Heilandes</td>
+</tr>
+<tr class="row-even"><td>4d3a2d5f138940f293ee87fe6ec1d5b2</td>
+<td>Ethikkommission Evangelisches Krankenhaus</td>
+</tr>
+<tr class="row-odd"><td>8d2950e3a0294f68bde647a54df6d823</td>
+<td>Ethikkommission der Allgemeinen Unfallversicherungsanstalt</td>
+</tr>
+<tr class="row-even"><td>9f6b509e716e413f865d95bdd630e9bc</td>
+<td>Ethikkommission Immunologische Tagesklinik</td>
+</tr>
+<tr class="row-odd"><td>b17f32f604fa4452b5ff3a2baa9e0704</td>
+<td>Ethikkommission des Landes Niederösterreich</td>
+</tr>
+<tr class="row-even"><td>6688ce16a3b84d42b1531389e6039891</td>
+<td>Ethikkommission Krankenhaus Elisabethinen</td>
+</tr>
+<tr class="row-odd"><td>e4dcd05a31ad475ca72dea7b84ef030e</td>
+<td>Ethikkommission des Landes Oberösterreich</td>
+</tr>
+<tr class="row-even"><td>e269491bb9c040aaad6a5f11df343f38</td>
+<td>Ethikkommission Krankenhaus Barmh.Brüder - Linz</td>
+</tr>
+<tr class="row-odd"><td>1cca34032077445d95dabf7802fade28</td>
+<td>Ethikkommission Krankenhaus Barmh.Schwestern - Linz</td>
+</tr>
+<tr class="row-even"><td>39cbb589ef044d27bceb6ee5ac796ae7</td>
+<td>Ethikkommission für das Bundesland Salzburg</td>
+</tr>
+<tr class="row-odd"><td>280414583b894c809a9baa8134d7fe4b</td>
+<td>Ethikkommission der Medizinischen Universität Innsbruck</td>
+</tr>
+<tr class="row-even"><td>183881da8200493aa7edd8bebeea75b9</td>
+<td>Ethikkommission des Landes Vorarlberg</td>
+</tr>
+<tr class="row-odd"><td>95821eba88f34b2195f96e747d7f6b16</td>
+<td>Ethikkommission des Landes Burgenland gemäß KAG, AMG und MPG</td>
+</tr>
+<tr class="row-even"><td>6e7cfab5f8cd40df83c9de4fac9bb20f</td>
+<td>Ethikkommission des Landes Steiermark gemäß AMG und MPG</td>
+</tr>
+<tr class="row-odd"><td>75b5a9714f354a5b842aa01029148036</td>
+<td>Ethikkommission Krankenhaus Barmh.Brüder - Graz</td>
+</tr>
+<tr class="row-even"><td>9287fb0878b94f9f9d90b5582d1cefca</td>
+<td>Ethikkommission Krankenhaus Barmh.Brüder - Eggenberg</td>
+</tr>
+<tr class="row-odd"><td>e17ee744e4e840778f316cf3f79de6b4</td>
+<td>Ethikkommission der Medizinischen Universität Graz</td>
+</tr>
+<tr class="row-even"><td>ec9f179a52a04a7aa52446232c3fd4bd</td>
+<td>Ethikkommission des Landes Kärnten</td>
+</tr>
+<tr class="row-odd"><td>c890205dcb7543c8a76bf324512c5f81</td>
+<td>Ethikkommission des Krankenhaus St. Josef</td>
+</tr>
+<tr class="row-even"><td>dc1b115d9809461ba3ea9450b079ddd6</td>
+<td>Kommission für Scientific Integrity und Ethik der Karl Landsteiner Privatuniversität</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="activate-config">
 <span id="activate-config"></span><h2>Activate Config<a class="headerlink" href="#activate-config" title="Permalink to this headline">¶</a></h2>
@@ -113,7 +353,10 @@ the first internal office user, with a corresponding client certificate.</p>
   <ul>
 <li><a class="reference internal" href="#">Configure Appliance</a><ul>
 <li><a class="reference internal" href="#create-config">Create Config</a></li>
-<li><a class="reference internal" href="#on-an-installed-but-unconfigured-appliance">on an installed but unconfigured appliance</a></li>
+<li><a class="reference internal" href="#modify-config">Modify Config</a><ul>
+<li><a class="reference internal" href="#ethics-commission-uuid-s">Ethics Commission UUID&#8217;s</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#activate-config">Activate Config</a><ul>
 <li><a class="reference internal" href="#first-internal-user-setup">First Internal User setup</a></li>
 </ul>

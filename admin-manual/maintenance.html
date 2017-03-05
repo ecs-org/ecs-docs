@@ -61,36 +61,29 @@
 <li>Stop appliance: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">appliance</span></code></li>
 <li>Update Appliance (appliance and ecs): <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></li>
 </ul>
+</div>
 <div class="section" id="recover-from-failed-state">
-<span id="recover-from-failed-state"></span><h3>Recover from failed state<a class="headerlink" href="#recover-from-failed-state" title="Permalink to this headline">¶</a></h3>
+<span id="recover-from-failed-state"></span><h2>Recover from failed state<a class="headerlink" href="#recover-from-failed-state" title="Permalink to this headline">¶</a></h2>
 <p>if the appliance.service enters fail state, it creates a file named
 &#8220;/run/appliance_failed&#8221;.</p>
 <p>After resolving the issue, remove this file using <code class="docutils literal"><span class="pre">rm</span> <span class="pre">/run/appliance_failed</span></code>
 before running the service again using <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code>.</p>
 </div>
-</div>
-<div class="section" id="desaster-recovery-from-backup">
-<span id="desaster-recovery-from-backup"></span><h2>Desaster Recovery from backup<a class="headerlink" href="#desaster-recovery-from-backup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="howto-admin-snippets">
+<span id="howto-admin-snippets"></span><h2>Howto (Admin Snippets)<a class="headerlink" href="#howto-admin-snippets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="commands-in-a-running-ecs-container">
+<span id="commands-in-a-running-ecs-container"></span><h3>commands in a running ecs container<a class="headerlink" href="#commands-in-a-running-ecs-container" title="Permalink to this headline">¶</a></h3>
+<p>for most ecs commands it is not important to which instance (web,worker)
+you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <ul class="simple">
-<li>install a new unconfigured appliance as described in chapter install</li>
-<li>copy old saved env.yml to new target machine at /app/env.yml</li>
-<li>reboot new target machine, appliance will configure but stop because of empty database</li>
-<li>ssh into new target machine, execute <code class="docutils literal"><span class="pre">recover-from-backup.sh</span> <span class="pre">--yes-i-am-sure</span></code></li>
-</ul>
-</div>
-<div class="section" id="howto">
-<span id="howto"></span><h2>Howto<a class="headerlink" href="#howto" title="Permalink to this headline">¶</a></h2>
-<p>All snippets expect root.</p>
-<ul class="simple">
-<li>enter a running ecs container
-for most ecs commands it is not important to which instance (web,worker)
-you connect to, &#8220;ecs_ecs.web_1&#8221; is used in examples<ul>
 <li>image = ecs, mocca, pdfas, memcached, redis</li>
-<li>ecs .startcommand = web, worker, beat, smtpd</li>
-<li>as root <code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_image[.startcommand]_1</span> <span class="pre">/bin/bash</span></code><ul>
+<li>ecs.startcommand = web, worker, beat, smtpd</li>
+<li>as root <code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_image[.startcommand]_1</span> <span class="pre">/path/to/command</span></code><ul>
 <li>eg. <code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/bin/bash</span></code></li>
 </ul>
 </li>
+</ul>
+<ul class="simple">
 <li>shell as app user with activated environment<ul>
 <li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">/bin/bash</span></code></li>
 </ul>
@@ -107,22 +100,26 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used in examples<ul>
 <li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">./manage.py</span> <span class="pre">shell_plus</span></code></li>
 </ul>
 </li>
+<li>make all workflow graphs</li>
 </ul>
-</li>
-<li>make all workflow graphs (with activated environment)</li>
-</ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">workflow_dot</span> <span class="n">core</span><span class="o">.</span><span class="n">submission</span> <span class="o">|</span> <span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="o">-</span><span class="n">osubmission</span><span class="o">.</span><span class="n">png</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">ecs_ecs</span><span class="o">.</span><span class="n">web_1</span> <span class="o">/</span><span class="n">start</span> <span class="n">run</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">workflow_dot</span> <span class="n">core</span><span class="o">.</span><span class="n">submission</span> <span class="o">|</span> <span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="o">-</span><span class="n">osubmission</span><span class="o">.</span><span class="n">png</span>
 <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">workflow_dot</span> <span class="n">notifications</span><span class="o">.</span><span class="n">notification</span> <span class="o">|</span> <span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="o">-</span><span class="n">onotification</span><span class="o">.</span><span class="n">png</span>
 <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">workflow_dot</span> <span class="n">votes</span><span class="o">.</span><span class="n">vote</span> <span class="o">|</span> <span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="o">-</span><span class="n">ovote</span><span class="o">.</span><span class="n">png</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>generate ECX-Format Documentation (with activated environment)</li>
+<li>generate ECX-Format Documentation</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">ecx_format</span> <span class="o">-</span><span class="n">t</span> <span class="n">html</span> <span class="o">-</span><span class="n">o</span> <span class="n">ecx</span><span class="o">-</span><span class="nb">format</span><span class="o">.</span><span class="n">html</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">ecs_ecs</span><span class="o">.</span><span class="n">web_1</span> <span class="o">/</span><span class="n">start</span> <span class="n">run</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">ecx_format</span> <span class="o">-</span><span class="n">t</span> <span class="n">html</span> <span class="o">-</span><span class="n">o</span> <span class="n">ecx</span><span class="o">-</span><span class="nb">format</span><span class="o">.</span><span class="n">html</span>
 <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">ecx_format</span> <span class="o">-</span><span class="n">t</span> <span class="n">pdf</span> <span class="o">-</span><span class="n">o</span> <span class="n">ecx</span><span class="o">-</span><span class="nb">format</span><span class="o">.</span><span class="n">pdf</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="commands-for-the-appliance-host">
+<span id="commands-for-the-appliance-host"></span><h3>commands for the appliance host<a class="headerlink" href="#commands-for-the-appliance-host" title="Permalink to this headline">¶</a></h3>
+<p>All snippets expect root.</p>
 <ul class="simple">
 <li>manual run letsencrypt client (do not call as root): <code class="docutils literal"><span class="pre">gosu</span> <span class="pre">app</span> <span class="pre">dehydrated</span> <span class="pre">--help</span></code></li>
 <li>destroy and recreate database:</li>
@@ -155,19 +152,53 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used in examples<ul>
 <li>to also set *GIT_SOURCE defaults: <code class="docutils literal"><span class="pre">.</span> <span class="pre">/usr/local/share/appliance/appliance.include</span></code></li>
 </ul>
 </li>
-<li>untested:<ul>
-<li><code class="docutils literal"><span class="pre">docker-compose</span> <span class="pre">-f</span> <span class="pre">/app/etc/ecs/docker-compose.yml</span> <span class="pre">run</span> <span class="pre">--no-deps</span> <span class="pre">ecs.web</span> <span class="pre">run</span> <span class="pre">./manage.py</span> <span class="pre">shell_plus</span></code></li>
 <li>most spent time in high.state:<ul>
 <li><code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-B</span> <span class="pre">5</span> <span class="pre">-E</span> <span class="pre">&quot;Duration:</span> <span class="pre">[0-9]{3,5}\.&quot;</span></code></li>
 <li><code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;ID:&quot;</span> <span class="pre">-A6</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-E</span> <span class="pre">&quot;(ID:|Function:|Duration:)&quot;</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/.*(ID:|Function:|Duration)(.*)/\1</span> <span class="pre">\2/g&quot;</span> <span class="pre">|</span> <span class="pre">paste</span> <span class="pre">-s</span> <span class="pre">-d</span> <span class="pre">'</span> <span class="pre">\n'</span> <span class="pre">-</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/ID:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Function:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Duration</span> <span class="pre">:</span> <span class="pre">([^</span> <span class="pre">]+</span> <span class="pre">ms)/\3</span> <span class="pre">\2</span> <span class="pre">\1/g&quot;</span> <span class="pre">|sort</span> <span class="pre">-n</span></code></li>
 </ul>
 </li>
 </ul>
+</div>
+</div>
+<div class="section" id="backup-configuration">
+<span id="backup-configuration"></span><h2>Backup Configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Cycle: Backup is done once per day around 01:30</li>
+<li>Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault</li>
+<li>Type, Rotation &amp; Retention:<ul>
+<li>Backup will start with a full backup and do incremental backups afterwards</li>
+<li>2 Months after the first full backup a second full backup will be created</li>
+<li>Rotation: Every Backup (full or incremental) will be purged after 4 Months</li>
+</ul>
 </li>
 </ul>
 </div>
-<div class="section" id="logging">
-<span id="logging"></span><h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="desaster-recovery-from-backup">
+<span id="desaster-recovery-from-backup"></span><h2>Desaster Recovery from backup<a class="headerlink" href="#desaster-recovery-from-backup" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>install a new unconfigured appliance as described in chapter install</li>
+<li>copy old saved env.yml to new target machine at /app/env.yml</li>
+<li>reboot new target machine, appliance will configure but stop because of empty database</li>
+<li>ssh into new target machine, execute <code class="docutils literal"><span class="pre">recover-from-backup.sh</span> <span class="pre">--yes-i-am-sure</span></code></li>
+</ul>
+</div>
+<div class="section" id="automatic-updates">
+<span id="automatic-updates"></span><h2>Automatic Updates<a class="headerlink" href="#automatic-updates" title="Permalink to this headline">¶</a></h2>
+<p>Updates are scheduled depending appliance:update:schedule once per day or once per week on sunday around 06:30.</p>
+<p>Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.</p>
+<p>The following items are updated:</p>
+<ul class="simple">
+<li>system packages are updated, including a reboot if the update need a kernel reboot</li>
+<li>lets encrypt certificatges are updated</li>
+<li>appliance source will be updated and executed</li>
+<li>ecs source will be updated and executed<ul>
+<li>the ecs-docs source will be updated</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="logging-configuration">
+<span id="logging-configuration"></span><h2>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Container:</p>
 <ul class="simple">
 <li>all container log to stdout and stderr</li>
@@ -183,27 +214,27 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used in examples<ul>
 </ul>
 <p>Host:</p>
 <ul class="simple">
-<li>(nearly) all logging is going through journald</li>
+<li>all logging (except postgres) is going through journald</li>
 <li>follow whole journal: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-f</span></code></li>
 <li>only follow service, eg. prepare-appliance: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">prepare-appliance</span> <span class="pre">-f</span></code></li>
 <li>follow frontend nginx: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">nginx</span> <span class="pre">-f</span></code></li>
 <li>search for salt-call output: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">$(which</span> <span class="pre">salt-call)</span></code></li>
 </ul>
 </div>
-<div class="section" id="alerting">
-<span id="alerting"></span><h2>Alerting<a class="headerlink" href="#alerting" title="Permalink to this headline">¶</a></h2>
-<p>if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN is defined,
+<div class="section" id="alerting-setup">
+<span id="alerting-setup"></span><h2>Alerting Setup<a class="headerlink" href="#alerting-setup" title="Permalink to this headline">¶</a></h2>
+<p>if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
 the appliance will report the following items to sentry:</p>
 <ul class="simple">
 <li>python exceptions in web, worker, beat, smtpd</li>
 <li>salt-call exceptions and state returns with error states</li>
-<li>systemd service exceptions where appliance-failed is triggered,
-or appliance_failed, appliance_exit, sentry_entry is called</li>
+<li>systemd service exceptions where appliance-failed or service-failed is triggered</li>
+<li>shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry</li>
 <li>internal mails to root, eg. prometheus alerts, smartmond</li>
 </ul>
 </div>
-<div class="section" id="metrics">
-<span id="metrics"></span><h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="metrics-collection">
+<span id="metrics-collection"></span><h2>Metrics Collection<a class="headerlink" href="#metrics-collection" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>if APPLIANCE_METRIC_EXPORTER is set, metrics are exported from the subsystems<ul>
 <li>export metrics of:
@@ -245,15 +276,19 @@ using the prometheus alert server<ul>
   <ul>
 <li><a class="reference internal" href="#">Maintenance</a><ul>
 <li><a class="reference internal" href="#reconfigure-a-running-appliance">Reconfigure a running Appliance</a></li>
-<li><a class="reference internal" href="#start-stop-update-appliance">Start, Stop &amp; Update Appliance</a><ul>
+<li><a class="reference internal" href="#start-stop-update-appliance">Start, Stop &amp; Update Appliance</a></li>
 <li><a class="reference internal" href="#recover-from-failed-state">Recover from failed state</a></li>
+<li><a class="reference internal" href="#howto-admin-snippets">Howto (Admin Snippets)</a><ul>
+<li><a class="reference internal" href="#commands-in-a-running-ecs-container">commands in a running ecs container</a></li>
+<li><a class="reference internal" href="#commands-for-the-appliance-host">commands for the appliance host</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#backup-configuration">Backup Configuration</a></li>
 <li><a class="reference internal" href="#desaster-recovery-from-backup">Desaster Recovery from backup</a></li>
-<li><a class="reference internal" href="#howto">Howto</a></li>
-<li><a class="reference internal" href="#logging">Logging</a></li>
-<li><a class="reference internal" href="#alerting">Alerting</a></li>
-<li><a class="reference internal" href="#metrics">Metrics</a></li>
+<li><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
+<li><a class="reference internal" href="#logging-configuration">Logging Configuration</a></li>
+<li><a class="reference internal" href="#alerting-setup">Alerting Setup</a></li>
+<li><a class="reference internal" href="#metrics-collection">Metrics Collection</a></li>
 </ul>
 </li>
 </ul>
