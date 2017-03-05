@@ -1,0 +1,31 @@
+@startuml
+
+start
+repeat
+  :submission;
+  :initial-review;
+repeat while (not acknowledged);
+
+:categorize;
+:review-phase|
+
+repeat
+  :meeting|
+  :vote-Workflow|
+  
+  while (vote = "b2") is (yes)
+    :b2-workflow|
+    :vote-Workflow|
+  endwhile
+repeat while (vote in "B3a","B3b") is (yes)
+
+:final-vote/
+if (vote in "B1") then (yes)
+  repeat
+  :notification-workflow|
+  repeat while (study not finished) is (yes)
+else (no)
+endif
+end
+
+@enduml
