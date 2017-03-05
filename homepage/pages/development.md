@@ -1,5 +1,5 @@
 Title: Development
-order: 10
+order: 5
 
 * [ECS Source at Github](https://github.com/ecs-org/ecs)
 

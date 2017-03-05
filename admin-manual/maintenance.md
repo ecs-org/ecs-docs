@@ -15,7 +15,7 @@
 + Stop appliance: `systemctl stop appliance`
 + Update Appliance (appliance and ecs): `systemctl start appliance-update`
 
-#### Recover from failed state
+### Recover from failed state
 
 if the appliance.service enters fail state, it creates a file named
 "/run/appliance_failed".
@@ -23,49 +23,48 @@ if the appliance.service enters fail state, it creates a file named
 After resolving the issue, remove this file using `rm /run/appliance_failed`
 before running the service again using `systemctl restart appliance`.
 
-### Desaster Recovery from backup
+### Howto (Admin Snippets)
 
-+ install a new unconfigured appliance as described in chapter install
-+ copy old saved env.yml to new target machine at /app/env.yml
-+ reboot new target machine, appliance will configure but stop because of empty database
-+ ssh into new target machine, execute `recover-from-backup.sh --yes-i-am-sure`
+#### commands in a running ecs container
+for most ecs commands it is not important to which instance (web,worker) 
+you connect to, "ecs_ecs.web_1" is used as example. 
 
-### Howto
++ image = ecs, mocca, pdfas, memcached, redis
++ ecs.startcommand = web, worker, beat, smtpd
++ as root `docker exec -it ecs_image[.startcommand]_1 /path/to/command`
+    + eg. `docker exec -it ecs_ecs.web_1 /bin/bash`
 
-All snippets expect root.
 
-+ enter a running ecs container
-    for most ecs commands it is not important to which instance (web,worker) 
-    you connect to, "ecs_ecs.web_1" is used in examples
 
-    + image = ecs, mocca, pdfas, memcached, redis
-    + ecs .startcommand = web, worker, beat, smtpd
++ shell as app user with activated environment
+    + `docker exec -it ecs_ecs.web_1 /start run /bin/bash`
++ manualy create a celery task:
+    + `docker exec -it ecs_ecs.web_1 /start run celery --serializer=pickle -A ecs call ecs.integration.tasks.clearsessions`
++ celery events console
+    + `docker exec -it ecs_ecs.web_1 /start run /bin/bash -c "TERM=screen celery -A ecs events"`
++ enter a django shell_plus as app user in a running container
+    + `docker exec -it ecs_ecs.web_1 /start run ./manage.py shell_plus`
 
-    + as root `docker exec -it ecs_image[.startcommand]_1 /bin/bash`
-        + eg. `docker exec -it ecs_ecs.web_1 /bin/bash`
-    + shell as app user with activated environment
-        + `docker exec -it ecs_ecs.web_1 /start run /bin/bash`
-    + manualy create a celery task:
-        + `docker exec -it ecs_ecs.web_1 /start run celery --serializer=pickle -A ecs call ecs.integration.tasks.clearsessions`
-    + celery events console
-        + `docker exec -it ecs_ecs.web_1 /start run /bin/bash -c "TERM=screen celery -A ecs events"`
-    + enter a django shell_plus as app user in a running container
-        + `docker exec -it ecs_ecs.web_1 /start run ./manage.py shell_plus`
-
-+ make all workflow graphs (with activated environment)
++ make all workflow graphs
 
 ```
+docker exec -it ecs_ecs.web_1 /start run /bin/bash
 ./manage.py workflow_dot core.submission | dot -Tpng -osubmission.png
 ./manage.py workflow_dot notifications.notification | dot -Tpng -onotification.png
 ./manage.py workflow_dot votes.vote | dot -Tpng -ovote.png
 ```
 
-+ generate ECX-Format Documentation (with activated environment)
++ generate ECX-Format Documentation
 
 ```
+docker exec -it ecs_ecs.web_1 /start run /bin/bash
 ./manage.py ecx_format -t html -o ecx-format.html
 ./manage.py ecx_format -t pdf -o ecx-format.pdf
 ```
+
+#### commands for the appliance host
+
+All snippets expect root.
 
 + manual run letsencrypt client (do not call as root): `gosu app dehydrated --help`
 
@@ -94,13 +93,41 @@ systemctl restart appliance
     + `. /usr/local/share/appliance/env.include; ENV_YML=/run/active-env.yml userdata_to_env ecs,appliance`
     + to also set *GIT_SOURCE defaults: `. /usr/local/share/appliance/appliance.include` 
 
-+ untested:
-    +  `docker-compose -f /app/etc/ecs/docker-compose.yml run --no-deps ecs.web run ./manage.py shell_plus`
-    + most spent time in high.state:
-        + `journalctl -u appliance-update | grep -B 5 -E "Duration: [0-9]{3,5}\."`
-        + `journalctl -u appliance-update | grep "ID:" -A6 | grep -E "(ID:|Function:|Duration:)" | sed -r "s/.*(ID:|Function:|Duration)(.*)/\1 \2/g" | paste -s -d '  \n'  - | sed -r "s/ID: +([^ ]+) Function: +([^ ]+) Duration : ([^ ]+ ms)/\3 \2 \1/g" |sort -n`
++ most spent time in high.state:
+    + `journalctl -u appliance-update | grep -B 5 -E "Duration: [0-9]{3,5}\."`
+    + `journalctl -u appliance-update | grep "ID:" -A6 | grep -E "(ID:|Function:|Duration:)" | sed -r "s/.*(ID:|Function:|Duration)(.*)/\1 \2/g" | paste -s -d '  \n'  - | sed -r "s/ID: +([^ ]+) Function: +([^ ]+) Duration : ([^ ]+ ms)/\3 \2 \1/g" |sort -n`
 
-### Logging
+
+### Backup Configuration
+
++ Cycle: Backup is done once per day around 01:30
++ Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault
++ Type, Rotation & Retention:
+    + Backup will start with a full backup and do incremental backups afterwards
+    + 2 Months after the first full backup a second full backup will be created
+    + Rotation: Every Backup (full or incremental) will be purged after 4 Months
+
+### Desaster Recovery from backup
+
++ install a new unconfigured appliance as described in chapter install
++ copy old saved env.yml to new target machine at /app/env.yml
++ reboot new target machine, appliance will configure but stop because of empty database
++ ssh into new target machine, execute `recover-from-backup.sh --yes-i-am-sure`
+
+### Automatic Updates
+
+Updates are scheduled depending appliance:update:schedule once per day or once per week on sunday around 06:30. 
+
+Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.
+
+The following items are updated:
++ system packages are updated, including a reboot if the update need a kernel reboot
++ lets encrypt certificatges are updated
++ appliance source will be updated and executed
++ ecs source will be updated and executed
+    + the ecs-docs source will be updated
+
+### Logging Configuration
 
 Container:
 + all container log to stdout and stderr
@@ -111,24 +138,24 @@ Container:
     + to follow use `journalctl -u appliance -f`
 
 Host:
-+ (nearly) all logging is going through journald
++ all logging (except postgres) is going through journald
 + follow whole journal: `journalctl -f`
 + only follow service, eg. prepare-appliance: `journalctl -u prepare-appliance -f`
 + follow frontend nginx: `journalctl -u nginx -f`
 + search for salt-call output: `journalctl $(which salt-call)`
 
-### Alerting
+### Alerting Setup
 
-if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN is defined,
+if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
 the appliance will report the following items to sentry:
 
 + python exceptions in web, worker, beat, smtpd
 + salt-call exceptions and state returns with error states
-+ systemd service exceptions where appliance-failed is triggered,
-    or appliance_failed, appliance_exit, sentry_entry is called
++ systemd service exceptions where appliance-failed or service-failed is triggered
++ shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry
 + internal mails to root, eg. prometheus alerts, smartmond
 
-### Metrics
+### Metrics Collection
 
 + if APPLIANCE_METRIC_EXPORTER is set, metrics are exported from the subsystems
     + export metrics of: 

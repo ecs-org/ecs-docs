@@ -16,7 +16,8 @@ order: 2
     * [Submission of a Study - German - PDF](../static/Einreichung.pdf)
     * [Specialist Review - German - PDF](../static/Spezialistenbewertung.pdf)
 
-
+* Changelog
+    *  [Changelog since Beta Release 2016.12.18 - German - HTML](changelog.html)
 
 * Screencasts
     * [Anpassung des ECS](https://youtu.be/V5LUr8lvOEo)
