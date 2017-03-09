@@ -75,7 +75,7 @@ All data size units in this document are 1024 based.
 + 1 GB = 1024 MB, 1 MB = 1024 KB , 1 KB = 1024 bytes
 
 As a guideline, if you have more memory available, add some extra memory.
-Warning: If you deviate from the example values below, be sure to add the needed memory per core if you add more cores, because many of the appliance processes get scaled to the number of cores.
+**Warning**: If you deviate from the example values below, be sure to add the needed memory per core if you add more cores, because many of the appliance processes get scaled to the number of cores.
 
 + Minimum Cpu/Memory: 2 Cores, 4GB
 
