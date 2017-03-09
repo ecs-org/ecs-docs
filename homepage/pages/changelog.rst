@@ -7,6 +7,25 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2017.03.06
+----------
+
+Bugs:
+  + #638: Wenn der gleiche Spezialist eine manuelle erstellte Bewertung
+    und eine durch die Spezialistenzuordnung generierte Spezialisten-
+    bewertung hat konnte in der Zeitplanung dieser nicht aus einem TOP
+    als Teilnehmer entfernt werden. Dieser Fehler wurde behoben.
+  + #641: Es trat ein Fehler beim Rendern von zwei Studien auf. 
+    Ggf. müssen die Einreicher eine leere Neueinreichung machen um das
+    erneute Rendern des PDFs anzustoßen.
+  + #603: Mehrfachklicks beim erneuten Öffnen einer Bewertung lösen
+    jetzt einen 404 Fehler aus, anstatt die selbe Bewertungsaufgabe 
+    mehrfach zu öffnen.
+
+Features:
+  + #615: Die Performance der Statistik Seite wurde optimiert.
+
+
 2017.02.26
 ----------
 

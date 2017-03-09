@@ -14,7 +14,7 @@ order: 5
 
 ### Credits
 
-Followup Core Team:
+Followup Development Team:
 
   + Felix Erkinger
   + Markus Fröhlich 
