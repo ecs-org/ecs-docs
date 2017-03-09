@@ -163,7 +163,9 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <div class="section" id="backup-configuration">
 <span id="backup-configuration"></span><h2>Backup Configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Cycle: Backup is done once per day around 01:30</li>
+<li>Backup Target can be a (untrusted) third third party</li>
+<li>backup is done using duplicity</li>
+<li>Cycle: Backup is done once per day around 00:30</li>
 <li>Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault</li>
 <li>Type, Rotation &amp; Retention:<ul>
 <li>Backup will start with a full backup and do incremental backups afterwards</li>

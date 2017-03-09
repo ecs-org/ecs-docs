@@ -100,7 +100,9 @@ systemctl restart appliance
 
 ### Backup Configuration
 
-+ Cycle: Backup is done once per day around 01:30
++ Backup Target can be a (untrusted) third third party
++ backup is done using duplicity
++ Cycle: Backup is done once per day around 00:30
 + Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault
 + Type, Rotation & Retention:
     + Backup will start with a full backup and do incremental backups afterwards

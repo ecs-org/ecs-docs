@@ -28,7 +28,7 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="ecs-admin-manual 0 TODO:use git id documentation" href="index.html" />
     <link rel="next" title="Maintenance" href="maintenance.html" />
-    <link rel="prev" title="Install Appliance" href="installation.html" />
+    <link rel="prev" title="Deploy Appliance" href="deployment.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="static/custom.css" type="text/css" />
   </head>
@@ -41,7 +41,7 @@
             
   <div class="section" id="configure-appliance">
 <span id="configure-appliance"></span><h1>Configure Appliance<a class="headerlink" href="#configure-appliance" title="Permalink to this headline">¶</a></h1>
-<p>The Applinace is configured using a yaml confiuration file
+<p>The Appliance is configured using a yaml confiuration file
 which can be placed in one of the following locations:</p>
 <ul class="simple">
 <li>absolute filepath set via environment variable ENV_YML</li>
@@ -52,10 +52,22 @@ which can be placed in one of the following locations:</p>
 <li>gce (google compute engine) meta-data server</li>
 </ul>
 <p>It will be copied to <code class="docutils literal"><span class="pre">/run/active-env.yml</span></code> (ramdisk) on each appliance startup.</p>
-<div class="section" id="create-config">
-<span id="create-config"></span><h2>Create Config<a class="headerlink" href="#create-config" title="Permalink to this headline">¶</a></h2>
-<p>for a development server, run <code class="docutils literal"><span class="pre">cp</span> <span class="pre">/app/appliance/salt/pillar/default-env.sls</span> <span class="pre">/app/env.yml</span></code>
-and edit settings in /app/env.yml .</p>
+<p>:warning: Do <strong>not</strong> reuse an already existing configuration for a different domain/instance, <strong>always</strong> create a new configuration, to not leak secrets between domains.</p>
+<div class="section" id="create-a-new-configuration">
+<span id="create-a-new-configuration"></span><h2>Create a new Configuration<a class="headerlink" href="#create-a-new-configuration" title="Permalink to this headline">¶</a></h2>
+<p>on an installed but unconfigured appliance:</p>
+<ul class="simple">
+<li>enter installed but empty appliance</li>
+<li>make a new env.yml: <code class="docutils literal"><span class="pre">env-create.sh</span> <span class="pre">domainname.domain</span> <span class="pre">~/domainname.domain/</span></code></li>
+<li>edit settings in ~/domainname.domain/env.yml , see comments inside file</li>
+<li>optional, package env into different formats<ul>
+<li><code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">~/domainname.domain/env.yml</span></code></li>
+</ul>
+</li>
+<li>transfer, print out ~/domainname.domain/env.yml.pdf and store in a safe place.</li>
+<li>save a encrypted copy of env.yml in safe place.</li>
+<li><strong>Important</strong>: The env.yml contains all needed secrets for a working appliance and is also the one needed piece of information if you want to recover from backup in case of a storage failure.</li>
+</ul>
 <p>for offline environment creation, using your local machine:</p>
 <ul class="simple">
 <li>have saltstack installed (minion does not need to run)</li>
@@ -68,23 +80,15 @@ but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</li>
 <span class="n">scp</span> <span class="n">env</span><span class="o">.</span><span class="n">yml</span> <span class="n">root</span><span class="nd">@target</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">ip</span><span class="p">:</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
-<p>on an installed but unconfigured appliance:</p>
+<p>for a development server:</p>
 <ul class="simple">
-<li>enter installed but empty appliance</li>
-<li>make a new env.yml: <code class="docutils literal"><span class="pre">env-create.sh</span> <span class="pre">domainname.domain</span> <span class="pre">~/domainname.domain/</span></code></li>
-<li>edit settings in ~/domainname.domain/env.yml , see comments inside file</li>
-<li>optional, package env into different formats<ul>
-<li><code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">~/domainname.domain/env.yml</span></code></li>
-</ul>
-</li>
-<li>print out ~/domainname.domain/env.yml.pdf</li>
-<li>transfer and keep ~/domainname.domain/domainname.env.date_time.tar.gz.gpg</li>
+<li>run <code class="docutils literal"><span class="pre">cp</span> <span class="pre">/app/appliance/salt/pillar/default-env.sls</span> <span class="pre">/app/env.yml</span></code> and edit settings in &#8220;/app/env.yml&#8221;.</li>
 </ul>
 </div>
-<div class="section" id="modify-config">
-<span id="modify-config"></span><h2>Modify Config<a class="headerlink" href="#modify-config" title="Permalink to this headline">¶</a></h2>
-<p>Any change in the config file will reconfigure the appliance on the next appliance-update run to the new values found in the configuration.
-Eg. if you want to change your backup target to a different location,
+<div class="section" id="modify-configuration">
+<span id="modify-configuration"></span><h2>Modify Configuration<a class="headerlink" href="#modify-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Any applied change in the config file will reconfigure the appliance on the next appliance-update run to the new values found in the configuration.</p>
+<p>Eg. if you want to change your backup target to a different location,
 just change the value and restart the appliance, it will detect and configure
 all needed changes to the environment.</p>
 <p>See the comments in the configuration for different possibilities for the appliance configuration.</p>
@@ -312,8 +316,8 @@ all needed changes to the environment.</p>
 </table>
 </div>
 </div>
-<div class="section" id="activate-config">
-<span id="activate-config"></span><h2>Activate Config<a class="headerlink" href="#activate-config" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="activate-configuration">
+<span id="activate-configuration"></span><h2>Activate Configuration<a class="headerlink" href="#activate-configuration" title="Permalink to this headline">¶</a></h2>
 <p>on the target vm:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create a empty ecs database</span>
 <span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">createdb</span> <span class="n">ecs</span> <span class="o">-</span><span class="n">T</span> <span class="n">template0</span>  <span class="o">-</span><span class="n">l</span> <span class="n">de_DE</span><span class="o">.</span><span class="n">utf8</span>
@@ -352,12 +356,12 @@ the first internal office user, with a corresponding client certificate.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Configure Appliance</a><ul>
-<li><a class="reference internal" href="#create-config">Create Config</a></li>
-<li><a class="reference internal" href="#modify-config">Modify Config</a><ul>
+<li><a class="reference internal" href="#create-a-new-configuration">Create a new Configuration</a></li>
+<li><a class="reference internal" href="#modify-configuration">Modify Configuration</a><ul>
 <li><a class="reference internal" href="#ethics-commission-uuid-s">Ethics Commission UUID&#8217;s</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#activate-config">Activate Config</a><ul>
+<li><a class="reference internal" href="#activate-configuration">Activate Configuration</a><ul>
 <li><a class="reference internal" href="#first-internal-user-setup">First Internal User setup</a></li>
 </ul>
 </li>
@@ -366,8 +370,8 @@ the first internal office user, with a corresponding client certificate.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="previous chapter">Install Appliance</a></p>
+  <p class="topless"><a href="deployment.html"
+                        title="previous chapter">Deploy Appliance</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="maintenance.html"
                         title="next chapter">Maintenance</a></p>
@@ -391,7 +395,7 @@ the first internal office user, with a corresponding client certificate.</p>
     <ul>
         <li>
           &larr;
-          <a href="installation.html" title="Previous document">Install Appliance</a>
+          <a href="deployment.html" title="Previous document">Deploy Appliance</a>
         </li>
         <li>
           <a href="maintenance.html" title="Next document">Maintenance</a>

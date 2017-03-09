@@ -1,6 +1,6 @@
 ## Configure Appliance
 
-The Applinace is configured using a yaml confiuration file 
+The Appliance is configured using a yaml confiuration file 
 which can be placed in one of the following locations:
 
 + absolute filepath set via environment variable ENV_YML
@@ -12,12 +12,25 @@ which can be placed in one of the following locations:
 
 It will be copied to `/run/active-env.yml` (ramdisk) on each appliance startup.
 
-### Create Config
+:warning: Do **not** reuse an already existing configuration for a different domain/instance, **always** create a new configuration, to not leak secrets between domains.
 
-for a development server, run `cp /app/appliance/salt/pillar/default-env.sls /app/env.yml`
-and edit settings in /app/env.yml .
+### Create a new Configuration
+
+on an installed but unconfigured appliance:
+
++ enter installed but empty appliance
++ make a new env.yml: `env-create.sh domainname.domain ~/domainname.domain/`
++ edit settings in ~/domainname.domain/env.yml , see comments inside file
++ optional, package env into different formats
+    +  `env-package.sh --requirements; env-package.sh ~/domainname.domain/env.yml`
+
++ transfer, print out ~/domainname.domain/env.yml.pdf and store in a safe place.
++ save a encrypted copy of env.yml in safe place. 
++ **Important**: The env.yml contains all needed secrets for a working appliance and is also the one needed piece of information if you want to recover from backup in case of a storage failure.
+
 
 for offline environment creation, using your local machine:
+
 + have saltstack installed (minion does not need to run)
 + `git clone https://github.com/ecs-org/ecs-appliance  ~/path-to-project/ecs-appliance`
 + use env-create.sh and env-package.sh like explained below,
@@ -29,20 +42,14 @@ ssh root@target.vm.ip '/bin/bash -c "mkdir -p /app/"'
 scp env.yml root@target.vm.ip:/app/env.yml
 ```
 
-on an installed but unconfigured appliance:
+for a development server:
 
-+ enter installed but empty appliance
-+ make a new env.yml: `env-create.sh domainname.domain ~/domainname.domain/`
-+ edit settings in ~/domainname.domain/env.yml , see comments inside file
-+ optional, package env into different formats
-    +  `env-package.sh --requirements; env-package.sh ~/domainname.domain/env.yml`
++ run `cp /app/appliance/salt/pillar/default-env.sls /app/env.yml` and edit settings in "/app/env.yml".
 
-+ print out ~/domainname.domain/env.yml.pdf
-+ transfer and keep ~/domainname.domain/domainname.env.date_time.tar.gz.gpg
+### Modify Configuration
 
-### Modify Config
+Any applied change in the config file will reconfigure the appliance on the next appliance-update run to the new values found in the configuration.
 
-Any change in the config file will reconfigure the appliance on the next appliance-update run to the new values found in the configuration.
 Eg. if you want to change your backup target to a different location,
 just change the value and restart the appliance, it will detect and configure 
 all needed changes to the environment.
@@ -209,7 +216,7 @@ dc1b115d9809461ba3ea9450b079ddd6  Kommission für Scientific Integrity und Ethik
 ================================  ====================================================================================
 ```
 
-### Activate Config
+### Activate Configuration
 
 on the target vm:
 ```

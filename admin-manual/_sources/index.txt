@@ -8,8 +8,8 @@ it can be stacked on top of the developer vm, but is independent of it.
 .. toctree::
   :maxdepth: 2
 
-  storage-and-memory
-  installation
+  requirements
+  deployment
   configuration
   maintenance
   mocca-pdfas
