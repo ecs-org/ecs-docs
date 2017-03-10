@@ -43,19 +43,25 @@
 <div class="section" id="service-architecture">
 <span id="service-architecture"></span><h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image as Base</li>
 <li>Services running on the host system<ul>
-<li>Postgresql Database</li>
-<li>Stunnel</li>
-<li>NGINX Webserver</li>
-<li>SSH Daemon</li>
+<li>Webserver: NGINX 1.10</li>
+<li>Database: Postgresql 9.5 Database</li>
+<li>SMTP/SSL Proxy: Stunnel</li>
+<li>SSH Daemon: openssh</li>
 </ul>
 </li>
 <li>Services running inside docker container<ul>
-<li>The ECS Application (Web, Worker, incoming Mail)</li>
-<li>Redis</li>
-<li>Memcache</li>
-<li>tomcat with PDF/AS</li>
-<li>tomcat with Mocca</li>
+<li>The ECS Application (Web, Worker, incoming Mail)<ul>
+<li>Django is served via uwsgi inside the web container</li>
+<li>Celery is used for asyncronus worker &amp; beat</li>
+<li>python smtpd is used for incoming Mail processing</li>
+</ul>
+</li>
+<li>Redis for Queuing Services</li>
+<li>Memcache for Caching Services</li>
+<li>tomcat running PDF/AS for Eletronical Signed PDF Generation</li>
+<li>tomcat running Mocca for accessing the Digital ID-Card used for signed PDF-Generation</li>
 </ul>
 </li>
 </ul>

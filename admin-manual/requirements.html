@@ -41,7 +41,7 @@
             
   <div class="section" id="hosting-requirements">
 <span id="hosting-requirements"></span><h1>Hosting Requirements<a class="headerlink" href="#hosting-requirements" title="Permalink to this headline">¶</a></h1>
-<p>The ecs-appliance is designed to run as an external available service of the internet, reachable by world.</p>
+<p>The ecs software is designed to run as an external available internet webservice, reachable by everyone.</p>
 <div class="section" id="requirements">
 <span id="requirements"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -53,22 +53,25 @@
 <span id="virtual-machine"></span><h3>Virtual Machine<a class="headerlink" href="#virtual-machine" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The base of the virtual machine is a Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image.</li>
-<li>The appliance was tested on the following hypervisors: xen,kvm,vmware,virtualbox</li>
+<li>The appliance was tested on the following hypervisors: xen,kvm,vmware sphere,virtualbox<ul>
+<li>hyperv is not tested but is expected to work</li>
+<li>rollouts to amazon ec2, google gce or openstack clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented so it should work but probably need some tweaking beforehand</li>
+</ul>
+</li>
 <li>Follow the Assessment Chapter for the right sizing of cpu-cores, memory and harddisk.</li>
 </ul>
 </div>
 <div class="section" id="backup-storage">
 <span id="backup-storage"></span><h3>Backup Storage<a class="headerlink" href="#backup-storage" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>a storage space accessable via one of the 24 duplicity supported storage protocols and cifs.<ul>
+<li>For storing backup data the appliance needs a storage space accessable via one of the 24 duplicity supported storage protocols or via cifs.</li>
 <li>In addition to the supported duplicity protocols the appliance has support for <strong>cifs</strong> (windows file sharing attached volumes, including automatic mount and unmount)</li>
-<li>Tested protocols so far: localfile, ftp, ftpssl, ssh/scp, ssh,sftp, http, http/webdav, cifs</li>
+<li>Tested protocols so far: localfile, ftp, ftpssl, ssh/scp, ssh/sftp, http/webdav, cifs</li>
 <li>For Details see: <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html#sect7">Duplicity Manual - Section URL-Format</a></li>
-</ul>
-</li>
-<li>The storage space must be accessable from the machine.</li>
-<li>The storage space may be internal or external, on the same provider as the machine hosting or using a different provider, a trusted or untrusted third-party.</li>
-<li>All backup data is encrypted before it leaves the machine using gpg (GnuPG)</li>
+<li>Storage at Rest: All backup data is encrypted before it leaves the machine using gpg (GnuPG) and is saved without any prior decryption on the target space.</li>
+<li>The storage space may be hosted internal or external, using the same provider as the machine hosting or using a different provider. The hosting provider may be a trusted or untrusted third-party.</li>
+<li>Rotation and Retention is automatic, the backup process is unattended.</li>
+<li>See <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> for the correct storage space size.</li>
 </ul>
 </div>
 <div class="section" id="internet-connectivity">
@@ -76,8 +79,8 @@
 <ul class="simple">
 <li>permanent internet connectivity with a strong (&gt;20Mbit) upload channel</li>
 <li>an ip address and dns server settings served to the machine by DHCP for automatic configuration<ul>
-<li>this can be a internal or the public IPv4 Address if the target location needs this, but it must be served by DHCP</li>
-<li>Unusable internal nets are 172.17.X.X and 10.0.3.X, these are used by the appliance internaly</li>
+<li>this can be a internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP</li>
+<li>Unusable internal nets are 172.17.X.X and 10.0.3.X, because these are used by the appliance itself</li>
 </ul>
 </li>
 <li>a dns [sub]domain with a A and a MX Entry and the reverse ptr of the public IPv4-Adress set to the domain name<ul>
@@ -87,25 +90,29 @@
 </ul>
 </li>
 </ul>
-<p>Example:</p>
+<p>Examples for domains &#8220;https://whatever.me&#8221; and &#8220;https://another.sub.domain.me&#8221;:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">whatever</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">A</span> <span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span>
 <span class="n">whatever</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">MX</span> <span class="mi">10</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
-<span class="mf">4.3</span><span class="o">.</span><span class="mf">2.1</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span> <span class="n">IN</span>  <span class="n">PTR</span>  <span class="n">whatever</span><span class="o">.</span><span class="n">me</span><span class="o">.</span>
+<span class="mf">4.3</span><span class="o">.</span><span class="mf">2.1</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span> <span class="n">IN</span> <span class="n">PTR</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span><span class="o">.</span>
+
+<span class="n">another</span><span class="o">.</span><span class="n">sub</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">A</span> <span class="mf">5.6</span><span class="o">.</span><span class="mf">7.8</span>
+<span class="n">another</span><span class="o">.</span><span class="n">sub</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">MX</span> <span class="mi">10</span> <span class="n">another</span><span class="o">.</span><span class="n">sub</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">me</span>
+<span class="mf">8.7</span><span class="o">.</span><span class="mf">6.5</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span>  <span class="n">IN</span> <span class="n">PTR</span> <span class="n">another</span><span class="o">.</span><span class="n">sub</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">me</span>  
 </pre></div>
 </div>
 <ul class="simple">
 <li>a public IPv4-Address or the incoming ports 22,25,80,443,465 of this address forwarded to the machine<ul>
 <li>port 22 - ssh: ssh publickey auth is used. this connection is used for installation and optional support</li>
-<li>port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers to of forwarded ecs communication. if the target locations policy does not permit this, the ecs will work without it, but loses email answering functionality</li>
+<li>port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers of forwarded ecs communication. if the hosting locations policy does not permit this, the ecs will work without it, but loses email answering functionality</li>
 <li>port 80 - http: the appliance communicates only over https, but needs http for letsencrypt client certificate renewal and for redirecting to the https site</li>
-<li>port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates by themself</li>
+<li>port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in selfservice</li>
 </ul>
 </li>
 </ul>
 <div class="section" id="certificates">
 <span id="certificates"></span><h4>Certificates<a class="headerlink" href="#certificates" title="Permalink to this headline">¶</a></h4>
-<p>The appliance uses LetsEncrypt to issue https/ssl host certificates and also takes care of the renewal.
-The https client certificates are issued by the appliance itself and can be done in selfservice of a internal user. There is no administration interaction needed in this process.</p>
+<p>The appliance uses LetsEncrypt to issue https/ssl host certificates and also takes care of the renewal of these host certificates.
+Https client certificates are issued by the appliance itself and can be done in selfservice as an internal ecs webfrontend user. There is no IT-administration task needed in this process.</p>
 </div>
 <div class="section" id="firewall-endpointprotection-antivirus-security-products">
 <span id="firewall-endpointprotection-antivirus-security-products"></span><h4>&#8220;Firewall&#8221;/Endpointprotection/&#8221;Antivirus&#8221; Security Products:<a class="headerlink" href="#firewall-endpointprotection-antivirus-security-products" title="Permalink to this headline">¶</a></h4>
@@ -113,12 +120,12 @@ The https client certificates are issued by the appliance itself and can be done
 listed are forwarded to the machine and outgoing traffic from the machine is permitted.</p>
 <p><strong>Warning</strong>: many security products are known to disturb/break HTTPS Host
 Certificate and Client Certificate validation and weaken the transport protocols on the wire.
-See <a class="reference external" href="https://jhalderm.com/pub/papers/interception-ndss17.pdf">The Security Impact of HTTPS Interception</a> .
-The ecs appliance uses https client certificates for elevated user rights.
-If the target location has some mandatory security product,
-you probably need some extra configuration in the security product to unbreak it.
-This also applies to some desktop &#8220;antivirus&#8221; products,
-similar extra configuration may be needed to have working https client certificate support.</p>
+See <a class="reference external" href="https://jhalderm.com/pub/papers/interception-ndss17.pdf">The Security Impact of HTTPS Interception</a> .</p>
+<p>The ecs appliance uses https client certificates for protection of elevated user rights.
+If the hosting location has some mandatory security product,
+you probably need some extra configuration in the security product to fix support for Client Certificates.</p>
+<p>This may also apply to to the pc&#8217;s of internal ecs desktops. Some desktop &#8220;antivirus&#8221; products may need similar extra configuration to have working https client certificate support.
+So far there have been findings of Kaspersky and McAfee products to need extra configuration.</p>
 </div>
 </div>
 </div>
@@ -128,8 +135,8 @@ similar extra configuration may be needed to have working https client certifica
 <ul class="simple">
 <li>1 GB = 1024 MB, 1 MB = 1024 KB , 1 KB = 1024 bytes</li>
 </ul>
-<p>As a guideline, if you have more memory available, add some extra memory.
-<strong>Warning</strong>: If you deviate from the example values below, be sure to add the needed memory per core if you add more cores, because many of the appliance processes get scaled to the number of cores.</p>
+<p>As a guideline, if you have more memory available, add some extra memory.</p>
+<p><strong>Warning</strong>: If you deviate from the example values below, be sure to add the needed memory per core if you add more cores, because many of the appliance processes get scaled to the number of cores.</p>
 <ul class="simple">
 <li>Minimum Cpu/Memory: 2 Cores, 4GB</li>
 </ul>
