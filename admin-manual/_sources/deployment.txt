@@ -3,7 +3,7 @@
 The base of the appliance is Ubuntu Xenial (16.04 LTS).
 Installation is done unattended using ssh for login to the machine.
 
-### as a virtual machine
+### As a Virtual Machine
 
 You either need:
 + a standard ubuntu cloud image from [Ubunu Xenial Cloud Images](http://cloud-images.ubuntu.com/xenial/current/)
@@ -20,7 +20,7 @@ You either need:
 
 Start the new virtual machine and login via ssh.
 
-### on hardware or other custom configurations
+### On Hardware or other custom Configurations
 
 Needed:
 
@@ -47,18 +47,18 @@ LV vg0 root / ext4 300G
 IMAGE /root/.oldroot/nfs/install/../images/Ubuntu-1604-xenial-64-minimal.tar.gz
 ```
 
-### Network attached storage and custom partitioning
+### Network attached Storage 
 
 For a virtual machine deployment it is best to stick to the default xenial cloud images layout, unless there is good reason to deviate.
 
-The appliance supports two possible external network attached storage volumes, one for permanent data and one for volatile data. To have seperate volatile and/or data partitions, 
-change storage:ignore:volatile and/or storage:ignore:data to false.
-The volatile volume must be labeled "ecs-volatile", the data volume "ecs-data".
-Setup will add mountpoints for /data and /volatile.
-Use appliance:extra:states and :packages if storage setup needs additional packages installed.
++ The appliance supports two external network attached storage volumes, one for permanent data and one for volatile data. 
++ To have seperate volatile and/or data partitions, change storage:ignore:volatile and/or storage:ignore:data to false.
++ The volatile volume must be labeled "ecs-volatile", the data volume "ecs-data".
++ Setup will add mountpoints for /data and /volatile and mount them on startup.
++ Use appliance:extra:states and :packages if storage setup needs additional packages installed.
 
 
-### install via ssh to a empty xenial vm
+### Install via ssh to an empty Xenial VM
 
 ssh into target vm:
 
@@ -74,7 +74,7 @@ chmod +x /tmp/bootstrap_salt.sh
 salt-call state.highstate pillar='{"appliance": {"enabled": true}}'
 ```
 
-### install using vagrant
+### Testinstall using Vagrant
 
 on your local machine:
 
@@ -84,7 +84,7 @@ cd ~/ecs-appliance
 vagrant up
 ```
 
-### upgrade a developer vm
+### Upgrade a developer vm
 
 Requirement: you need at least 3gb total memory for the appliance, 4gb minimum if you want metrics active.
 

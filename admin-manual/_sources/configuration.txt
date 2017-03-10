@@ -12,7 +12,7 @@ which can be placed in one of the following locations:
 
 It will be copied to `/run/active-env.yml` (ramdisk) on each appliance startup.
 
-:warning: Do **not** reuse an already existing configuration for a different domain/instance, **always** create a new configuration, to not leak secrets between domains.
+**warning**: Do **not** reuse an already existing configuration for a different domain/instance, **always** create a new configuration, to not leak secrets between domains.
 
 ### Create a new Configuration
 
@@ -229,19 +229,25 @@ cp /app/env.yml /run/active-env.yml
 reboot
 ```
 
-#### First Internal User setup
-
 After the appliance has rebooted, it configures itself to the new environment.
 See the progress of the preperation by browsing to https://domainname.domain .
+
+#### First Internal User setup
+
 After the appliance is ready and shows the login screen, login via ssh to create
-the first internal office user, with a corresponding client certificate.
+the first internal office user, with a corresponding client certificate and disable test user.
 
 ```
 # create first internal office user (f=female, m=male)
 create-internal-user.sh useremail@domain.name "First Name" "Second Name" "f" 
-
 # create and send matching client certificate
 create-client-cert.sh useremail@domain.name cert_name [daysvalid]
-
 # Communicate certificate transport password over a secure channel
+
+# disable test user
+cat << EOF | docker exec -i ecs_ecs.web_1 /start run ./manage.py shell
+from django.contrib.auth.models import User
+User.objects.filter(profile__is_testuser=True).update(is_active=False)
+EOF
+
 ```

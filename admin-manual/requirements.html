@@ -41,7 +41,7 @@
             
   <div class="section" id="hosting-requirements">
 <span id="hosting-requirements"></span><h1>Hosting Requirements<a class="headerlink" href="#hosting-requirements" title="Permalink to this headline">¶</a></h1>
-<p>The ecs software is designed to run as an external available internet webservice, reachable by everyone.</p>
+<p>The ecs software is designed to run as an external available internet web-service, reachable by everyone.</p>
 <div class="section" id="requirements">
 <span id="requirements"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -58,7 +58,7 @@
 <li>rollouts to amazon ec2, google gce or openstack clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented so it should work but probably need some tweaking beforehand</li>
 </ul>
 </li>
-<li>Follow the Assessment Chapter for the right sizing of cpu-cores, memory and harddisk.</li>
+<li>Follow the Assessment Chapter for the right sizing of CPU-cores, memory and harddisk.</li>
 </ul>
 </div>
 <div class="section" id="backup-storage">
@@ -78,12 +78,12 @@
 <span id="internet-connectivity"></span><h3>Internet Connectivity<a class="headerlink" href="#internet-connectivity" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>permanent internet connectivity with a strong (&gt;20Mbit) upload channel</li>
-<li>an ip address and dns server settings served to the machine by DHCP for automatic configuration<ul>
+<li>an IP address and dns server settings served to the machine by DHCP for automatic configuration<ul>
 <li>this can be a internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP</li>
 <li>Unusable internal nets are 172.17.X.X and 10.0.3.X, because these are used by the appliance itself</li>
 </ul>
 </li>
-<li>a dns [sub]domain with a A and a MX Entry and the reverse ptr of the public IPv4-Adress set to the domain name<ul>
+<li>a dns [sub]domain with a A and a MX Entry and the reverse ptr of the public IPv4-Address set to the domain name<ul>
 <li>a A Record pointing to the public IP</li>
 <li>a MX Record pointing to the A Record</li>
 <li>a reverse PTR Record pointing to the domain name</li>
@@ -102,10 +102,10 @@
 </div>
 <ul class="simple">
 <li>a public IPv4-Address or the incoming ports 22,25,80,443,465 of this address forwarded to the machine<ul>
-<li>port 22 - ssh: ssh publickey auth is used. this connection is used for installation and optional support</li>
+<li>port 22 - ssh: ssh publickey authentification is used. this connection is used for installation and optional support</li>
 <li>port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers of forwarded ecs communication. if the hosting locations policy does not permit this, the ecs will work without it, but loses email answering functionality</li>
 <li>port 80 - http: the appliance communicates only over https, but needs http for letsencrypt client certificate renewal and for redirecting to the https site</li>
-<li>port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in selfservice</li>
+<li>port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in self-service</li>
 </ul>
 </li>
 </ul>
@@ -138,7 +138,7 @@ So far there have been findings of Kaspersky and McAfee products to need extra c
 <p>As a guideline, if you have more memory available, add some extra memory.</p>
 <p><strong>Warning</strong>: If you deviate from the example values below, be sure to add the needed memory per core if you add more cores, because many of the appliance processes get scaled to the number of cores.</p>
 <ul class="simple">
-<li>Minimum Cpu/Memory: 2 Cores, 4GB</li>
+<li>Minimum CPU/Memory: 2 Cores, 4GB</li>
 </ul>
 <p>Core Calculation:</p>
 <ul class="simple">
@@ -148,7 +148,7 @@ So far there have been findings of Kaspersky and McAfee products to need extra c
 </ul>
 <p>Memory Calculation:</p>
 <ul class="simple">
-<li>2GB Base + 1GB per Core + Disksize of Database (eg. 2GB)</li>
+<li>2GB Base + 1GB per Core + Disk-size of Database (eg. 2GB)</li>
 <li>eg. 2 Cores = 4 GB + 1 GB Database= 5GB</li>
 <li>eg. 8 Cores = 10 GB + 8 GB Database= 18GB</li>
 </ul>

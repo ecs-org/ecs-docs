@@ -100,8 +100,7 @@ systemctl restart appliance
 
 ### Backup Configuration
 
-+ Backup Target can be a (untrusted) third third party
-+ backup is done using duplicity
++ Backup is done using duplicity, see [Duplicity Manual](http://duplicity.nongnu.org/duplicity.1.html)
 + Cycle: Backup is done once per day around 00:30
 + Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault
 + Type, Rotation & Retention:
@@ -118,7 +117,7 @@ systemctl restart appliance
 
 ### Automatic Updates
 
-Updates are scheduled depending appliance:update:schedule once per day or once per week on sunday around 06:30. 
+Updates are scheduled depending appliance:update:oncalendar once per day at 06:30 per default.
 
 Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.
 
@@ -128,6 +127,8 @@ The following items are updated:
 + appliance source will be updated and executed
 + ecs source will be updated and executed
     + the ecs-docs source will be updated
+
+**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. If you do **not** make **metric recording** or **alerting**, we **recommend** **updating** only **manually**. To do this, enter an empty string ("") under appliance:update:oncalendar in the file env.yml. For a manual update run call `systemctl start appliance-update`
 
 ### Logging Configuration
 
@@ -145,17 +146,6 @@ Host:
 + only follow service, eg. prepare-appliance: `journalctl -u prepare-appliance -f`
 + follow frontend nginx: `journalctl -u nginx -f`
 + search for salt-call output: `journalctl $(which salt-call)`
-
-### Alerting Setup
-
-if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
-the appliance will report the following items to sentry:
-
-+ python exceptions in web, worker, beat, smtpd
-+ salt-call exceptions and state returns with error states
-+ systemd service exceptions where appliance-failed or service-failed is triggered
-+ shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry
-+ internal mails to root, eg. prometheus alerts, smartmond
 
 ### Metrics Collection
 
@@ -178,3 +168,14 @@ the appliance will report the following items to sentry:
     + pghero is avaiable at [http://localhost:5081](http://localhost:5081)
 
 Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use "ssh root@hostname -L 9090:172.17.0.1:9090"
+
+### Alerting Setup
+
+if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
+the appliance will report the following items to sentry:
+
++ python exceptions in web, worker, beat, smtpd
++ salt-call exceptions and state returns with error states
++ systemd service exceptions where appliance-failed or service-failed is triggered
++ shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry
++ internal mails to root, eg. prometheus alerts, smartmond

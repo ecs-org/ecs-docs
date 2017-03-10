@@ -49,18 +49,19 @@
 <li>Database: Postgresql 9.5 Database</li>
 <li>SMTP/SSL Proxy: Stunnel</li>
 <li>SSH Daemon: openssh</li>
+<li>SMTP Outgoing: postfix</li>
 </ul>
 </li>
 <li>Services running inside docker container<ul>
 <li>The ECS Application (Web, Worker, incoming Mail)<ul>
 <li>Django is served via uwsgi inside the web container</li>
-<li>Celery is used for asyncronus worker &amp; beat</li>
+<li>Celery is used for asynchronous worker &amp; beat</li>
 <li>python smtpd is used for incoming Mail processing</li>
 </ul>
 </li>
 <li>Redis for Queuing Services</li>
 <li>Memcache for Caching Services</li>
-<li>tomcat running PDF/AS for Eletronical Signed PDF Generation</li>
+<li>tomcat running PDF/AS for Electronic Signed PDF Generation</li>
 <li>tomcat running Mocca for accessing the Digital ID-Card used for signed PDF-Generation</li>
 </ul>
 </li>
@@ -382,7 +383,7 @@ restart of a failed appliance is possible</td>
 <p>Types of environments:</p>
 <ul class="simple">
 <li>saltstack get the environment as pillar either from /run/active-env.yml or from a default</li>
-<li>shell-scripts and executed programs from these shellscripts get a flattend yaml representation in the environment (see flatyaml.py) usually restricted to ecs,appliance tree of the yaml file</li>
+<li>shell-scripts and executed programs from these shellscripts get a flattened yaml representation in the environment (see flatyaml.py) usually restricted to ecs,appliance tree of the yaml file</li>
 </ul>
 <p>Buildtime Environment:</p>
 <ul class="simple">

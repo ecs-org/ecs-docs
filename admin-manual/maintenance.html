@@ -163,8 +163,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <div class="section" id="backup-configuration">
 <span id="backup-configuration"></span><h2>Backup Configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Backup Target can be a (untrusted) third third party</li>
-<li>backup is done using duplicity</li>
+<li>Backup is done using duplicity, see <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html">Duplicity Manual</a></li>
 <li>Cycle: Backup is done once per day around 00:30</li>
 <li>Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault</li>
 <li>Type, Rotation &amp; Retention:<ul>
@@ -186,7 +185,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 </div>
 <div class="section" id="automatic-updates">
 <span id="automatic-updates"></span><h2>Automatic Updates<a class="headerlink" href="#automatic-updates" title="Permalink to this headline">¶</a></h2>
-<p>Updates are scheduled depending appliance:update:schedule once per day or once per week on sunday around 06:30.</p>
+<p>Updates are scheduled depending appliance:update:oncalendar once per day at 06:30 per default.</p>
 <p>Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.</p>
 <p>The following items are updated:</p>
 <ul class="simple">
@@ -198,6 +197,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 </ul>
 </li>
 </ul>
+<p><strong>Warning</strong>: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. If you do <strong>not</strong> make <strong>metric recording</strong> or <strong>alerting</strong>, we <strong>recommend</strong> <strong>updating</strong> only <strong>manually</strong>. To do this, enter an empty string (&#8220;&#8221;) under appliance:update:oncalendar in the file env.yml. For a manual update run call <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p>
 </div>
 <div class="section" id="logging-configuration">
 <span id="logging-configuration"></span><h2>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline">¶</a></h2>
@@ -221,18 +221,6 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <li>only follow service, eg. prepare-appliance: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">prepare-appliance</span> <span class="pre">-f</span></code></li>
 <li>follow frontend nginx: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">nginx</span> <span class="pre">-f</span></code></li>
 <li>search for salt-call output: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">$(which</span> <span class="pre">salt-call)</span></code></li>
-</ul>
-</div>
-<div class="section" id="alerting-setup">
-<span id="alerting-setup"></span><h2>Alerting Setup<a class="headerlink" href="#alerting-setup" title="Permalink to this headline">¶</a></h2>
-<p>if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
-the appliance will report the following items to sentry:</p>
-<ul class="simple">
-<li>python exceptions in web, worker, beat, smtpd</li>
-<li>salt-call exceptions and state returns with error states</li>
-<li>systemd service exceptions where appliance-failed or service-failed is triggered</li>
-<li>shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry</li>
-<li>internal mails to root, eg. prometheus alerts, smartmond</li>
 </ul>
 </div>
 <div class="section" id="metrics-collection">
@@ -266,6 +254,18 @@ using the prometheus alert server<ul>
 </ul>
 <p>Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use &#8220;ssh root&#64;hostname -L 9090:172.17.0.1:9090&#8221;</p>
 </div>
+<div class="section" id="alerting-setup">
+<span id="alerting-setup"></span><h2>Alerting Setup<a class="headerlink" href="#alerting-setup" title="Permalink to this headline">¶</a></h2>
+<p>if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
+the appliance will report the following items to sentry:</p>
+<ul class="simple">
+<li>python exceptions in web, worker, beat, smtpd</li>
+<li>salt-call exceptions and state returns with error states</li>
+<li>systemd service exceptions where appliance-failed or service-failed is triggered</li>
+<li>shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry</li>
+<li>internal mails to root, eg. prometheus alerts, smartmond</li>
+</ul>
+</div>
 </div>
 
 
@@ -289,8 +289,8 @@ using the prometheus alert server<ul>
 <li><a class="reference internal" href="#desaster-recovery-from-backup">Desaster Recovery from backup</a></li>
 <li><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
 <li><a class="reference internal" href="#logging-configuration">Logging Configuration</a></li>
-<li><a class="reference internal" href="#alerting-setup">Alerting Setup</a></li>
 <li><a class="reference internal" href="#metrics-collection">Metrics Collection</a></li>
+<li><a class="reference internal" href="#alerting-setup">Alerting Setup</a></li>
 </ul>
 </li>
 </ul>

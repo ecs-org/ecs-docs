@@ -52,7 +52,7 @@ which can be placed in one of the following locations:</p>
 <li>gce (google compute engine) meta-data server</li>
 </ul>
 <p>It will be copied to <code class="docutils literal"><span class="pre">/run/active-env.yml</span></code> (ramdisk) on each appliance startup.</p>
-<p>:warning: Do <strong>not</strong> reuse an already existing configuration for a different domain/instance, <strong>always</strong> create a new configuration, to not leak secrets between domains.</p>
+<p><strong>warning</strong>: Do <strong>not</strong> reuse an already existing configuration for a different domain/instance, <strong>always</strong> create a new configuration, to not leak secrets between domains.</p>
 <div class="section" id="create-a-new-configuration">
 <span id="create-a-new-configuration"></span><h2>Create a new Configuration<a class="headerlink" href="#create-a-new-configuration" title="Permalink to this headline">¶</a></h2>
 <p>on an installed but unconfigured appliance:</p>
@@ -328,19 +328,23 @@ all needed changes to the environment.</p>
 <span class="n">reboot</span>
 </pre></div>
 </div>
+<p>After the appliance has rebooted, it configures itself to the new environment.
+See the progress of the preperation by browsing to https://domainname.domain .</p>
 <div class="section" id="first-internal-user-setup">
 <span id="first-internal-user-setup"></span><h3>First Internal User setup<a class="headerlink" href="#first-internal-user-setup" title="Permalink to this headline">¶</a></h3>
-<p>After the appliance has rebooted, it configures itself to the new environment.
-See the progress of the preperation by browsing to https://domainname.domain .
-After the appliance is ready and shows the login screen, login via ssh to create
-the first internal office user, with a corresponding client certificate.</p>
+<p>After the appliance is ready and shows the login screen, login via ssh to create
+the first internal office user, with a corresponding client certificate and disable test user.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create first internal office user (f=female, m=male)</span>
 <span class="n">create</span><span class="o">-</span><span class="n">internal</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;First Name&quot;</span> <span class="s2">&quot;Second Name&quot;</span> <span class="s2">&quot;f&quot;</span> 
-
 <span class="c1"># create and send matching client certificate</span>
 <span class="n">create</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="n">cert_name</span> <span class="p">[</span><span class="n">daysvalid</span><span class="p">]</span>
-
 <span class="c1"># Communicate certificate transport password over a secure channel</span>
+
+<span class="c1"># disable test user</span>
+<span class="n">cat</span> <span class="o">&lt;&lt;</span> <span class="n">EOF</span> <span class="o">|</span> <span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">i</span> <span class="n">ecs_ecs</span><span class="o">.</span><span class="n">web_1</span> <span class="o">/</span><span class="n">start</span> <span class="n">run</span> <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">shell</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="k">import</span> <span class="n">User</span>
+<span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">profile__is_testuser</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">is_active</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">EOF</span>
 </pre></div>
 </div>
 </div>

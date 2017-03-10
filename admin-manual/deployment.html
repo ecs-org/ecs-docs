@@ -44,7 +44,7 @@
 <p>The base of the appliance is Ubuntu Xenial (16.04 LTS).
 Installation is done unattended using ssh for login to the machine.</p>
 <div class="section" id="as-a-virtual-machine">
-<span id="as-a-virtual-machine"></span><h2>as a virtual machine<a class="headerlink" href="#as-a-virtual-machine" title="Permalink to this headline">¶</a></h2>
+<span id="as-a-virtual-machine"></span><h2>As a Virtual Machine<a class="headerlink" href="#as-a-virtual-machine" title="Permalink to this headline">¶</a></h2>
 <p>You either need:</p>
 <ul class="simple">
 <li>a standard ubuntu cloud image from <a class="reference external" href="http://cloud-images.ubuntu.com/xenial/current/">Ubunu Xenial Cloud Images</a><ul>
@@ -71,7 +71,7 @@ Installation is done unattended using ssh for login to the machine.</p>
 <p>Start the new virtual machine and login via ssh.</p>
 </div>
 <div class="section" id="on-hardware-or-other-custom-configurations">
-<span id="on-hardware-or-other-custom-configurations"></span><h2>on hardware or other custom configurations<a class="headerlink" href="#on-hardware-or-other-custom-configurations" title="Permalink to this headline">¶</a></h2>
+<span id="on-hardware-or-other-custom-configurations"></span><h2>On Hardware or other custom Configurations<a class="headerlink" href="#on-hardware-or-other-custom-configurations" title="Permalink to this headline">¶</a></h2>
 <p>Needed:</p>
 <ul class="simple">
 <li>an already running empty Ubuntu Xenial and a ssh key to login<ul>
@@ -99,17 +99,19 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
 </pre></div>
 </div>
 </div>
-<div class="section" id="network-attached-storage-and-custom-partitioning">
-<span id="network-attached-storage-and-custom-partitioning"></span><h2>Network attached storage and custom partitioning<a class="headerlink" href="#network-attached-storage-and-custom-partitioning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="network-attached-storage">
+<span id="network-attached-storage"></span><h2>Network attached Storage<a class="headerlink" href="#network-attached-storage" title="Permalink to this headline">¶</a></h2>
 <p>For a virtual machine deployment it is best to stick to the default xenial cloud images layout, unless there is good reason to deviate.</p>
-<p>The appliance supports two possible external network attached storage volumes, one for permanent data and one for volatile data. To have seperate volatile and/or data partitions,
-change storage:ignore:volatile and/or storage:ignore:data to false.
-The volatile volume must be labeled &#8220;ecs-volatile&#8221;, the data volume &#8220;ecs-data&#8221;.
-Setup will add mountpoints for /data and /volatile.
-Use appliance:extra:states and :packages if storage setup needs additional packages installed.</p>
+<ul class="simple">
+<li>The appliance supports two external network attached storage volumes, one for permanent data and one for volatile data.</li>
+<li>To have seperate volatile and/or data partitions, change storage:ignore:volatile and/or storage:ignore:data to false.</li>
+<li>The volatile volume must be labeled &#8220;ecs-volatile&#8221;, the data volume &#8220;ecs-data&#8221;.</li>
+<li>Setup will add mountpoints for /data and /volatile and mount them on startup.</li>
+<li>Use appliance:extra:states and :packages if storage setup needs additional packages installed.</li>
+</ul>
 </div>
-<div class="section" id="install-via-ssh-to-a-empty-xenial-vm">
-<span id="install-via-ssh-to-a-empty-xenial-vm"></span><h2>install via ssh to a empty xenial vm<a class="headerlink" href="#install-via-ssh-to-a-empty-xenial-vm" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-via-ssh-to-an-empty-xenial-vm">
+<span id="install-via-ssh-to-an-empty-xenial-vm"></span><h2>Install via ssh to an empty Xenial VM<a class="headerlink" href="#install-via-ssh-to-an-empty-xenial-vm" title="Permalink to this headline">¶</a></h2>
 <p>ssh into target vm:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">update</span><span class="p">;</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">git</span>
 <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">appliance</span>
@@ -123,8 +125,8 @@ Use appliance:extra:states and :packages if storage setup needs additional packa
 </pre></div>
 </div>
 </div>
-<div class="section" id="install-using-vagrant">
-<span id="install-using-vagrant"></span><h2>install using vagrant<a class="headerlink" href="#install-using-vagrant" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="testinstall-using-vagrant">
+<span id="testinstall-using-vagrant"></span><h2>Testinstall using Vagrant<a class="headerlink" href="#testinstall-using-vagrant" title="Permalink to this headline">¶</a></h2>
 <p>on your local machine:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span> <span class="o">~/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span>
 <span class="n">cd</span> <span class="o">~/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span>
@@ -133,7 +135,7 @@ Use appliance:extra:states and :packages if storage setup needs additional packa
 </div>
 </div>
 <div class="section" id="upgrade-a-developer-vm">
-<span id="upgrade-a-developer-vm"></span><h2>upgrade a developer vm<a class="headerlink" href="#upgrade-a-developer-vm" title="Permalink to this headline">¶</a></h2>
+<span id="upgrade-a-developer-vm"></span><h2>Upgrade a developer vm<a class="headerlink" href="#upgrade-a-developer-vm" title="Permalink to this headline">¶</a></h2>
 <p>Requirement: you need at least 3gb total memory for the appliance, 4gb minimum if you want metrics active.</p>
 <p>on a developer vm:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clone from public repository</span>
@@ -161,12 +163,12 @@ Use appliance:extra:states and :packages if storage setup needs additional packa
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Deploy Appliance</a><ul>
-<li><a class="reference internal" href="#as-a-virtual-machine">as a virtual machine</a></li>
-<li><a class="reference internal" href="#on-hardware-or-other-custom-configurations">on hardware or other custom configurations</a></li>
-<li><a class="reference internal" href="#network-attached-storage-and-custom-partitioning">Network attached storage and custom partitioning</a></li>
-<li><a class="reference internal" href="#install-via-ssh-to-a-empty-xenial-vm">install via ssh to a empty xenial vm</a></li>
-<li><a class="reference internal" href="#install-using-vagrant">install using vagrant</a></li>
-<li><a class="reference internal" href="#upgrade-a-developer-vm">upgrade a developer vm</a></li>
+<li><a class="reference internal" href="#as-a-virtual-machine">As a Virtual Machine</a></li>
+<li><a class="reference internal" href="#on-hardware-or-other-custom-configurations">On Hardware or other custom Configurations</a></li>
+<li><a class="reference internal" href="#network-attached-storage">Network attached Storage</a></li>
+<li><a class="reference internal" href="#install-via-ssh-to-an-empty-xenial-vm">Install via ssh to an empty Xenial VM</a></li>
+<li><a class="reference internal" href="#testinstall-using-vagrant">Testinstall using Vagrant</a></li>
+<li><a class="reference internal" href="#upgrade-a-developer-vm">Upgrade a developer vm</a></li>
 </ul>
 </li>
 </ul>
