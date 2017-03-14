@@ -7,10 +7,19 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2017.03.12
+----------
+
+Bugfixes:
+  + #646: Die Registrierung mit Gmail-Adressen funktioniert wieder.
+Features:
+  + #647: Das Login Formular wurde für mobile Geräte optimiert.
+
+
 2017.03.06
 ----------
 
-Bugs:
+Bugfixes:
   + #638: Wenn der gleiche Spezialist eine manuelle erstellte Bewertung
     und eine durch die Spezialistenzuordnung generierte Spezialisten-
     bewertung hat konnte in der Zeitplanung dieser nicht aus einem TOP
@@ -29,7 +38,7 @@ Features:
 2017.02.26
 ----------
 
-Bugs:
+Bugfixes:
   + #618: Ein Fehler in der Differenzanzeige, wenn der gleiche
     Prüfzentren-Name und verschiedene Ethikkommissionen ausgewählt
     wurden, ist behoben.
@@ -68,7 +77,7 @@ Wording:
 2017.02.17
 ----------
 
-Bugs:
+Bugfixes:
   + #629: Der Fehler, dass die Studien wo Zeiteinschränkungen in der
     Zeitplanung nicht rot angezeigt werden, wurde behoben.
   + #614: Die Sitzungsübersicht Anzeige springt nicht mehr mehrere
@@ -114,7 +123,7 @@ Wording:
 2017.02.09
 ----------
 
-Bugs:
+Bugfixes:
   + #474: Der Kommentar Button speichert jetzt auch unter iOS.
   + #607: Die Reiter einer Studie brechen jetzt wieder um wenn
     das Browserfenster sehr klein ist.
@@ -137,7 +146,7 @@ Features:
 2017.02.05
 ----------
 
-Bugs:
+Bugfixes:
   + #600: Die BenutzerInnen sehen jetzt immer die richtige Layoutversion
     (unabhängig vom Browser Cache) und müssen jetzt nicht mehr
     STRG-SHIFT-R (Reload) drücken um die neue Layoutversion zu sehen.
@@ -145,7 +154,7 @@ Bugs:
 2017.02.02
 ----------
 
-Bugs:
+Bugfixes:
   + #538: Das "Springen" der Textfelder war für einen Tag zurück
     und ist jetzt wieder behoben.
   + #484: Das Signierungsfeld wird jetzt auch für 
@@ -159,7 +168,7 @@ Features:
 2017.01.31
 ----------
 
-Bugs:
+Bugfixes:
   + #599: Das Einreichen von Studien mittels Internet Explorer bei
     Änderungen an den Mitarbeitern im Zentren Reiter funktioniert wieder
 
@@ -176,7 +185,7 @@ Features:
 2017.01.26
 ----------
  
-Bugs:
+Bugfixes:
   + #592: Der Export von Studien funktioniert wieder.
   + #580: Sicherheitsmeldungen mit einer großen Anzahl von Studien
     werden jetzt ohne Fehler erstellt.
@@ -192,7 +201,7 @@ Features:
 2017.01.24
 ----------
 
-Bugs:
+Bugfixes:
   + #583 Der eingebaute PDF-Viewer zeigt das Datum des Dokuments jetzt korrekt an.
   + #517 Textfelder mit langen Text werden jetzt wieder vollständig angezeigt
 
@@ -211,14 +220,14 @@ Wording:
 2017.01.16
 ----------
 
-Bugs:
+Bugfixes:
   + #482: Das Protokoll PDF wird jetzt so wie das Studien PDF
     erstellt und ist erst nach Fertigstellung herunter zu laden.
 
 2017.01.12
 ----------
 
-Bugs:
+Bugfixes:
   + #514: Die PDFs von zwei Einreichungen die nicht in ein PDF 
     umgewandelt werden konnten, werden jetzt richtig gerendert. Bitte
     beachten Sie dazu, dass die *Einreicher* eine *neue* Version ihrer
@@ -242,7 +251,7 @@ Wording:
 2017.01.11
 ----------
 
-Bugs:
+Bugfixes:
   + #538: Das Einfügen und Löschen von Text in einen großen Eingabefeld
     löst jetzt kein "herum springen" des Inhalts mehr aus.
   + #552: Die Liste der Substanziellen Amendments im SitzungsTab wird
@@ -254,7 +263,7 @@ Features:
 2017.01.10
 ----------
 
-Bugs:
+Bugfixes:
  + #544: Im der Sitzungsansicht "Offene Aufgaben" sind Aufgaben jetzt nach Erstellungsdatum sortiert.
  + #537: In der Differenzanzeige wird der Titel der Studie jetzt angezeigt.
  + #543: Nicht bestätigte substanzielle Amendments in der "Weitere TOPs" Ansicht erzeugen jetzt wie erwartet eine neue Aufgabe Amendment Formale Prüfung für die Office-Gruppe.
@@ -262,7 +271,7 @@ Bugs:
 2017.01.05
 ----------
 
-Bugs:
+Bugfixes:
   + #545: Der Download des Sitzungs Zip Archives funktioniert jetzt wieder
     Bitte schreiben Sie den Mitgliedern, die damit Probleme hatten,
     den Link nochmals zu klicken und das ZIP Files herunterzuladen.
@@ -270,14 +279,14 @@ Bugs:
 2017.01.04
 ----------
 
-Bugs:
+Bugfixes:
   + #534: Der 404 Fehler bei Zugriff auf Dokumente in der Differenz
     Ansicht wurde behoben.
 
 2017.01.03
 ----------
 
-Bugs:
+Bugfixes:
   + #532: Das Zeitfenster PDF zeigt wieder die richtigen Zeitfenster an.
   + #531: Ein Amendment einer Studie konnte nicht eingereicht werden.
     Dies ist jetzt wieder möglich.
@@ -286,7 +295,7 @@ Bugs:
 2016.12.29
 ----------
 
-Bugs:
+Bugfixes:
   + #530 Der Fehler bei Einreichung,Review & Signing von Amendments bei
     Studien mit hoher Zahl an Nachreichungen wurde behoben. Die 
     Wiederholung der Tätigkeit sollte jetzt korrekt verarbeitet werden.
@@ -294,7 +303,7 @@ Bugs:
 2016.12.23
 ----------
 
-Bugs:
+Bugfixes:
   + #518 und #515: Nicht ausgefüllte Felder im Reiter Maßnahmen und 
     Reiter Zentren geben den Benutzern des ECS beim Validieren / 
     Abschicken einer Einreichung Rückmeldung, was noch nicht
@@ -303,7 +312,7 @@ Bugs:
 2016.12.22
 ----------
 
-Bugs:
+Bugfixes:
   + #524: Verlängerung der Gültigkeit des Votums stellt jetzt die gleichen
     Daten wie im PDF dar.
   + #516: Text in der Leseansicht kann jetzt wieder kopiert werden
@@ -317,7 +326,7 @@ Bugs:
 2016.12.20
 ----------
 
-Bugs:
+Bugfixes:
   + #504 Meldungsanworten haben wieder Textbausteine
   + #171 PDF-Viewer: Es werden wieder EK-Nr, Dokument-Typ, Dokument-Name
     und Version im Titel angezeigt

@@ -109,6 +109,12 @@ appliance:
   #     - qrcode
   #   packages: # include extra packages at state.highstate
   #     - ghostscript
+  # # update:oncalendar: # set a different update timer than default: "*-*-* 06:30:00"
+  # # update:automatic: # default to true, to disable automatic update set to false
+  # # XXX: do not update in the time between 00:30 and 06:30 because backup runs at this time
+  # update:
+  #   automatic: true
+  #   oncalendar: Sun *-*-* 06:30:00
   storage:
     # # setup: optional, will be executed by appliance.storage.setup if volatile or data can not be found
     # setup: |
