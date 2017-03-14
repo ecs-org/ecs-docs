@@ -144,6 +144,12 @@ all needed changes to the environment.</p>
   <span class="c1">#     - qrcode</span>
   <span class="c1">#   packages: # include extra packages at state.highstate</span>
   <span class="c1">#     - ghostscript</span>
+  <span class="c1"># # update:oncalendar: # set a different update timer than default: &quot;*-*-* 06:30:00&quot;</span>
+  <span class="c1"># # update:automatic: # default to true, to disable automatic update set to false</span>
+  <span class="c1"># # XXX: do not update in the time between 00:30 and 06:30 because backup runs at this time</span>
+  <span class="c1"># update:</span>
+  <span class="c1">#   automatic: true</span>
+  <span class="c1">#   oncalendar: Sun *-*-* 06:30:00</span>
   <span class="n">storage</span><span class="p">:</span>
     <span class="c1"># # setup: optional, will be executed by appliance.storage.setup if volatile or data can not be found</span>
     <span class="c1"># setup: |</span>
