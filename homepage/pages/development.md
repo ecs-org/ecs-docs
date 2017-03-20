@@ -1,11 +1,11 @@
 Title: Development
 order: 5
 
-* [ECS Source at Github](https://github.com/ecs-org/ecs)
+* [ECS Sourcecode at Github](https://github.com/ecs-org/ecs)
 
-* [ECS-Appliance Source at Github](https://github.com/ecs-org/ecs-appliance)
+* [ECS-Appliance Sourcecode at Github](https://github.com/ecs-org/ecs-appliance)
 
-* [ECS-Docs Source at Github](https://github.com/ecs-org/ecs-docs)
+* [ECS-Docs Sourcecode at Github](https://github.com/ecs-org/ecs-docs)
 
 * [Development Manual - HTML](../../development/index.html) --- [PDF](../../ecs-development.pdf)
 

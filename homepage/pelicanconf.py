@@ -70,3 +70,4 @@ CUSTOM_CSS = 'static/custom.css'
 # Theme options
 HIDE_SIDEBAR = True
 BOOTSTRAP_NAVBAR_INVERSE = True
+SITELOGO = 'static/favicon.ico'

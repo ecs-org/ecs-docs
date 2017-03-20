@@ -7,6 +7,15 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2017.03.20
+----------
+
+Bugfixes:
+  + #650: Ein Fehler der bei der Eingabe des Barcodes auftrat, 
+    wurde behoben.
+  + master: Die zu frühe Löschung von temporären Dateien wurde wieder
+    auf 30 Tage geändert.
+
 2017.03.12
 ----------
 
@@ -333,3 +342,8 @@ Bugfixes:
   + #492 PDF-Viewer: Das Handwerkzeug ist wieder aktiv
   + Breadcrumbs (besuchte Studien) und die Version werden wieder rechts
     unterhalb des Suchfeldes angezeigt
+
+2016.12.18
+----------
+
+Beta Release auf https://ekmeduniwien.at
