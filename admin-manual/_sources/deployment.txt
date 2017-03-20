@@ -32,7 +32,7 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.
 
 Example:
 + Hardware: [Hetzner px61nvme Rootserver](https://www.hetzner.de/de/hosting/produkte_rootserver/px61nvme)
-+ hetzner setup config
+    + hetzner setup config:
 
 ```
 DRIVE1 /dev/nvme1n1

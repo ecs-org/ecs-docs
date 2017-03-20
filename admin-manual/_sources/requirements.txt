@@ -6,18 +6,18 @@ The ecs software is designed to run as an external available internet web-servic
 
 + a Virtual Machine on a supported hypervisor or Hardware sized according to the [Assessment](#cores-memory-harddisk-backup-space-assessment) Chapter
 + a Backup space (for encrypted backup data) accessable by one of 25 supported storage protocols explained under [Backup Storage](#backup-storage)
-+ incoming ports 22,25,80,443,465 of a fixed public IPV4 address and DNS, IPV4 setup as described under [Internet Connectivity](#internet-connectivity)
++ incoming tcp ports 22,25,80,443,465 of a fixed public IPV4 address and DNS, IPV4 setup for the vm as described under [Internet Connectivity](#internet-connectivity)
 
-### Virtual Machine
+### Hypervisor
 
 + The base of the virtual machine is a Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image.
 + The appliance was tested on the following hypervisors: xen,kvm,vmware sphere,virtualbox
   + hyperv is not tested but is expected to work
-  + rollouts to amazon ec2, google gce or openstack clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented so it should work but probably need some tweaking beforehand
+  + rollouts to amazon ec2, google gce or openstack clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented but probably need some tweaking.
 + Follow the Assessment Chapter for the right sizing of CPU-cores, memory and harddisk.
 
 ### Backup Storage 
-+ For storing backup data the appliance needs a storage space accessable via one of the 24 duplicity supported storage protocols or via cifs.
++ For storing backup data the appliance needs a storage space accessable via one of the 24 duplicity supported storage protocols.
 + In addition to the supported duplicity protocols the appliance has support for **cifs** (windows file sharing attached volumes, including automatic mount and unmount)
 + Tested protocols so far: localfile, ftp, ftpssl, ssh/scp, ssh/sftp, http/webdav, cifs
 + For Details see: [Duplicity Manual - Section URL-Format](http://duplicity.nongnu.org/duplicity.1.html#sect7)
@@ -28,9 +28,9 @@ The ecs software is designed to run as an external available internet web-servic
 
 ### Internet Connectivity
 
-+ permanent internet connectivity with a strong (>20Mbit) upload channel
-+ an IP address and dns server settings served to the machine by DHCP for automatic configuration 
-    + this can be a internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP
++ permanent internet connectivity with a strong (>50Mbit) upload channel
++ an IPv4 address and dns server settings are served to the machine by DHCP for automatic configuration 
+    + this can be any internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP
     + Unusable internal nets are 172.17.X.X and 10.0.3.X, because these are used by the appliance itself
 
 + a dns [sub]domain with a A and a MX Entry and the reverse ptr of the public IPv4-Address set to the domain name
@@ -51,16 +51,17 @@ another.sub.domain.me. IN MX 10 another.sub.domain.me
 8.7.6.5.in-addr.arpa.  IN PTR another.sub.domain.me  
 ```
 
-+ a public IPv4-Address or the incoming ports 22,25,80,443,465 of this address forwarded to the machine
++ a public IPv4-Address or the incoming TCP ports 22,25,80,443,465 and ICMP/ping of this address forwarded to the machine
     + port 22 - ssh: ssh publickey authentification is used. this connection is used for installation and optional support
     + port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers of forwarded ecs communication. if the hosting locations policy does not permit this, the ecs will work without it, but loses email answering functionality
     + port 80 - http: the appliance communicates only over https, but needs http for letsencrypt client certificate renewal and for redirecting to the https site
     + port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in self-service
+    + ICMP/ping - ping: for monitoring the system
 
 #### Certificates
 
 The appliance uses LetsEncrypt to issue https/ssl host certificates and also takes care of the renewal of these host certificates.
-Https client certificates are issued by the appliance itself and can be done in selfservice as an internal ecs webfrontend user. There is no IT-administration task needed in this process.
+Https client certificates are issued by the appliance itself and can be done in selfservice as an internal ecs webfrontend user. There is no IT-administration task involved in this process.
 
 #### "Firewall"/Endpointprotection/"Antivirus" Security Products:
 
@@ -69,7 +70,7 @@ listed are forwarded to the machine and outgoing traffic from the machine is per
 
 **Warning**: many security products are known to disturb/break HTTPS Host
 Certificate and Client Certificate validation and weaken the transport protocols on the wire. 
-See [The Security Impact of HTTPS Interception](https://jhalderm.com/pub/papers/interception-ndss17.pdf) .
+See [The Security Impact of HTTPS Interception](https://jhalderm.com/pub/papers/interception-ndss17.pdf).
 
 The ecs appliance uses https client certificates for protection of elevated user rights. 
 If the hosting location has some mandatory security product, 

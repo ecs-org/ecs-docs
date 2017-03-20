@@ -41,15 +41,14 @@
             
   <div class="section" id="configure-appliance">
 <span id="configure-appliance"></span><h1>Configure Appliance<a class="headerlink" href="#configure-appliance" title="Permalink to this headline">¶</a></h1>
-<p>The Appliance is configured using a yaml confiuration file
+<p>The Appliance is configured using a yaml configuration file
 which can be placed in one of the following locations:</p>
 <ul class="simple">
-<li>absolute filepath set via environment variable ENV_YML</li>
-<li>local file at <code class="docutils literal"><span class="pre">/app/env.yml</span></code></li>
-<li>a attached drive with label cidata (cloud-init: no-cloud config)</li>
-<li>a attached drive with label config-2 (cloud-init: openstack config)</li>
-<li>aws-ec2 (amazon elastic computing cloud) meta-data server</li>
-<li>gce (google compute engine) meta-data server</li>
+<li>local file at <code class="docutils literal"><span class="pre">/app/env.yml</span></code> (no-cloud config)</li>
+<li>a attached drive with label cidata (cloud-init: no-cloud)</li>
+<li>a attached drive with label config-2 (cloud-init: openstack)</li>
+<li>aws-ec2 meta-data server (amazon elastic computing cloud)</li>
+<li>gce meta-data server (google compute engine)</li>
 </ul>
 <p>It will be copied to <code class="docutils literal"><span class="pre">/run/active-env.yml</span></code> (ramdisk) on each appliance startup.</p>
 <p><strong>warning</strong>: Do <strong>not</strong> reuse an already existing configuration for a different domain/instance, <strong>always</strong> create a new configuration, to not leak secrets between domains.</p>
@@ -59,14 +58,14 @@ which can be placed in one of the following locations:</p>
 <ul class="simple">
 <li>enter installed but empty appliance</li>
 <li>make a new env.yml: <code class="docutils literal"><span class="pre">env-create.sh</span> <span class="pre">domainname.domain</span> <span class="pre">~/domainname.domain/</span></code></li>
-<li>edit settings in ~/domainname.domain/env.yml , see comments inside file</li>
+<li>edit settings in &#8220;~/domainname.domain/env.yml&#8221;, see comments inside file</li>
 <li>optional, package env into different formats<ul>
 <li><code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">~/domainname.domain/env.yml</span></code></li>
 </ul>
 </li>
-<li>transfer, print out ~/domainname.domain/env.yml.pdf and store in a safe place.</li>
+<li>transfer, print out &#8220;~/domainname.domain/env.yml.pdf&#8221; and store in a safe place.</li>
 <li>save a encrypted copy of env.yml in safe place.</li>
-<li><strong>Important</strong>: The env.yml contains all needed secrets for a working appliance and is also the one needed piece of information if you want to recover from backup in case of a storage failure.</li>
+<li><strong>Important</strong>: The <strong>env.yml contains all needed secrets</strong> for a working appliance and is <strong>the only relevant piece of information</strong> if you want to recover from backup in case of a storage failure.</li>
 </ul>
 <p>for offline environment creation, using your local machine:</p>
 <ul class="simple">
@@ -87,7 +86,7 @@ but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</li>
 </div>
 <div class="section" id="modify-configuration">
 <span id="modify-configuration"></span><h2>Modify Configuration<a class="headerlink" href="#modify-configuration" title="Permalink to this headline">¶</a></h2>
-<p>Any applied change in the config file will reconfigure the appliance on the next appliance-update run to the new values found in the configuration.</p>
+<p>Any applied change in the config file will reconfigure the appliance on the next appliance restart run to the new values found in the configuration.</p>
 <p>Eg. if you want to change your backup target to a different location,
 just change the value and restart the appliance, it will detect and configure
 all needed changes to the environment.</p>

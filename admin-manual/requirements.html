@@ -47,15 +47,15 @@
 <ul class="simple">
 <li>a Virtual Machine on a supported hypervisor or Hardware sized according to the <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> Chapter</li>
 <li>a Backup space (for encrypted backup data) accessable by one of 25 supported storage protocols explained under <a class="reference external" href="#backup-storage">Backup Storage</a></li>
-<li>incoming ports 22,25,80,443,465 of a fixed public IPV4 address and DNS, IPV4 setup as described under <a class="reference external" href="#internet-connectivity">Internet Connectivity</a></li>
+<li>incoming tcp ports 22,25,80,443,465 of a fixed public IPV4 address and DNS, IPV4 setup for the vm as described under <a class="reference external" href="#internet-connectivity">Internet Connectivity</a></li>
 </ul>
-<div class="section" id="virtual-machine">
-<span id="virtual-machine"></span><h3>Virtual Machine<a class="headerlink" href="#virtual-machine" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="hypervisor">
+<span id="hypervisor"></span><h3>Hypervisor<a class="headerlink" href="#hypervisor" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The base of the virtual machine is a Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image.</li>
 <li>The appliance was tested on the following hypervisors: xen,kvm,vmware sphere,virtualbox<ul>
 <li>hyperv is not tested but is expected to work</li>
-<li>rollouts to amazon ec2, google gce or openstack clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented so it should work but probably need some tweaking beforehand</li>
+<li>rollouts to amazon ec2, google gce or openstack clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented but probably need some tweaking.</li>
 </ul>
 </li>
 <li>Follow the Assessment Chapter for the right sizing of CPU-cores, memory and harddisk.</li>
@@ -64,7 +64,7 @@
 <div class="section" id="backup-storage">
 <span id="backup-storage"></span><h3>Backup Storage<a class="headerlink" href="#backup-storage" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>For storing backup data the appliance needs a storage space accessable via one of the 24 duplicity supported storage protocols or via cifs.</li>
+<li>For storing backup data the appliance needs a storage space accessable via one of the 24 duplicity supported storage protocols.</li>
 <li>In addition to the supported duplicity protocols the appliance has support for <strong>cifs</strong> (windows file sharing attached volumes, including automatic mount and unmount)</li>
 <li>Tested protocols so far: localfile, ftp, ftpssl, ssh/scp, ssh/sftp, http/webdav, cifs</li>
 <li>For Details see: <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html#sect7">Duplicity Manual - Section URL-Format</a></li>
@@ -77,9 +77,9 @@
 <div class="section" id="internet-connectivity">
 <span id="internet-connectivity"></span><h3>Internet Connectivity<a class="headerlink" href="#internet-connectivity" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>permanent internet connectivity with a strong (&gt;20Mbit) upload channel</li>
-<li>an IP address and dns server settings served to the machine by DHCP for automatic configuration<ul>
-<li>this can be a internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP</li>
+<li>permanent internet connectivity with a strong (&gt;50Mbit) upload channel</li>
+<li>an IPv4 address and dns server settings are served to the machine by DHCP for automatic configuration<ul>
+<li>this can be any internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP</li>
 <li>Unusable internal nets are 172.17.X.X and 10.0.3.X, because these are used by the appliance itself</li>
 </ul>
 </li>
@@ -101,18 +101,19 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li>a public IPv4-Address or the incoming ports 22,25,80,443,465 of this address forwarded to the machine<ul>
+<li>a public IPv4-Address or the incoming TCP ports 22,25,80,443,465 and ICMP/ping of this address forwarded to the machine<ul>
 <li>port 22 - ssh: ssh publickey authentification is used. this connection is used for installation and optional support</li>
 <li>port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers of forwarded ecs communication. if the hosting locations policy does not permit this, the ecs will work without it, but loses email answering functionality</li>
 <li>port 80 - http: the appliance communicates only over https, but needs http for letsencrypt client certificate renewal and for redirecting to the https site</li>
 <li>port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in self-service</li>
+<li>ICMP/ping - ping: for monitoring the system</li>
 </ul>
 </li>
 </ul>
 <div class="section" id="certificates">
 <span id="certificates"></span><h4>Certificates<a class="headerlink" href="#certificates" title="Permalink to this headline">¶</a></h4>
 <p>The appliance uses LetsEncrypt to issue https/ssl host certificates and also takes care of the renewal of these host certificates.
-Https client certificates are issued by the appliance itself and can be done in selfservice as an internal ecs webfrontend user. There is no IT-administration task needed in this process.</p>
+Https client certificates are issued by the appliance itself and can be done in selfservice as an internal ecs webfrontend user. There is no IT-administration task involved in this process.</p>
 </div>
 <div class="section" id="firewall-endpointprotection-antivirus-security-products">
 <span id="firewall-endpointprotection-antivirus-security-products"></span><h4>&#8220;Firewall&#8221;/Endpointprotection/&#8221;Antivirus&#8221; Security Products:<a class="headerlink" href="#firewall-endpointprotection-antivirus-security-products" title="Permalink to this headline">¶</a></h4>
@@ -120,7 +121,7 @@ Https client certificates are issued by the appliance itself and can be done in 
 listed are forwarded to the machine and outgoing traffic from the machine is permitted.</p>
 <p><strong>Warning</strong>: many security products are known to disturb/break HTTPS Host
 Certificate and Client Certificate validation and weaken the transport protocols on the wire.
-See <a class="reference external" href="https://jhalderm.com/pub/papers/interception-ndss17.pdf">The Security Impact of HTTPS Interception</a> .</p>
+See <a class="reference external" href="https://jhalderm.com/pub/papers/interception-ndss17.pdf">The Security Impact of HTTPS Interception</a>.</p>
 <p>The ecs appliance uses https client certificates for protection of elevated user rights.
 If the hosting location has some mandatory security product,
 you probably need some extra configuration in the security product to fix support for Client Certificates.</p>
@@ -387,7 +388,7 @@ Larger implementations are possible with some refactoring in certain parts of th
   <ul>
 <li><a class="reference internal" href="#">Hosting Requirements</a><ul>
 <li><a class="reference internal" href="#requirements">Requirements</a><ul>
-<li><a class="reference internal" href="#virtual-machine">Virtual Machine</a></li>
+<li><a class="reference internal" href="#hypervisor">Hypervisor</a></li>
 <li><a class="reference internal" href="#backup-storage">Backup Storage</a></li>
 <li><a class="reference internal" href="#internet-connectivity">Internet Connectivity</a><ul>
 <li><a class="reference internal" href="#certificates">Certificates</a></li>

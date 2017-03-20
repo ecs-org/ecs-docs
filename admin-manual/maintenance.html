@@ -51,7 +51,7 @@
 </ul>
 </li>
 <li>activate changes into current environment, call <code class="docutils literal"><span class="pre">env-update.sh</span></code></li>
-<li>restart and apply new environment: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></li>
+<li>restart and apply new environment: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code></li>
 </ul>
 </div>
 <div class="section" id="start-stop-update-appliance">
@@ -136,7 +136,22 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 </ul>
 </li>
 <li>quick update appliance code:<ul>
-<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/app/appliance;</span> <span class="pre">gosu</span> <span class="pre">app</span> <span class="pre">git</span> <span class="pre">pull;</span> <span class="pre">salt-call</span> <span class="pre">state.highstate</span> <span class="pre">pillar='{&quot;appliance&quot;:{&quot;enabled&quot;:true}}';</span> <span class="pre">rm</span> <span class="pre">/var/www/html/503.html</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/app/appliance;</span> <span class="pre">gosu</span> <span class="pre">app</span> <span class="pre">git</span> <span class="pre">pull;</span> <span class="pre">salt-call</span> <span class="pre">state.highstate</span> <span class="pre">pillar='{&quot;appliance&quot;:{&quot;enabled&quot;:true}}'</span> <span class="pre">2&gt;&amp;1;</span> <span class="pre">rm</span> <span class="pre">/var/www/html/503.html</span></code></li>
+</ul>
+</li>
+<li>check which system packages are available for update:<ul>
+<li><code class="docutils literal"><span class="pre">/usr/lib/update-notifier/apt-check</span> <span class="pre">-p</span></code></li>
+</ul>
+</li>
+<li>cleanup last activity stamps for unattended upgrades, so unattended-upgrades will do all activity again<ul>
+<li><code class="docutils literal"><span class="pre">rm</span> <span class="pre">/var/lib/apt/periodic/*</span></code></li>
+<li>or <code class="docutils literal"><span class="pre">touch</span> <span class="pre">/app/etc/flags/force.update.system</span></code> before <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></li>
+</ul>
+</li>
+<li>list active systemd timer: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">list-timers</span> <span class="pre">--all</span></code></li>
+<li>display systemd service change: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-m</span> <span class="pre">_PID=1</span> <span class="pre">-f</span></code></li>
+<li>display revoked certificates serials:<ul>
+<li><code class="docutils literal"><span class="pre">openssl</span> <span class="pre">crl</span> <span class="pre">-inform</span> <span class="pre">PEM</span> <span class="pre">-text</span> <span class="pre">-noout</span> <span class="pre">-in</span> <span class="pre">/app/etc/crl.pem</span></code></li>
 </ul>
 </li>
 <li>get cummulative cpu,mem,net,disk statistics of container:<ul>
@@ -152,7 +167,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <li>to also set *GIT_SOURCE defaults: <code class="docutils literal"><span class="pre">.</span> <span class="pre">/usr/local/share/appliance/appliance.include</span></code></li>
 </ul>
 </li>
-<li>most spent time in high.state:<ul>
+<li>most time spent in state.highstate:<ul>
 <li><code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-B</span> <span class="pre">5</span> <span class="pre">-E</span> <span class="pre">&quot;Duration:</span> <span class="pre">[0-9]{3,5}\.&quot;</span></code></li>
 <li><code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;ID:&quot;</span> <span class="pre">-A6</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-E</span> <span class="pre">&quot;(ID:|Function:|Duration:)&quot;</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/.*(ID:|Function:|Duration)(.*)/\1</span> <span class="pre">\2/g&quot;</span> <span class="pre">|</span> <span class="pre">paste</span> <span class="pre">-s</span> <span class="pre">-d</span> <span class="pre">'</span> <span class="pre">\n'</span> <span class="pre">-</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/ID:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Function:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Duration</span> <span class="pre">:</span> <span class="pre">([^</span> <span class="pre">]+</span> <span class="pre">ms)/\3</span> <span class="pre">\2</span> <span class="pre">\1/g&quot;</span> <span class="pre">|sort</span> <span class="pre">-n</span></code></li>
 </ul>
@@ -189,15 +204,16 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <p>Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.</p>
 <p>The following items are updated:</p>
 <ul class="simple">
-<li>system packages are updated, including a reboot if the update need a kernel reboot</li>
-<li>lets encrypt certificatges are updated</li>
 <li>appliance source will be updated and executed</li>
+<li>system packages are updated, including a reboot if the update need a kernel reboot</li>
+<li>lets encrypt certificates are updated</li>
 <li>ecs source will be updated and executed<ul>
 <li>the ecs-docs source will be updated</li>
+<li>the corresponding support container will be updated</li>
 </ul>
 </li>
 </ul>
-<p><strong>Warning</strong>: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. If you do <strong>not</strong> make <strong>metric recording</strong> or <strong>alerting</strong>, we <strong>recommend</strong> <strong>updating</strong> only <strong>manually</strong>. To do this, enter an empty string (&#8220;&#8221;) under appliance:update:oncalendar in the file env.yml. For a manual update run call <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p>
+<p><strong>Warning</strong>: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. If you <strong>do not make metric recording and alerting</strong>, we <strong>recommend updating only manual</strong>. To do this, enter &#8220;False&#8221; under appliance:update:automatic in the file env.yml. For a manual update run call <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p>
 </div>
 <div class="section" id="logging-configuration">
 <span id="logging-configuration"></span><h2>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline">¶</a></h2>
@@ -238,7 +254,10 @@ mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)</li>
 <li>if APPLIANCE_METRIC_SERVER is set, these exported metrics are collected and
 stored by a prometheus server and alerts are issued using email to root
 using the prometheus alert server<ul>
-<li>there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh</li>
+<li>there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh<ul>
+<li>for a detailed alert list look at the <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules">alert.rules sourcefile</a></li>
+</ul>
+</li>
 <li>the prometheus gui is at <a class="reference external" href="http://172.17.0.1:9090">http://172.17.0.1:9090</a></li>
 <li>the prometheus alert gui is at <a class="reference external" href="http://172.17.0.1:9093">http://172.17.0.1:9093</a></li>
 </ul>

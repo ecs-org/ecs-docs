@@ -7,7 +7,7 @@
     + first time requisites install, call `env-package.sh --requirements`
     + build new env package call `env-package.sh /app/env.yml`
 + activate changes into current environment, call `env-update.sh`
-+ restart and apply new environment: `systemctl start appliance-update`
++ restart and apply new environment: `systemctl restart appliance`
 
 ### Start, Stop & Update Appliance
 
@@ -81,8 +81,22 @@ systemctl restart appliance
     + `duply /root/.duply/appliance-backup fetch ecs-pgdump/ecs.pgdump.gz /root/ecs.pgdump.gz`
 
 + quick update appliance code:
-    + `cd /app/appliance; gosu app git pull; salt-call state.highstate pillar='{"appliance":{"enabled":true}}'; rm /var/www/html/503.html`
+    + `cd /app/appliance; gosu app git pull; salt-call state.highstate pillar='{"appliance":{"enabled":true}}' 2>&1; rm /var/www/html/503.html`
 
++ check which system packages are available for update:
+    + `/usr/lib/update-notifier/apt-check -p`
+
++ cleanup last activity stamps for unattended upgrades, so unattended-upgrades will do all activity again
+    + `rm /var/lib/apt/periodic/*`
+    + or `touch /app/etc/flags/force.update.system` before `systemctl start appliance-update`
+
++ list active systemd timer: `systemctl list-timers --all`    
+
++ display systemd service change: `journalctl -m _PID=1 -f`
+
++ display revoked certificates serials: 
+    + `openssl crl -inform PEM -text -noout -in /app/etc/crl.pem`
+  
 + get cummulative cpu,mem,net,disk statistics of container:
     + `docker stats $(docker ps|grep -v "NAMES"|awk '{ print $NF }'|tr "\n" " ")`
 
@@ -93,7 +107,7 @@ systemctl restart appliance
     + `. /usr/local/share/appliance/env.include; ENV_YML=/run/active-env.yml userdata_to_env ecs,appliance`
     + to also set *GIT_SOURCE defaults: `. /usr/local/share/appliance/appliance.include` 
 
-+ most spent time in high.state:
++ most time spent in state.highstate:
     + `journalctl -u appliance-update | grep -B 5 -E "Duration: [0-9]{3,5}\."`
     + `journalctl -u appliance-update | grep "ID:" -A6 | grep -E "(ID:|Function:|Duration:)" | sed -r "s/.*(ID:|Function:|Duration)(.*)/\1 \2/g" | paste -s -d '  \n'  - | sed -r "s/ID: +([^ ]+) Function: +([^ ]+) Duration : ([^ ]+ ms)/\3 \2 \1/g" |sort -n`
 
@@ -122,13 +136,14 @@ Updates are scheduled depending appliance:update:oncalendar once per day at 06:3
 Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.
 
 The following items are updated:
-+ system packages are updated, including a reboot if the update need a kernel reboot
-+ lets encrypt certificatges are updated
 + appliance source will be updated and executed
++ system packages are updated, including a reboot if the update need a kernel reboot
++ lets encrypt certificates are updated
 + ecs source will be updated and executed
     + the ecs-docs source will be updated
+    + the corresponding support container will be updated
 
-**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. If you do **not** make **metric recording** or **alerting**, we **recommend** **updating** only **manually**. To do this, enter an empty string ("") under appliance:update:oncalendar in the file env.yml. For a manual update run call `systemctl start appliance-update`
+**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. If you **do not make metric recording and alerting**, we **recommend updating only manual**. To do this, enter "False" under appliance:update:automatic in the file env.yml. For a manual update run call `systemctl start appliance-update`
 
 ### Logging Configuration
 
@@ -160,6 +175,7 @@ Host:
     stored by a prometheus server and alerts are issued using email to root
     using the prometheus alert server
     + there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh
+        + for a detailed alert list look at the [alert.rules sourcefile](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules)
     + the prometheus gui is at [http://172.17.0.1:9090](http://172.17.0.1:9090)
     + the prometheus alert gui is at [http://172.17.0.1:9093](http://172.17.0.1:9093)
 + if APPLIANCE_METRIC_GUI is set, start a grafana server for displaying the collected metrics

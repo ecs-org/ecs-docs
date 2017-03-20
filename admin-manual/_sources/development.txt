@@ -2,24 +2,26 @@
 
 ### Service Architecture
 
-+ Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image as Base
++ Base: Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image
++ saltstack salt is used for system installation
++ letsencrypt is used for ssl host certificates
 
 + Services running on the host system
-    + Webserver: NGINX 1.10
-    + Database: Postgresql 9.5 Database
-    + SMTP/SSL Proxy: Stunnel
-    + SSH Daemon: openssh
-    + SMTP Outgoing: postfix
+    + Webserver: NGINX 1.10 - [nginx.conf](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/nginx/nginx.conf)
+    + Database: Postgresql 9.5 Database [postgres config](https://github.com/ecs-org/ecs-appliance/tree/master/salt/appliance/postgresql)
+    + SMTP/SSL Proxy: Stunnel - [stunnel.conf](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/stunnel/stunnel.conf)
+    + SSH Daemon: openssh [ssh config](https://github.com/ecs-org/ecs-appliance/tree/master/salt/ssh)
+    + SMTP Outgoing: postfix - [main.cf](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf)
 
 + Services running inside docker container
-  + The ECS Application (Web, Worker, incoming Mail) 
-    + Django is served via uwsgi inside the web container
-    + Celery is used for asynchronous worker & beat
-    + python smtpd is used for incoming Mail processing
-  + Redis for Queuing Services
-  + Memcache for Caching Services
-  + tomcat running PDF/AS for Electronic Signed PDF Generation
-  + tomcat running Mocca for accessing the Digital ID-Card used for signed PDF-Generation
+    + The ECS Application (Web, Worker, incoming Mail) 
+        + Django is served via uwsgi inside the web container
+        + Celery is used for asynchronous worker & beat
+        + python smtpd is used for incoming Mail processing
+    + Redis for Queuing Services
+    + Memcache for Caching Services
+    + tomcat running PDF/AS for Electronic Signed PDF Generation
+    + tomcat running Mocca for accessing the Digital ID-Card used for signed PDF-Generation
 
 
 ```eval_rst
@@ -57,7 +59,7 @@ Path                                          Description
 /salt/appliance/scripts/prepare-env.sh        script started first to read environment
 /salt/appliance/scripts/prepare-appliance.sh  script started next to setup services
 /salt/appliance/scripts/prepare-ecs.sh        script started next to build container
-/salt/appliance/scripts/appliance-update.sh   script triggerd from appliance-update.service
+/salt/appliance/update/appliance-update.sh    script triggerd from appliance-update.service
 /salt/appliance/ecs/docker-compose.yml        main container group definition
 /salt/appliance/systemd/appliance.service     systemd appliance service that ties all together
 ============================================  ==================================================
@@ -90,8 +92,9 @@ Path                                          Description
 |
 |-- appliance-update
 |   |
-|   |-- apt-daily unattended-upgrades
 |   |-- salt-call state.highstate
+|   |-- letsencrypt update
+|   |-- apt-daily unattended-upgrades
 ?   ?-- optional reboot
 |   |-- systemctl restart appliance
 ```

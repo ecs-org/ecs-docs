@@ -1,14 +1,13 @@
 ## Configure Appliance
 
-The Appliance is configured using a yaml confiuration file 
+The Appliance is configured using a yaml configuration file 
 which can be placed in one of the following locations:
 
-+ absolute filepath set via environment variable ENV_YML
-+ local file at `/app/env.yml`
-+ a attached drive with label cidata (cloud-init: no-cloud config)
-+ a attached drive with label config-2 (cloud-init: openstack config)
-+ aws-ec2 (amazon elastic computing cloud) meta-data server
-+ gce (google compute engine) meta-data server
++ local file at `/app/env.yml` (no-cloud config)
++ a attached drive with label cidata (cloud-init: no-cloud)
++ a attached drive with label config-2 (cloud-init: openstack)
++ aws-ec2 meta-data server (amazon elastic computing cloud)
++ gce meta-data server (google compute engine)
 
 It will be copied to `/run/active-env.yml` (ramdisk) on each appliance startup.
 
@@ -20,13 +19,13 @@ on an installed but unconfigured appliance:
 
 + enter installed but empty appliance
 + make a new env.yml: `env-create.sh domainname.domain ~/domainname.domain/`
-+ edit settings in ~/domainname.domain/env.yml , see comments inside file
++ edit settings in "~/domainname.domain/env.yml", see comments inside file
 + optional, package env into different formats
     +  `env-package.sh --requirements; env-package.sh ~/domainname.domain/env.yml`
 
-+ transfer, print out ~/domainname.domain/env.yml.pdf and store in a safe place.
++ transfer, print out "~/domainname.domain/env.yml.pdf" and store in a safe place.
 + save a encrypted copy of env.yml in safe place. 
-+ **Important**: The env.yml contains all needed secrets for a working appliance and is also the one needed piece of information if you want to recover from backup in case of a storage failure.
++ **Important**: The **env.yml contains all needed secrets** for a working appliance and is **the only relevant piece of information** if you want to recover from backup in case of a storage failure.
 
 
 for offline environment creation, using your local machine:
@@ -48,7 +47,7 @@ for a development server:
 
 ### Modify Configuration
 
-Any applied change in the config file will reconfigure the appliance on the next appliance-update run to the new values found in the configuration.
+Any applied change in the config file will reconfigure the appliance on the next appliance restart run to the new values found in the configuration.
 
 Eg. if you want to change your backup target to a different location,
 just change the value and restart the appliance, it will detect and configure 

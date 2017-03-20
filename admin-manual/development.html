@@ -43,13 +43,15 @@
 <div class="section" id="service-architecture">
 <span id="service-architecture"></span><h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image as Base</li>
+<li>Base: Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image</li>
+<li>saltstack salt is used for system installation</li>
+<li>letsencrypt is used for ssl host certificates</li>
 <li>Services running on the host system<ul>
-<li>Webserver: NGINX 1.10</li>
-<li>Database: Postgresql 9.5 Database</li>
-<li>SMTP/SSL Proxy: Stunnel</li>
-<li>SSH Daemon: openssh</li>
-<li>SMTP Outgoing: postfix</li>
+<li>Webserver: NGINX 1.10 - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/nginx/nginx.conf">nginx.conf</a></li>
+<li>Database: Postgresql 9.5 Database <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/appliance/postgresql">postgres config</a></li>
+<li>SMTP/SSL Proxy: Stunnel - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/stunnel/stunnel.conf">stunnel.conf</a></li>
+<li>SSH Daemon: openssh <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/ssh">ssh config</a></li>
+<li>SMTP Outgoing: postfix - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf">main.cf</a></li>
 </ul>
 </li>
 <li>Services running inside docker container<ul>
@@ -171,7 +173,7 @@ END" />
 <tr class="row-odd"><td>/salt/appliance/scripts/prepare-ecs.sh</td>
 <td>script started next to build container</td>
 </tr>
-<tr class="row-even"><td>/salt/appliance/scripts/appliance-update.sh</td>
+<tr class="row-even"><td>/salt/appliance/update/appliance-update.sh</td>
 <td>script triggerd from appliance-update.service</td>
 </tr>
 <tr class="row-odd"><td>/salt/appliance/ecs/docker-compose.yml</td>
@@ -209,8 +211,9 @@ END" />
 |
 |-- appliance-update
 |   |
-|   |-- apt-daily unattended-upgrades
 |   |-- salt-call state.highstate
+|   |-- letsencrypt update
+|   |-- apt-daily unattended-upgrades
 ?   ?-- optional reboot
 |   |-- systemctl restart appliance
 </pre></div>
