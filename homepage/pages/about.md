@@ -13,7 +13,7 @@ See [Installation/Usage](installationusage.html) on how to install/operate the e
 
 The system is composed of a Python/Django web application using Postgres as the database on the base of Ubuntu Linux. It is currently available in German language, but could be extended to support other languages.
 
-See [Development](development.html) for Sourcecode, Development and Interface documentation.
+See [Development](development.html) for Sourcecode for ECS, ECS-Appliance and Interface documentation.
 
 ### License
 
