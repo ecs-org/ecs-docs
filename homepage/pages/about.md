@@ -5,7 +5,7 @@ The ethic commission system (ECS) is a Webservice supporting Clinical Trials app
 
 ECS constitutes an web-based, easily expendable open-source software solution, with manual and automatic quality control (audit protocol and track change). Its main features are online data input, reading of uploaded documents, generation of pdf documents from data input, flexible workflow and safe long-term data storage in encrypted form. Checklists are presented to external and internal reviewers and integrated into the session workflow. ECS generates session agenda and session protocols from data input and has an Email-linked internal communication system. The votes of the EC are digitally signed by the chair and automatically sent to the concerned parties. The workflow concerning post-vote issues allows upload of amendments, notifications and all safety-related reporting. Reminder functions support the investigators.
 
-### Usage
+### Installation and Usage
 
 See [Installation/Usage](installationusage.html) on how to install/operate the ecs and for users how to use the ecs.
 
