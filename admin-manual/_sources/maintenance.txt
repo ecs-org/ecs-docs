@@ -90,7 +90,7 @@ systemctl restart appliance
     + `rm /var/lib/apt/periodic/*`
     + or `touch /app/etc/flags/force.update.system` before `systemctl start appliance-update`
 
-+ list active systemd timer: `systemctl list-timers --all`    
++ list active systemd timer: `systemctl list-timers --all`
 
 + display systemd service change: `journalctl -m _PID=1 -f`
 
