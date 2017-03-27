@@ -6,6 +6,6 @@ Das ECS benutzen
    :titlesonly:
 
    introduction
-   view/index
+   view
    communication
    notepad
