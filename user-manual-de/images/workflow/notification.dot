@@ -1,0 +1,47 @@
+digraph {
+	label="Arbeitsablauf: Meldung";
+	labelloc="t"fontname="Helvetica";
+	fontsize="20";
+	style="bold";
+
+	subgraph {
+		rank="same";
+
+		N_4050 [fontname="Helvetica", shape="record", style="rounded", label="{Sicherheitsmeldung | EC-Office}", color="greenyellow"];
+		N_4056 [fontname="Helvetica", shape="record", style="rounded", label="{Meldungsbewertung Office | EC-Office}", color="greenyellow"];
+		N_4049 [fontname="Helvetica", shape="record", style="rounded", label="{Amendment Formale Prüfung | EC-Office}", color="greenyellow"];
+	}
+
+	N_4052 [fontname="Helvetica", shape="plaintext", label="Meldung eingereicht", fontcolor="#636c72"];
+	N_4055 [fontname="Helvetica", shape="record", style="rounded", label="{Meldungsbewertung Exekutiv | EC-Executive}", color="greenyellow"];
+	N_MaybeRejected [fontname="Helvetica", shape="plaintext", label="abgelehnt?"];
+	N_MaybeAmendmentRejected [fontname="Helvetica", shape="plaintext", label="abgelehnt?"];
+	N_4051 [fontname="Helvetica", shape="record", style="rounded", label="{Amendment Bewertung | EC-Executive}", color="greenyellow"];
+	N_4053 [fontname="Helvetica", shape="plaintext", label="fertig"];
+	N_4054 [fontname="Helvetica", shape="record", style="rounded", label="{Amendment-Antwort Signierung | EC-Signing}", color="greenyellow"];
+	N_4048 [fontname="Helvetica", shape="plaintext", label="Meldungsantwort veröffentlichen", fontcolor="#636c72"];
+
+
+	N_4050 -> N_MaybeRejected [fontname="Helvetica"];
+	N_4056 -> N_MaybeRejected [fontname="Helvetica"];
+	N_MaybeRejected -> N_4048 [fontname="Helvetica", label="Ja", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_MaybeRejected -> N_4055 [fontname="Helvetica", label="Nein"];
+	N_4057 [fontname="Helvetica", shape="plaintext", label="Sitzung", fontcolor="#636c72"];
+	N_4049 -> N_MaybeAmendmentRejected [fontname="Helvetica", arrowhead="none"];
+	N_MaybeAmendmentRejected -> N_4051 [fontname="Helvetica", label="Nein"];
+	N_MaybeAmendmentRejected -> N_4048 [fontname="Helvetica", label="Ja", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4051 -> N_4049 [fontname="Helvetica", label="nicht\nfertig", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4051 -> N_4053 [fontname="Helvetica", arrowhead="none"];
+	N_4052 -> N_4050 [fontname="Helvetica", label="Sicherheitsbericht"];
+	N_4052 -> N_4056 [fontname="Helvetica", label="Verlängerungsmeldung\nAbschlussbericht\nZentrumsschließung"];
+	N_4052 -> N_4049 [fontname="Helvetica", label="Amendment"];
+	N_4053 -> N_4057 [fontname="Helvetica", label="substanziell"];
+	N_4053 -> N_4054 [fontname="Helvetica", label="Unterschrift\nerforderlich"];
+	N_4053 -> N_4048 [fontname="Helvetica", label="keine Unterschrift\nerforderlich"];
+	N_4055 -> N_4050 [fontname="Helvetica", label="nicht\nfertig", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4055 -> N_4056 [fontname="Helvetica", label="nicht\nfertig", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4055 -> N_4048 [fontname="Helvetica", label="fertig"];
+	N_4057 -> N_4049 [fontname="Helvetica", label="nicht\nfertig", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4057 -> N_4054 [fontname="Helvetica", label="fertig"];
+	N_4054 -> N_4048 [fontname="Helvetica"];
+}

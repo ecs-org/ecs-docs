@@ -1,0 +1,22 @@
+digraph {
+	label="Arbeitsablauf: Votum/Mitteilung";
+	labelloc="t"fontname="Helvetica";
+	fontsize="20";
+	style="bold";
+	N_Start [label="Votum in Sitzung beschlossen", shape="plaintext", fontname="Helvetica", fontcolor="#636c72"];
+	N_4043 [label="{Votum Signierung | EC-Signing}", shape="record", color="greenyellow", fontname="Helvetica", style="rounded"];
+	N_4044 [label="{Votum Prüfung Intern | EC-Office}", shape="record", color="greenyellow", fontname="Helvetica", style="rounded"];
+	N_4045 [label="{Votum Bewertung Office | EC-Office}", shape="record", color="greenyellow", fontname="Helvetica", style="rounded"];
+	N_Start -> N_4046 [fontname="Helvetica", color="#636c72", style="dashed"];
+	N_4046 [label="{Votum Bearbeitung Office | EC-Office}", shape="record", color="greenyellow", fontname="Helvetica", style="rounded"];
+	N_MaybeInternalReview [label="Interne Prüfung\naktiviert?", shape="plaintext", fontname="Helvetica"];
+	N_4047 [label="{Votum Überprüfung Exekutiv | EC-Executive}", shape="record", color="greenyellow", fontname="Helvetica", style="rounded"];
+	N_4044 -> N_4047 [fontname="Helvetica", label="fertig"];
+	N_4044 -> N_4046 [fontname="Helvetica", label="nicht\nfertig", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4045 -> N_4047 [fontname="Helvetica"];
+	N_4046 -> N_MaybeInternalReview [fontname="Helvetica"];
+	N_MaybeInternalReview -> N_4044 [fontname="Helvetica", label="Ja"];
+	N_MaybeInternalReview -> N_4047 [fontname="Helvetica", label="Nein"];
+	N_4047 -> N_4045 [fontname="Helvetica", label="nicht\nfertig", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4047 -> N_4043 [fontname="Helvetica", label="fertig"];
+}

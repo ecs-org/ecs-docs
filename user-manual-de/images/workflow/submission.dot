@@ -1,0 +1,84 @@
+digraph {
+	label="Arbeitsablauf: Studie";
+	labelloc="t"fontname="Helvetica";
+	fontsize="20";
+	style="bold";
+	N_Start [label="Einreichung", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_MaybeThesis [label="retrospektive\nDipl./Diss.?", fontname="Helvetica", shape="plaintext"];
+	N_4061 [label="{Einstufung | EC-Executive}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4063 [label="{Patienteninformationsbewertung | EC-Office}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4065 [label="{Diplomarbeit Formale Prüfung | EC-Office}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4066 [label="{Statistische Bewertung | Statistic Reviewer}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4067 [label="{Einstufung Überprüfung | EC-Office}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4068 [label="{Spezialistenbewertung | Specialist}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4069 [label="{Begleitende EK Empfehlung | EC-Executive}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4070 [label="{Unterschrift Prüfung | EC-Office}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4072 [label="{Versicherungsbewertung | Insurance Reviewer}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4073 [label="{Votumsvorbereitung | EC-Office}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4076 [label="{Einreichung Formale Prüfung | EC-Office}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4077 [label="{GCP Bewertung | GCP Reviewer}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4080 [label="{Expedited Empfehlung | Board Member}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_4081 [label="{Thesis Empfehlung | EC-Office}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+	N_Lane [label="Arbeitsablauf", fontname="Helvetica", shape="plaintext"];
+	N_4061 -> N_4067 [fontname="Helvetica"];
+	N_4067 -> N_4061 [fontname="Helvetica", label="neu\ngeöffnet", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4061 -> N_Lane [fontname="Helvetica", arrowhead="none"];
+	N_Lane -> N_4068 [fontname="Helvetica", label="Standard"];
+	N_Lane -> N_4080 [fontname="Helvetica", label="Expedited"];
+	N_Lane -> N_4081 [fontname="Helvetica", label="Retrospektive\nDipl./Diss."];
+	N_Lane -> N_4069 [fontname="Helvetica", label="Lokale EK"];
+	N_4065 -> N_E5990 [fontname="Helvetica", arrowhead="none"];
+	N_E5990 [label="bestätigt", fontname="Helvetica", shape="plaintext"];
+	N_E5990 -> N_4061 [fontname="Helvetica"];
+	N_E5990 -> N_4070 [fontname="Helvetica"];
+	N_4065 -> N_Start [fontname="Helvetica", label="abgelehnt", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4076 -> N_Start [fontname="Helvetica", label="abgelehnt", color="#636c72", fontcolor="#636c72", style="dashed"];
+	N_4076 -> N_E5990 [fontname="Helvetica", arrowhead="none"];
+	N_Start -> N_MaybeThesis [fontname="Helvetica", arrowhead="none"];
+	N_MaybeThesis -> N_4076 [fontname="Helvetica", label="Nein"];
+	N_MaybeThesis -> N_4065 [fontname="Helvetica", label="Ja"];
+	N_MaybeRecommendation [label="positive Empfehlung?", fontname="Helvetica", shape="plaintext"];
+	N_4069 -> N_MaybeRecommendation [fontname="Helvetica", arrowhead="none"];
+	N_4080 -> N_MaybeRecommendation [fontname="Helvetica", arrowhead="none"];
+	N_4081 -> N_MaybeRecommendation [fontname="Helvetica", arrowhead="none"];
+	N_MaybeRecommendation -> N_4073 [fontname="Helvetica", label="Ja"];
+	N_MaybeRecommendation -> N_4061 [fontname="Helvetica", label="Nein", color="#636c72", fontcolor="#636c72", style="dashed"];
+
+	N_AdditionalReviews [label="Zusätzliche Beurteilungen\nje nach Bedarf", fontname="Helvetica", shape="plaintext"];
+	N_4061 -> N_AdditionalReviews [fontname="Helvetica", arrowhead="none"];
+	N_AdditionalReviews -> N_4063 [fontname="Helvetica"];
+	N_AdditionalReviews -> N_4066 [fontname="Helvetica"];
+	N_AdditionalReviews -> N_4072 [fontname="Helvetica"];
+	N_AdditionalReviews -> N_4077 [fontname="Helvetica"];
+
+	subgraph cluster_external_review {
+		label="Gutachten";
+		color="#636c72";
+		fontcolor="#636c72";
+
+		N_ExternalReviewStart [label="Gutachten angefordert", fontname="Helvetica", shape="plaintext", fontcolor="#636c72"];
+		N_4059 [color="greenyellow", fontname="Helvetica", label="{Gutachten | External Reviewer}", style="rounded", shape="record"];
+		N_4060 [color="greenyellow", fontname="Helvetica", label="{Gutachten Überprüfung | EC-Executive}", style="rounded", shape="record"];
+
+		N_ExternalReviewStart -> N_4059 [fontname="Helvetica", color="#636c72", style="dashed"];
+		N_4059 -> N_4060 [fontname="Helvetica"];
+		N_4060 -> N_4059 [fontname="Helvetica", label="zurückgeworfen", color="#636c72", fontcolor="#636c72", style="dashed"];
+	}
+
+	subgraph cluster_b2 {
+		label="B2";
+		color="#636c72";
+		fontcolor="#636c72";
+
+		N_B2Start [label="B2 in Sitzung beschlossen", fontname="Helvetica", shape="plaintext", fontcolor="#636c72"];
+		N_4064 [label="{B2 Änderung}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+		N_4062 [label="{B2 Änderungsbewertung Office | EC-Office}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+		N_4078 [label="{B2 Änderungsbewertung Exekutiv | EC-Executive}", fontname="Helvetica", shape="record", color="greenyellow", style="rounded"];
+
+		N_B2Start -> N_4064 [fontname="Helvetica", color="#636c72", style="dashed"];
+		N_4062 -> N_4064 [fontname="Helvetica", label="weiterhin\nb2", color="#636c72", fontcolor="#636c72", style="dashed"];
+		N_4062 -> N_4078 [fontname="Helvetica", label="Executive Bewertung\nnotwendig"];
+		N_4064 -> N_4062 [fontname="Helvetica"];
+		N_4078 -> N_4062 [fontname="Helvetica"];
+	}
+}

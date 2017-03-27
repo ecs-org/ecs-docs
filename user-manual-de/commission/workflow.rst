@@ -1,186 +1,90 @@
-==========================================================
-Arbeitsabläufe - Übersicht aller studienbezogenen Aufgaben
-==========================================================
-
-Die Aufgaben-Übersicht betrifft die Arbeitsschritte, die durchlaufen werden müssen, damit eine Studie akzeptiert werden kann.
-
-Workflow-Box
-++++++++++++
-
-Ethikkommissions-Internen steht eine **Workflow-Box** zur Verfügung, die Optionen zur Handhabung einer Aufgabe bereitstellt. Diese Box befindet sich auf jeder Seite, für die eine Aufgabe zu erledigen ist, die Sie akzeptiert haben (siehe *Offene Aufgaben* -> *Meine Aufgaben*). Sie können die Aufgabe entweder abschließen oder an eine Gruppe bzw. Einzelperson abgeben. Einige Aufgaben können auf mehrere Arten abgeschlossen werden (z.B. *Formale Prüfung* bestätigen und ablehnen). Falls es zu der aktiven Aufgabe ein zugehöriges Formular gibt, erscheint *Nur Speichern*. Dieser ermöglicht Ihnen, die Aufgabe nur zu speichern, ohne etwas am Status der Aufgabe zu ändern. Wenn Sie die Aufgabe abschließen oder abgeben, wird das Formular automatisch gespeichert.
-
-Votum-Workflow
-++++++++++++++
-
-Je nachdem welcher Button während der Bearbeitung des Tagesordnungspunktes zu dieser Sitzung betätigt wurde, bekommt entweder die **Executive**-Gruppe oder die **Office**-Gruppe die Aufgabe, die Endbearbeitung des Votums zu machen.
-
-Wenn die **Executive**-Gruppe die Aufgabe erhalten hat, wird danach von der **Office**-Gruppe das Votum überprüft. Entscheidet die **Office**-Gruppe, dass das Votum fertig ist, folgt die Unterzeichnung des Votums von der Gruppe der **Zeichnungsberechtigten**.
-
-Wenn die **Office**-Gruppe die Aufgabe erhalten hat, die Endbearbeitung des Votums zu machen, folgt danach die Überprüfung des Votums durch die Gruppe der **Internen Prüfer**. Sollte das Votum noch nicht fertig sein, geht der Workflow zurück zur **Büro**-Gruppe. Ist das Votum fertig, folgt die *Prüfung Votum Executive*. Dabei wird das Votum von der **Executive**-Gruppe Korrektur gelesen. Falls es ungültig ist, wird das Häkchen bei *Gültig* entfernt und die Aufgabe geschlossen und abgeschickt. Dann kommt die Votumsbearbeitung wieder zur **Büro**-Gruppe. Dieser Vorgang geht so lange hin und her, bis das Votum gültig ist.
-
-Falls das Votum gültig ist, macht die Gruppe der **Zeichnungsberechtigten** die *Vote Signing*-Aufgabe. Danach wird das Votum automatisch bekanntgegeben.
-
-Signierfunktion: Für die Signierfunktion wird eine E-Card benötigt, die für die Signierung aktiviert wurde. Siehe dazu: www.buergerkarte.at. Speziell zu beachten ist bei Mac OS 10.6 und 10.7 noch die spezielle Java Einstellung. Weitere Information dazu:  http://www.buergerkarte.at/mvnforum/mvnforum/viewthread_thread,316
-
-Arbeitsabläufe
-++++++++++++++
-
-Normale Einreichung
-===================
-
-**Einreicher**: Kriterien, die einer *Normalen Einreichung* entsprechen: Die Studie darf nicht als Diplomarbeit/Dissertation (Tab *Eckdaten* -> *Diplomarbeit/Dissertation*) und nicht als multizentrische AMG-Studie mit der Ethikkommission als lokale Ethikkommission gekennzeichnet sein (*AMG* -> *Einreichen als*).
-
-Sobald die Studie eingereicht wurde, erhält die **Office**-Gruppe eine Aufgabe. In der *Formalen Überprüfung* wird die Studie in ihrer formalen Korrektheit überprüft. Wenn die Studie nicht bestätigt wurde, bekommt sie der Einreicher zurück. Die Studie muss dann überarbeitet und neu eingereicht werden.
-
-Wenn die Studie in der *Formalen Überprüfung* akzeptiert wurde, wird sie eingestuft und zugeteilt. Diese Aufgabe erledigt die **Executive**-Gruppe. Alle Felder - bis auf *Gutachter* und *Gebührenbefreiung* - sind vorausgefüllt, können aber editiert werden. Die Zuteilung von Gutachtern und die Entscheidung zur Gebührenbefreiung obliegt der Executive-Gruppe.
-
-Durch die Einstufung und Zuteilung eröffnen sich einige Aufgaben:
-
-Die **Externen Gutachter** bekommen nach Abschluss der Einstufung und Zuteilung eine Einladung zur Begutachtung, die sie in ihrer *Nachrichten*-Box finden können. Außerdem wird die betreffende Studie in der *Studien*-Box markiert. Mit einem Klick auf das Symbol gelangt der Gutachter zur Bearbeitungsansicht der Checkliste.
-
-Die Gruppe der **Versicherungsprüfer** führt die Versicherungsbewertung der Studie durch. Mit einem Klick auf die Tätigkeit in der *Aufgaben*-Box gelangt der Versicherungsprüfer zur Checkliste. Dort soll beantwortet werden, ob die Versicherungsangabe vollständig und adäquat ist. Gegebenenfalls kann ein Kommentar dazu geschrieben werden.
-
-Die **Geschäftstelle** kontrolliert, ob die Patienteninformation und sonstige Unterlagen den Anforderungen entsprechen. Bei jedem Fragefeld ist ein zusätzliches Kommentar möglich. Auch diese Gruppe hat eine *Aufgaben*-Box, wo die Aufgabe zur Prüfung erscheint.
-
-Die Gruppe der **Statistikprüfer** macht eine statistische Bewertung (Studienziel, Design der Studie, statistische Analyse, usw.). Neben den Auswahloptionen "Ja", "Nein" können zusätzliche Kommentare abgegeben werden. Die Aufgabe findet sich ebenfalls in der *Aufgaben*-Box.
-
-Die **Office**-Gruppe erledigt die *Formale Prüfung Unterschrift*. Klicken Sie dafür ins Suchfeld und scannen Sie dann den Barcode, der sich auf allen Seiten des Studien-PDF's befindet. Wenn Sie dann in die Suchfunktion klicken, erscheint dort die gescannte Identifizierungsnummer. Ist das PDF nicht in der richtigen Version, wird dies vom System erkannt und angezeigt. Wenn die aktuelle Version identifiziert werden konnte, kann die Aufgabe in der *Workflow*-Box abgeschlossen und abgeschickt werden.
-
-Die **Überprüfer des Gutachtens** entscheiden, ob das Gutachten akzeptiert wird. Das Gutachten kann veröffentlicht werden wenn es in Ordnung ist, oder es kommt zurück zum externen Gutachter. Sobald das Gutachten akzeptiert wurde, kann es auch von den Sitzungsmitgliedern und den einreichenden Parteien eingesehen werden.
-
-Die Studie kommt nach positiver Einreichung in eine Sitzung.
-
-Retrospektive Diplomarbeit/Dissertation
+=======================================
+Übersicht der studienbezogenen Aufgaben
 =======================================
 
-Nach erfolgreicher Einreichung eröffnet sich für die Gruppe der **Dipl/Diss-Prüfer** die Aufgabe der *Formalen Überprüfung Diplomarbeit*. Bei dieser Tätigkeit wird kontrolliert, ob die Studie formal in Ordnung ist und alle Unterlagen vorhanden sind. Sollte die Studie diesbezügliche Mängel aufweisen, wird der Einreicher mit einer Nachricht darüber informiert. Der Dipl/Diss-Prüfer hat dafür in der *Workflow*-Box die *Ablehnen*-Option.
+Einreichung
+===========
 
-Wurde die Studie vom Dipl/Diss-Prüfer angenommen, bekommt die Gruppe der **Dipl/Diss Prüfer** eine weitere Aufgabe, welche die Überprüfung der Unterschrift zum Zweck hat.
+.. image:: /images/workflow/submission.png
+   :width: 100%
 
-Die **Dipl/Diss-Beurteiler**-Gruppe muss danach überprüfen, ob die Studie sowohl als Dipl/Diss als auch als Retrospektiv, oder nur als die eine oder andere Studienform gekennzeichnet ist. Stellt sich heraus, dass die Studie einer der beiden Kriterien nicht entspricht, bekommt die **Executive**-Gruppe die Aufgabe der *Einstufung und Zuteilung* übertragen. Die Studie wird somit in den Arbeitsablauf einer normalen Studie verschoben.
+Der Arbeitsablauf einer Einreichung beginnt mit der *Einreichung*.
+Nach dieser wird der Antrag vorab auf inhaltliche Vollständigkeit und formale Richtigkeit überprüft.
+Sollte der Antrag nicht angenommen werden, geht er zurück zur Bearbeitung an den Einreicher.
+Je nachdem, ob es sich um eine retrospektive Dipl./Diss. oder eine Studie andere Art handelt, passiert diese Überprüfung der formalen Kriterien entweder bei der **Diplomarbeit Formale Prüfung** oder bei der **Einreichung Formale Prüfung**.
+Diese Unterscheidung besteht, um die große Anzahl an Dipl./Diss.-Anträgen in der EK besser bewältigen zu können.
+So kann einer der Office-Mitarbeiter Diplomanden betreuen, damit die anderen Studien von den restlichen Mitarbeitern der EK effizienter bearbeitet werden können.
 
-Wenn die Studie sowohl eine Dipl/Diss, als auch Retrospektiv ist, erhält die **Dipl/Diss Beurteiler**-Gruppe die Aufgabe, einen Votumsvorschlag zu erstellen. Fällt die Empfehlung positiv aus, bekommt die **Executive**-Gruppe eine *Thesis Recommendation Review*-Aufgabe. Fällt sie negativ aus, wird die Studie wieder zur Executive-Gruppe verschoben, wo eine normale *Einstufung und Zuteilung* vorgenommen wird.
+Nach der formalen Überprüfung wird die Studie von einem Executive-Mitglied eingestuft. In der **Einstufung** werden Eckdaten der Studie angegeben und die weiteren Arbeitsschritte durch Auswahl eines sogenannten Arbeitsablaufes bestimmt.
+Nach Abschluss der Einstufung und vor Abschluss ihrer Überprüfung wird die Studie unter Berücksichtigung der Einreichfristen einer Sitzung zugeordnet.
+Jede Einstufung wird durch einen Mitarbeiter der Office-Gruppe überprüft um Fehleinstufungen zeitnahe zu finden und etwaige Folgefehler dadurch zu vermeiden.
 
-In der *Thesis Votum Empfehlung Review* wird die Studie von der **Executive**-Gruppe noch einmal überprüft, bevor sie in die Sitzung kommt.
+Für jede eingereichte Studie muss ein vom Antragsteller und allen Prüfärzten unterschriebener Ausdruck des Einreichformulars bei der EK einlangen.
+Die dazugehörige **Unterschrift Prüfung** kann durchgeführt werden, sobald die Studie eingestuft wurde.
+Sind die Unterschriften nicht bis zum Sitzungstermin eingelangt, kann die Studie in der Sitzung nicht behandelt werden. Eine fehlende Unterschrift wird im Sitzungsassistenten deutlich angezeigt.
+Die Überprüfungs-Aufgabe ist erreichbar, indem der Barcode des unterschriebenen Antragsformulars mit einem Barcode-Scanner eingelesen wird. Der Fokus muss davor in das Suchfeld des ECS gesetzt werden. Handelt es sich bei dem unterschriebenen Formular um eine alte Version, wird eine diesbezügliche Warnung angezeigt.
 
-Im Laufe dieses Workflows wird die *Formale Prüfung Unterschrift* gemacht. Diese Aufgabe muss erledigt sein, bevor die Studie einer Sitzung zugeordnet wird.
+Je nach Arbeitsablauf müssen vor der Sitzung unterschiedliche Aufgaben erledigt werden.
+Bei einer Einreichung, die dem *Standard*-Arbeitsablauf folgt, muss für jede medizinische Kategorie, die bei der Einstufung angegeben wurde, eine **Spezialistenbewertung** durchgeführt werden.
+Welcher Spezialist für welche medizinische Kategorie zuständig ist, wird per Sitzung in der Spezialistenzuordnung festgelegt.
+Für Studien nach anderen Arbeitsabläufen (*Expedited*, *Retrospektive Dipl./Diss.*, *Lokale EK*) werden eine oder mehrere *Empfehlungen* eingeholt. Ist die Empfehlung positiv, wird von einem Mitarbeiter der Office-Gruppe in der **Votumsvorbereitung** ein Beschluss und ein Votumstext vorausgefüllt, der dann bei der Sitzung bestätigt werden kann. Ist die Empfehlung negativ, muss die Studie erneut eingestuft werden, und wird danach üblicherweise im *Standard*-Verfahren behandelt.
 
-Sollte sich im *Normalen Einreichungs*-Workflow bei der *Einstufung und Zuteilung* herausstellen, dass es sich bei vorliegender Studie um eine Dipl/Diss und/oder Retrospektive handelt, kann die **Executive**-Gruppe die Studie in den *Retrospektive Diplomarbeit/Dissertation*-Workflow verschieben. Die **Dipl/Diss Prüfer** überprüfen, ob es sich tatsächlich um eine Dipl/Diss und/oder Retrospektive handelt. Falls ja, bleibt die Studie im *Retrospektive Diplomarbeit/Dissertation*-Workflow. Falls nein, geht die Studie zurück zur *Normalen Einreichung* und wird von der Executive-Gruppe wiederholt eingestuft und zugeteilt.
+**Zusätzliche Beurteilungen** können nach Bedarf jederzeit angefordert werden. (Während der Einstufung, oder im *Arbeitsablauf*-Tab in der Leseansicht einer Studie.)
 
-Sonderfall 1: Wenn eine Studie fälschlicherweise von der **Dipl/Diss Beurteiler**-Gruppe nicht als Diplomarbeit gekennzeichnet ist, kommt sie in den *Normalen Einreichung*-Workflow wo sie von der **Executive**-Gruppe erneut eingestuft und zugeteilt wird.
+Das EK-Office kann auch ein **Gutachten** anfordern. Dieses wird von einer aussenstehenden Person durchgeführt, die für die einreichenden Personen anonym bleibt. Sobald so ein Gutachten eingelangt ist, kann es von einem Executive-Mitglied veröffentlicht oder fallen gelassen werden. Ein fallen gelassenes Gutachten wird bei der Beschlussfindung nicht berücksichtigt.
 
-Sonderfall 2: Falls eine Studie fälschlicherweise nicht als Dipl/Diss und/oder Retrospektive kategorisiert ist, wird sie von der **Executive**-Gruppe aus der *Normalen Einreichung in die *Retrospektive Diplomarbeit/Dissertation* verschoben. Die Gruppe der **Dipl/Diss Beurteiler** stimmt dieser Entscheidung zu, oder lehnt diese ab. Die Studie wird so lange zwischen den beiden Gruppen hin und her geschickt, bis es zu einer Einigung kommt.
 
-Expedited
-=========
+Votum/Mitteilung
+================
 
-Jede Studie, außer eine Dipl/Diss, kann 'Expedited' sein.
+.. image:: /images/workflow/vote.png
 
-Nach erfolgreicher Einreichung und formaler Überprüfung stuft die **Executive**-Gruppe die Studie in der *Einstufung und Zuteilung* als *Expedited* ein. Dabei werden Spezialisten für die Studie ausgewählt. Es sind auch andere Überprüfungen möglich.
+Nach Beendigung einer Sitzung wird für alle Studien, zu denen in dieser Sitzung ein Beschluss gefasst wurde, der Votum-Arbeitsablauf gestartet.
+Der erste Schritt ist die Erstellung der Endfassung des Votumstextes (Ausbesserung von Tippfehlern, Ersetzung von Abkürzungen, etc.) durch einen Mitarbeiter der Office-Gruppe.
+Danach wird das Votum von der Office-Gruppe intern überprüft, um danach an die Executive-Gruppe für die endgültige Überprüfung übergeben zu werden.
+Wird bei einem dieser Arbeitsschritte ein Fehler gefunden, kommt das Votum zurück an die Office-Gruppe.
+Sobald alle Fehler beseitigt sind, wird das Votum von einem Mitglied der EC-Signing Gruppe signiert.
+Das so erzeugte elektronisch signierte Votum wird vom ECS automatisch dem Einreicher zugänglich gemacht.
 
-Bei der *Expedited Recommendation Review* gibt die Gruppe der **Expedited Beurteiler** einen Votumsvorschlag ab.
+Für die elektronische Signierung wird eine E-Card benötigt, die dafür aktiviert wurde.
+Siehe die `Seite zur Buergerkarte <https://www.buergerkarte.at/>`_.
 
-Die Gruppe der **Internen Prüfer** überprüft diesen Votumsvorschlag.
+Mögliche Beschlüsse
++++++++++++++++++++
 
-Danach kommt die *Expedited*-Studie in die Sitzung.
+B1
+  Positives Votum. Die Studie kann beginnen.
 
-Lokale AMG
-==========
+B2
+  Unter der Bedingung von Nachbesserungen wird die Studie befürwortet.
+  Die Mitglieder der EK beauftragen die Geschäftsstelle, die Änderungen zu überwachen.
 
-Studien, bei der die Ethikkommission der MedUniWien die lokale Ethikkommission ist, werden als *Lokale AMG*-Studien kategorisiert.
+  Nachdem die Nachbesserungen eingelangt sind, wird eine **B2 Änderungsbewertung** generiert.
+  Ziel dieser Aufgabe ist es zu entscheiden, ob das Votum in ein positives (B1) Votum umgewandelt, oder die Studie bis zur nächsten Sitzung vertagt wird (B3).
 
-Geben Sie dafür die klinische Prüfung eines Arzneimittels in den *Eckdaten* an und wählen Sie im Tab *AMG* aus, dass es sich um eine eine multizentrische AMG-Studie handelt, bei der die Ethikkommission der MedUniWien die lokale Ethikkommission ist.
+B3
+  Vertagung. Es bestehen Einwände gegen die Studie. Der Einreicher hat je nach Satzung mehrere Sitzungsperioden Zeit, diese Einwände auszuräumen.
 
-Nach Einreichung und formaler Überprüfung bekommt die Studie von der Gruppe der **Lokalen AMG-Prüfer** einen Votumsvorschlag. Der Votumsvorschlag wird von den **Internen Prüfern** überprüft.
+B4
+  Die Studie wird nicht befürwortet.
 
-B2 Review
-=========
+B5
+  Die Studie gilt als zurückgezogen.
 
-Nachdem ein B2 Votum veröffentlicht wurde, wird eine B2 Review-Aufgabe generiert. Ziel dieser Aufgabe ist es zu entscheiden, ob das Votum in ein positives (B1) Votum umgewandelt oder die Studie in die nächste Sitzung vertagt wird (B3).
 
-Meldung / Amendment Review
-==========================
+Meldung
+=======
 
-Nach dem Abschicken des Amendments erhält die **Office**-Gruppe die Aufgabe der formalen Überprüfung des Amendments. Kann das Amendment nicht angenommen werden, wird der *Rejected*-Filter aktiviert und die Aufgabe abgeschlossen. Der Einreicher wird durch eine Systemnachricht von der Ablehnung des Amendments informiert. Bei Annahme ist der nächste Arbeitsschritt die Beurteilung des Amendments durch die Gruppe der **Meldungsbeurteiler**. Dabei wird das Amendment entweder als *Fertig* eingestuft, oder es braucht noch eine weitere Überprüfung. In beiden Fällen bekommt die **Executive**-Gruppe eine Aufgabe. Im zweiteren Fall kommt das Amendment zur **Meldungsbeurteiler**-Gruppe zurück. Dieser Arbeitsschritt geht so lange hin und her, bis beide Gruppen auf *Fertig* klicken.
+.. image:: /images/workflow/notification.png
+   :width: 100%
 
-Ist dies der Fall, muss die Protokolländerung nur noch signiert werden. Das macht die Gruppe der **Zeichungsberechtigten**. Die Protokolländerung wird nach der Signierung veröffentlicht. Der Einreicher wird über die Meldungsantwort benachrichtigt.
+Nachdem eine Meldung eingereicht wurde, wird diese von einem Mitarbeiter der Office-Gruppe überprüft und beantwortet.
+Dieser erste Arbeitsschritt ist im Sinne der Arbeitsverteilung nach Meldungstypen unterschieden.
+Sind nicht alle formalen Kriterien erfüllt, kann hier die Meldung sofort abgelehnt werden. Der Einreicher wird über eine solche Ablehnung automatisch informiert und die restlichen Arbeitsschritte zu der Meldung müssen nicht mehr durchlaufen werden.
+Danach wird die Meldungsantwort von einem Executive-Mitglied kontrollgelesen, der bei Mängeln das Office mit einer Korrektur beauftragen kann.
+Handelt es sich bei der Meldung nicht um ein Amendment, wird die Meldungsantwort nun veröffentlicht und damit dem Einreicher zugänglich gemacht.
 
-----------------------------
-
-Einzelne Arbeitsschritte im Detail
-++++++++++++++++++++++++++++++++++
-
-Formale Prüfung Einreichung
-===========================
-
-Erste inhaltliche Überprüfung eines Einreichformulars auf Vollständigkeit und Konsistenz. Im Falle einer positiven Überprüfung kommt die Studie in die nächste Stufe, sollte der Antrag nicht angenommen werden, geht er zurück zur Bearbeitung an den Einreicher.
-
-Formale Prüfung Unterschrift
-============================
-
-Es wird mittels eines Barcodes festgestellt, um welche Version der Studie es sich handelt. Alle benötigten Unterschriften (Antragsteller, Prüfärzte) werden kontrolliert.
-
-Einstufung und Zuteilung
-========================
-
-Fachliche Einstufung, die benötigt wird, um die Studie richtig beurteilen zu können: Bestimmung des Studientyps, Festlegung medizinischer Kategorien, Zuteilung externer Gutachter, Bestimmung, ob ein Versicherungsreview gebraucht wird, usw. Durch die Einstufung und Zuteilung starten einge weitere Arbeitsschritte.
-
-Gutachten
-=========
-
-Eine fachlich kompetente Person beurteilt, ob die Studie vom medizinischen Fachgebiet her zu befürworten ist.
-
-Patienteninformation: Bewertung
-===============================
-
-Die Patienteninformationen werden hinsichtlich rechtlicher und patientengerechter Kriterien von Fachpersonen überprüft.
-
-Versicherungsbewertung
-======================
-
-Nur falls eine Versicherung benötigt wird. Die Überprüfung ist eine fachliche Beurteilung, ob die vorhandene Versicherung den gesetzlichen Vorgaben entspricht.
-
-Statistische Bewertung
-======================
-
-Die im Einreichungsformular angegebenen Daten und Auswertungskriterien werden fachlich überprüft.
-
-GCP-Bewertung
-=============
-
-Eine formale und inhaltliche Detailprüfung nach GCP ("Good Clinical Practice"). Das ist ein Standard, um eine Qualitätssicherung im klinischen Arbeitsalltag sicherzustellen.
-
-Formale Prüfung Diplomarbeit, Einstufung und Zuteilung Diplomarbeit
-===================================================================
-
-Diplomarbeiten oder Dissertationen werden zuallererst von den Zuständigen der Geschäftsstelle für Diplomarbeiten und Dissertationen formal überprüft. Diese Tätigkeiten entsprechen vom Ablauf her der *Formalen Prüfung Einreichung* und der *Einstufung und Zuteilung* bei allgemeinen Studien.
-
--------------------------------------------
-
-Voten
-+++++
-
-B1 Votum
-========
-
-Positives Votum. Die Studie kann beginnen.
-
-B2 Meldung
-==========
-
-Unter der Bedingung von Nachbesserungen wird die Studie befürwortet. Die Mitglieder der Ethikkommission beauftragt die Geschäftsstelle, die Änderungen zu überwachen.
-
-B3 Meldung
-==========
-
-Vertagung. Es bestehen Einwände gegen die Studie, der Einreicher hat je nach Satzung mehrere Sitzungsperioden Zeit, diese Einwände auszuräumen.
-
-B4 Votum
-========
-
-Die Studie wird nicht befürwortet.
-
-B5 Meldung
-==========
-
-Die Studie gilt als zurückgezogen.
+Substanzielle Amendments werden nach der Erstellung einer Meldungsantwort einer Sitzung zugeordnet, in der von der EK beschlossen wird, ob dem Amendment stattgegeben wird.
+Die Antworten zu Meldungen die auf diesem Weg in einer Sitzung bestätigt wurden, werden von einem Mitglied der EC-Signing Gruppe elektronisch signiert und veröffentlicht.
+Andere Amendmentantworten werden in der Regel vor der Veröffentlichung nicht signiert.
+Dies kann jedoch im letzten Arbeitsschritt von einem Executive-Mitglied für Spezialfälle ausgewählt werden.
