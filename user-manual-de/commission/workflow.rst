@@ -8,14 +8,14 @@ Einreichung
 .. image:: /images/workflow/submission.png
    :width: 100%
 
-Der Arbeitsablauf einer Einreichung beginnt mit der *Einreichung*.
+Der Arbeitsablauf einer Studie beginnt mit der **Einreichung**.
 Nach dieser wird der Antrag vorab auf inhaltliche Vollständigkeit und formale Richtigkeit überprüft.
 Sollte der Antrag nicht angenommen werden, geht er zurück zur Bearbeitung an den Einreicher.
-Je nachdem, ob es sich um eine retrospektive Dipl./Diss. oder eine Studie andere Art handelt, passiert diese Überprüfung der formalen Kriterien entweder bei der **Diplomarbeit Formale Prüfung** oder bei der **Einreichung Formale Prüfung**.
+Je nachdem, ob es sich um eine retrospektive Dipl./Diss. oder eine Studie anderer Art handelt, passiert diese Überprüfung der formalen Kriterien entweder bei der **Diplomarbeit Formale Prüfung** oder bei der **Einreichung Formale Prüfung**.
 Diese Unterscheidung besteht, um die große Anzahl an Dipl./Diss.-Anträgen in der EK besser bewältigen zu können.
 So kann einer der Office-Mitarbeiter Diplomanden betreuen, damit die anderen Studien von den restlichen Mitarbeitern der EK effizienter bearbeitet werden können.
 
-Nach der formalen Überprüfung wird die Studie von einem Executive-Mitglied eingestuft. In der **Einstufung** werden Eckdaten der Studie angegeben und die weiteren Arbeitsschritte durch Auswahl eines sogenannten Arbeitsablaufes bestimmt.
+Nach der formalen Überprüfung wird die Studie von einem Executive-Mitglied eingestuft. In der **Einstufung** werden Eckdaten der Studie angegeben und die weiteren Arbeitsschritte durch Auswahl eines sogenannten Arbeitsablaufs bestimmt.
 Nach Abschluss der Einstufung und vor Abschluss ihrer Überprüfung wird die Studie unter Berücksichtigung der Einreichfristen einer Sitzung zugeordnet.
 Jede Einstufung wird durch einen Mitarbeiter der Office-Gruppe überprüft um Fehleinstufungen zeitnahe zu finden und etwaige Folgefehler dadurch zu vermeiden.
 
