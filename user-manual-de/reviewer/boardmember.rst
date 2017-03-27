@@ -1,6 +1,6 @@
-=============================
-Als Ethikkommissions-Mitglied
-=============================
+=================================
+Sitzungsansicht für EK-Mitglieder
+=================================
 
 Die Sitzungsübersicht zeigt Ihnen alle Einreichungen und Meldungen für die aktuelle Sitzung. Die Tagesordnungspunkte sind im Tab *Einreichungen* verfolgbar. 
 

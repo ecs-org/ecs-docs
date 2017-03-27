@@ -1,6 +1,6 @@
-===================
-Als Geschäftsstelle
-===================
+=======================
+Für die Geschäftsstelle
+=======================
 
 Inhaltsverzeichnis
 ==================
