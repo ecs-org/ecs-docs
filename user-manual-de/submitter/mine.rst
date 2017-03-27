@@ -7,7 +7,7 @@ Unter dem Menüunterpunkt *Meine Studien* werden Ihnen alle Studien angezeigt, i
 Studie ansehen
 ++++++++++++++
 
-Der Einreicher hat die Möglichkeit in eine Studie, welche bereits ein Votum bekommen hat, nochmals einzusehen. Dabei wird Ihnen die Leseansicht präsentiert. Wollen Sie Änderungen an der Studie vornehmen, klicken Sie auf *Bearbeiten*.
+Der Einreicher hat die Möglichkeit in eine Studie, welche bereits ein Votum bekommen hat, nochmals einzusehen. Dabei wird Ihnen die Leseansicht präsentiert.
 
 Exportieren der Studie
 ++++++++++++++++++++++

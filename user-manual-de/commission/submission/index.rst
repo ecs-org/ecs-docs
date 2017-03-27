@@ -7,10 +7,10 @@ Generell/Status
 
 Der *Status*-Tab zeigt den aktuellen Status der Studie an sowie alle Personen, die an dieser Studie beteiligt sind.
 
-Einreicher/Sicherheitsmeldungsersteller ändern
-++++++++++++++++++++++++++++++++++++++++++++++
+Einreicher / Sicherheitsmeldungsersteller ändern
+++++++++++++++++++++++++++++++++++++++++++++++++
 
-Rechnungsempfänger und Sicherheitsmeldungsersteller können geändert werden. Durch einen Klick auf *Ändern* in der entsprechenden Zeile werden Sie auf eine neue Seite geleitet. Bestimmen Sie den neuen Einreicher/Sicherheitsmeldungsersteller und klicken Sie dann auf *Einreicher ändern* bzw. *Sicherheitsmeldungsersteller ändern*. Sie werden zurück zum Status geleitet, wo der neue Name aufscheint. Die neu bestimmte Person wird durch eine automatische Systemnachricht darüber informiert.
+Einreicher und Sicherheitsmeldungsersteller können geändert werden. Durch einen Klick auf *Ändern* in der entsprechenden Zeile werden Sie auf eine neue Seite geleitet. Bestimmen Sie den neuen Einreicher/Sicherheitsmeldungsersteller und klicken Sie dann auf *Einreicher ändern* bzw. *Sicherheitsmeldungsersteller ändern*. Sie werden zurück zum Status geleitet, wo der neue Name aufscheint. Die neu bestimmte Person wird durch eine automatische Systemnachricht darüber informiert.
 
 Sitzungsansicht
 +++++++++++++++
@@ -44,7 +44,7 @@ Beachten Sie, dass Sie die Einstufung nur dann machen können, wenn Sie die Aufg
 Erneut Einstufen
 ++++++++++++++++
 
-Eine Studie kann neu kategorisiert werden. Klicken Sie dafür auf *Neu öffnen* in der Leseansicht der Einstufung im *Einstufungs*-Tab. Die Einstufung ist nun erneut bearbeitbar.
+Eine Studie kann neu kategorisiert werden. Klicken Sie dafür auf *Neu öffnen* in der Leseansicht der Einstufung im *Einstufungs*-Tab. Die Einstufung ist nun erneut bearbeitbar. Falls ein anderer Benutzer aus der Executive-Gruppe als der Erstersteller die Einstufung neu öffnet, wird der Erstersteller via Nachricht darüber informiert.
 
 Generell/Arbeitsablauf
 ======================
@@ -90,10 +90,12 @@ Befangene Parteien
 
 Sie können Parteien, die aus diversen Gründen an der Beurteilung einer Studie nicht mitarbeiten dürfen, unter *Befangene Parteien* festlegen. Wählen Sie dafür die Partei mittels Auwahlfeld aus und klicken Sie dann auf *Hinzufügen*. Die Partei erscheint nun als befangen. Wollen Sie eine hinzugefügte befangene Partei löschen, klicken Sie auf das Löschen-Symbol am rechten Rand der betreffenden Zeile. 
 
+Befangenen können keine Aufgaben zugeteilt werden. Wenn ein Befangener schon eine Aufgabe hat, wird dies hier angezeigt. 
+
 Voten
 =====
 
-Sie können nach einer abgeschlossenen Sitzung unter *Ausstehende Voten* in das Votum einer Studie einsehen. Die Voten sind zu diesem Zeitpunkt noch nicht veröffentlicht und daher noch nicht unter *Veröffentlichte Voten* für alle (inklusive Einreicher) einsehbar. Sobald die Voten veröffentlicht wurden, verschwindet der Tab *Ausstehende Voten* wieder. 
+Sie können nach einer abgeschlossenen Sitzung unter *Veröffentlichte Voten* in das Votum einer Studie einsehen. 
 
 "History" der Voten
 +++++++++++++++++++

@@ -38,7 +38,7 @@ Im *Status* finden Sie tabellarisch dargestellte Detailinformationen zur angeleg
 
 - Der Titel wird sowohl in der Liste der Sitzungen, als auch in den Schriftstücken, die diese Sitzung betreffen (Agenda-PDF, Einladung der Teilnehmer, etc.), angezeigt.
 
-- Sie können den Sitzungstermin ändern. Klicken Sie dafür in der Zeile *Geplant für* auf *Bearbeiten*. Das System leitet Sie zur entsprechenden Seite weiter. Machen Sie dort Ihre Änderungen und klicken Sie dann auf *Speichern*. Sie werden zurück auf den Status geleitet, wo die Änderungen aufscheinen. 
+- Sie können den Sitzungstermin ändern. Klicken Sie dafür in der Zeile *Geplant für* auf den *Bearbeiten*-Button. Das System leitet Sie zur entsprechenden Seite weiter. Machen Sie dort Ihre Änderungen und klicken Sie dann auf *Speichern*. Sie werden zurück auf den Status geleitet, wo die Änderungen aufscheinen. 
 
 - Zeigt der Status *gestartet* an, ist die Sitzung gerade am Laufen. Zeigt der Status *beendet* an, wurde die Sitzung gerade abgeschlossen. Zeigt der Status *neu* an, dann handelt es sich um eine Sitzung, die noch nicht als *gestartet* oder *beendet* markiert wurde.
 
@@ -61,6 +61,25 @@ Bei den Kategorien des oberen Blocks (*Standard*, *AMG*, *MPG*, *AMG/MPG*, *Ande
 
 Alle Studien dieser Sitzung sind für berechtigte Gruppen als Link neben der jeweiligen Kategorie zu finden.
 
+Offene Aufgaben
++++++++++++++++
+
+Hier sehen sie die offenen Aufgaben zu den Studien die in dieser Sitzung behandelt werden. Damit können Sie bei der Vorbereitung der Sitzung sicherstellen, dass alle für die Sitzung notwendigen Aufgaben vor derm Start der Sitzung abgeschlossen werden.
+
+Einreichungen
++++++++++++++
+
+Im Tab *Einreichungen* sehen Sie eine Aufstellung der Tagesordnungspunkte in chronologischer Reihenfolge. Während einer Sitzung ist der aktuelle TOP blau genkennzeichnet. Der Tab wird regelmäßig automatisch aktualisiert.
+
+
+- Über den Studien-Link gelangen Sie zur Leseansicht einer Studie. 
+
+- Über das Download-Symbol lassen sich einzelne Studien herunterladen. 
+
+- Sie können alle Dokumente der Sitzung als zip-Datei herunterladen.
+
+- Notizen zu Studien sind über das Notizblock-Symbol einsehbar.
+
 Meldungen
 +++++++++
 
@@ -72,7 +91,9 @@ Planung
 Spezialistenzuordnung
 +++++++++++++++++++++
 
-In der Einstufung und Zuteilung wurden die Studien bestimmten medizinischen Kategorien zugeordnet. In der Spezialistenzuordnung können Sie nun auswählen, welcher Spezialist für eine bestimmte medizinische Kategorie in dieser Sitzung zuständig sein soll.
+In der Einstufung wurden die Studien bestimmten medizinischen Kategorien zugeordnet. In der Spezialistenzuordnung können Sie nun auswählen, welcher Spezialist für eine bestimmte medizinische Kategorie in dieser Sitzung zuständig sein soll.
+
+Die Spezialistenzuordnung zeigt auch die Befangenen an.
 
 Zeitplanung
 +++++++++++
@@ -99,7 +120,9 @@ Die Bearbeitung muss gespeichert werden, damit sie in die Zeitplanung aufgenomme
 Verletzte Einschränkungen
 -------------------------
 
-Wurde im Zeitraum, in dem ein Teilnehmer nicht anwesend ist (diese Zeit wird unter *Einschränkungen bearbeiten* angegeben), ein seine Anwesenheit erforderlicher TOP geplant, so scheint diese Kollision unter der Überschrift *Verletzte Einschränkungen* auf. Der Hinweis soll Ihnen helfen, mögliche Organisationsfehler zu verhindern.
+Wurde im Zeitraum, in dem ein Teilnehmer nicht anwesend ist (diese Zeit wird unter *Einschränkungen bearbeiten* angegeben), ein seine Anwesenheit erforderlicher TOP geplant, so scheint diese Kollission unter *Verletzte Einschränkungen* auf. Verletzte Einschränkungen werden rot gekennzeichnet, die Anderen in grün. TOPs die eine Einschränkung verletzen werden auch rot gekennzeichnet.
+
+Falls es nicht möglich ist alle Einschränkungen zu erfüllen, können Sie eine Einschränkung für einene TOP ignorieren, indem sie beim TOP auf den jeweiligen Teilnehmernamen klicken. Dadurch wird der Teilnehmer durchgestrichen und das TOP rosa markiert. Damit wird die Einschränkung für diesen TOP bei der Optimierung ignoriert. Sie können dann für diesen Teilnehmer einen manuellen TOP zu einem anderen Zeitpunkt anlegen.
 
 Optimierungen
 -------------
@@ -108,8 +131,8 @@ Wenn Sie auf den Link *Optimieren* klicken, wird Ihnen automatisch - unter Berü
 
 Falls Sie mehr Zeit für die Planung der TOPs zur Verfügung haben, besteht die Möglichkeit, die Funktion *Lange Optimieren* zu nutzen. Die Wartedauer ist etwas länger als bei der normalen Optimierung, aber das Ergebnis fällt vorteilhafter aus.
 
-Tagesordungspunkte selbst erstellen
------------------------------------
+Tagesordnungspunkte selbst erstellen
+------------------------------------
 
 Sie können einen neuen TOP hinzufügen (z.B. eine Pause oder einen TOP, der keinen Bezug zu einer Studie hat), indem Sie auf den Link *Termin hinzufügen* klicken. Sie werden auf die entsprechende Seite weitergeleitet. Geben Sie einen Titel ein. Wenn es sich dabei um eine Pause handelt, schreiben Sie "Pause", "Mittagspause" o.ä. in das Titel-Eingabefeld und aktivieren Sie zusätzlich die Checkbox. Tragen Sie außerdem die ideale Startzeit und die Dauer ein. Die von Ihnen angegebene ideale Startzeit wird bei einer gegebenenfalls durchgeführten Optimierung berücksichtigt. Wenn Sie während der Erstellung abbrechen wollen, klicken Sie auf den entsprechenden Button. Wenn Sie die Angaben speichern, werden Sie zurück auf die Übersicht aller TOPs geführt, wo das neu erstellte TOP automatisch als letztes eingereiht wird. Klicken Sie auf eine der beiden Optimierungs-Optionen, um den neuen TOP möglichst gut in den Tagesablauf zu integrieren oder verschieben Sie es manuell.
 
@@ -123,7 +146,7 @@ Um die Einträge des Zeitplans manuell umzusortieren, nehmen Sie ein Element des
 Zeitdauer eines TOPs ändern
 ---------------------------
 
-Innerhalb eines jeden TOPs gibt es ein Eingabefeld, in dem Sie die Zeitdauer auf einen längeren oder kürzeren Zeitraum ändern können. (z.B. 10:15:00).
+Innerhalb eines jeden TOPs gibt es ein Eingabefeld, in dem Sie die Zeitdauer auf einen längeren oder kürzeren Zeitraum ändern können. (z.B. 00:15:00).
 
 Pausen-TOP
 ----------
@@ -142,7 +165,7 @@ Navigation
 
  * Um allgemeine Anmerkungen zur Sitzung zu notieren, klicken Sie auf *Kommentare*. Speichern Sie die Eingaben.
 
- * Wechseln Sie mit einem Klick die TOPs. Die Suche bietet Ihnen die Möglichkeit, einen TOP schnell zu finden.
+ * Wechseln Sie mit einem Klick die TOPs. Die Suche ("Top ..", EK-Nummer/Jahr z.B. 1011/2017) bietet Ihnen die Möglichkeit, einen TOP schnell zu finden. 
 
  * Sobald alle TOPs abgeschlossen sind, können Sie auf *Sitzung beenden* klicken.
 

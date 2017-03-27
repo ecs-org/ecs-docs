@@ -56,7 +56,7 @@ Bei einer Prüfung nach dem AMG ist hier die klinische Phase anzugeben, bei eine
 
 **Vorschläge für externe Gutachter**
 
-Bitte geben Sie Ihre Vorschläge für externe Gutachter an. Als externe Gutachter kommen vor allem Spezialisten aus dem Inland oder deutschsprachigen Ausland in Frage. Personen aus dem AKH sind wegen möglicher Befangenheiten zu vermeiden und werden von der Ethikkommission nicht berücksichtigt.
+Bitte geben Sie Ihre Vorschläge für externe Gutachter an. Als externe Gutachter kommen vor allem Spezialisten aus dem Inland oder deutschsprachigen Ausland in Frage.
 
 
 Teilnehmer
@@ -81,10 +81,6 @@ In Fällen, in denen eine Angabe der Dauer der Studienteilnahme nicht sinnvoll i
 **Aktive Phase**
 
 Hier gilt dasselbe wie im vorigen Punkt über die Dauer der Teilnahme.
-
-**Zentren im Ausland**
-
-Geben Sie alle teilnehmenden Auslandszentren an. Für jedes Zentrum muss der Name des Zentrums und der Titel bzw. Name des Prüfarztes angegeben werden. Bei Bedarf können weitere Auslandszentren hinzugefügt werden.
 
 Kurzfassung
 +++++++++++
@@ -156,11 +152,11 @@ Ist der Sponsor ident mit dem Rechungsempfänger, tragen Sie die Angaben zum Spo
 
 **Diplomarbeit/Dissertation**
 
-Falls es sich bei dieser Studie um eine Dissertation oder Diplomarbeit handelt, muss unter *Firma bzw. Organisation* die Medizinische Universität Wien und unter Kontaktperson Ihr Betreuer angegeben werden.
+Falls es sich bei dieser Studie um eine Dissertation oder Diplomarbeit handelt, muss unter *Firma bzw. Organisation* die Ethikkommission und unter Kontaktperson Ihr Betreuer angegeben werden.
 
 **Universität als Sponsorin**
 
-Bei nicht kommerziell gesponserten Studien ist die Medizinische Universität Wien als Sponsorin anzugeben.
+Bei nicht kommerziell gesponserten Studien ist die Ethikkommission als Sponsorin anzugeben.
 
 Antragsteller
 +++++++++++++
@@ -308,3 +304,7 @@ Achten Sie desweiteren darauf, dass das Feld *koordinierender Prüfarzt* nur ein
 **AMG**
 
 Bei mehreren Zentren und einer Studie nach dem Arzneimittelgesetz geben Sie im *AMG*-Tab an, ob es sich um eine multizentrische Studie mit der Ethikkommission der MedUniWien als Leit-Ethikkommission oder als begleitende lokale Ethikkommission handelt.
+
+**Zentren im Ausland**
+
+Geben Sie alle teilnehmenden Auslandszentren an. Für jedes Zentrum muss der Name des Zentrums und der Titel bzw. Name des Prüfarztes angegeben werden. Bei Bedarf können weitere Auslandszentren hinzugefügt werden.

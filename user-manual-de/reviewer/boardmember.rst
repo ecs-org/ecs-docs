@@ -19,7 +19,7 @@ Bei den Kategorien des oberen Blocks (*Standard*, *AMG*, *MPG*, *AMG/MPG*, *Ande
 Einreichungen
 =============
 
-Im Tab *Einreichungen* sehen Sie eine Aufstellung der Tagesordnungspunkte in chronologischer Reihenfolge. Während einer Sitzung ist der aktuelle TOP blau genkennzeichnet. Der Tab wird regelmäßig automatisch geupdated.
+Im Tab *Einreichungen* sehen Sie eine Aufstellung der Tagesordnungspunkte in chronologischer Reihenfolge. Während einer Sitzung ist der aktuelle TOP blau genkennzeichnet. Der Tab wird regelmäßig automatisch aktualisiert.
 
 
 - Über den Studien-Link gelangen Sie zur Leseansicht einer Studie. 
@@ -33,5 +33,5 @@ Im Tab *Einreichungen* sehen Sie eine Aufstellung der Tagesordnungspunkte in chr
 Meldungen
 =========
 
-Unter *Meldungen* sehen Sie alle studienbezogenen Meldungen für diese Sitzung.
+Unter *Meldungen* sehen Sie alle studienbezogenen Meldungen, die zwischen der Erstellung der Protokolle zweier Sitzungen von der Geschäftsstelle erledigt wurden. 
 

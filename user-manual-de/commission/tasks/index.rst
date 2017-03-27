@@ -17,7 +17,7 @@ Filtereinstellungen in der *Übersicht* und im Menüpunkt *Aufgaben* dienen zur 
 Offene Aufgaben
 ===============
 
-*Offene Aufgaben* sind alle Aufgaben, die noch nicht vergeben sind. Jeder Benutzer bekommt nur jene Aufgaben zur Auswahl, die seiner Gruppe entsprechen. 
+*Offene Aufgaben* sind alle Aufgaben, die noch nicht vergeben sind. Jeder Benutzer bekommt nur jene Aufgaben zur Auswahl, die in der Benutzerverwaltung festgelegt wurden. 
 
 Offene Aufgaben -> Meine Aufgaben
 =================================

@@ -12,7 +12,7 @@ Ethikkommissions-Internen steht eine **Workflow-Box** zur Verfügung, die Option
 Votum-Workflow
 ++++++++++++++
 
-Je nachdem welcher Button während der Bearbeitung des Tagesordnungspunktes zu dieser Sitzung betätigt wurde (Buttons: *Fertig Bürogruppe*, *Fertig Executive*), bekommt entweder die **Executive**-Gruppe oder die **Office**-Gruppe die Aufgabe, die Endbearbeitung des Votums zu machen.
+Je nachdem welcher Button während der Bearbeitung des Tagesordnungspunktes zu dieser Sitzung betätigt wurde, bekommt entweder die **Executive**-Gruppe oder die **Office**-Gruppe die Aufgabe, die Endbearbeitung des Votums zu machen.
 
 Wenn die **Executive**-Gruppe die Aufgabe erhalten hat, wird danach von der **Office**-Gruppe das Votum überprüft. Entscheidet die **Office**-Gruppe, dass das Votum fertig ist, folgt die Unterzeichnung des Votums von der Gruppe der **Zeichnungsberechtigten**.
 
@@ -28,7 +28,7 @@ Arbeitsabläufe
 Normale Einreichung
 ===================
 
-**Einreicher**: Kriterien, die einer *Normalen Einreichung* entsprechen: Die Studie darf nicht als Diplomarbeit/Dissertation (Tab *Eckdaten* -> *Diplomarbeit/Dissertation*) und nicht als multizentrische AMG-Studie mit der Ethikkommission der MedUniWien als lokale Ethikkommission gekennzeichnet sein (*AMG* -> *Einreichen als*).
+**Einreicher**: Kriterien, die einer *Normalen Einreichung* entsprechen: Die Studie darf nicht als Diplomarbeit/Dissertation (Tab *Eckdaten* -> *Diplomarbeit/Dissertation*) und nicht als multizentrische AMG-Studie mit der Ethikkommission als lokale Ethikkommission gekennzeichnet sein (*AMG* -> *Einreichen als*).
 
 Sobald die Studie eingereicht wurde, erhält die **Office**-Gruppe eine Aufgabe. In der *Formalen Überprüfung* wird die Studie in ihrer formalen Korrektheit überprüft. Wenn die Studie nicht bestätigt wurde, bekommt sie der Einreicher zurück. Die Studie muss dann überarbeitet und neu eingereicht werden.
 
@@ -40,11 +40,11 @@ Die **Externen Gutachter** bekommen nach Abschluss der Einstufung und Zuteilung 
 
 Die Gruppe der **Versicherungsprüfer** führt die Versicherungsbewertung der Studie durch. Mit einem Klick auf die Tätigkeit in der *Aufgaben*-Box gelangt der Versicherungsprüfer zur Checkliste. Dort soll beantwortet werden, ob die Versicherungsangabe vollständig und adäquat ist. Gegebenenfalls kann ein Kommentar dazu geschrieben werden.
 
-Die **Internen Prüfer** kontrollieren, ob die Patienteninformation und sonstige Unterlagen den Anforderungen entsprechen. Bei jedem Fragefeld ist ein zusätzliches Kommentar möglich. Auch diese Gruppe hat eine *Aufgaben*-Box, wo die Aufgabe zur Prüfung erscheint.
+Die **Geschäftstelle** kontrolliert, ob die Patienteninformation und sonstige Unterlagen den Anforderungen entsprechen. Bei jedem Fragefeld ist ein zusätzliches Kommentar möglich. Auch diese Gruppe hat eine *Aufgaben*-Box, wo die Aufgabe zur Prüfung erscheint.
 
 Die Gruppe der **Statistikprüfer** macht eine statistische Bewertung (Studienziel, Design der Studie, statistische Analyse, usw.). Neben den Auswahloptionen "Ja", "Nein" können zusätzliche Kommentare abgegeben werden. Die Aufgabe findet sich ebenfalls in der *Aufgaben*-Box.
 
-Die **Office**-Gruppe erledigt die *Formale Prüfung Unterschrift*. Scannen Sie dafür den Barcode, der sich auf allen Seiten des Studien-PDF's befindet. Wenn Sie dann in die Suchfunktion klicken, erscheint dort die gescannte Identifizierungsnummer. Ist das PDF nicht in der richtigen Version, wird dies vom System erkannt und angezeigt. Wenn die aktuelle Version identifiziert werden konnte, kann die Aufgabe in der *Workflow*-Box abgeschlossen und abgeschickt werden.
+Die **Office**-Gruppe erledigt die *Formale Prüfung Unterschrift*. Klicken Sie dafür ins Suchfeld und scannen Sie dann den Barcode, der sich auf allen Seiten des Studien-PDF's befindet. Wenn Sie dann in die Suchfunktion klicken, erscheint dort die gescannte Identifizierungsnummer. Ist das PDF nicht in der richtigen Version, wird dies vom System erkannt und angezeigt. Wenn die aktuelle Version identifiziert werden konnte, kann die Aufgabe in der *Workflow*-Box abgeschlossen und abgeschickt werden.
 
 Die **Überprüfer des Gutachtens** entscheiden, ob das Gutachten akzeptiert wird. Das Gutachten kann veröffentlicht werden wenn es in Ordnung ist, oder es kommt zurück zum externen Gutachter. Sobald das Gutachten akzeptiert wurde, kann es auch von den Sitzungsmitgliedern und den einreichenden Parteien eingesehen werden.
 
@@ -52,8 +52,6 @@ Die Studie kommt nach positiver Einreichung in eine Sitzung.
 
 Retrospektive Diplomarbeit/Dissertation
 =======================================
-
-**Einreicher**: Kriterien, die einer *Retrospektiven Diplomarbeit/Dissertation* entsprechen: Geben Sie unter den *Eckdaten* an, ob es sich um eine Diplomarbeit oder eine Dissertation handelt. Aktivieren Sie gegebenenfalls zusätzlich die Checkbox *Retrospektive Datenauswertung*.
 
 Nach erfolgreicher Einreichung eröffnet sich für die Gruppe der **Dipl/Diss-Prüfer** die Aufgabe der *Formalen Überprüfung Diplomarbeit*. Bei dieser Tätigkeit wird kontrolliert, ob die Studie formal in Ordnung ist und alle Unterlagen vorhanden sind. Sollte die Studie diesbezügliche Mängel aufweisen, wird der Einreicher mit einer Nachricht darüber informiert. Der Dipl/Diss-Prüfer hat dafür in der *Workflow*-Box die *Ablehnen*-Option.
 
@@ -142,7 +140,7 @@ Versicherungsbewertung
 
 Nur falls eine Versicherung benötigt wird. Die Überprüfung ist eine fachliche Beurteilung, ob die vorhandene Versicherung den gesetzlichen Vorgaben entspricht.
 
-statistische Bewertung
+Statistische Bewertung
 ======================
 
 Die im Einreichungsformular angegebenen Daten und Auswertungskriterien werden fachlich überprüft.
@@ -155,7 +153,7 @@ Eine formale und inhaltliche Detailprüfung nach GCP ("Good Clinical Practice").
 Formale Prüfung Diplomarbeit, Einstufung und Zuteilung Diplomarbeit
 ===================================================================
 
-Diplomarbeiten oder Dissertationen werden zuallererst von der *Diplomarbeitsgruppe* formal überprüft. Diese Tätigkeiten entsprechen vom Ablauf her der *Formalen Prüfung Einreichung* und der *Einstufung und Zuteilung* bei allgemeinen Studien.
+Diplomarbeiten oder Dissertationen werden zuallererst von den Zuständigen der Geschäftsstelle für Diplomarbeiten und Dissertationen formal überprüft. Diese Tätigkeiten entsprechen vom Ablauf her der *Formalen Prüfung Einreichung* und der *Einstufung und Zuteilung* bei allgemeinen Studien.
 
 -------------------------------------------
 
@@ -170,7 +168,7 @@ Positives Votum. Die Studie kann beginnen.
 B2 Meldung
 ==========
 
-Unter der Bedingung von Nachbesserungen wird die Studie befürwortet. Das Board der Ethikkommission beauftragt die Geschäftsstelle, die Änderungen zu überwachen.
+Unter der Bedingung von Nachbesserungen wird die Studie befürwortet. Die Mitglieder der Ethikkommission beauftragt die Geschäftsstelle, die Änderungen zu überwachen.
 
 B3 Meldung
 ==========
