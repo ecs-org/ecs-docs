@@ -15,6 +15,7 @@ See [the ECS-Hompage](https://ecs-org.github.io/ecs-docs) for Information about 
         + sphinxcontrib-programoutput sphinxcontrib.youtube sphinxcontrib-inlinesyntaxhighlight
 + The Homepage is rendered using [Pelican](https://blog.getpelican.com/)
     + Sourcefiles can be restructured text and markdown
+        + markdown support is using [python markdown](https://pythonhosted.org/Markdown/)
     + HTML is generated as output
   
 ## Quickstart
