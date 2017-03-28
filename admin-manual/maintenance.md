@@ -143,7 +143,7 @@ The following items are updated:
     + the ecs-docs source will be updated
     + the corresponding support container will be updated
 
-**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. If you **do not make metric recording and alerting**, we **recommend updating only manual**. To do this, enter "False" under appliance:update:automatic in the file env.yml. For a manual update run call `systemctl start appliance-update`
+**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. **If you do not make metric recording and alerting, we recommend updating only manual.** To do this, enter "False" under appliance:update:automatic in the file env.yml. For a manual update run call `systemctl start appliance-update`
 
 ### Logging Configuration
 
