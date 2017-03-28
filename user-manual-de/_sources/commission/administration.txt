@@ -5,7 +5,8 @@ Verwaltung
 Benutzerverwaltung
 ==================
 
-In der Benutzerverwaltung scheinen alle Personen auf, die im ECS-System aktiv sind (sowohl bestätigte als auch nicht-bestätigte). Hier können Benutzer bestätigt, deren Daten bearbeitet und bestimmte Personen (z.B. Gutachter) eingeladen werden.
+In der Benutzerverwaltung scheinen alle Personen auf, die im ECS-System registriert sind. 
+Hier können Benutzer bestätigt, deren Daten bearbeitet und bestimmte Personen (z.B. Gutachter) eingeladen werden.
 
 Benutzer einladen
 +++++++++++++++++
@@ -14,12 +15,12 @@ Benutzer einladen
 
 Geben Sie Name, Geschlecht, Titel und E-Mail-Adresse an und wählen Sie unter *Gruppen* jene Gruppe aus, in der die betreffende Person eine Funktion erfüllt (z.B. Executive, Überprüfer des Gutachtens, externer Gutachter, Versicherungsprüfer, usw.). Beispiel: Bei der Einladung eines Sitzungsmitgliedes muss unter *Gruppe* "Sitzungsmitglied" ausgewählt werden. Wählen Sie desweiteren die Aufgabenart und die medizinische Kategorie. Es kann auch ein Fachgebiet für ein Expedited Review ausgewählt werden. Mit einem Klick auf *Einladen* wird der neue Benutzer angelegt.
 
-Alle Personen, die in der *Bürogruppe* tätig sind, müssen als *Intern* markiert werden. Dies ist nötig, damit jedes Mitglied der Bürogruppe in alle Studien einsehen kann. 
-
 Benutzerdetails ändern
 ++++++++++++++++++++++
 
 Die Daten eines bereits angelegten Benutzers können über den Link *Details ändern* geändert werden. Klicken Sie dafür auf den betreffenden Namen in der Liste der Benutzer. Es öffnet sich die Detailansicht des Benutzers und der betreffende Link. Klicken Sie auf den Link. Sie werden auf eine neue Seite geleitet, wo Angaben geändert werden können. Klicken Sie zum Schluss auf *Speichern*.
+
+Hier kann die Zuordnung zu Gruppen und Aufgabentypen geändert werden. Wenn ein Aufgabentyp einer Gruppe ausgewählt wird, ohne dass der Benutzer auch zu dieser Gruppe gehört, erscheint eine Fehlermeldung. Das bloße Zuteilen einer Gruppe zu einem Benutzer, bewirkt noch nicht, dass der Benutzer auch Aufgaben dieser Gruppe sehen kann. Dazu müssen die gewünschten Aufgabentypen im entsprechenden Auswahlfeld ausgewählt werden. Wird ein Aufgabentyp hinzugefügt oder entfernt, werden alle Benutzer der entsprechenden Gruppe mit einer Systemnachricht verständigt.
 
 Benutzersuche
 +++++++++++++
@@ -34,21 +35,51 @@ Damit der interne Arbeitsprozess der Ethikkommission weiterlaufen kann wenn ein 
 Die abwesende Person bekommt dafür in der Benutzerverwaltung den Status *Verhindert* und wird durch eine Vertretungsperson ersetzt. Klicken Sie dafür auf den Namen der verhinderten Person. Es öffnet sich eine detailierte Aufstellung ihrer Daten. Hier finden Sie auch den Link *Als Verhindert markieren*. Wenn Sie auf den Link klicken, werden Sie auf die Seite geleitet, wo die Person mittels einer Checkbox als verhindert markiert und die Nachrichtenvertretung ausgewählt wird. Sobald Sie auf *Speichern* geklickt haben, erscheint der Benutzer in der Benutzerliste als verhindert. Die Nachrichtenvertretung erhält alle Nachrichten, die im Abwesenheitszeitraum an die abwesende Person geschickt werden. Die angenommenen Aufgaben der abwesenden Person werden für die jeweilige Gruppe in der *Aufgaben*-Box unter der Überschrift *Vertretungsaufgaben* angezeigt. 
 
 Wenn eine Person als "abwesend" markiert wurde, wechselt in der Benutzerverwaltung der Link *Als Verhindert markieren* zu *Als Anwesend markieren*. Damit Sie die Anzeige zur Abwesenheit aufheben können, klicken Sie auf den Link *Als Anwesend markieren* und speichern Sie die Änderungen.
+Eine abwesende Person kann ihren Status, über den sie durch eine Meldung informiert wurde, im Profil oder in der Benutzerverwaltung ändern.
+
+Abrechnung
+==========
+
+Die Abrechnung von unverrechneten Einreichungen und Gutachten erfolgt durch Mitglieder der Executive- und Office-Gruppe.
 
 Gebührenabrechnung
-==================
+++++++++++++++++++
 
 In der Gebührenabrechnung wird die Abrechnung von unverrechneten Einreichungen erstellt. Benutzen Sie die Filter, um eine Auswahl der studienbezogenen Rechungen zu treffen. Laden Sie dann die Auflistung als xls-Datei herunter und schicken Sie diese weiter an die Finanzabteilung.
 
 Gutachter-Bezahlung
-===================
++++++++++++++++++++
 
 In der Gutachter-Bezahlung wird die Abrechnung von unverrechneten Gutachten erstellt. Die Filter ermöglichen dabei eine Auswahl der zu bezahlenden Gutachter. Wenn Sie die Abrechnung erstellt haben, können Sie sie als xls-Datei herunterladen und weiter an die Finanzabteilung schicken. 
 
 Erweiterte Einstellungen
 ========================
 
-text
+Mitglieder der Executive- und Office-Gruppe können hier systemweite Einstellungen ändern. 
+
+Anpassungen
++++++++++++
+
+Unter *Anpassungen* können Sie den Standard-Empfänger, das Logo, die Adresse und die Sitzungsadresse, Kontakt-E-Mail, Kontakt-URL, die Liste der Mitglieder-URL sowie die Nachrichten-Signatur festlegen.
+
+Wählen Sie mittels Checkboxen aus, ob Meldungen im Protokoll angezeigt werden sollen, ob Befangene in der Amendment-Antwort angezeigt werden sollen und ob eine interne Votums-Prüfung erforderlich ist.
+
+Logo ändern
+-----------
+
+Wählen Sie das Logo Ihrer Wahl aus Ihrer Datei. Klicken Sie dann auf *Speichern* und laden Sie die Seite neu (mit Strg+Shift+R, damit auch der Browser Cache geleert wird). Das neue Logo erscheint nun statt dem alten in der Menüleiste der Seite. 
+
+Sie können hier auch das Logo für den Ausdruck ändern. Dieses sollte im Querformat sein und einen transparenten Hintergrund haben, um eine optimale Darstellung zu garantieren.
+
+Voten
++++++
+
+Zusatztexte, die hier eingetragen werden, scheinen so in ausgestellten Voten nach dem allgemeinen Beschluss auf.
+
+Votenempfänger
+++++++++++++++
+
+Andere Ethikkommissionen werden automatisch über sie betreffende multizentrische Arzneimittelstudien benachrichtigt, die im ECS positiv beurteilt wurden. Damit dies passieren kann, müssen hier die E-Mail-Adressen aller anderen Ethikkommissionen eingetragen sein.
 
 Statistik
 =========
@@ -62,14 +93,14 @@ Textbausteine ermöglichen Ihnen, längere Texte, die Sie oft verwenden, unter e
 
 Unter dem Menüunterpunkt *Textbausteine* in der Verwaltung können Sie Textbausteine erstellen und bereits bestehende TBS bearbeiten und löschen. Zum Erstellen eines TBS klicken Sie auf *Neu*, wählen Sie ein Kürzel und füllen Sie dann den dazugehörigen Text in das darunterliegende Feld ein. Sobald Sie auf *Speichern* klicken, scheint der TBS in der von Ihnen erstellten Liste von TBS auf. 
 
-Um direkt im Eingabefeld einen Text einzufügen, geben Sie das dazugehörige Kürzel (oder einen Teil des Kürzels) ein, markieren Sie es und drücken dann die Tastenkombination Alt+M. Der beliebige Text erscheint automatisch im dazugehörigen Eingabefeld.
+Um direkt im Eingabefeld einen Text einzufügen, klicken Sie direkt auf das blaue Paragraphen-Symbol, tippen Sie die Anfangsbuchstaben des gewünschten Textes ein und wählen Sie dann den Text aus der Auswahl aus.
 
 Das Einfügen von Textbausteinen ist überall dort möglich, wo Sie das blaue Paragraphen-Symbol sehen. So z.B. im Notizblock oder in der Leseansicht einer Studie. Klicken Sie dafür auf das Symbol. Es wird die von Ihnen erstellte Liste von TBS angezeigt. Wählen Sie den betreffenden TBS mit einem Klick aus. Der Inhalt des TBS wird an der entsprechenden Stelle eingefügt. 
 
 PKI
 ===
 
-Interne Benutzer brauchen aus Sicherheitsgründen ein Client Zertifikat, um sich in das System einloggen zu können. (Zuvor muss ein Benutzerkonto erstellt worden sein.) Erstellen Sie das Client Zertifikat, indem Sie unter *User* den neuen Benutzer auswählen und geben Sie dann unter *Cn* eine Bezeichnung für das Client Zertifikat ein (z. B.: Büro_Laptop, Privater_Laptop_Mustermann, Sitzungstablet_3, o. ä.) Sobald das Zertifikat erstellt ist, wird es per Email an die betreffende Person gesendet. Übermitteln Sie nun das Passwort für die Entschlüsselung des Zertifikats. Es scheint nach der Erstellung des Zertifikats bei Ihnen auf. Wählen Sie für die Übermittlung des Codes einen sicheren Kanal (z. B. Telefon. Nicht Email!). Nun wird das Passwort eingegeben und das Client Zertifikat auf dem betreffenden Computer importiert. (Sehen Sie unten die einzelnen Schritte des Importierens im Firefox und Chrome.) Sobald das Client Zertifikat importiert ist, muss der Browser neu gestartet werden. Der neue Benutzer kann sich nun in das System einloggen. 
+Interne Benutzer brauchen aus Sicherheitsgründen ein Client Zertifikat, um sich in das System einloggen zu können. (Zuvor muss ein Benutzerkonto erstellt und eine interne Gruppe gewählt werden.) Erstellen Sie das Client Zertifikat, indem Sie unter *User* den neuen Benutzer auswählen und geben Sie dann unter *Cn* eine Bezeichnung für das Client Zertifikat ein (z. B.: Büro_Laptop, Privater_Laptop_Mustermann, Sitzungstablet_3, o. ä.) Sobald das Zertifikat erstellt ist, wird es per Email an die betreffende Person gesendet. Übermitteln Sie nun das Passwort für die Entschlüsselung des Zertifikats. Es scheint nach der Erstellung des Zertifikats bei Ihnen auf. Wählen Sie für die Übermittlung des Codes einen sicheren Kanal (z. B. Sprachanruf. Nicht Email!). Nun wird das Passwort eingegeben und das Client Zertifikat auf dem betreffenden Computer importiert. (Sehen Sie unten die einzelnen Schritte des Importierens im Firefox und Chrome.) Sobald das Client Zertifikat importiert ist, muss der Browser neu gestartet werden. Der neue Benutzer kann sich nun in das System einloggen. 
 
 Importvorgang bei Firefox: *Preferences* -> *Advanced* -> *Certificates* -> *View Certificates* -> *Your Certificates* -> *Import...* -> Datei auswählen -> Passwort eingeben
 

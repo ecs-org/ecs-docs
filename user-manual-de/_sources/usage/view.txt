@@ -30,8 +30,7 @@ Bei jeder Version, die im Zuge eines Amendments erstellt wurde, ist dieses über
 Sitzungstermine
 +++++++++++++++
 
-Sobald die Studie einem Sitzungstermin zugeordnet wurde, erscheint in der Tabelle *Sitzungen* ein Sitzungs-Link. Sie können auf den Sitzungs-Link klicken, um sich die Zeitplanung im Detail anzusehen. Es öffnet sich dafür der Untertab *Zeitplanung* des Tabs *Sitzung*. 
-
+Sobald die Studie einem Sitzungstermin zugeordnet wurde, erscheint in der Tabelle *Sitzungen* ein Sitzungs-Link. Sie können auf den Sitzungs-Link klicken, um sich die Zeitplanung im Detail anzusehen. 
 
 PDF-Erstellung der Studie
 +++++++++++++++++++++++++

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Das Team &#8212; ecs-user-manual-de 0 TODO:use git id Dokumentation</title>
+    <title>Häufig gestellte Fragen &#8212; ecs-user-manual-de 0 TODO:use git id Dokumentation</title>
     
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,7 +25,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="author" title="Über dieses Dokument" href="about.html" />
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
     <link rel="top" title="ecs-user-manual-de 0 TODO:use git id Dokumentation" href="index.html" />
@@ -39,51 +38,27 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="das-team">
-<h1>Das Team<a class="headerlink" href="#das-team" title="Link zu dieser Überschrift">¶</a></h1>
-<p>Danke an alle, die mitgewirkt haben!</p>
+  <div class="section" id="haufig-gestellte-fragen">
+<span id="haufig-gestellte-fragen"></span><h1>Häufig gestellte Fragen<a class="headerlink" href="#haufig-gestellte-fragen" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="safari-browser">
+<span id="safari-browser"></span><h2>Safari Browser<a class="headerlink" href="#safari-browser" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="irrtumliche-bestatigung-eines-falschen-zertifikats">
+<span id="irrtumliche-bestatigung-eines-falschen-zertifikats"></span><h3>irrtümliche Bestätigung eines falschen Zertifikats<a class="headerlink" href="#irrtumliche-bestatigung-eines-falschen-zertifikats" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Safari merkt sich bei Aufruf einer Website mit Client Zertifikat Unterstützung ihre Auswahl und das ECS lehnt sie ab, weil sie ein ungültiges Zertifikat präsentieren.</p>
+<p>Das ist schnell wieder geändert.</p>
 <ul class="simple">
-<li>Johannes Dollinger (emulbreh)<ul>
-<li>Entwickler</li>
-<li>E-Mail: <a class="reference external" href="mailto:emulbreh&#37;&#52;&#48;gmail&#46;com">mailto:emulbreh<span>&#64;</span>gmail<span>&#46;</span>com</a></li>
+<li>Gehen Sie zur Ihren MacOS Einstellungen und dort in die &#8220;Schlüsselverwaltung/Keychain.</li>
+<li>Suchen Sie in der &#8220;Alle Einträge&#8221; Suche nach den Namen des ECS Service zb. &#8220;ekmeduniwien.at&#8221; oder &#8220;ek-mui-tirol.at&#8221;.</li>
+<li>Ein &#8220;Identitäts Präferenz/Identity Preference&#8221; Eintrag sollte erscheinen.</li>
+<li>Löschen sie diesen Eintrag.</li>
+<li>Schliessen und öffnen Sie Safari.</li>
+<li>Rufen die die ECS Website erneut auf, sagen sie Safari bei der nächsten Frage das er kein Client Zertifikat verwenden soll.</li>
 </ul>
-</li>
-<li>Univ. Prof. Dr. Ernst Singer (es)<ul>
-<li>Sponsor</li>
-<li>E-Mail: <a class="reference external" href="mailto:ethik-kom&#37;&#52;&#48;meduniwien&#46;ac&#46;at">mailto:ethik-kom<span>&#64;</span>meduniwien<span>&#46;</span>ac<span>&#46;</span>at</a></li>
-</ul>
-</li>
-<li>Esther Neumann (esta)<ul>
-<li>Screencasts &amp; User Manual</li>
-<li>E-Mail: <a class="reference external" href="mailto:esther&#46;neumann&#37;&#52;&#48;natano&#46;net">mailto:esther<span>&#46;</span>neumann<span>&#64;</span>natano<span>&#46;</span>net</a></li>
-</ul>
-</li>
-<li>Markus Fröhlich (froema)<ul>
-<li>Scrum Master</li>
-<li>E-Mail: <a class="reference external" href="mailto:froema&#37;&#52;&#48;ep3&#46;at">mailto:froema<span>&#64;</span>ep3<span>&#46;</span>at</a></li>
-</ul>
-</li>
-<li>Martin Natano (natano)<ul>
-<li>Entwickler</li>
-<li>E-Mail: <a class="reference external" href="mailto:natano&#37;&#52;&#48;natano&#46;net">mailto:natano<span>&#64;</span>natano<span>&#46;</span>net</a></li>
-</ul>
-</li>
-<li>Ludwig Hammel (scripty)<ul>
-<li>Systemadministrator</li>
-<li>E-Mail: <a class="reference external" href="mailto:ludwig&#46;hammel&#37;&#52;&#48;gmail&#46;com">mailto:ludwig<span>&#46;</span>hammel<span>&#64;</span>gmail<span>&#46;</span>com</a></li>
-</ul>
-</li>
-<li>Thomas Neumann (tombo)<ul>
-<li>Designer</li>
-<li>E-Mail: <a class="reference external" href="mailto:tom&#37;&#52;&#48;newtone&#46;cc">mailto:tom<span>&#64;</span>newtone<span>&#46;</span>cc</a></li>
-</ul>
-</li>
-<li>Felix Erkinger (wuxxin)<ul>
-<li>Projektleiter</li>
-<li>E-Mail: <a class="reference external" href="mailto:wuxxin&#37;&#52;&#48;ep3&#46;at">mailto:wuxxin<span>&#64;</span>ep3<span>&#46;</span>at</a></li>
-</ul>
-</li>
-</ul>
+<p>Falls sie damit keinen unmittelbaren Erfolg haben,
+können sie auch einfach (temporär) Firefox für das ECS verwenden,
+das verwendet eine eigene Keychain für Clientzertifikate.</p>
+</div>
+</div>
 </div>
 
 
@@ -92,6 +67,17 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Häufig gestellte Fragen</a><ul>
+<li><a class="reference internal" href="#safari-browser">Safari Browser</a><ul>
+<li><a class="reference internal" href="#irrtumliche-bestatigung-eines-falschen-zertifikats">irrtümliche Bestätigung eines falschen Zertifikats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
 <div id="searchbox" style="display: none" role="search">
   <h3>Schnellsuche</h3>
     <form class="search" action="search.html" method="get">
@@ -114,7 +100,7 @@
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">Ecs BenutzerInnen Handbuch</a></li> 
+      <li><a href="index.html">ECS Benutzer-Handbuch</a></li> 
     </ul>
   </nav>
   </div>

@@ -24,3 +24,8 @@ Abschlussbericht
 
 Der Abschlussbericht markiert die Beendigung einer Studie. Er ist verpflichtend, d.h. er ist unabhängig von der Gültigkeitsdauer des Votums zu machen. Geben Sie unter den Allgemeinen Angaben die Ergebnisse und Schlussfolgerungen der betreffenden Studie an. Die Meldung zur Beendigung der Studie kann sich nur auf eine Studie beziehen. Im Studien-Status wird der Endstatus der Studie angegeben. 
 
+Zentrumsschließung
+==================
+
+Hier können Sie melden, wenn ein Zentrum geschlossen wurde. Geben Sie dafür alle erforderlichen Daten unter *Allgemeine Angaben* an. Unterlagen können über den *Unterlagen*-Tab hochgeladen werden.
+

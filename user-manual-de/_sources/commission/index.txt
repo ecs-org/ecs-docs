@@ -1,6 +1,6 @@
-===================
-Als Geschäftsstelle
-===================
+=======================
+Für die Geschäftsstelle
+=======================
 
 Inhaltsverzeichnis
 ==================
@@ -9,10 +9,10 @@ Inhaltsverzeichnis
    :titlesonly:
 
    all_submissions
-   submission/index
-   tasks/index
-   workflow/index
-   meeting/index
+   submission
+   tasks
+   workflow
+   meeting
    communication
    open_notifications
    administration
