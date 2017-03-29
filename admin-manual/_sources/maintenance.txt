@@ -23,6 +23,90 @@ if the appliance.service enters fail state, it creates a file named
 After resolving the issue, remove this file using `rm /run/appliance_failed`
 before running the service again using `systemctl restart appliance`.
 
+### Desaster Recovery from backup
+
++ install a new unconfigured appliance as described in chapter install
++ copy old saved env.yml to new target machine at /app/env.yml
++ reboot new target machine, appliance will configure but stop because of empty database
++ ssh into new target machine, execute `recover-from-backup.sh --yes-i-am-sure`
+
+### Automatic Updates
+
+Updates are scheduled depending appliance:update:oncalendar once per day at 06:30 per default.
+
+Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.
+
+The following items are updated:
++ appliance source will be updated and executed
++ system packages are updated, including a reboot if the update need a kernel reboot
++ lets encrypt certificates are updated
++ ecs source will be updated and executed
+    + the ecs-docs source will be updated
+    + the corresponding support container will be updated
+
+**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. **If you do not make metric recording and alerting, we recommend updating only manual.** To do this, enter "False" under appliance:update:automatic in the file env.yml. For a manual update run call `systemctl start appliance-update`
+
+### Backup Configuration
+
++ Backup is done using duplicity, see [Duplicity Manual](http://duplicity.nongnu.org/duplicity.1.html)
++ Cycle: Backup is done once per day around 00:30
++ Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault
++ Type, Rotation & Retention:
+    + Backup will start with a full backup and do incremental backups afterwards
+    + 2 Months after the first full backup a second full backup will be created
+    + Rotation: Every Backup (full or incremental) will be purged after 4 Months
+
+### Logging Configuration
+
+Container:
++ all container log to stdout and stderr
++ docker has the logs of every container available
+    + look at a log stream using eg. `docker logs ecs_ecs.web_1`
++ journald will get the container logs via the appliance.service which calls docker-compose
+    + this includes backend nginx, uwsgi, beat, worker, smtpd, redis, memcached, pdfas, mocca
+    + to follow use `journalctl -u appliance -f`
+
+Host:
++ all logging (except postgres) is going through journald
++ follow whole journal: `journalctl -f`
++ only follow service, eg. prepare-appliance: `journalctl -u prepare-appliance -f`
++ follow frontend nginx: `journalctl -u nginx -f`
++ search for salt-call output: `journalctl $(which salt-call)`
+
+### Metrics Collection
+
++ if APPLIANCE_METRIC_EXPORTER is set, metrics are exported from the subsystems
+    + export metrics of: 
+        frontend nginx, redis, memcached, uwsgi, cadvisor,
+        process details(uwsgi, postgres, nginx, celery), 
+        prometheus node(diskstats, entropy, filefd, filesystem, hwmon, loadavg,
+            mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)
+    + additional service metrics from: appliance-backup, appliance-update
++ if APPLIANCE_METRIC_SERVER is set, these exported metrics are collected and 
+    stored by a prometheus server and alerts are issued using email to root
+    using the prometheus alert server
+    + there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh
+        + for a detailed alert list look at the [alert.rules sourcefile](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules)
+    + the prometheus gui is at [http://172.17.0.1:9090](http://172.17.0.1:9090)
+    + the prometheus alert gui is at [http://172.17.0.1:9093](http://172.17.0.1:9093)
++ if APPLIANCE_METRIC_GUI is set, start a grafana server for displaying the collected metrics
+    + grafana is available at [http://localhost:3000](http://localhost:3000)
++ if APPLIANCE_METRIC_PGHERO is set, start a pghero instance for postgres inspection
+    + pghero is avaiable at [http://localhost:5081](http://localhost:5081)
+
+Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use `ssh root@hostname -L 9090:172.17.0.1:9090`
+
+### Alerting Setup
+
+if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
+the appliance will report the following items to sentry:
+
++ python exceptions in web, worker, beat, smtpd
++ salt-call exceptions and state returns with error states
++ systemd service exceptions where appliance-failed or service-failed is triggered
++ shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry
++ internal mails to root, eg. prometheus alerts
+
 ### Howto (Admin Snippets)
 
 #### commands in a running ecs container
@@ -110,88 +194,3 @@ systemctl restart appliance
 + most time spent in state.highstate:
     + `journalctl -u appliance-update | grep -B 5 -E "Duration: [0-9]{3,5}\."`
     + `journalctl -u appliance-update | grep "ID:" -A6 | grep -E "(ID:|Function:|Duration:)" | sed -r "s/.*(ID:|Function:|Duration)(.*)/\1 \2/g" | paste -s -d '  \n'  - | sed -r "s/ID: +([^ ]+) Function: +([^ ]+) Duration : ([^ ]+ ms)/\3 \2 \1/g" |sort -n`
-
-
-### Backup Configuration
-
-+ Backup is done using duplicity, see [Duplicity Manual](http://duplicity.nongnu.org/duplicity.1.html)
-+ Cycle: Backup is done once per day around 00:30
-+ Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault
-+ Type, Rotation & Retention:
-    + Backup will start with a full backup and do incremental backups afterwards
-    + 2 Months after the first full backup a second full backup will be created
-    + Rotation: Every Backup (full or incremental) will be purged after 4 Months
-
-### Desaster Recovery from backup
-
-+ install a new unconfigured appliance as described in chapter install
-+ copy old saved env.yml to new target machine at /app/env.yml
-+ reboot new target machine, appliance will configure but stop because of empty database
-+ ssh into new target machine, execute `recover-from-backup.sh --yes-i-am-sure`
-
-### Automatic Updates
-
-Updates are scheduled depending appliance:update:oncalendar once per day at 06:30 per default.
-
-Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.
-
-The following items are updated:
-+ appliance source will be updated and executed
-+ system packages are updated, including a reboot if the update need a kernel reboot
-+ lets encrypt certificates are updated
-+ ecs source will be updated and executed
-    + the ecs-docs source will be updated
-    + the corresponding support container will be updated
-
-**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. **If you do not make metric recording and alerting, we recommend updating only manual.** To do this, enter "False" under appliance:update:automatic in the file env.yml. For a manual update run call `systemctl start appliance-update`
-
-### Logging Configuration
-
-Container:
-+ all container log to stdout and stderr
-+ docker has the logs of every container available
-    + look at a log stream using eg. `docker logs ecs_ecs.web_1`
-+ journald will get the container logs via the appliance.service which calls docker-compose
-    + this includes backend nginx, uwsgi, beat, worker, smtpd, redis, memcached, pdfas, mocca
-    + to follow use `journalctl -u appliance -f`
-
-Host:
-+ all logging (except postgres) is going through journald
-+ follow whole journal: `journalctl -f`
-+ only follow service, eg. prepare-appliance: `journalctl -u prepare-appliance -f`
-+ follow frontend nginx: `journalctl -u nginx -f`
-+ search for salt-call output: `journalctl $(which salt-call)`
-
-### Metrics Collection
-
-+ if APPLIANCE_METRIC_EXPORTER is set, metrics are exported from the subsystems
-    + export metrics of: 
-        frontend nginx, redis, memcached, uwsgi, cadvisor,
-        process details(uwsgi, postgres, nginx, celery), 
-        prometheus node(diskstats, entropy, filefd, filesystem, hwmon, loadavg,
-            mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)
-    + additional service metrics from: appliance-backup, appliance-update
-+ if APPLIANCE_METRIC_SERVER is set, these exported metrics are collected and 
-    stored by a prometheus server and alerts are issued using email to root
-    using the prometheus alert server
-    + there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh
-        + for a detailed alert list look at the [alert.rules sourcefile](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules)
-    + the prometheus gui is at [http://172.17.0.1:9090](http://172.17.0.1:9090)
-    + the prometheus alert gui is at [http://172.17.0.1:9093](http://172.17.0.1:9093)
-+ if APPLIANCE_METRIC_GUI is set, start a grafana server for displaying the collected metrics
-    + grafana is available at [http://localhost:3000](http://localhost:3000)
-+ if APPLIANCE_METRIC_PGHERO is set, a pghero instance for postgres inspection
-    + pghero is avaiable at [http://localhost:5081](http://localhost:5081)
-
-Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use "ssh root@hostname -L 9090:172.17.0.1:9090"
-
-### Alerting Setup
-
-if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
-the appliance will report the following items to sentry:
-
-+ python exceptions in web, worker, beat, smtpd
-+ salt-call exceptions and state returns with error states
-+ systemd service exceptions where appliance-failed or service-failed is triggered
-+ shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry
-+ internal mails to root, eg. prometheus alerts, smartmond

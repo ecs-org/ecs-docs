@@ -42,7 +42,7 @@
   <div class="section" id="deploy-appliance">
 <span id="deploy-appliance"></span><h1>Deploy Appliance<a class="headerlink" href="#deploy-appliance" title="Permalink to this headline">¶</a></h1>
 <p>The base of the appliance is Ubuntu Xenial (16.04 LTS).
-Installation is done unattended using ssh for login to the machine.</p>
+Installation is done unattended using ssh to login into the machine.</p>
 <div class="section" id="as-a-virtual-machine">
 <span id="as-a-virtual-machine"></span><h2>As a Virtual Machine<a class="headerlink" href="#as-a-virtual-machine" title="Permalink to this headline">¶</a></h2>
 <p>You either need:</p>
@@ -115,7 +115,8 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
 <div class="section" id="install-via-ssh-to-an-empty-xenial-vm">
 <span id="install-via-ssh-to-an-empty-xenial-vm"></span><h2>Install via ssh to an empty Xenial VM<a class="headerlink" href="#install-via-ssh-to-an-empty-xenial-vm" title="Permalink to this headline">¶</a></h2>
 <p>ssh into target vm:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">update</span><span class="p">;</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">git</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">DEBIAN_FRONTEND</span><span class="o">=</span><span class="n">noninteractive</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">update</span><span class="p">;</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">git</span>
 <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">appliance</span>
 <span class="n">cd</span> <span class="o">/</span>
 <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">salt</span>

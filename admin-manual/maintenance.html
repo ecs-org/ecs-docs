@@ -69,6 +69,116 @@
 <p>After resolving the issue, remove this file using <code class="docutils literal"><span class="pre">rm</span> <span class="pre">/run/appliance_failed</span></code>
 before running the service again using <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code>.</p>
 </div>
+<div class="section" id="desaster-recovery-from-backup">
+<span id="desaster-recovery-from-backup"></span><h2>Desaster Recovery from backup<a class="headerlink" href="#desaster-recovery-from-backup" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>install a new unconfigured appliance as described in chapter install</li>
+<li>copy old saved env.yml to new target machine at /app/env.yml</li>
+<li>reboot new target machine, appliance will configure but stop because of empty database</li>
+<li>ssh into new target machine, execute <code class="docutils literal"><span class="pre">recover-from-backup.sh</span> <span class="pre">--yes-i-am-sure</span></code></li>
+</ul>
+</div>
+<div class="section" id="automatic-updates">
+<span id="automatic-updates"></span><h2>Automatic Updates<a class="headerlink" href="#automatic-updates" title="Permalink to this headline">¶</a></h2>
+<p>Updates are scheduled depending appliance:update:oncalendar once per day at 06:30 per default.</p>
+<p>Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.</p>
+<p>The following items are updated:</p>
+<ul class="simple">
+<li>appliance source will be updated and executed</li>
+<li>system packages are updated, including a reboot if the update need a kernel reboot</li>
+<li>lets encrypt certificates are updated</li>
+<li>ecs source will be updated and executed<ul>
+<li>the ecs-docs source will be updated</li>
+<li>the corresponding support container will be updated</li>
+</ul>
+</li>
+</ul>
+<p><strong>Warning</strong>: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. <strong>If you do not make metric recording and alerting, we recommend updating only manual.</strong> To do this, enter &#8220;False&#8221; under appliance:update:automatic in the file env.yml. For a manual update run call <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p>
+</div>
+<div class="section" id="backup-configuration">
+<span id="backup-configuration"></span><h2>Backup Configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Backup is done using duplicity, see <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html">Duplicity Manual</a></li>
+<li>Cycle: Backup is done once per day around 00:30</li>
+<li>Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault</li>
+<li>Type, Rotation &amp; Retention:<ul>
+<li>Backup will start with a full backup and do incremental backups afterwards</li>
+<li>2 Months after the first full backup a second full backup will be created</li>
+<li>Rotation: Every Backup (full or incremental) will be purged after 4 Months</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="logging-configuration">
+<span id="logging-configuration"></span><h2>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Container:</p>
+<ul class="simple">
+<li>all container log to stdout and stderr</li>
+<li>docker has the logs of every container available<ul>
+<li>look at a log stream using eg. <code class="docutils literal"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">ecs_ecs.web_1</span></code></li>
+</ul>
+</li>
+<li>journald will get the container logs via the appliance.service which calls docker-compose<ul>
+<li>this includes backend nginx, uwsgi, beat, worker, smtpd, redis, memcached, pdfas, mocca</li>
+<li>to follow use <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance</span> <span class="pre">-f</span></code></li>
+</ul>
+</li>
+</ul>
+<p>Host:</p>
+<ul class="simple">
+<li>all logging (except postgres) is going through journald</li>
+<li>follow whole journal: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-f</span></code></li>
+<li>only follow service, eg. prepare-appliance: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">prepare-appliance</span> <span class="pre">-f</span></code></li>
+<li>follow frontend nginx: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">nginx</span> <span class="pre">-f</span></code></li>
+<li>search for salt-call output: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">$(which</span> <span class="pre">salt-call)</span></code></li>
+</ul>
+</div>
+<div class="section" id="metrics-collection">
+<span id="metrics-collection"></span><h2>Metrics Collection<a class="headerlink" href="#metrics-collection" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>if APPLIANCE_METRIC_EXPORTER is set, metrics are exported from the subsystems<ul>
+<li>export metrics of:
+frontend nginx, redis, memcached, uwsgi, cadvisor,
+process details(uwsgi, postgres, nginx, celery),
+prometheus node(diskstats, entropy, filefd, filesystem, hwmon, loadavg,
+mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)</li>
+<li>additional service metrics from: appliance-backup, appliance-update</li>
+</ul>
+</li>
+<li>if APPLIANCE_METRIC_SERVER is set, these exported metrics are collected and
+stored by a prometheus server and alerts are issued using email to root
+using the prometheus alert server<ul>
+<li>there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh<ul>
+<li>for a detailed alert list look at the <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules">alert.rules sourcefile</a></li>
+</ul>
+</li>
+<li>the prometheus gui is at <a class="reference external" href="http://172.17.0.1:9090">http://172.17.0.1:9090</a></li>
+<li>the prometheus alert gui is at <a class="reference external" href="http://172.17.0.1:9093">http://172.17.0.1:9093</a></li>
+</ul>
+</li>
+<li>if APPLIANCE_METRIC_GUI is set, start a grafana server for displaying the collected metrics<ul>
+<li>grafana is available at <a class="reference external" href="http://localhost:3000">http://localhost:3000</a></li>
+</ul>
+</li>
+<li>if APPLIANCE_METRIC_PGHERO is set, start a pghero instance for postgres inspection<ul>
+<li>pghero is avaiable at <a class="reference external" href="http://localhost:5081">http://localhost:5081</a></li>
+</ul>
+</li>
+</ul>
+<p>Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use <code class="docutils literal"><span class="pre">ssh</span> <span class="pre">root&#64;hostname</span> <span class="pre">-L</span> <span class="pre">9090:172.17.0.1:9090</span></code></p>
+</div>
+<div class="section" id="alerting-setup">
+<span id="alerting-setup"></span><h2>Alerting Setup<a class="headerlink" href="#alerting-setup" title="Permalink to this headline">¶</a></h2>
+<p>if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
+the appliance will report the following items to sentry:</p>
+<ul class="simple">
+<li>python exceptions in web, worker, beat, smtpd</li>
+<li>salt-call exceptions and state returns with error states</li>
+<li>systemd service exceptions where appliance-failed or service-failed is triggered</li>
+<li>shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry</li>
+<li>internal mails to root, eg. prometheus alerts</li>
+</ul>
+</div>
 <div class="section" id="howto-admin-snippets">
 <span id="howto-admin-snippets"></span><h2>Howto (Admin Snippets)<a class="headerlink" href="#howto-admin-snippets" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="commands-in-a-running-ecs-container">
@@ -175,116 +285,6 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="backup-configuration">
-<span id="backup-configuration"></span><h2>Backup Configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Backup is done using duplicity, see <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html">Duplicity Manual</a></li>
-<li>Cycle: Backup is done once per day around 00:30</li>
-<li>Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault</li>
-<li>Type, Rotation &amp; Retention:<ul>
-<li>Backup will start with a full backup and do incremental backups afterwards</li>
-<li>2 Months after the first full backup a second full backup will be created</li>
-<li>Rotation: Every Backup (full or incremental) will be purged after 4 Months</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="desaster-recovery-from-backup">
-<span id="desaster-recovery-from-backup"></span><h2>Desaster Recovery from backup<a class="headerlink" href="#desaster-recovery-from-backup" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>install a new unconfigured appliance as described in chapter install</li>
-<li>copy old saved env.yml to new target machine at /app/env.yml</li>
-<li>reboot new target machine, appliance will configure but stop because of empty database</li>
-<li>ssh into new target machine, execute <code class="docutils literal"><span class="pre">recover-from-backup.sh</span> <span class="pre">--yes-i-am-sure</span></code></li>
-</ul>
-</div>
-<div class="section" id="automatic-updates">
-<span id="automatic-updates"></span><h2>Automatic Updates<a class="headerlink" href="#automatic-updates" title="Permalink to this headline">¶</a></h2>
-<p>Updates are scheduled depending appliance:update:oncalendar once per day at 06:30 per default.</p>
-<p>Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.</p>
-<p>The following items are updated:</p>
-<ul class="simple">
-<li>appliance source will be updated and executed</li>
-<li>system packages are updated, including a reboot if the update need a kernel reboot</li>
-<li>lets encrypt certificates are updated</li>
-<li>ecs source will be updated and executed<ul>
-<li>the ecs-docs source will be updated</li>
-<li>the corresponding support container will be updated</li>
-</ul>
-</li>
-</ul>
-<p><strong>Warning</strong>: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. <strong>If you do not make metric recording and alerting, we recommend updating only manual.</strong> To do this, enter &#8220;False&#8221; under appliance:update:automatic in the file env.yml. For a manual update run call <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p>
-</div>
-<div class="section" id="logging-configuration">
-<span id="logging-configuration"></span><h2>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline">¶</a></h2>
-<p>Container:</p>
-<ul class="simple">
-<li>all container log to stdout and stderr</li>
-<li>docker has the logs of every container available<ul>
-<li>look at a log stream using eg. <code class="docutils literal"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">ecs_ecs.web_1</span></code></li>
-</ul>
-</li>
-<li>journald will get the container logs via the appliance.service which calls docker-compose<ul>
-<li>this includes backend nginx, uwsgi, beat, worker, smtpd, redis, memcached, pdfas, mocca</li>
-<li>to follow use <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance</span> <span class="pre">-f</span></code></li>
-</ul>
-</li>
-</ul>
-<p>Host:</p>
-<ul class="simple">
-<li>all logging (except postgres) is going through journald</li>
-<li>follow whole journal: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-f</span></code></li>
-<li>only follow service, eg. prepare-appliance: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">prepare-appliance</span> <span class="pre">-f</span></code></li>
-<li>follow frontend nginx: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">nginx</span> <span class="pre">-f</span></code></li>
-<li>search for salt-call output: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">$(which</span> <span class="pre">salt-call)</span></code></li>
-</ul>
-</div>
-<div class="section" id="metrics-collection">
-<span id="metrics-collection"></span><h2>Metrics Collection<a class="headerlink" href="#metrics-collection" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>if APPLIANCE_METRIC_EXPORTER is set, metrics are exported from the subsystems<ul>
-<li>export metrics of:
-frontend nginx, redis, memcached, uwsgi, cadvisor,
-process details(uwsgi, postgres, nginx, celery),
-prometheus node(diskstats, entropy, filefd, filesystem, hwmon, loadavg,
-mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)</li>
-<li>additional service metrics from: appliance-backup, appliance-update</li>
-</ul>
-</li>
-<li>if APPLIANCE_METRIC_SERVER is set, these exported metrics are collected and
-stored by a prometheus server and alerts are issued using email to root
-using the prometheus alert server<ul>
-<li>there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh<ul>
-<li>for a detailed alert list look at the <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules">alert.rules sourcefile</a></li>
-</ul>
-</li>
-<li>the prometheus gui is at <a class="reference external" href="http://172.17.0.1:9090">http://172.17.0.1:9090</a></li>
-<li>the prometheus alert gui is at <a class="reference external" href="http://172.17.0.1:9093">http://172.17.0.1:9093</a></li>
-</ul>
-</li>
-<li>if APPLIANCE_METRIC_GUI is set, start a grafana server for displaying the collected metrics<ul>
-<li>grafana is available at <a class="reference external" href="http://localhost:3000">http://localhost:3000</a></li>
-</ul>
-</li>
-<li>if APPLIANCE_METRIC_PGHERO is set, a pghero instance for postgres inspection<ul>
-<li>pghero is avaiable at <a class="reference external" href="http://localhost:5081">http://localhost:5081</a></li>
-</ul>
-</li>
-</ul>
-<p>Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use &#8220;ssh root&#64;hostname -L 9090:172.17.0.1:9090&#8221;</p>
-</div>
-<div class="section" id="alerting-setup">
-<span id="alerting-setup"></span><h2>Alerting Setup<a class="headerlink" href="#alerting-setup" title="Permalink to this headline">¶</a></h2>
-<p>if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
-the appliance will report the following items to sentry:</p>
-<ul class="simple">
-<li>python exceptions in web, worker, beat, smtpd</li>
-<li>salt-call exceptions and state returns with error states</li>
-<li>systemd service exceptions where appliance-failed or service-failed is triggered</li>
-<li>shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry</li>
-<li>internal mails to root, eg. prometheus alerts, smartmond</li>
-</ul>
-</div>
 </div>
 
 
@@ -299,17 +299,17 @@ the appliance will report the following items to sentry:</p>
 <li><a class="reference internal" href="#reconfigure-a-running-appliance">Reconfigure a running Appliance</a></li>
 <li><a class="reference internal" href="#start-stop-update-appliance">Start, Stop &amp; Update Appliance</a></li>
 <li><a class="reference internal" href="#recover-from-failed-state">Recover from failed state</a></li>
+<li><a class="reference internal" href="#desaster-recovery-from-backup">Desaster Recovery from backup</a></li>
+<li><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
+<li><a class="reference internal" href="#backup-configuration">Backup Configuration</a></li>
+<li><a class="reference internal" href="#logging-configuration">Logging Configuration</a></li>
+<li><a class="reference internal" href="#metrics-collection">Metrics Collection</a></li>
+<li><a class="reference internal" href="#alerting-setup">Alerting Setup</a></li>
 <li><a class="reference internal" href="#howto-admin-snippets">Howto (Admin Snippets)</a><ul>
 <li><a class="reference internal" href="#commands-in-a-running-ecs-container">commands in a running ecs container</a></li>
 <li><a class="reference internal" href="#commands-for-the-appliance-host">commands for the appliance host</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#backup-configuration">Backup Configuration</a></li>
-<li><a class="reference internal" href="#desaster-recovery-from-backup">Desaster Recovery from backup</a></li>
-<li><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
-<li><a class="reference internal" href="#logging-configuration">Logging Configuration</a></li>
-<li><a class="reference internal" href="#metrics-collection">Metrics Collection</a></li>
-<li><a class="reference internal" href="#alerting-setup">Alerting Setup</a></li>
 </ul>
 </li>
 </ul>
