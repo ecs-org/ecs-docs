@@ -62,7 +62,7 @@ B2
   Nachdem die Nachbesserungen eingelangt sind, wird eine **B2 Änderungsbewertung** generiert.
   Ziel dieser Aufgabe ist es zu entscheiden, ob das Votum in ein positives (B1) Votum umgewandelt, oder die Studie bis zur nächsten Sitzung vertagt wird (B3).
   Passieren innerhalb von einem halben Jahr keine Änderungen, werden die einreichenden Personen mit Hilfe einer Systemnachricht informiert.
-  Ein Jahr ohne Äanderungen nach Beschluss des B2 Votums wird die Geschäftsstelle informiert.
+  Ein Jahr ohne Änderungen nach Beschluss des B2 Votums werden nochmals die einreichenden Personen und zusätzlich die Geschäftsstelle informiert.
 
 B3
   Vertagung. Es bestehen Einwände gegen die Studie. Der Einreicher hat je nach Satzung mehrere Sitzungsperioden Zeit, diese Einwände auszuräumen.

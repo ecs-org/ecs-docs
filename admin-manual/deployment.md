@@ -1,7 +1,7 @@
 ## Deploy Appliance
 
 The base of the appliance is Ubuntu Xenial (16.04 LTS).
-Installation is done unattended using ssh for login to the machine.
+Installation is done unattended using ssh to login into the machine.
 
 ### As a Virtual Machine
 
@@ -63,6 +63,7 @@ For a virtual machine deployment it is best to stick to the default xenial cloud
 ssh into target vm:
 
 ```
+export DEBIAN_FRONTEND=noninteractive
 apt-get -y update; apt-get -y install git
 git clone https://github.com/ecs-org/ecs-appliance /app/appliance
 cd /
