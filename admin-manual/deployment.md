@@ -71,6 +71,9 @@ mkdir -p /etc/salt
 cp /app/appliance/salt/minion /etc/salt/minion
 curl -o /tmp/bootstrap_salt.sh -L https://bootstrap.saltstack.com
 chmod +x /tmp/bootstrap_salt.sh
+for i in apt-daily.service apt-daily.timer unattended-upgrades.service; do
+    systemctl disable $i; systemctl stop $i; ln -sf /dev/null /etc/systemd/system/$i
+done
 /tmp/bootstrap_salt.sh -X
 salt-call state.highstate pillar='{"appliance": {"enabled": true}}'
 ```
