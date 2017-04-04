@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Hosting Requirements &#8212; ecs-admin-manual 0 TODO:use git id documentation</title>
+    <title>Requirements &#8212; ecs-admin-manual 0 TODO:use git id documentation</title>
     
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -39,15 +39,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="hosting-requirements">
-<span id="hosting-requirements"></span><h1>Hosting Requirements<a class="headerlink" href="#hosting-requirements" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="requirements">
+<span id="requirements"></span><h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
 <p>The ecs software is designed to run as an external available internet web-service, reachable by everyone.</p>
-<div class="section" id="requirements">
-<span id="requirements"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hosting-requirements">
+<span id="hosting-requirements"></span><h2>Hosting Requirements<a class="headerlink" href="#hosting-requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>a Virtual Machine on a supported hypervisor or Hardware sized according to the <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> Chapter</li>
 <li>a Backup space (for encrypted backup data) accessable by one of 25 supported storage protocols explained under <a class="reference external" href="#backup-storage">Backup Storage</a></li>
-<li>incoming tcp ports 22,25,80,443,465 of a fixed public IPV4 address and DNS, IPV4 setup for the vm as described under <a class="reference external" href="#internet-connectivity">Internet Connectivity</a></li>
+<li>DNS A Record pointing to a fixed public IPV4 address,a MX Record and a reverse PTR Record as described under <a class="reference external" href="#dns-setup">DNS Setup</a></li>
+<li>incoming tcp ports 22,25,80,443,465 of a fixed public IPV4 address and IPV4 and internet connectivity for the vm as described under <a class="reference external" href="#internet-connectivity">Internet Connectivity</a></li>
+<li>Working HTTPS including HTTP-Client Certificate support. See common challenges described under <a class="reference external" href="#firewall-endpointprotection-antivirus-security-products">Security Products</a></li>
 </ul>
 <div class="section" id="hypervisor">
 <span id="hypervisor"></span><h3>Hypervisor<a class="headerlink" href="#hypervisor" title="Permalink to this headline">¶</a></h3>
@@ -74,22 +76,18 @@
 <li>See <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> for the correct storage space size.</li>
 </ul>
 </div>
-<div class="section" id="internet-connectivity">
-<span id="internet-connectivity"></span><h3>Internet Connectivity<a class="headerlink" href="#internet-connectivity" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dns-setup">
+<span id="dns-setup"></span><h3>DNS Setup<a class="headerlink" href="#dns-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>permanent internet connectivity with a strong (&gt;50Mbit) upload channel</li>
-<li>an IPv4 address and dns server settings are served to the machine by DHCP for automatic configuration<ul>
-<li>this can be any internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP</li>
-<li>Unusable internal nets are 172.17.X.X and 10.0.3.X, because these are used by the appliance itself</li>
-</ul>
-</li>
 <li>a dns [sub]domain with a A and a MX Entry and the reverse ptr of the public IPv4-Address set to the domain name<ul>
 <li>a A Record pointing to the public IP</li>
 <li>a MX Record pointing to the A Record</li>
-<li>a reverse PTR Record pointing to the domain name</li>
+<li>a reverse PTR Record pointing to the domain name.</li>
 </ul>
 </li>
 </ul>
+<p><strong>Warning</strong>: Both MX Record and reverse PTR Record are important to setup.
+Eg. failing to setup reverse PTR will result in broken email sending, because the target mailserver will think the emails are spam and will bounce messages.</p>
 <p>Examples for domains &#8220;https://whatever.me&#8221; and &#8220;https://another.sub.domain.me&#8221;:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">whatever</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">A</span> <span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span>
 <span class="n">whatever</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">MX</span> <span class="mi">10</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
@@ -100,33 +98,50 @@
 <span class="mf">8.7</span><span class="o">.</span><span class="mf">6.5</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span>  <span class="n">IN</span> <span class="n">PTR</span> <span class="n">another</span><span class="o">.</span><span class="n">sub</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">me</span>  
 </pre></div>
 </div>
+</div>
+<div class="section" id="internet-connectivity">
+<span id="internet-connectivity"></span><h3>Internet Connectivity<a class="headerlink" href="#internet-connectivity" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
+<li>permanent internet connectivity with a big (&gt;50Mbit) upload channel</li>
+<li>an IPv4 address and dns server settings need to be served to the machine by DHCP for automatic configuration<ul>
+<li>this can be any internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP</li>
+<li>Unusable internal nets are 172.17.X.X and 10.0.3.X, because these are used by the appliance itself</li>
+</ul>
+</li>
 <li>a public IPv4-Address or the incoming TCP ports 22,25,80,443,465 and ICMP/ping of this address forwarded to the machine<ul>
 <li>port 22 - ssh: ssh publickey authentification is used. this connection is used for installation and optional support</li>
 <li>port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers of forwarded ecs communication. if the hosting locations policy does not permit this, the ecs will work without it, but loses email answering functionality</li>
 <li>port 80 - http: the appliance communicates only over https, but needs http for letsencrypt client certificate renewal and for redirecting to the https site</li>
-<li>port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in self-service</li>
+<li>port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in self-service<ul>
 <li>ICMP/ping - ping: for monitoring the system</li>
 </ul>
 </li>
 </ul>
-<div class="section" id="certificates">
-<span id="certificates"></span><h4>Certificates<a class="headerlink" href="#certificates" title="Permalink to this headline">¶</a></h4>
-<p>The appliance uses LetsEncrypt to issue https/ssl host certificates and also takes care of the renewal of these host certificates.
-Https client certificates are issued by the appliance itself and can be done in selfservice as an internal ecs webfrontend user. There is no IT-administration task involved in this process.</p>
+</li>
+</ul>
 </div>
 <div class="section" id="firewall-endpointprotection-antivirus-security-products">
-<span id="firewall-endpointprotection-antivirus-security-products"></span><h4>&#8220;Firewall&#8221;/Endpointprotection/&#8221;Antivirus&#8221; Security Products:<a class="headerlink" href="#firewall-endpointprotection-antivirus-security-products" title="Permalink to this headline">¶</a></h4>
-<p>The appliance does not need a firewall but works as long as the incoming ports
-listed are forwarded to the machine and outgoing traffic from the machine is permitted.</p>
+<span id="firewall-endpointprotection-antivirus-security-products"></span><h3>&#8220;Firewall&#8221;/Endpointprotection/&#8221;Antivirus&#8221; Security Products:<a class="headerlink" href="#firewall-endpointprotection-antivirus-security-products" title="Permalink to this headline">¶</a></h3>
 <p><strong>Warning</strong>: many security products are known to disturb/break HTTPS Host
 Certificate and Client Certificate validation and weaken the transport protocols on the wire.
-See <a class="reference external" href="https://jhalderm.com/pub/papers/interception-ndss17.pdf">The Security Impact of HTTPS Interception</a>.</p>
+See the findings of <a class="reference external" href="https://jhalderm.com/pub/papers/interception-ndss17.pdf">the Security Impact of HTTPS Interception</a> Paper.</p>
+<div class="section" id="firewall">
+<span id="firewall"></span><h4>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h4>
+<p>The appliance does not need a firewall but works as long as the incoming ports
+listed are forwarded to the machine and outgoing traffic from the machine is permitted.</p>
+</div>
+<div class="section" id="host-certificates">
+<span id="host-certificates"></span><h4>Host Certificates<a class="headerlink" href="#host-certificates" title="Permalink to this headline">¶</a></h4>
+<p>The appliance uses LetsEncrypt to issue https/ssl host certificates and also takes care of the renewal of these host certificates. There is no IT-administration task involved in this process.</p>
+</div>
+<div class="section" id="client-certificates">
+<span id="client-certificates"></span><h4>Client Certificates<a class="headerlink" href="#client-certificates" title="Permalink to this headline">¶</a></h4>
 <p>The ecs appliance uses https client certificates for protection of elevated user rights.
-If the hosting location has some mandatory security product,
+Https client certificates are issued by the appliance itself and can be done in selfservice as an internal ecs webfrontend user. There is no IT-Administration task involved in this process.</p>
+<p><strong>Warning</strong>: If the hosting location has some mandatory security product,
 you probably need some extra configuration in the security product to fix support for Client Certificates.</p>
-<p>This may also apply to to the pc&#8217;s of internal ecs desktops. Some desktop &#8220;antivirus&#8221; products may need similar extra configuration to have working https client certificate support.
-So far there have been findings of Kaspersky and McAfee products to need extra configuration.</p>
+<p><strong>This may also apply to to the pc&#8217;s of internal ecs desktops.</strong>
+Some desktop &#8220;antivirus&#8221; products may need similar extra configuration to have working https client certificate support. So far there have been findings of Kaspersky and McAfee products to need extra configuration.</p>
 </div>
 </div>
 </div>
@@ -376,6 +391,29 @@ Larger implementations are possible with some refactoring in certain parts of th
 </ul>
 </div>
 </div>
+<div class="section" id="client-desktop-requirements">
+<span id="client-desktop-requirements"></span><h2>Client Desktop Requirements<a class="headerlink" href="#client-desktop-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>As a submitter one of the following browsers is needed:<ul>
+<li>Mozilla Firefox</li>
+<li>Google Chrome</li>
+<li>Apple Safari</li>
+<li>Microsoft Edge</li>
+<li>Microsoft Internetexplorer</li>
+</ul>
+</li>
+<li>Internal User need:<ul>
+<li>Mozilla Firefox</li>
+<li>Working HTTPS including HTTP-Client Certificate support. See common challenges described under <a class="reference external" href="#firewall-endpointprotection-antivirus-security-products">Security Products</a></li>
+</ul>
+</li>
+<li>Signing User need:<ul>
+<li>Mozilla Firefox ESR</li>
+<li>Sun Java with Firefox Plugin</li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -386,13 +424,16 @@ Larger implementations are possible with some refactoring in certain parts of th
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Hosting Requirements</a><ul>
-<li><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li><a class="reference internal" href="#">Requirements</a><ul>
+<li><a class="reference internal" href="#hosting-requirements">Hosting Requirements</a><ul>
 <li><a class="reference internal" href="#hypervisor">Hypervisor</a></li>
 <li><a class="reference internal" href="#backup-storage">Backup Storage</a></li>
-<li><a class="reference internal" href="#internet-connectivity">Internet Connectivity</a><ul>
-<li><a class="reference internal" href="#certificates">Certificates</a></li>
-<li><a class="reference internal" href="#firewall-endpointprotection-antivirus-security-products">&#8220;Firewall&#8221;/Endpointprotection/&#8221;Antivirus&#8221; Security Products:</a></li>
+<li><a class="reference internal" href="#dns-setup">DNS Setup</a></li>
+<li><a class="reference internal" href="#internet-connectivity">Internet Connectivity</a></li>
+<li><a class="reference internal" href="#firewall-endpointprotection-antivirus-security-products">&#8220;Firewall&#8221;/Endpointprotection/&#8221;Antivirus&#8221; Security Products:</a><ul>
+<li><a class="reference internal" href="#firewall">Firewall</a></li>
+<li><a class="reference internal" href="#host-certificates">Host Certificates</a></li>
+<li><a class="reference internal" href="#client-certificates">Client Certificates</a></li>
 </ul>
 </li>
 </ul>
@@ -409,6 +450,7 @@ Larger implementations are possible with some refactoring in certain parts of th
 <li><a class="reference internal" href="#research-data">Research data</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#client-desktop-requirements">Client Desktop Requirements</a></li>
 </ul>
 </li>
 </ul>

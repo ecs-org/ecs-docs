@@ -85,22 +85,23 @@ before running the service again using <code class="docutils literal"><span clas
 <p>The following items are updated:</p>
 <ul class="simple">
 <li>appliance source will be updated and executed</li>
-<li>system packages are updated, including a reboot if the update need a kernel reboot</li>
+<li>all system packages are updated, special precautions are taken for docker, postgresql and the kernel including a reboot if needed</li>
 <li>lets encrypt certificates are updated</li>
-<li>ecs source will be updated and executed<ul>
+<li>ecs source will be updated and rebuild<ul>
 <li>the ecs-docs source will be updated</li>
 <li>the corresponding support container will be updated</li>
+<li>database migrations will be executed (including a dump before doing so)</li>
 </ul>
 </li>
 </ul>
-<p><strong>Warning</strong>: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. <strong>If you do not make metric recording and alerting, we recommend updating only manual.</strong> To do this, enter &#8220;False&#8221; under appliance:update:automatic in the file env.yml. For a manual update run call <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p>
+<p><strong>Warning</strong>: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the root cause. <strong>If you do not make metric recording and alerting, we recommend updating only manual.</strong> To do this, enter &#8220;False&#8221; under appliance:update:automatic in the file env.yml. For a manual update run call <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p>
 </div>
 <div class="section" id="backup-configuration">
 <span id="backup-configuration"></span><h2>Backup Configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Backup is done using duplicity, see <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html">Duplicity Manual</a></li>
 <li>Cycle: Backup is done once per day around 00:30</li>
-<li>Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault</li>
+<li>Contents: It consists of a current database dump and the contents of /data/ecs-storage-vault</li>
 <li>Type, Rotation &amp; Retention:<ul>
 <li>Backup will start with a full backup and do incremental backups afterwards</li>
 <li>2 Months after the first full backup a second full backup will be created</li>
@@ -136,7 +137,7 @@ before running the service again using <code class="docutils literal"><span clas
 <div class="section" id="metrics-collection">
 <span id="metrics-collection"></span><h2>Metrics Collection<a class="headerlink" href="#metrics-collection" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>if APPLIANCE_METRIC_EXPORTER is set, metrics are exported from the subsystems<ul>
+<li>if <code class="docutils literal"><span class="pre">appliance:metric:exporter</span></code> is set, metrics are exported from the subsystems<ul>
 <li>export metrics of:
 frontend nginx, redis, memcached, uwsgi, cadvisor,
 process details(uwsgi, postgres, nginx, celery),
@@ -145,7 +146,7 @@ mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)</li>
 <li>additional service metrics from: appliance-backup, appliance-update</li>
 </ul>
 </li>
-<li>if APPLIANCE_METRIC_SERVER is set, these exported metrics are collected and
+<li>if <code class="docutils literal"><span class="pre">appliance:metric:server</span></code> is set, these exported metrics are collected and
 stored by a prometheus server and alerts are issued using email to root
 using the prometheus alert server<ul>
 <li>there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh<ul>
@@ -156,11 +157,11 @@ using the prometheus alert server<ul>
 <li>the prometheus alert gui is at <a class="reference external" href="http://172.17.0.1:9093">http://172.17.0.1:9093</a></li>
 </ul>
 </li>
-<li>if APPLIANCE_METRIC_GUI is set, start a grafana server for displaying the collected metrics<ul>
+<li>if <code class="docutils literal"><span class="pre">appliance:metric:gui</span></code> is set, a grafana server is started to display the collected metrics<ul>
 <li>grafana is available at <a class="reference external" href="http://localhost:3000">http://localhost:3000</a></li>
 </ul>
 </li>
-<li>if APPLIANCE_METRIC_PGHERO is set, start a pghero instance for postgres inspection<ul>
+<li>if <code class="docutils literal"><span class="pre">appliance:metric:pghero</span></code> is set, start a pghero instance for postgres inspection<ul>
 <li>pghero is avaiable at <a class="reference external" href="http://localhost:5081">http://localhost:5081</a></li>
 </ul>
 </li>
@@ -169,7 +170,7 @@ using the prometheus alert server<ul>
 </div>
 <div class="section" id="alerting-setup">
 <span id="alerting-setup"></span><h2>Alerting Setup<a class="headerlink" href="#alerting-setup" title="Permalink to this headline">¶</a></h2>
-<p>if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
+<p>if <code class="docutils literal"><span class="pre">ecs:settings[&quot;SENTRY_DSN&quot;]</span></code> and <code class="docutils literal"><span class="pre">appliance:sentry:dsn</span></code> are defined,
 the appliance will report the following items to sentry:</p>
 <ul class="simple">
 <li>python exceptions in web, worker, beat, smtpd</li>
@@ -179,10 +180,20 @@ the appliance will report the following items to sentry:</p>
 <li>internal mails to root, eg. prometheus alerts</li>
 </ul>
 </div>
-<div class="section" id="howto-admin-snippets">
-<span id="howto-admin-snippets"></span><h2>Howto (Admin Snippets)<a class="headerlink" href="#howto-admin-snippets" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="commands-in-a-running-ecs-container">
-<span id="commands-in-a-running-ecs-container"></span><h3>commands in a running ecs container<a class="headerlink" href="#commands-in-a-running-ecs-container" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="email-challenges">
+<span id="email-challenges"></span><h2>Email Challenges<a class="headerlink" href="#email-challenges" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mail-send-from-ecs-to-emailserver-doing-greylisting">
+<span id="mail-send-from-ecs-to-emailserver-doing-greylisting"></span><h3>Mail send from ECS to Emailserver doing greylisting<a class="headerlink" href="#mail-send-from-ecs-to-emailserver-doing-greylisting" title="Permalink to this headline">¶</a></h3>
+<p>Issue:
+Emails send from the appliance to a target mailserver that does greylisting will always delay mails and sometimes completly fail to deliver email at all.</p>
+<p>Resolution:
+To make ECS working with these email domains, the greylisting whitelist of the target mailserver has to be extended with the domain of the ecs appliance.</p>
+<p>Technical Background:
+The reason for this is that the appliance always uses a new unique email address for each outgoing mail and greylisting always delays the first email from an email address and sometimes blocks access to a whole domain if there are to many email addresses from one domain.</p>
+</div>
+</div>
+<div class="section" id="maintenance-commands-in-a-running-ecs-container">
+<span id="maintenance-commands-in-a-running-ecs-container"></span><h2>maintenance commands in a running ecs container<a class="headerlink" href="#maintenance-commands-in-a-running-ecs-container" title="Permalink to this headline">¶</a></h2>
 <p>for most ecs commands it is not important to which instance (web,worker)
 you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <ul class="simple">
@@ -227,11 +238,10 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="commands-for-the-appliance-host">
-<span id="commands-for-the-appliance-host"></span><h3>commands for the appliance host<a class="headerlink" href="#commands-for-the-appliance-host" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="maintenance-commands-for-the-appliance-host">
+<span id="maintenance-commands-for-the-appliance-host"></span><h2>maintenance commands for the appliance host<a class="headerlink" href="#maintenance-commands-for-the-appliance-host" title="Permalink to this headline">¶</a></h2>
 <p>All snippets expect root.</p>
 <ul class="simple">
-<li>manual run letsencrypt client (do not call as root): <code class="docutils literal"><span class="pre">gosu</span> <span class="pre">app</span> <span class="pre">dehydrated</span> <span class="pre">--help</span></code></li>
 <li>destroy and recreate database:</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gosu</span> <span class="n">app</span> <span class="n">dropdb</span> <span class="n">ecs</span>
@@ -260,6 +270,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 </li>
 <li>list active systemd timer: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">list-timers</span> <span class="pre">--all</span></code></li>
 <li>display systemd service change: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-m</span> <span class="pre">_PID=1</span> <span class="pre">-f</span></code></li>
+<li>manual run letsencrypt client (do not call as root): <code class="docutils literal"><span class="pre">gosu</span> <span class="pre">app</span> <span class="pre">dehydrated</span> <span class="pre">--help</span></code></li>
 <li>display revoked certificates serials:<ul>
 <li><code class="docutils literal"><span class="pre">openssl</span> <span class="pre">crl</span> <span class="pre">-inform</span> <span class="pre">PEM</span> <span class="pre">-text</span> <span class="pre">-noout</span> <span class="pre">-in</span> <span class="pre">/app/etc/crl.pem</span></code></li>
 </ul>
@@ -282,8 +293,11 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <li><code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;ID:&quot;</span> <span class="pre">-A6</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-E</span> <span class="pre">&quot;(ID:|Function:|Duration:)&quot;</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/.*(ID:|Function:|Duration)(.*)/\1</span> <span class="pre">\2/g&quot;</span> <span class="pre">|</span> <span class="pre">paste</span> <span class="pre">-s</span> <span class="pre">-d</span> <span class="pre">'</span> <span class="pre">\n'</span> <span class="pre">-</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/ID:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Function:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Duration</span> <span class="pre">:</span> <span class="pre">([^</span> <span class="pre">]+</span> <span class="pre">ms)/\3</span> <span class="pre">\2</span> <span class="pre">\1/g&quot;</span> <span class="pre">|sort</span> <span class="pre">-n</span></code></li>
 </ul>
 </li>
+<li>check send emails<ul>
+<li><code class="docutils literal"><span class="pre">for</span> <span class="pre">a</span> <span class="pre">in</span> <span class="pre">sent</span> <span class="pre">deferred</span> <span class="pre">bounced;</span> <span class="pre">do</span> <span class="pre">echo</span> <span class="pre">&quot;####</span> <span class="pre">$a&quot;;</span> <span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">postfix</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;status=$a&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$7}'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/to=&lt;//g'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/&gt;,//g'</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n;</span> <span class="pre">done</span></code></li>
 </ul>
-</div>
+</li>
+</ul>
 </div>
 </div>
 
@@ -305,11 +319,12 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <li><a class="reference internal" href="#logging-configuration">Logging Configuration</a></li>
 <li><a class="reference internal" href="#metrics-collection">Metrics Collection</a></li>
 <li><a class="reference internal" href="#alerting-setup">Alerting Setup</a></li>
-<li><a class="reference internal" href="#howto-admin-snippets">Howto (Admin Snippets)</a><ul>
-<li><a class="reference internal" href="#commands-in-a-running-ecs-container">commands in a running ecs container</a></li>
-<li><a class="reference internal" href="#commands-for-the-appliance-host">commands for the appliance host</a></li>
+<li><a class="reference internal" href="#email-challenges">Email Challenges</a><ul>
+<li><a class="reference internal" href="#mail-send-from-ecs-to-emailserver-doing-greylisting">Mail send from ECS to Emailserver doing greylisting</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#maintenance-commands-in-a-running-ecs-container">maintenance commands in a running ecs container</a></li>
+<li><a class="reference internal" href="#maintenance-commands-for-the-appliance-host">maintenance commands for the appliance host</a></li>
 </ul>
 </li>
 </ul>

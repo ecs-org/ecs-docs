@@ -38,19 +38,20 @@ Depending the types of updates available the update will take between 1 and 5 mi
 
 The following items are updated:
 + appliance source will be updated and executed
-+ system packages are updated, including a reboot if the update need a kernel reboot
++ all system packages are updated, special precautions are taken for docker, postgresql and the kernel including a reboot if needed
 + lets encrypt certificates are updated
-+ ecs source will be updated and executed
++ ecs source will be updated and rebuild
     + the ecs-docs source will be updated
     + the corresponding support container will be updated
+    + database migrations will be executed (including a dump before doing so)
 
-**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the rootcause. **If you do not make metric recording and alerting, we recommend updating only manual.** To do this, enter "False" under appliance:update:automatic in the file env.yml. For a manual update run call `systemctl start appliance-update`
+**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the root cause. **If you do not make metric recording and alerting, we recommend updating only manual.** To do this, enter "False" under appliance:update:automatic in the file env.yml. For a manual update run call `systemctl start appliance-update`
 
 ### Backup Configuration
 
 + Backup is done using duplicity, see [Duplicity Manual](http://duplicity.nongnu.org/duplicity.1.html)
 + Cycle: Backup is done once per day around 00:30
-+ Contents: It consists of a fresh database dump and the contents of /data/ecs-storage-vault
++ Contents: It consists of a current database dump and the contents of /data/ecs-storage-vault
 + Type, Rotation & Retention:
     + Backup will start with a full backup and do incremental backups afterwards
     + 2 Months after the first full backup a second full backup will be created
@@ -75,30 +76,30 @@ Host:
 
 ### Metrics Collection
 
-+ if APPLIANCE_METRIC_EXPORTER is set, metrics are exported from the subsystems
++ if `appliance:metric:exporter` is set, metrics are exported from the subsystems
     + export metrics of: 
         frontend nginx, redis, memcached, uwsgi, cadvisor,
         process details(uwsgi, postgres, nginx, celery), 
         prometheus node(diskstats, entropy, filefd, filesystem, hwmon, loadavg,
             mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)
     + additional service metrics from: appliance-backup, appliance-update
-+ if APPLIANCE_METRIC_SERVER is set, these exported metrics are collected and 
++ if `appliance:metric:server` is set, these exported metrics are collected and 
     stored by a prometheus server and alerts are issued using email to root
     using the prometheus alert server
     + there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh
         + for a detailed alert list look at the [alert.rules sourcefile](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules)
     + the prometheus gui is at [http://172.17.0.1:9090](http://172.17.0.1:9090)
     + the prometheus alert gui is at [http://172.17.0.1:9093](http://172.17.0.1:9093)
-+ if APPLIANCE_METRIC_GUI is set, start a grafana server for displaying the collected metrics
++ if `appliance:metric:gui` is set, a grafana server is started to display the collected metrics
     + grafana is available at [http://localhost:3000](http://localhost:3000)
-+ if APPLIANCE_METRIC_PGHERO is set, start a pghero instance for postgres inspection
++ if `appliance:metric:pghero` is set, start a pghero instance for postgres inspection
     + pghero is avaiable at [http://localhost:5081](http://localhost:5081)
 
 Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use `ssh root@hostname -L 9090:172.17.0.1:9090`
 
 ### Alerting Setup
 
-if ECS_SETTINGS_SENTRY_DSN and APPLIANCE_SENTRY_DSN are defined,
+if `ecs:settings["SENTRY_DSN"]` and `appliance:sentry:dsn` are defined,
 the appliance will report the following items to sentry:
 
 + python exceptions in web, worker, beat, smtpd
@@ -107,9 +108,21 @@ the appliance will report the following items to sentry:
 + shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry
 + internal mails to root, eg. prometheus alerts
 
-### Howto (Admin Snippets)
+### Email Challenges
 
-#### commands in a running ecs container
+#### Mail send from ECS to Emailserver doing greylisting
+
+Issue:
+Emails send from the appliance to a target mailserver that does greylisting will always delay mails and sometimes completly fail to deliver email at all. 
+
+Resolution:
+To make ECS working with these email domains, the greylisting whitelist of the target mailserver has to be extended with the domain of the ecs appliance.
+
+Technical Background:
+The reason for this is that the appliance always uses a new unique email address for each outgoing mail and greylisting always delays the first email from an email address and sometimes blocks access to a whole domain if there are to many email addresses from one domain.
+
+
+### maintenance commands in a running ecs container
 for most ecs commands it is not important to which instance (web,worker) 
 you connect to, "ecs_ecs.web_1" is used as example. 
 
@@ -117,7 +130,6 @@ you connect to, "ecs_ecs.web_1" is used as example.
 + ecs.startcommand = web, worker, beat, smtpd
 + as root `docker exec -it ecs_image[.startcommand]_1 /path/to/command`
     + eg. `docker exec -it ecs_ecs.web_1 /bin/bash`
-
 
 
 + shell as app user with activated environment
@@ -146,11 +158,9 @@ docker exec -it ecs_ecs.web_1 /start run /bin/bash
 ./manage.py ecx_format -t pdf -o ecx-format.pdf
 ```
 
-#### commands for the appliance host
+### maintenance commands for the appliance host
 
 All snippets expect root.
-
-+ manual run letsencrypt client (do not call as root): `gosu app dehydrated --help`
 
 + destroy and recreate database:
 
@@ -178,6 +188,8 @@ systemctl restart appliance
 
 + display systemd service change: `journalctl -m _PID=1 -f`
 
++ manual run letsencrypt client (do not call as root): `gosu app dehydrated --help`
+
 + display revoked certificates serials: 
     + `openssl crl -inform PEM -text -noout -in /app/etc/crl.pem`
   
@@ -194,3 +206,8 @@ systemctl restart appliance
 + most time spent in state.highstate:
     + `journalctl -u appliance-update | grep -B 5 -E "Duration: [0-9]{3,5}\."`
     + `journalctl -u appliance-update | grep "ID:" -A6 | grep -E "(ID:|Function:|Duration:)" | sed -r "s/.*(ID:|Function:|Duration)(.*)/\1 \2/g" | paste -s -d '  \n'  - | sed -r "s/ID: +([^ ]+) Function: +([^ ]+) Duration : ([^ ]+ ms)/\3 \2 \1/g" |sort -n`
+
++ check send emails
+    + `for a in sent deferred bounced; do echo "#### $a"; journalctl -u postfix | grep "status=$a" | awk '{print $7}' | sed 's/to=<//g' | sed 's/>,//g' | sort -n; done`
+
+  

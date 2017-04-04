@@ -28,7 +28,7 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="ecs-admin-manual 0 TODO:use git id documentation" href="index.html" />
     <link rel="next" title="Configure Appliance" href="configuration.html" />
-    <link rel="prev" title="Hosting Requirements" href="requirements.html" />
+    <link rel="prev" title="Requirements" href="requirements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="static/custom.css" type="text/css" />
   </head>
@@ -115,16 +115,19 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
 <div class="section" id="install-via-ssh-to-an-empty-xenial-vm">
 <span id="install-via-ssh-to-an-empty-xenial-vm"></span><h2>Install via ssh to an empty Xenial VM<a class="headerlink" href="#install-via-ssh-to-an-empty-xenial-vm" title="Permalink to this headline">¶</a></h2>
 <p>ssh into target vm:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">DEBIAN_FRONTEND</span><span class="o">=</span><span class="n">noninteractive</span>
-<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">update</span><span class="p">;</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">git</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">appliance</span>
-<span class="n">cd</span> <span class="o">/</span>
-<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">salt</span>
-<span class="n">cp</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">appliance</span><span class="o">/</span><span class="n">salt</span><span class="o">/</span><span class="n">minion</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">salt</span><span class="o">/</span><span class="n">minion</span>
-<span class="n">curl</span> <span class="o">-</span><span class="n">o</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap_salt</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">L</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">saltstack</span><span class="o">.</span><span class="n">com</span>
-<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap_salt</span><span class="o">.</span><span class="n">sh</span>
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap_salt</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">X</span>
-<span class="n">salt</span><span class="o">-</span><span class="n">call</span> <span class="n">state</span><span class="o">.</span><span class="n">highstate</span> <span class="n">pillar</span><span class="o">=</span><span class="s1">&#39;{&quot;appliance&quot;: {&quot;enabled&quot;: true}}&#39;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>export DEBIAN_FRONTEND=noninteractive
+apt-get -y update; apt-get -y install git
+git clone https://github.com/ecs-org/ecs-appliance /app/appliance
+cd /
+mkdir -p /etc/salt
+cp /app/appliance/salt/minion /etc/salt/minion
+curl -o /tmp/bootstrap_salt.sh -L https://bootstrap.saltstack.com
+chmod +x /tmp/bootstrap_salt.sh
+for i in apt-daily.service apt-daily.timer unattended-upgrades.service; do
+    systemctl disable $i; systemctl stop $i; ln -sf /dev/null /etc/systemd/system/$i
+done
+/tmp/bootstrap_salt.sh -X
+salt-call state.highstate pillar=&#39;{&quot;appliance&quot;: {&quot;enabled&quot;: true}}&#39;
 </pre></div>
 </div>
 </div>
@@ -178,7 +181,7 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="requirements.html"
-                        title="previous chapter">Hosting Requirements</a></p>
+                        title="previous chapter">Requirements</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="configuration.html"
                         title="next chapter">Configure Appliance</a></p>
@@ -202,7 +205,7 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
     <ul>
         <li>
           &larr;
-          <a href="requirements.html" title="Previous document">Hosting Requirements</a>
+          <a href="requirements.html" title="Previous document">Requirements</a>
         </li>
         <li>
           <a href="configuration.html" title="Next document">Configure Appliance</a>
