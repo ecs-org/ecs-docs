@@ -7,6 +7,19 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2017.04.02
+----------
+
+Bugfixes:
+  + #652: Nachrichten die an sich selber geschickt und mit einen Stern
+    markiert worden sind können jetzt genauso wie andere Nachrichten
+    durch klicken auf Stern aus der Übersicht entfernt werden.
+  + #644: ZIP Dateien werden korrekt bereitgestellt auch wenn sie ein
+    Dokument vor 1980 als Erstellungsdatum beinhalten.
+  + #648: Der Text der b2 Erinnerungsnachrichten wurde geändert und
+    wird nach 6 Monaten an die Einreichenden Parteien und nach 12
+    Monaten erneut inklusive Geschäftsstelle versendet.
+
 2017.03.20
 ----------
 
