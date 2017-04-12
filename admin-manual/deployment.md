@@ -18,6 +18,8 @@ You either need:
     + vagrant will setup the base machine for you
 
 
+For a virtual machine deployment it is best to stick to the default xenial cloud images layout (flat, first Partition as Root taking all space), unless there is good reason to deviate.
+
 Start the new virtual machine and login via ssh.
 
 ### On Hardware or other custom Configurations
@@ -31,8 +33,7 @@ In a typical root server hosting setup there are two harddisks per machine.
 These should be configured as a raid1 (mirroring) setup with lvm on top of it.
 
 Example:
-+ Hardware: [Hetzner px61nvme Rootserver](https://www.hetzner.de/de/hosting/produkte_rootserver/px61nvme)
-    + hetzner setup config:
++ Hardware: [Hetzner px61nvme Rootserver](https://www.hetzner.de/de/hosting/produkte_rootserver/px61nvme)  Setup Config:
 
 ```
 DRIVE1 /dev/nvme1n1
@@ -49,8 +50,6 @@ IMAGE /root/.oldroot/nfs/install/../images/Ubuntu-1604-xenial-64-minimal.tar.gz
 
 ### Network attached Storage 
 
-For a virtual machine deployment it is best to stick to the default xenial cloud images layout, unless there is good reason to deviate.
-
 + The appliance supports two external network attached storage volumes, one for permanent data and one for volatile data. 
 + To have seperate volatile and/or data partitions, change storage:ignore:volatile and/or storage:ignore:data to false.
 + The volatile volume must be labeled "ecs-volatile", the data volume "ecs-data".
@@ -64,18 +63,9 @@ ssh into target vm:
 
 ```
 export DEBIAN_FRONTEND=noninteractive
-apt-get -y update; apt-get -y install git
-git clone https://github.com/ecs-org/ecs-appliance /app/appliance
-cd /
-mkdir -p /etc/salt
-cp /app/appliance/salt/minion /etc/salt/minion
-curl -o /tmp/bootstrap_salt.sh -L https://bootstrap.saltstack.com
-chmod +x /tmp/bootstrap_salt.sh
-for i in apt-daily.service apt-daily.timer unattended-upgrades.service; do
-    systemctl disable $i; systemctl stop $i; ln -sf /dev/null /etc/systemd/system/$i
-done
-/tmp/bootstrap_salt.sh -X
-salt-call state.highstate pillar='{"appliance": {"enabled": true}}'
+apt-get -y update && apt-get -y install curl
+curl https://raw.githubusercontent.com/ecs-org/ecs-appliance/master/bootstrap-appliance.sh > /tmp/bootstrap.sh
+chmod +x /tmp/bootstrap.sh; /tmp/bootstrap.sh --yes
 ```
 
 ### Testinstall using Vagrant

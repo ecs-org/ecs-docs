@@ -7,6 +7,18 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2017.04.12
+----------
+
+Features:
+  + #654 Verbesserter Email Empfang in das ECS
+
+2017.04.09
+----------
+
+Features:
+  + #653 Verbesserter Email Versand (DKIM-Support)
+
 2017.04.02
 ----------
 
