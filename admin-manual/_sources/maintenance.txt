@@ -21,7 +21,15 @@ if the appliance.service enters fail state, it creates a file named
 "/run/appliance_failed".
 
 After resolving the issue, remove this file using `rm /run/appliance_failed`
-before running the service again using `systemctl restart appliance`.
+before restarting the service using `systemctl restart appliance`.
+
+If the issue was within the ecs-appliance sourcecode, re-run an appliance update 
+using:
+```
+rm /run/appliance-failed
+touch /app/etc/flags/force.update.appliance
+systemctl restart appliance-update
+```
 
 ### Desaster Recovery from backup
 

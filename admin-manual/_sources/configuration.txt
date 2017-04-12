@@ -18,13 +18,12 @@ It will be copied to `/run/active-env.yml` (ramdisk) on each appliance startup.
 on an installed but unconfigured appliance:
 
 + enter installed but empty appliance
-+ make a new env.yml: `env-create.sh domainname.domain ~/domainname.domain/`
-+ edit settings in "~/domainname.domain/env.yml", see comments inside file
++ make a new env.yml: `env-create.sh *domainname.domain* /app/env.yml
++ edit settings in "/app/env.yml", see comments inside file
 + optional, package env into different formats
-    +  `env-package.sh --requirements; env-package.sh ~/domainname.domain/env.yml`
-
-+ transfer, print out "~/domainname.domain/env.yml.pdf" and store in a safe place.
-+ save a encrypted copy of env.yml in safe place. 
+    +  `env-package.sh --requirements; env-package.sh /app/env.yml`
+    + transfer, print out "/app/env.yml.pdf" and store in a safe place.
++ save an encrypted copy of env.yml in a safe place. 
 + **Important**: The **env.yml contains all needed secrets** for a working appliance and is **the only relevant piece of information** if you want to recover from backup in case of a storage failure.
 
 
@@ -34,7 +33,7 @@ for offline environment creation, using your local machine:
 + `git clone https://github.com/ecs-org/ecs-appliance  ~/path-to-project/ecs-appliance`
 + use env-create.sh and env-package.sh like explained below,
     but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.
-+ copy ~/domainname.domain/env.yml to appliance machine at /app/env.yml
++ copy ~/*domainname.domain*/env.yml to appliance machine at /app/env.yml
 
 ```
 ssh root@target.vm.ip '/bin/bash -c "mkdir -p /app/"'
@@ -54,6 +53,8 @@ just change the value and restart the appliance, it will detect and configure
 all needed changes to the environment.
 
 See the comments in the configuration for different possibilities for the appliance configuration.
+
+"gpg_secret", "base64_secret", "rsa_secret" are placeholder which will be generated with the corresponding data on environment creation using `env-create.sh`. see `env-template.yml` for details on the creation procedure.
 
 ```
 #cloud-config
@@ -123,6 +124,9 @@ appliance:
     ignore: # default false, if true: will not look for ecs-volatile or ecs-data filesystem
       volatile: true
       data: true
+  dkim:
+    key: |
+{{ rsa_secret()|indent(8,True) }}
   backup:
     url: file:///volatile/ecs-backup-test/
     # options: "string of options directly passed to duplicity"
@@ -134,7 +138,8 @@ appliance:
     #   options: "user=username,pass=password"
     # # options are passed to mount via "-o"
     encrypt: |
-        a ascii armored GPG Key 
+{{ gpg_secret('ecs_backup')|indent(8,True) }}
+
 ecs:
   # git: # default see appliance.include
   #   branch: stable
@@ -155,9 +160,9 @@ ecs:
       ETHICS_COMMISSION_UUID = 'ecececececececececececececececec'
       # set ETHICS_COMMISSION_UUID to the desired UUID of the target commission 
 
-      SECRET_KEY = '{{ ssl_secret() }}'
-      REGISTRATION_SECRET = '{{ ssl_secret() }}'
-      PASSWORD_RESET_SECRET = '{{ ssl_secret() }}'
+      SECRET_KEY = '{{ base64_secret() }}'
+      REGISTRATION_SECRET = '{{ base64_secret() }}'
+      PASSWORD_RESET_SECRET = '{{ base64_secret() }}'
 
       EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
       EMAIL_BACKEND_UNFILTERED = 'django.core.mail.backends.smtp.EmailBackend'
@@ -178,10 +183,11 @@ ecs:
       #
 
   vault_encrypt: |
-      a ascii armored GPG Key 
+{{ gpg_secret('ecs_mediaserver')|indent(6,True) }}
 
   vault_sign: |
-      a ascii armored GPG Key 
+{{ gpg_secret('ecs_authority')|indent(6,True) }}
+
 ```
 
 #### Ethics Commission UUID's
@@ -235,7 +241,7 @@ reboot
 ```
 
 After the appliance has rebooted, it configures itself to the new environment.
-See the progress of the preperation by browsing to https://domainname.domain .
+See the progress of the preperation by browsing to https://*domainname.domain* .
 
 #### First Internal User setup
 
@@ -246,7 +252,7 @@ the first internal office user, with a corresponding client certificate and disa
 # create first internal office user (f=female, m=male)
 create-internal-user.sh useremail@domain.name "First Name" "Second Name" "f" 
 # create and send matching client certificate
-create-client-cert.sh useremail@domain.name cert_name [daysvalid]
+create-client-certificate.sh useremail@domain.name cert_name [daysvalid]
 # Communicate certificate transport password over a secure channel
 
 # disable test user

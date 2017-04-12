@@ -67,7 +67,14 @@
 <p>if the appliance.service enters fail state, it creates a file named
 &#8220;/run/appliance_failed&#8221;.</p>
 <p>After resolving the issue, remove this file using <code class="docutils literal"><span class="pre">rm</span> <span class="pre">/run/appliance_failed</span></code>
-before running the service again using <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code>.</p>
+before restarting the service using <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code>.</p>
+<p>If the issue was within the ecs-appliance sourcecode, re-run an appliance update
+using:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">appliance</span><span class="o">-</span><span class="n">failed</span>
+<span class="n">touch</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">flags</span><span class="o">/</span><span class="n">force</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="n">appliance</span>
+<span class="n">systemctl</span> <span class="n">restart</span> <span class="n">appliance</span><span class="o">-</span><span class="n">update</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="desaster-recovery-from-backup">
 <span id="desaster-recovery-from-backup"></span><h2>Desaster Recovery from backup<a class="headerlink" href="#desaster-recovery-from-backup" title="Permalink to this headline">¶</a></h2>

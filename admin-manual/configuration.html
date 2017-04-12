@@ -57,14 +57,14 @@ which can be placed in one of the following locations:</p>
 <p>on an installed but unconfigured appliance:</p>
 <ul class="simple">
 <li>enter installed but empty appliance</li>
-<li>make a new env.yml: <code class="docutils literal"><span class="pre">env-create.sh</span> <span class="pre">domainname.domain</span> <span class="pre">~/domainname.domain/</span></code></li>
-<li>edit settings in &#8220;~/domainname.domain/env.yml&#8221;, see comments inside file</li>
+<li>make a new env.yml: `env-create.sh <em>domainname.domain</em> /app/env.yml</li>
+<li>edit settings in &#8220;/app/env.yml&#8221;, see comments inside file</li>
 <li>optional, package env into different formats<ul>
-<li><code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">~/domainname.domain/env.yml</span></code></li>
+<li><code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">/app/env.yml</span></code></li>
+<li>transfer, print out &#8220;/app/env.yml.pdf&#8221; and store in a safe place.</li>
 </ul>
 </li>
-<li>transfer, print out &#8220;~/domainname.domain/env.yml.pdf&#8221; and store in a safe place.</li>
-<li>save a encrypted copy of env.yml in safe place.</li>
+<li>save an encrypted copy of env.yml in a safe place.</li>
 <li><strong>Important</strong>: The <strong>env.yml contains all needed secrets</strong> for a working appliance and is <strong>the only relevant piece of information</strong> if you want to recover from backup in case of a storage failure.</li>
 </ul>
 <p>for offline environment creation, using your local machine:</p>
@@ -73,7 +73,7 @@ which can be placed in one of the following locations:</p>
 <li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ecs-org/ecs-appliance</span> <span class="pre">~/path-to-project/ecs-appliance</span></code></li>
 <li>use env-create.sh and env-package.sh like explained below,
 but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</li>
-<li>copy ~/domainname.domain/env.yml to appliance machine at /app/env.yml</li>
+<li>copy ~/<em>domainname.domain</em>/env.yml to appliance machine at /app/env.yml</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">root</span><span class="nd">@target</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">ip</span> <span class="s1">&#39;/bin/bash -c &quot;mkdir -p /app/&quot;&#39;</span>
 <span class="n">scp</span> <span class="n">env</span><span class="o">.</span><span class="n">yml</span> <span class="n">root</span><span class="nd">@target</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">ip</span><span class="p">:</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
@@ -91,6 +91,7 @@ but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</li>
 just change the value and restart the appliance, it will detect and configure
 all needed changes to the environment.</p>
 <p>See the comments in the configuration for different possibilities for the appliance configuration.</p>
+<p>&#8220;gpg_secret&#8221;, &#8220;base64_secret&#8221;, &#8220;rsa_secret&#8221; are placeholder which will be generated with the corresponding data on environment creation using <code class="docutils literal"><span class="pre">env-create.sh</span></code>. see <code class="docutils literal"><span class="pre">env-template.yml</span></code> for details on the creation procedure.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#cloud-config</span>
 <span class="c1"># XXX keep the &quot;#cloud-config&quot; line first and unchanged, software expects this header</span>
 
@@ -158,6 +159,9 @@ all needed changes to the environment.</p>
     <span class="n">ignore</span><span class="p">:</span> <span class="c1"># default false, if true: will not look for ecs-volatile or ecs-data filesystem</span>
       <span class="n">volatile</span><span class="p">:</span> <span class="n">true</span>
       <span class="n">data</span><span class="p">:</span> <span class="n">true</span>
+  <span class="n">dkim</span><span class="p">:</span>
+    <span class="n">key</span><span class="p">:</span> <span class="o">|</span>
+<span class="p">{{</span> <span class="n">rsa_secret</span><span class="p">()</span><span class="o">|</span><span class="n">indent</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span> <span class="p">}}</span>
   <span class="n">backup</span><span class="p">:</span>
     <span class="n">url</span><span class="p">:</span> <span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">volatile</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">test</span><span class="o">/</span>
     <span class="c1"># options: &quot;string of options directly passed to duplicity&quot;</span>
@@ -169,7 +173,8 @@ all needed changes to the environment.</p>
     <span class="c1">#   options: &quot;user=username,pass=password&quot;</span>
     <span class="c1"># # options are passed to mount via &quot;-o&quot;</span>
     <span class="n">encrypt</span><span class="p">:</span> <span class="o">|</span>
-        <span class="n">a</span> <span class="n">ascii</span> <span class="n">armored</span> <span class="n">GPG</span> <span class="n">Key</span> 
+<span class="p">{{</span> <span class="n">gpg_secret</span><span class="p">(</span><span class="s1">&#39;ecs_backup&#39;</span><span class="p">)</span><span class="o">|</span><span class="n">indent</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span> <span class="p">}}</span>
+
 <span class="n">ecs</span><span class="p">:</span>
   <span class="c1"># git: # default see appliance.include</span>
   <span class="c1">#   branch: stable</span>
@@ -190,9 +195,9 @@ all needed changes to the environment.</p>
       <span class="n">ETHICS_COMMISSION_UUID</span> <span class="o">=</span> <span class="s1">&#39;ecececececececececececececececec&#39;</span>
       <span class="c1"># set ETHICS_COMMISSION_UUID to the desired UUID of the target commission </span>
 
-      <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s1">&#39;{{ ssl_secret() }}&#39;</span>
-      <span class="n">REGISTRATION_SECRET</span> <span class="o">=</span> <span class="s1">&#39;{{ ssl_secret() }}&#39;</span>
-      <span class="n">PASSWORD_RESET_SECRET</span> <span class="o">=</span> <span class="s1">&#39;{{ ssl_secret() }}&#39;</span>
+      <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s1">&#39;{{ base64_secret() }}&#39;</span>
+      <span class="n">REGISTRATION_SECRET</span> <span class="o">=</span> <span class="s1">&#39;{{ base64_secret() }}&#39;</span>
+      <span class="n">PASSWORD_RESET_SECRET</span> <span class="o">=</span> <span class="s1">&#39;{{ base64_secret() }}&#39;</span>
 
       <span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="s1">&#39;django.core.mail.backends.console.EmailBackend&#39;</span>
       <span class="n">EMAIL_BACKEND_UNFILTERED</span> <span class="o">=</span> <span class="s1">&#39;django.core.mail.backends.smtp.EmailBackend&#39;</span>
@@ -213,10 +218,10 @@ all needed changes to the environment.</p>
       <span class="c1">#</span>
 
   <span class="n">vault_encrypt</span><span class="p">:</span> <span class="o">|</span>
-      <span class="n">a</span> <span class="n">ascii</span> <span class="n">armored</span> <span class="n">GPG</span> <span class="n">Key</span> 
+<span class="p">{{</span> <span class="n">gpg_secret</span><span class="p">(</span><span class="s1">&#39;ecs_mediaserver&#39;</span><span class="p">)</span><span class="o">|</span><span class="n">indent</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span> <span class="p">}}</span>
 
   <span class="n">vault_sign</span><span class="p">:</span> <span class="o">|</span>
-      <span class="n">a</span> <span class="n">ascii</span> <span class="n">armored</span> <span class="n">GPG</span> <span class="n">Key</span> 
+<span class="p">{{</span> <span class="n">gpg_secret</span><span class="p">(</span><span class="s1">&#39;ecs_authority&#39;</span><span class="p">)</span><span class="o">|</span><span class="n">indent</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span> <span class="p">}}</span>
 </pre></div>
 </div>
 <div class="section" id="ethics-commission-uuid-s">
@@ -334,7 +339,7 @@ all needed changes to the environment.</p>
 </pre></div>
 </div>
 <p>After the appliance has rebooted, it configures itself to the new environment.
-See the progress of the preperation by browsing to https://domainname.domain .</p>
+See the progress of the preperation by browsing to https://<em>domainname.domain</em> .</p>
 <div class="section" id="first-internal-user-setup">
 <span id="first-internal-user-setup"></span><h3>First Internal User setup<a class="headerlink" href="#first-internal-user-setup" title="Permalink to this headline">¶</a></h3>
 <p>After the appliance is ready and shows the login screen, login via ssh to create
@@ -342,7 +347,7 @@ the first internal office user, with a corresponding client certificate and disa
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create first internal office user (f=female, m=male)</span>
 <span class="n">create</span><span class="o">-</span><span class="n">internal</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;First Name&quot;</span> <span class="s2">&quot;Second Name&quot;</span> <span class="s2">&quot;f&quot;</span> 
 <span class="c1"># create and send matching client certificate</span>
-<span class="n">create</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="n">cert_name</span> <span class="p">[</span><span class="n">daysvalid</span><span class="p">]</span>
+<span class="n">create</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">certificate</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="n">cert_name</span> <span class="p">[</span><span class="n">daysvalid</span><span class="p">]</span>
 <span class="c1"># Communicate certificate transport password over a secure channel</span>
 
 <span class="c1"># disable test user</span>

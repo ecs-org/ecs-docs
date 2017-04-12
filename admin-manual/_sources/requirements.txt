@@ -4,7 +4,7 @@ The ecs software is designed to run as an external available internet web-servic
 
 ## Hosting Requirements
 
-+ a Virtual Machine on a supported hypervisor or Hardware sized according to the [Assessment](#cores-memory-harddisk-backup-space-assessment) Chapter
++ a Virtual Machine on a supported Hypervisor or Hardware sized according to the [Assessment](#cores-memory-harddisk-backup-space-assessment) Chapter
 + a Backup space (for encrypted backup data) accessable by one of 25 supported storage protocols explained under [Backup Storage](#backup-storage)
 + DNS A Record pointing to a fixed public IPV4 address,a MX Record and a reverse PTR Record as described under [DNS Setup](#dns-setup)
 + incoming tcp ports 22,25,80,443,465 of a fixed public IPV4 address and IPV4 and internet connectivity for the vm as described under [Internet Connectivity](#internet-connectivity)
@@ -13,9 +13,9 @@ The ecs software is designed to run as an external available internet web-servic
 ### Hypervisor
 
 + The base of the virtual machine is a Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image.
-+ The appliance was tested on the following hypervisors: xen,kvm,vmware sphere,virtualbox
-  + hyperv is not tested but is expected to work
-  + rollouts to amazon ec2, google gce or openstack clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented but probably need some tweaking.
++ The appliance was tested on the following hypervisors: 
+  + KVM, XEN, VMware Sphere, HyperV
++ Rollouts to Amazon EC2, Google GCE or Openstack Clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented but probably need some tweaking.
 + Follow the Assessment Chapter for the right sizing of CPU-cores, memory and harddisk.
 
 ### Backup Storage 
@@ -31,32 +31,41 @@ The ecs software is designed to run as an external available internet web-servic
 
 ### DNS Setup
 
-+ a dns [sub]domain with a A and a MX Entry and the reverse ptr of the public IPv4-Address set to the domain name
-  + a A Record pointing to the public IP
-  + a MX Record pointing to the A Record
-  + a reverse PTR Record pointing to the domain name. 
++ For Web-Access a dns [sub]domain with a A Entry pointing to the public IPv4 Address is needed
++ For Email Sending and Receiving the following entries are required:
+  + a MX Record pointing to the choosen domain name
+  + a reverse PTR Record pointing to the domain name
+  + a spf TXT Entry, eg. "v=spf1 a mx ptr ~all"
+  + a dkim TXT Entry, see the env.yml configuration file for detailed data
 
-**Warning**: Both MX Record and reverse PTR Record are important to setup.
-Eg. failing to setup reverse PTR will result in broken email sending, because the target mailserver will think the emails are spam and will bounce messages.
+**Once you generated a config env.yml, at the top of the file you will find the corresponding DNS Entries (including DKIM TXT key) for pasting into the DNS Server**
 
-Examples for domains "https://whatever.me" and "https://another.sub.domain.me":
+**Warning**: For Email functionality the MX Record, reverse PTR Record, SPF TXT Record and the DKIM TXT Record are important to setup. Eg. failing to setup reverse PTR will result in broken email sending, because the target mailserver will think the emails are spam and will bounce messages.
+
+Examples for domains "https://whatever.me" and "https://sub.whatever.me":
 
 ```
-whatever.me. IN A 1.2.3.4
-whatever.me. IN MX 10 whatever.me
-4.3.2.1.in-addr.arpa. IN PTR whatever.me.
+# Main Domain Example for whatever.me
+@  IN A   1.2.3.4
+@  IN MX  10 whatever.me
+@  IN TXT "v=spf1 a mx ptr ~all"
+default._domainkey  IN  TXT  "v=DKIM1; k=rsa; t=n; s=email; p=a-long-glibberish-key"
+4.3.2.1.in-addr.arpa. IN PTR whatever.me
 
-another.sub.domain.me. IN A 5.6.7.8
-another.sub.domain.me. IN MX 10 another.sub.domain.me
-8.7.6.5.in-addr.arpa.  IN PTR another.sub.domain.me  
+# Sub domain Example for sub.whatever.me
+sub IN A  5.6.7.8
+sub IN MX 10 sub.whatever.me
+sub IN TXT "v=spf1 a mx ptr ~all"
+default._domainkey.sub  IN  TXT  "v=DKIM1; k=rsa; t=n; s=email; p=a-long-glibberish-key"
+8.7.6.5.in-addr.arpa.  IN PTR sub.whatever.me
 ```
 
 ### Internet Connectivity
 
-+ permanent internet connectivity with a big (>50Mbit) upload channel
++ permanent internet connectivity with a big (>=100Mbit) upload channel
 + an IPv4 address and dns server settings need to be served to the machine by DHCP for automatic configuration
-    + this can be any internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP
-    + Unusable internal nets are 172.17.X.X and 10.0.3.X, because these are used by the appliance itself
+    + this can be **any internal or the public IPv4 Address** if the hosting location needs this, but it must be served by DHCP
+    + **Unusable** internal nets are **172.17.X.X and 10.0.3.X**, because these are used by the appliance itself
 
 + a public IPv4-Address or the incoming TCP ports 22,25,80,443,465 and ICMP/ping of this address forwarded to the machine
     + port 22 - ssh: ssh publickey authentification is used. this connection is used for installation and optional support
@@ -227,7 +236,7 @@ Postgres Database:
   + Google Chrome
   + Apple Safari
   + Microsoft Edge
-  + Microsoft Internetexplorer
+  + Microsoft Internetexplorer 11
 + Internal User need:
   + Mozilla Firefox
   + Working HTTPS including HTTP-Client Certificate support. See common challenges described under [Security Products](#firewall-endpointprotection-antivirus-security-products)

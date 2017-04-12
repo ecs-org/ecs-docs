@@ -45,7 +45,7 @@
 <div class="section" id="hosting-requirements">
 <span id="hosting-requirements"></span><h2>Hosting Requirements<a class="headerlink" href="#hosting-requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>a Virtual Machine on a supported hypervisor or Hardware sized according to the <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> Chapter</li>
+<li>a Virtual Machine on a supported Hypervisor or Hardware sized according to the <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> Chapter</li>
 <li>a Backup space (for encrypted backup data) accessable by one of 25 supported storage protocols explained under <a class="reference external" href="#backup-storage">Backup Storage</a></li>
 <li>DNS A Record pointing to a fixed public IPV4 address,a MX Record and a reverse PTR Record as described under <a class="reference external" href="#dns-setup">DNS Setup</a></li>
 <li>incoming tcp ports 22,25,80,443,465 of a fixed public IPV4 address and IPV4 and internet connectivity for the vm as described under <a class="reference external" href="#internet-connectivity">Internet Connectivity</a></li>
@@ -55,11 +55,11 @@
 <span id="hypervisor"></span><h3>Hypervisor<a class="headerlink" href="#hypervisor" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The base of the virtual machine is a Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image.</li>
-<li>The appliance was tested on the following hypervisors: xen,kvm,vmware sphere,virtualbox<ul>
-<li>hyperv is not tested but is expected to work</li>
-<li>rollouts to amazon ec2, google gce or openstack clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented but probably need some tweaking.</li>
+<li>The appliance was tested on the following hypervisors:<ul>
+<li>KVM, XEN, VMware Sphere, HyperV</li>
 </ul>
 </li>
+<li>Rollouts to Amazon EC2, Google GCE or Openstack Clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented but probably need some tweaking.</li>
 <li>Follow the Assessment Chapter for the right sizing of CPU-cores, memory and harddisk.</li>
 </ul>
 </div>
@@ -79,33 +79,41 @@
 <div class="section" id="dns-setup">
 <span id="dns-setup"></span><h3>DNS Setup<a class="headerlink" href="#dns-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>a dns [sub]domain with a A and a MX Entry and the reverse ptr of the public IPv4-Address set to the domain name<ul>
-<li>a A Record pointing to the public IP</li>
-<li>a MX Record pointing to the A Record</li>
-<li>a reverse PTR Record pointing to the domain name.</li>
+<li>For Web-Access a dns [sub]domain with a A Entry pointing to the public IPv4 Address is needed</li>
+<li>For Email Sending and Receiving the following entries are required:<ul>
+<li>a MX Record pointing to the choosen domain name</li>
+<li>a reverse PTR Record pointing to the domain name</li>
+<li>a spf TXT Entry, eg. &#8220;v=spf1 a mx ptr ~all&#8221;</li>
+<li>a dkim TXT Entry, see the env.yml configuration file for detailed data</li>
 </ul>
 </li>
 </ul>
-<p><strong>Warning</strong>: Both MX Record and reverse PTR Record are important to setup.
-Eg. failing to setup reverse PTR will result in broken email sending, because the target mailserver will think the emails are spam and will bounce messages.</p>
-<p>Examples for domains &#8220;https://whatever.me&#8221; and &#8220;https://another.sub.domain.me&#8221;:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">whatever</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">A</span> <span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span>
-<span class="n">whatever</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">MX</span> <span class="mi">10</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
-<span class="mf">4.3</span><span class="o">.</span><span class="mf">2.1</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span> <span class="n">IN</span> <span class="n">PTR</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span><span class="o">.</span>
+<p><strong>Once you generated a config env.yml, at the top of the file you will find the corresponding DNS Entries (including DKIM TXT key) for pasting into the DNS Server</strong></p>
+<p><strong>Warning</strong>: For Email functionality the MX Record, reverse PTR Record, SPF TXT Record and the DKIM TXT Record are important to setup. Eg. failing to setup reverse PTR will result in broken email sending, because the target mailserver will think the emails are spam and will bounce messages.</p>
+<p>Examples for domains &#8220;https://whatever.me&#8221; and &#8220;https://sub.whatever.me&#8221;:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Main Domain Example for whatever.me</span>
+<span class="o">@</span>  <span class="n">IN</span> <span class="n">A</span>   <span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span>
+<span class="o">@</span>  <span class="n">IN</span> <span class="n">MX</span>  <span class="mi">10</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
+<span class="o">@</span>  <span class="n">IN</span> <span class="n">TXT</span> <span class="s2">&quot;v=spf1 a mx ptr ~all&quot;</span>
+<span class="n">default</span><span class="o">.</span><span class="n">_domainkey</span>  <span class="n">IN</span>  <span class="n">TXT</span>  <span class="s2">&quot;v=DKIM1; k=rsa; t=n; s=email; p=a-long-glibberish-key&quot;</span>
+<span class="mf">4.3</span><span class="o">.</span><span class="mf">2.1</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span> <span class="n">IN</span> <span class="n">PTR</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
 
-<span class="n">another</span><span class="o">.</span><span class="n">sub</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">A</span> <span class="mf">5.6</span><span class="o">.</span><span class="mf">7.8</span>
-<span class="n">another</span><span class="o">.</span><span class="n">sub</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">me</span><span class="o">.</span> <span class="n">IN</span> <span class="n">MX</span> <span class="mi">10</span> <span class="n">another</span><span class="o">.</span><span class="n">sub</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">me</span>
-<span class="mf">8.7</span><span class="o">.</span><span class="mf">6.5</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span>  <span class="n">IN</span> <span class="n">PTR</span> <span class="n">another</span><span class="o">.</span><span class="n">sub</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">me</span>  
+<span class="c1"># Sub domain Example for sub.whatever.me</span>
+<span class="n">sub</span> <span class="n">IN</span> <span class="n">A</span>  <span class="mf">5.6</span><span class="o">.</span><span class="mf">7.8</span>
+<span class="n">sub</span> <span class="n">IN</span> <span class="n">MX</span> <span class="mi">10</span> <span class="n">sub</span><span class="o">.</span><span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
+<span class="n">sub</span> <span class="n">IN</span> <span class="n">TXT</span> <span class="s2">&quot;v=spf1 a mx ptr ~all&quot;</span>
+<span class="n">default</span><span class="o">.</span><span class="n">_domainkey</span><span class="o">.</span><span class="n">sub</span>  <span class="n">IN</span>  <span class="n">TXT</span>  <span class="s2">&quot;v=DKIM1; k=rsa; t=n; s=email; p=a-long-glibberish-key&quot;</span>
+<span class="mf">8.7</span><span class="o">.</span><span class="mf">6.5</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span>  <span class="n">IN</span> <span class="n">PTR</span> <span class="n">sub</span><span class="o">.</span><span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="internet-connectivity">
 <span id="internet-connectivity"></span><h3>Internet Connectivity<a class="headerlink" href="#internet-connectivity" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>permanent internet connectivity with a big (&gt;50Mbit) upload channel</li>
+<li>permanent internet connectivity with a big (&gt;=100Mbit) upload channel</li>
 <li>an IPv4 address and dns server settings need to be served to the machine by DHCP for automatic configuration<ul>
-<li>this can be any internal or the public IPv4 Address if the hosting location needs this, but it must be served by DHCP</li>
-<li>Unusable internal nets are 172.17.X.X and 10.0.3.X, because these are used by the appliance itself</li>
+<li>this can be <strong>any internal or the public IPv4 Address</strong> if the hosting location needs this, but it must be served by DHCP</li>
+<li><strong>Unusable</strong> internal nets are <strong>172.17.X.X and 10.0.3.X</strong>, because these are used by the appliance itself</li>
 </ul>
 </li>
 <li>a public IPv4-Address or the incoming TCP ports 22,25,80,443,465 and ICMP/ping of this address forwarded to the machine<ul>
@@ -399,7 +407,7 @@ Larger implementations are possible with some refactoring in certain parts of th
 <li>Google Chrome</li>
 <li>Apple Safari</li>
 <li>Microsoft Edge</li>
-<li>Microsoft Internetexplorer</li>
+<li>Microsoft Internetexplorer 11</li>
 </ul>
 </li>
 <li>Internal User need:<ul>
