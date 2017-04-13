@@ -59,8 +59,9 @@ which can be placed in one of the following locations:</p>
 <li>enter installed but empty appliance</li>
 <li>make a new env.yml: `env-create.sh <em>domainname.domain</em> /app/env.yml</li>
 <li>edit settings in &#8220;/app/env.yml&#8221;, see comments inside file</li>
-<li>optional, package env into different formats<ul>
+<li>Optional: package env into different formats<ul>
 <li><code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">/app/env.yml</span></code></li>
+<li>see <code class="docutils literal"><span class="pre">env-package.sh</span></code> for more options</li>
 <li>transfer, print out &#8220;/app/env.yml.pdf&#8221; and store in a safe place.</li>
 </ul>
 </li>
@@ -326,19 +327,21 @@ all needed changes to the environment.</p>
 </table>
 </div>
 </div>
-<div class="section" id="activate-configuration">
-<span id="activate-configuration"></span><h2>Activate Configuration<a class="headerlink" href="#activate-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="first-activation">
+<span id="first-activation"></span><h2>First Activation<a class="headerlink" href="#first-activation" title="Permalink to this headline">¶</a></h2>
 <p>on the target vm:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create a empty ecs database</span>
 <span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">createdb</span> <span class="n">ecs</span> <span class="o">-</span><span class="n">T</span> <span class="n">template0</span>  <span class="o">-</span><span class="n">l</span> <span class="n">de_DE</span><span class="o">.</span><span class="n">utf8</span>
 
-<span class="c1"># activate env and apply new environment settings</span>
+<span class="c1"># activate env </span>
 <span class="n">chmod</span> <span class="mi">0600</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
 <span class="n">cp</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">active</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
-<span class="n">reboot</span>
+
+<span class="c1"># apply new environment settings and start service</span>
+<span class="n">systemctl</span> <span class="n">restart</span> <span class="n">appliance</span>
 </pre></div>
 </div>
-<p>After the appliance has rebooted, it configures itself to the new environment.
+<p>While restarting, the appliance configures itself to the new environment.
 See the progress of the preperation by browsing to https://<em>domainname.domain</em> .</p>
 <div class="section" id="first-internal-user-setup">
 <span id="first-internal-user-setup"></span><h3>First Internal User setup<a class="headerlink" href="#first-internal-user-setup" title="Permalink to this headline">¶</a></h3>
@@ -346,8 +349,9 @@ See the progress of the preperation by browsing to https://<em>domainname.domain
 the first internal office user, with a corresponding client certificate and disable test user.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create first internal office user (f=female, m=male)</span>
 <span class="n">create</span><span class="o">-</span><span class="n">internal</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;First Name&quot;</span> <span class="s2">&quot;Second Name&quot;</span> <span class="s2">&quot;f&quot;</span> 
+
 <span class="c1"># create and send matching client certificate</span>
-<span class="n">create</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">certificate</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="n">cert_name</span> <span class="p">[</span><span class="n">daysvalid</span><span class="p">]</span>
+<span class="n">create</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="n">certificate</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="n">cert_name</span> <span class="p">[</span><span class="n">daysvalid</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">7</span><span class="p">)]</span>
 <span class="c1"># Communicate certificate transport password over a secure channel</span>
 
 <span class="c1"># disable test user</span>
@@ -375,7 +379,7 @@ the first internal office user, with a corresponding client certificate and disa
 <li><a class="reference internal" href="#ethics-commission-uuid-s">Ethics Commission UUID&#8217;s</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#activate-configuration">Activate Configuration</a><ul>
+<li><a class="reference internal" href="#first-activation">First Activation</a><ul>
 <li><a class="reference internal" href="#first-internal-user-setup">First Internal User setup</a></li>
 </ul>
 </li>
