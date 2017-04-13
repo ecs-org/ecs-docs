@@ -20,8 +20,9 @@ on an installed but unconfigured appliance:
 + enter installed but empty appliance
 + make a new env.yml: `env-create.sh *domainname.domain* /app/env.yml
 + edit settings in "/app/env.yml", see comments inside file
-+ optional, package env into different formats
-    +  `env-package.sh --requirements; env-package.sh /app/env.yml`
++ Optional: package env into different formats
+    + `env-package.sh --requirements; env-package.sh /app/env.yml`
+    + see `env-package.sh` for more options
     + transfer, print out "/app/env.yml.pdf" and store in a safe place.
 + save an encrypted copy of env.yml in a safe place. 
 + **Important**: The **env.yml contains all needed secrets** for a working appliance and is **the only relevant piece of information** if you want to recover from backup in case of a storage failure.
@@ -227,20 +228,22 @@ dc1b115d9809461ba3ea9450b079ddd6  Kommission für Scientific Integrity und Ethik
 ================================  ====================================================================================
 ```
 
-### Activate Configuration
+### First Activation 
 
 on the target vm:
 ```
 # create a empty ecs database
 sudo -u postgres createdb ecs -T template0  -l de_DE.utf8
 
-# activate env and apply new environment settings
+# activate env 
 chmod 0600 /app/env.yml
 cp /app/env.yml /run/active-env.yml
-reboot
+
+# apply new environment settings and start service
+systemctl restart appliance
 ```
 
-After the appliance has rebooted, it configures itself to the new environment.
+While restarting, the appliance configures itself to the new environment.
 See the progress of the preperation by browsing to https://*domainname.domain* .
 
 #### First Internal User setup
@@ -251,8 +254,9 @@ the first internal office user, with a corresponding client certificate and disa
 ```
 # create first internal office user (f=female, m=male)
 create-internal-user.sh useremail@domain.name "First Name" "Second Name" "f" 
+
 # create and send matching client certificate
-create-client-certificate.sh useremail@domain.name cert_name [daysvalid]
+create-client-certificate.sh useremail@domain.name cert_name [daysvalid(default=7)]
 # Communicate certificate transport password over a secure channel
 
 # disable test user
