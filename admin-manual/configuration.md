@@ -266,3 +266,5 @@ User.objects.filter(profile__is_testuser=True).update(is_active=False)
 EOF
 
 ```
+
+After completing the First User Setup, import the created Client Certificate into a browser and login as Internal User and continue to configure the ECS as described in the [User-Manual, Chapter Commissioning](https://ecs-org.github.io/ecs-docs/user-manual-de/commission/commissioning.html)

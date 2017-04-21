@@ -29,7 +29,7 @@
 
 ```
 
-+ The Appliance uses the default docker network (72.17.0.1/16) for docker container
++ The Appliance uses the default docker network (172.17.0.1/16) for docker container
 
 + Public (Outside) facing Ports
     + NGINX Webserver Ports 80(http) and 443(https)

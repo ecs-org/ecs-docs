@@ -6,9 +6,9 @@ nwdiag {
       "memcached";
   }
   network docker {
-      address = "72.17.0.1/16";
-      "postgres:5432" [address = "72.17.0.1"];
-      "postfix:25" [address = "72.17.0.1"];
+      address = "172.17.0.1/16";
+      "postgres:5432" [address = "172.17.0.1"];
+      "postfix:25" [address = "172.17.0.1"];
       "mocca" [address = ":8080"];
       "pdfas" [address = ":8080"];
       "ecs.smtpd" [address = ":8025"];
