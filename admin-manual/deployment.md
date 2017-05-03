@@ -3,6 +3,9 @@
 The base of the appliance is Ubuntu Xenial (16.04 LTS).
 Installation is done unattended using ssh to login into the machine.
 
+For a quickstart look at [github.com/ecs-org/ecs-appliance/README.md](
+https://github.com/ecs-org/ecs-appliance/#quickstart).
+
 ### As a Virtual Machine
 
 You either need:

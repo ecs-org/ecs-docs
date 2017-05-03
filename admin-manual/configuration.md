@@ -18,7 +18,7 @@ It will be copied to `/run/active-env.yml` (ramdisk) on each appliance startup.
 on an installed but unconfigured appliance:
 
 + enter installed but empty appliance
-+ make a new env.yml: `env-create.sh *domainname.domain* /app/env.yml
++ make a new env.yml: `env-create.sh *domainname.domain* /app/env.yml`
 + edit settings in "/app/env.yml", see comments inside file
 + Optional: package env into different formats
     + `env-package.sh --requirements; env-package.sh /app/env.yml`
@@ -55,7 +55,7 @@ all needed changes to the environment.
 
 See the comments in the configuration for different possibilities for the appliance configuration.
 
-"gpg_secret", "base64_secret", "rsa_secret" are placeholder which will be generated with the corresponding data on environment creation using `env-create.sh`. see `env-template.yml` for details on the creation procedure.
+"gpg_secret", "base64_secret", "rsa_secret" are placeholder which will be generated with the corresponding data on environment creation using `env-create.sh`. see `salt/appliance/env-template.yml` for details on the creation procedure.
 
 ```
 #cloud-config
@@ -106,10 +106,14 @@ appliance:
   #           # Your content here
   #       owner: user:group
   #       permissions: "0600"
-  #   states: # include extra states at state.highstate
-  #     - qrcode
   #   packages: # include extra packages at state.highstate
-  #     - ghostscript
+  #     - qrcode
+  #   # states: # string to be executed as a salststack sls at state.highstate
+  #   # # warning: syntax and execution errors will break initial deployment and appliance-update
+  #   states: |
+  #       testing:
+  #         pkg.installed:
+  #           - name: curl
   # # update:oncalendar: # set a different update timer than default: "*-*-* 06:30:00"
   # # update:automatic: # default to true, to disable automatic update set to false
   # # XXX: do not update in the time between 00:30 and 06:30 because backup runs at this time

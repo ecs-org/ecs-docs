@@ -51,10 +51,10 @@ Path                                          Description
 /salt/*.sls                                   salt states (to be executed)
 /salt/top.sls                                 defines the root of the state tree
 /salt/common/init.sls                         common install
-/salt/common/env-template.yml                 template used to generate a new env.yml
 /salt/common/env-create.sh                    cli for env generation
 /salt/common/env-package.sh                   cli for building pdf,iso,tar.gz.gpg out of env
 /salt/common/env-update.sh                    get env, test conversion and write to /run/active-env.yml
+/salt/appliance/env-template.yml              template used to generate a new env.yml
 /salt/appliance/init.sls                      ecs appliance install
 /salt/appliance/scripts/prepare-env.sh        script started first to read environment
 /salt/appliance/scripts/prepare-appliance.sh  script started next to setup services
@@ -93,8 +93,8 @@ Path                                          Description
 |-- appliance-update
 |   |
 |   |-- salt-call state.highstate
-|   |-- letsencrypt update
 |   |-- apt-daily unattended-upgrades
+|   |-- letsencrypt update
 ?   ?-- optional reboot
 |   |-- systemctl restart appliance
 ```
@@ -113,6 +113,7 @@ Path                                  Description
 /app/etc                              runtime configuration (symlink of /data/etc)
 /app/etc/tags                         runtime tags
 /app/etc/flags                        runtime flags
+/app/etc/hooks                        runtime hooks
 /app/ecs-ca                           client certificate ca and crl directory
                                       (symlink of /data/ecs-ca)
 /app/ecs-gpg                          storage-vault gpg keys directory

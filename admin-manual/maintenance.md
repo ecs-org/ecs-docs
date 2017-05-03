@@ -9,7 +9,7 @@
 + activate changes into current environment, call `env-update.sh`
 + restart and apply new environment: `systemctl restart appliance`
 
-### Start, Stop & Update Appliance
+### Start, Stop, Update Appliance
 
 + Start appliance: `systemctl start appliance`
 + Stop appliance: `systemctl stop appliance`
@@ -59,7 +59,12 @@ The following items are updated:
 
 + Backup is done using duplicity, see [Duplicity Manual](http://duplicity.nongnu.org/duplicity.1.html)
 + Cycle: Backup is done once per day around 00:30
-+ Contents: It consists of a current database dump and the contents of /data/ecs-storage-vault
++ Safety Measures for backup:
+  + Database must exist
+  + Storage-Vault must not be empty
++ Contents: 
+  + /data/ecs-storage-vault: All uploaded and all created documents
+  + /data/ecs-pgdump: Current database dump
 + Type, Rotation & Retention:
     + Backup will start with a full backup and do incremental backups afterwards
     + 2 Months after the first full backup a second full backup will be created
@@ -130,7 +135,7 @@ Technical Background:
 The reason for this is that the appliance always uses a new unique email address for each outgoing mail and greylisting always delays the first email from an email address and sometimes blocks access to a whole domain if there are to many email addresses from one domain.
 
 
-### maintenance commands in a running ecs container
+### Maintenance commands in a running ecs container
 for most ecs commands it is not important to which instance (web,worker) 
 you connect to, "ecs_ecs.web_1" is used as example. 
 
@@ -166,7 +171,7 @@ docker exec -it ecs_ecs.web_1 /start run /bin/bash
 ./manage.py ecx_format -t pdf -o ecx-format.pdf
 ```
 
-### maintenance commands for the appliance host
+### Maintenance commands for the appliance host
 
 All snippets expect root.
 
