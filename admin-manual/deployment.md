@@ -68,7 +68,7 @@ ssh into target vm:
 export DEBIAN_FRONTEND=noninteractive
 apt-get -y update && apt-get -y install curl
 curl https://raw.githubusercontent.com/ecs-org/ecs-appliance/master/bootstrap-appliance.sh > /tmp/bootstrap.sh
-cd /tmp; chmod +x /tmp/bootstrap.sh; /tmp/bootstrap.sh --yes
+cd /tmp; chmod +x /tmp/bootstrap.sh; /tmp/bootstrap.sh --yes  2>&1 | tee /tmp/setup.log
 ```
 
 ### Testinstall using Vagrant
