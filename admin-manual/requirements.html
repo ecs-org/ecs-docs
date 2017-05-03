@@ -95,14 +95,14 @@
 <span class="o">@</span>  <span class="n">IN</span> <span class="n">A</span>   <span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span>
 <span class="o">@</span>  <span class="n">IN</span> <span class="n">MX</span>  <span class="mi">10</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
 <span class="o">@</span>  <span class="n">IN</span> <span class="n">TXT</span> <span class="s2">&quot;v=spf1 a mx ptr ~all&quot;</span>
-<span class="n">default</span><span class="o">.</span><span class="n">_domainkey</span>  <span class="n">IN</span>  <span class="n">TXT</span>  <span class="s2">&quot;v=DKIM1; k=rsa; t=n; s=email; p=a-long-glibberish-key&quot;</span>
+<span class="n">default</span><span class="o">.</span><span class="n">_domainkey</span>  <span class="n">IN</span>  <span class="n">TXT</span>  <span class="s2">&quot;v=DKIM1; k=rsa; s=email; p=a-long-glibberish-key&quot;</span>
 <span class="mf">4.3</span><span class="o">.</span><span class="mf">2.1</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span> <span class="n">IN</span> <span class="n">PTR</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
 
 <span class="c1"># Sub domain Example for sub.whatever.me</span>
 <span class="n">sub</span> <span class="n">IN</span> <span class="n">A</span>  <span class="mf">5.6</span><span class="o">.</span><span class="mf">7.8</span>
 <span class="n">sub</span> <span class="n">IN</span> <span class="n">MX</span> <span class="mi">10</span> <span class="n">sub</span><span class="o">.</span><span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
 <span class="n">sub</span> <span class="n">IN</span> <span class="n">TXT</span> <span class="s2">&quot;v=spf1 a mx ptr ~all&quot;</span>
-<span class="n">default</span><span class="o">.</span><span class="n">_domainkey</span><span class="o">.</span><span class="n">sub</span>  <span class="n">IN</span>  <span class="n">TXT</span>  <span class="s2">&quot;v=DKIM1; k=rsa; t=n; s=email; p=a-long-glibberish-key&quot;</span>
+<span class="n">default</span><span class="o">.</span><span class="n">_domainkey</span><span class="o">.</span><span class="n">sub</span>  <span class="n">IN</span>  <span class="n">TXT</span>  <span class="s2">&quot;v=DKIM1; k=rsa; s=email; p=a-long-glibberish-key&quot;</span>
 <span class="mf">8.7</span><span class="o">.</span><span class="mf">6.5</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">addr</span><span class="o">.</span><span class="n">arpa</span><span class="o">.</span>  <span class="n">IN</span> <span class="n">PTR</span> <span class="n">sub</span><span class="o">.</span><span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
 </pre></div>
 </div>
@@ -116,7 +116,7 @@
 <li><strong>Unusable</strong> internal nets are <strong>172.17.X.X and 10.0.3.X</strong>, because these are used by the appliance itself</li>
 </ul>
 </li>
-<li>a public IPv4-Address or the incoming TCP ports 22,25,80,443,465 and ICMP/ping of this address forwarded to the machine<ul>
+<li>a public IPv4-Address or the incoming TCP ports <strong>22,25,80,443,465 and ICMP/ping</strong> of this address forwarded to the machine<ul>
 <li>port 22 - ssh: ssh publickey authentification is used. this connection is used for installation and optional support</li>
 <li>port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers of forwarded ecs communication. if the hosting locations policy does not permit this, the ecs will work without it, but loses email answering functionality</li>
 <li>port 80 - http: the appliance communicates only over https, but needs http for letsencrypt client certificate renewal and for redirecting to the https site</li>

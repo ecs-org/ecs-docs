@@ -49,14 +49,14 @@ Examples for domains "https://whatever.me" and "https://sub.whatever.me":
 @  IN A   1.2.3.4
 @  IN MX  10 whatever.me
 @  IN TXT "v=spf1 a mx ptr ~all"
-default._domainkey  IN  TXT  "v=DKIM1; k=rsa; t=n; s=email; p=a-long-glibberish-key"
+default._domainkey  IN  TXT  "v=DKIM1; k=rsa; s=email; p=a-long-glibberish-key"
 4.3.2.1.in-addr.arpa. IN PTR whatever.me
 
 # Sub domain Example for sub.whatever.me
 sub IN A  5.6.7.8
 sub IN MX 10 sub.whatever.me
 sub IN TXT "v=spf1 a mx ptr ~all"
-default._domainkey.sub  IN  TXT  "v=DKIM1; k=rsa; t=n; s=email; p=a-long-glibberish-key"
+default._domainkey.sub  IN  TXT  "v=DKIM1; k=rsa; s=email; p=a-long-glibberish-key"
 8.7.6.5.in-addr.arpa.  IN PTR sub.whatever.me
 ```
 
@@ -67,7 +67,7 @@ default._domainkey.sub  IN  TXT  "v=DKIM1; k=rsa; t=n; s=email; p=a-long-glibber
     + this can be **any internal or the public IPv4 Address** if the hosting location needs this, but it must be served by DHCP
     + **Unusable** internal nets are **172.17.X.X and 10.0.3.X**, because these are used by the appliance itself
 
-+ a public IPv4-Address or the incoming TCP ports 22,25,80,443,465 and ICMP/ping of this address forwarded to the machine
++ a public IPv4-Address or the incoming TCP ports **22,25,80,443,465 and ICMP/ping** of this address forwarded to the machine
     + port 22 - ssh: ssh publickey authentification is used. this connection is used for installation and optional support
     + port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers of forwarded ecs communication. if the hosting locations policy does not permit this, the ecs will work without it, but loses email answering functionality
     + port 80 - http: the appliance communicates only over https, but needs http for letsencrypt client certificate renewal and for redirecting to the https site

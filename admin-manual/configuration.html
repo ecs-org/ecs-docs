@@ -57,7 +57,7 @@ which can be placed in one of the following locations:</p>
 <p>on an installed but unconfigured appliance:</p>
 <ul class="simple">
 <li>enter installed but empty appliance</li>
-<li>make a new env.yml: `env-create.sh <em>domainname.domain</em> /app/env.yml</li>
+<li>make a new env.yml: <code class="docutils literal"><span class="pre">env-create.sh</span> <span class="pre">*domainname.domain*</span> <span class="pre">/app/env.yml</span></code></li>
 <li>edit settings in &#8220;/app/env.yml&#8221;, see comments inside file</li>
 <li>Optional: package env into different formats<ul>
 <li><code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">/app/env.yml</span></code></li>
@@ -92,7 +92,7 @@ but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</li>
 just change the value and restart the appliance, it will detect and configure
 all needed changes to the environment.</p>
 <p>See the comments in the configuration for different possibilities for the appliance configuration.</p>
-<p>&#8220;gpg_secret&#8221;, &#8220;base64_secret&#8221;, &#8220;rsa_secret&#8221; are placeholder which will be generated with the corresponding data on environment creation using <code class="docutils literal"><span class="pre">env-create.sh</span></code>. see <code class="docutils literal"><span class="pre">env-template.yml</span></code> for details on the creation procedure.</p>
+<p>&#8220;gpg_secret&#8221;, &#8220;base64_secret&#8221;, &#8220;rsa_secret&#8221; are placeholder which will be generated with the corresponding data on environment creation using <code class="docutils literal"><span class="pre">env-create.sh</span></code>. see <code class="docutils literal"><span class="pre">salt/appliance/env-template.yml</span></code> for details on the creation procedure.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#cloud-config</span>
 <span class="c1"># XXX keep the &quot;#cloud-config&quot; line first and unchanged, software expects this header</span>
 
@@ -141,10 +141,14 @@ all needed changes to the environment.</p>
   <span class="c1">#           # Your content here</span>
   <span class="c1">#       owner: user:group</span>
   <span class="c1">#       permissions: &quot;0600&quot;</span>
-  <span class="c1">#   states: # include extra states at state.highstate</span>
-  <span class="c1">#     - qrcode</span>
   <span class="c1">#   packages: # include extra packages at state.highstate</span>
-  <span class="c1">#     - ghostscript</span>
+  <span class="c1">#     - qrcode</span>
+  <span class="c1">#   # states: # string to be executed as a salststack sls at state.highstate</span>
+  <span class="c1">#   # # warning: syntax and execution errors will break initial deployment and appliance-update</span>
+  <span class="c1">#   states: |</span>
+  <span class="c1">#       testing:</span>
+  <span class="c1">#         pkg.installed:</span>
+  <span class="c1">#           - name: curl</span>
   <span class="c1"># # update:oncalendar: # set a different update timer than default: &quot;*-*-* 06:30:00&quot;</span>
   <span class="c1"># # update:automatic: # default to true, to disable automatic update set to false</span>
   <span class="c1"># # XXX: do not update in the time between 00:30 and 06:30 because backup runs at this time</span>

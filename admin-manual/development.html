@@ -149,17 +149,17 @@ END" />
 <tr class="row-odd"><td>/salt/common/init.sls</td>
 <td>common install</td>
 </tr>
-<tr class="row-even"><td>/salt/common/env-template.yml</td>
-<td>template used to generate a new env.yml</td>
-</tr>
-<tr class="row-odd"><td>/salt/common/env-create.sh</td>
+<tr class="row-even"><td>/salt/common/env-create.sh</td>
 <td>cli for env generation</td>
 </tr>
-<tr class="row-even"><td>/salt/common/env-package.sh</td>
+<tr class="row-odd"><td>/salt/common/env-package.sh</td>
 <td>cli for building pdf,iso,tar.gz.gpg out of env</td>
 </tr>
-<tr class="row-odd"><td>/salt/common/env-update.sh</td>
+<tr class="row-even"><td>/salt/common/env-update.sh</td>
 <td>get env, test conversion and write to /run/active-env.yml</td>
+</tr>
+<tr class="row-odd"><td>/salt/appliance/env-template.yml</td>
+<td>template used to generate a new env.yml</td>
 </tr>
 <tr class="row-even"><td>/salt/appliance/init.sls</td>
 <td>ecs appliance install</td>
@@ -212,8 +212,8 @@ END" />
 |-- appliance-update
 |   |
 |   |-- salt-call state.highstate
-|   |-- letsencrypt update
 |   |-- apt-daily unattended-upgrades
+|   |-- letsencrypt update
 ?   ?-- optional reboot
 |   |-- systemctl restart appliance
 </pre></div>
@@ -251,29 +251,32 @@ END" />
 <tr class="row-odd"><td>/app/etc/flags</td>
 <td>runtime flags</td>
 </tr>
-<tr class="row-even"><td>/app/ecs-ca</td>
+<tr class="row-even"><td>/app/etc/hooks</td>
+<td>runtime hooks</td>
+</tr>
+<tr class="row-odd"><td>/app/ecs-ca</td>
 <td>client certificate ca and crl directory
 (symlink of /data/ecs-ca)</td>
 </tr>
-<tr class="row-odd"><td>/app/ecs-gpg</td>
+<tr class="row-even"><td>/app/ecs-gpg</td>
 <td>storage-vault gpg keys directory
 (symlink of /data/ecs-gpg)</td>
 </tr>
-<tr class="row-even"><td>/app/ecs-cache</td>
+<tr class="row-odd"><td>/app/ecs-cache</td>
 <td>temporary storage directory
 (symlink of /volatile/ecs-cache)</td>
 </tr>
-<tr class="row-odd"><td>/run/active-env.yml</td>
+<tr class="row-even"><td>/run/active-env.yml</td>
 <td>current activated configuration</td>
 </tr>
-<tr class="row-even"><td>/run/appliance-failed</td>
+<tr class="row-odd"><td>/run/appliance-failed</td>
 <td>flag that needs to be cleared, before a
 restart of a failed appliance is possible</td>
 </tr>
-<tr class="row-odd"><td>/usr/local/share/appliance</td>
+<tr class="row-even"><td>/usr/local/share/appliance</td>
 <td>scripts from the appliance salt source</td>
 </tr>
-<tr class="row-even"><td>/usr/local/[s]bin</td>
+<tr class="row-odd"><td>/usr/local/[s]bin</td>
 <td>user callable programs</td>
 </tr>
 </tbody>
