@@ -23,8 +23,7 @@ if the appliance.service enters fail state, it creates a file named
 After resolving the issue, remove this file using `rm /run/appliance_failed`
 before restarting the service using `systemctl restart appliance`.
 
-If the issue was within the ecs-appliance sourcecode, re-run an appliance update 
-using:
+If the issue was within the ecs-appliance sourcecode, re-run an appliance update:
 ```
 rm /run/appliance-failed
 touch /app/etc/flags/force.update.appliance
@@ -126,14 +125,13 @@ the appliance will report the following items to sentry:
 #### Mail send from ECS to Emailserver doing greylisting
 
 Issue:
-Emails send from the appliance to a target mailserver that does greylisting will always delay mails and sometimes completly fail to deliver email at all. 
+Emails send from the appliance to a target mailserver that does greylisting will always be delayed. 
 
 Resolution:
-To make ECS working with these email domains, the greylisting whitelist of the target mailserver has to be extended with the domain of the ecs appliance.
+To remove those delays, the greylisting whitelist of the target mailserver has to be extended with the domain of the ecs appliance.
 
 Technical Background:
-The reason for this is that the appliance always uses a new unique email address for each outgoing mail and greylisting always delays the first email from an email address and sometimes blocks access to a whole domain if there are to many email addresses from one domain.
-
+The appliance always uses a new unique email address for each outgoing mail (beside registration) and greylisting always delays the first email from an email address.
 
 ### Maintenance commands in a running ecs container
 for most ecs commands it is not important to which instance (web,worker) 
@@ -154,7 +152,7 @@ you connect to, "ecs_ecs.web_1" is used as example.
 + enter a django shell_plus as app user in a running container
     + `docker exec -it ecs_ecs.web_1 /start run ./manage.py shell_plus`
 
-+ make all workflow graphs
++ generate all workflow graphs
 
 ```
 docker exec -it ecs_ecs.web_1 /start run /bin/bash
@@ -194,8 +192,7 @@ systemctl restart appliance
     + `/usr/lib/update-notifier/apt-check -p`
 
 + cleanup last activity stamps for unattended upgrades, so unattended-upgrades will do all activity again
-    + `rm /var/lib/apt/periodic/*`
-    + or `touch /app/etc/flags/force.update.system` before `systemctl start appliance-update`
+    + `touch /app/etc/flags/force.update.system` before `systemctl start appliance-update`
 
 + list active systemd timer: `systemctl list-timers --all`
 
@@ -223,4 +220,6 @@ systemctl restart appliance
 + check send emails
     + `for a in sent deferred bounced; do echo "#### $a"; journalctl -u postfix | grep "status=$a" | awk '{print $7}' | sed 's/to=<//g' | sed 's/>,//g' | sort -n; done`
 
++ ip adress config
+    + `ip -o addr show | grep -Ev "veth[0-9a-f]{7}"; default_iface=$(awk '$2 == 00000000 { print $1 }' /proc/net/route); default_ip=$(ip addr show dev "$default_iface" | awk '$1 == "inet" { sub("/.*", "", $2); print $2 }'); echo "Default Interface: $default_iface , Default IP: $default_ip`
   

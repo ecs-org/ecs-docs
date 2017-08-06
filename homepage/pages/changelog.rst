@@ -7,6 +7,18 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2017.07.31
+----------
+
+Features:
+  + ecs-appliance: Aktualisierung der E-Card/Buergerkarten Software Mocca 1.3.27 (inkludiert Unterstützung für CardOSV5.3) & PDF-AS 4.1.0 
+
+2017.04.29
+----------
+
+Bugfixes:
+  + #656: Ein Amendment konnte auf Grund von nicht sichtbaren Sonderzeichen im Text nicht eingereicht werden
+  
 2017.04.12
 ----------
 

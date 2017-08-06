@@ -77,8 +77,6 @@ Weitere Information zur Signierung mittels Bürgerkarte finden Sie unter:
  http://buergerkarte.at/
 
 
-Stand 01.01.2012
-
 Tab Meldungen
 =============
 
