@@ -26,7 +26,7 @@ on an installed but unconfigured appliance:
     + transfer, print out "/app/env.yml.pdf" and store in a safe place.
 + save an encrypted copy of env.yml in a safe place. 
 + **Important**: The **env.yml contains all needed secrets** for a working appliance and is **the only relevant piece of information** if you want to recover from backup in case of a storage failure.
-
++ **Warning**: Only use ascii charset in env.yml, saltstack expects yaml in ascii charset
 
 for offline environment creation, using your local machine:
 

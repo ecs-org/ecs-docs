@@ -68,8 +68,7 @@
 &#8220;/run/appliance_failed&#8221;.</p>
 <p>After resolving the issue, remove this file using <code class="docutils literal"><span class="pre">rm</span> <span class="pre">/run/appliance_failed</span></code>
 before restarting the service using <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code>.</p>
-<p>If the issue was within the ecs-appliance sourcecode, re-run an appliance update
-using:</p>
+<p>If the issue was within the ecs-appliance sourcecode, re-run an appliance update:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">appliance</span><span class="o">-</span><span class="n">failed</span>
 <span class="n">touch</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">flags</span><span class="o">/</span><span class="n">force</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="n">appliance</span>
 <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">appliance</span><span class="o">-</span><span class="n">update</span>
@@ -201,11 +200,11 @@ the appliance will report the following items to sentry:</p>
 <div class="section" id="mail-send-from-ecs-to-emailserver-doing-greylisting">
 <span id="mail-send-from-ecs-to-emailserver-doing-greylisting"></span><h3>Mail send from ECS to Emailserver doing greylisting<a class="headerlink" href="#mail-send-from-ecs-to-emailserver-doing-greylisting" title="Permalink to this headline">¶</a></h3>
 <p>Issue:
-Emails send from the appliance to a target mailserver that does greylisting will always delay mails and sometimes completly fail to deliver email at all.</p>
+Emails send from the appliance to a target mailserver that does greylisting will always be delayed.</p>
 <p>Resolution:
-To make ECS working with these email domains, the greylisting whitelist of the target mailserver has to be extended with the domain of the ecs appliance.</p>
+To remove those delays, the greylisting whitelist of the target mailserver has to be extended with the domain of the ecs appliance.</p>
 <p>Technical Background:
-The reason for this is that the appliance always uses a new unique email address for each outgoing mail and greylisting always delays the first email from an email address and sometimes blocks access to a whole domain if there are to many email addresses from one domain.</p>
+The appliance always uses a new unique email address for each outgoing mail (beside registration) and greylisting always delays the first email from an email address.</p>
 </div>
 </div>
 <div class="section" id="maintenance-commands-in-a-running-ecs-container">
@@ -237,7 +236,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">./manage.py</span> <span class="pre">shell_plus</span></code></li>
 </ul>
 </li>
-<li>make all workflow graphs</li>
+<li>generate all workflow graphs</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">ecs_ecs</span><span class="o">.</span><span class="n">web_1</span> <span class="o">/</span><span class="n">start</span> <span class="n">run</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
 <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">workflow_dot</span> <span class="n">core</span><span class="o">.</span><span class="n">submission</span> <span class="o">|</span> <span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="o">-</span><span class="n">osubmission</span><span class="o">.</span><span class="n">png</span>
@@ -280,8 +279,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 </ul>
 </li>
 <li>cleanup last activity stamps for unattended upgrades, so unattended-upgrades will do all activity again<ul>
-<li><code class="docutils literal"><span class="pre">rm</span> <span class="pre">/var/lib/apt/periodic/*</span></code></li>
-<li>or <code class="docutils literal"><span class="pre">touch</span> <span class="pre">/app/etc/flags/force.update.system</span></code> before <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></li>
+<li><code class="docutils literal"><span class="pre">touch</span> <span class="pre">/app/etc/flags/force.update.system</span></code> before <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></li>
 </ul>
 </li>
 <li>list active systemd timer: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">list-timers</span> <span class="pre">--all</span></code></li>
@@ -311,6 +309,10 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 </li>
 <li>check send emails<ul>
 <li><code class="docutils literal"><span class="pre">for</span> <span class="pre">a</span> <span class="pre">in</span> <span class="pre">sent</span> <span class="pre">deferred</span> <span class="pre">bounced;</span> <span class="pre">do</span> <span class="pre">echo</span> <span class="pre">&quot;####</span> <span class="pre">$a&quot;;</span> <span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">postfix</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;status=$a&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$7}'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/to=&lt;//g'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/&gt;,//g'</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n;</span> <span class="pre">done</span></code></li>
+</ul>
+</li>
+<li>ip adress config<ul>
+<li><code class="docutils literal"><span class="pre">ip</span> <span class="pre">-o</span> <span class="pre">addr</span> <span class="pre">show</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-Ev</span> <span class="pre">&quot;veth[0-9a-f]{7}&quot;;</span> <span class="pre">default_iface=$(awk</span> <span class="pre">'$2</span> <span class="pre">==</span> <span class="pre">00000000</span> <span class="pre">{</span> <span class="pre">print</span> <span class="pre">$1</span> <span class="pre">}'</span> <span class="pre">/proc/net/route);</span> <span class="pre">default_ip=$(ip</span> <span class="pre">addr</span> <span class="pre">show</span> <span class="pre">dev</span> <span class="pre">&quot;$default_iface&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'$1</span> <span class="pre">==</span> <span class="pre">&quot;inet&quot;</span> <span class="pre">{</span> <span class="pre">sub(&quot;/.*&quot;,</span> <span class="pre">&quot;&quot;,</span> <span class="pre">$2);</span> <span class="pre">print</span> <span class="pre">$2</span> <span class="pre">}');</span> <span class="pre">echo</span> <span class="pre">&quot;Default</span> <span class="pre">Interface:</span> <span class="pre">$default_iface</span> <span class="pre">,</span> <span class="pre">Default</span> <span class="pre">IP:</span> <span class="pre">$default_ip</span></code></li>
 </ul>
 </li>
 </ul>
