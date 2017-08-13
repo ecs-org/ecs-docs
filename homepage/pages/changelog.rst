@@ -7,6 +7,10 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2017.08.13
+---------- 
+  + ecs-appliance: #664, #665 Zusätzliche Alarme wenn das Backup oder ein Update nicht innerhalb der erwarteten Zeit gestartet worden sind
+
 2017.07.31
 ----------
 
