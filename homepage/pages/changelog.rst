@@ -7,8 +7,16 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2017.09.23
+----------
+
+Features:
+  + ecs-appliance: #673 Alte Backups werden jetzt nach Ablauf der Zeit korrekt gelöscht
+
 2017.08.13
 ---------- 
+
+Features:
   + ecs-appliance: #664, #665 Zusätzliche Alarme wenn das Backup oder ein Update nicht innerhalb der erwarteten Zeit gestartet worden sind
 
 2017.07.31
