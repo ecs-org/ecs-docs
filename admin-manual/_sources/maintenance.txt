@@ -213,6 +213,12 @@ systemctl restart appliance
     + `. /usr/local/share/appliance/env.include; ENV_YML=/run/active-env.yml userdata_to_env ecs,appliance`
     + to also set *GIT_SOURCE defaults: `. /usr/local/share/appliance/appliance.include` 
 
++ send sentry test entry:
+
+```
+. /usr/local/share/appliance/env.include; . /usr/local/share/appliance/appliance.include; ENV_YML=/run/active-env.yml userdata_to_env ecs,appliance; sentry_entry "test" "Test Message $(hostname -f)"
+```
+
 + most time spent in state.highstate:
     + `journalctl -u appliance-update | grep -B 5 -E "Duration: [0-9]{3,5}\."`
     + `journalctl -u appliance-update | grep "ID:" -A6 | grep -E "(ID:|Function:|Duration:)" | sed -r "s/.*(ID:|Function:|Duration)(.*)/\1 \2/g" | paste -s -d '  \n'  - | sed -r "s/ID: +([^ ]+) Function: +([^ ]+) Duration : ([^ ]+ ms)/\3 \2 \1/g" |sort -n`
