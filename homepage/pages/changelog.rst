@@ -7,6 +7,12 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2017.10.19
+----------
+
+Features:
+  + ecs-appliance: das Metric System wurde fehlerressistenter gemacht
+
 2017.09.23
 ----------
 

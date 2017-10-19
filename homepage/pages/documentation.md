@@ -5,6 +5,7 @@ order: 2
 ## Installation
 
 * [Administrators Handbook - HTML](../../admin-manual/index.html) --- [PDF](../../ecs-admin-manual.pdf)
+* [Changelog since Beta-Release - German - HTML](changelog.html)
   
 
 ## Usage
@@ -15,9 +16,6 @@ order: 2
     * [Using the ECS-Test Instance - German - PDF](../static/Ecs-testen.pdf)
     * [Submission of a Study - German - PDF](../static/Einreichung.pdf)
     * [Specialist Review - German - PDF](../static/Spezialistenbewertung.pdf)
-
-* Changelog
-    *  [Changelog since Beta Release 2016.12.18 - German - HTML](changelog.html)
 
 * Screencasts
     * [Anpassung des ECS](https://youtu.be/V5LUr8lvOEo)
