@@ -46,13 +46,24 @@ Im *Status* finden Sie tabellarisch dargestellte Detailinformationen zur angeleg
 
 - Die Tagesordnung kann als PDF-Datei heruntergeladen werden. 
 
-- *Agenda versenden*: Wenn Sie auf diesen Link klicken, wird den Sitzungsmitgliedern die Agenda als PDF-Datei zugesandt.
-
 - Der Zeitplan kann als PDF-Datei heruntergeladen werden.
 
-- Das Sitzungsprotokoll kann als PDF-Datei heruntergeladen werden. Klicken Sie dafür auf den Link *PDF erstellen* und warten Sie, bis sich das Rädchen dreht. Laden Sie nach einer Weile die Seite neu, damit der Link "Als PDF herunterladen" erscheint. Klicken Sie dafür neben der Url auf Reload. Das Protokoll kann nun mittels eines Links heruntergeladen werden. Wenn Änderungen vorgenommen wurden, können Sie mittels Link das Protokoll verwerfen und neu erstellen.
+- *Agenda versenden*: Wenn Sie auf diesen Link klicken, wird die Tagesordnung und der Zeitplan als PDF-Datei per Email zugesandt. Folgende Personen bekommen die Agenda:
+    + Sitzungsmitglieder die bei Einreichungen der Sitzung als Spezialisten beteiligt sind
+    + Mitglieder der Gruppe "Resident Boardmember"
+    + Mitglieder der Gruppe "Omniscient Boardmember"
+    
+- Sobald alle Voten von Einreichungen einer Sitzung erstellt worden sind, kann das Sitzungsprotokoll erstellt werden.
 
-  - Das Protokoll wird an alle Ethikkommissionsmitglieder, die bei der Sitzung als Spezialisten anwesend waren, sowie an alle "Resident"-Mitglieder und an Mitglieder der Gruppe "Meeting Protocol Receiver" versendet.
+  Klicken Sie dafür auf den Link *PDF erstellen* und warten Sie, bis sich das Rädchen dreht. Laden Sie nach einer Weile die Seite neu, damit der Link *Als PDF herunterladen* erscheint. Klicken Sie dafür neben der Url auf Reload. Das Protokoll kann nun mittels eines Links heruntergeladen werden. Wenn Änderungen vorgenommen wurden, können Sie mittels des Link *Protokoll verwerfen und neu erstellen* das Protokoll erneut erstellen.
+  
+- Das Sitzungsprotokoll kann sobald es erstellt wurde mit den Link *als PDF-Datei herunterladen* heruntergeladen werden.
+
+- *Protokoll versenden*: Verschickt das erstellte Protokoll als PDF-Datei via Email. Folgende Personen bekommen das Protokoll:
+    + Sitzungsmitglieder die bei Einreichungen der Sitzung als Spezialisten beteiligt waren
+    + Mitglieder der Gruppe "Resident Board Member"
+    + Mitglieder der Gruppe "Omniscient Board Member"
+    + Mitglieder der Gruppe "Meeting Protocol Receiver"
 
 Statistik
 +++++++++
