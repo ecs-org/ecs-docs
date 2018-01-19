@@ -42,13 +42,13 @@ Im *Status* finden Sie tabellarisch dargestellte Detailinformationen zur angeleg
 
 - Zeigt der Status *gestartet* an, ist die Sitzung gerade am Laufen. Zeigt der Status *beendet* an, wurde die Sitzung gerade abgeschlossen. Zeigt der Status *neu* an, dann handelt es sich um eine Sitzung, die noch nicht als *gestartet* oder *beendet* markiert wurde.
 
-- Einladungen für Expedited Reviews können hier verschickt werden. Datum und Uhrzeit werden über den Button *Bearbeiten* festgelegt. Klicken Sie dann auf *Einladung verschicken*.
+- Einladungen für Expedited Reviews können hier verschickt werden. Datum und Uhrzeit werden über den Button *Bearbeiten* festgelegt. Klicken Sie dann auf *Einladung verschicken* (Gruppe Office).
 
 - Die Tagesordnung kann als PDF-Datei heruntergeladen werden. 
 
 - Der Zeitplan kann als PDF-Datei heruntergeladen werden.
 
-- *Agenda versenden*: Wenn Sie auf diesen Link klicken, wird die Tagesordnung und der Zeitplan als PDF-Datei per Email zugesandt. Folgende Personen bekommen die Agenda:
+- *Agenda versenden* (Gruppe Office):  Wenn Sie auf diesen Link klicken, wird die Tagesordnung und der Zeitplan als PDF-Datei per Email zugesandt. Folgende Personen bekommen die Agenda:
     + Sitzungsmitglieder die bei Einreichungen der Sitzung als Spezialisten beteiligt sind
     + Mitglieder der Gruppe "Resident Boardmember"
     + Mitglieder der Gruppe "Omniscient Boardmember"
@@ -59,7 +59,7 @@ Im *Status* finden Sie tabellarisch dargestellte Detailinformationen zur angeleg
   
 - Das Sitzungsprotokoll kann sobald es erstellt wurde mit den Link *als PDF-Datei herunterladen* heruntergeladen werden.
 
-- *Protokoll versenden*: Verschickt das erstellte Protokoll als PDF-Datei via Email. Folgende Personen bekommen das Protokoll:
+- *Protokoll versenden* (Gruppe Office): Verschickt das erstellte Protokoll als PDF-Datei via Email. Folgende Personen bekommen das Protokoll:
     + Sitzungsmitglieder die bei Einreichungen der Sitzung als Spezialisten beteiligt waren
     + Mitglieder der Gruppe "Resident Board Member"
     + Mitglieder der Gruppe "Omniscient Board Member"

@@ -7,6 +7,12 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2018.01.14
+----------
+
+Features:
+  + ecs-appliance: update der ssl tunnel configuration
+  
 2017.10.19
 ----------
 
