@@ -12,7 +12,19 @@ Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
 Features:
   + ecs-appliance: update der ssl tunnel configuration
-  
+
+2017.11.12
+----------
+
+Features:
+  + ecs-appliance: Änderungen am Metric System
+
+2017.10.23
+----------
+
+Features:
+  + ecs-docs:  Eine detailierte Beschreibung der Funktionalität des Agenda- und Protkollversendens wurde in die Dokumentation hinzugefügt
+    
 2017.10.19
 ----------
 
