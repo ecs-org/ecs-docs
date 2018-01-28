@@ -28,5 +28,8 @@ order: 2
     * [Begutachtungen anfordern (Spezialisten, Externes Gutachten, GCP, Statistik, usw.)](https://youtu.be/NZq6pXPb9EU)
     * [Spezialistengruppen Zuordnung](https://youtu.be/iKrd1slZpZk)
     * [Neue Meldung Zentrumschließung](https://youtu.be/2c4t4c2eZYc)
-    
+    * Durchlauf einer Sitzung
+        * [Teil 1] (https://youtu.be/1nu8uR-4Gok)
+        * [Teil 2] (https://youtu.be/eTp_NQ86bJk)
+        * [Teil 3] (https://youtu.be/vlqsP880KYY)
     * [altes ECS, Hilfe zur Einreichung](http://youtu.be/JZ8eTFn5Kk0)
