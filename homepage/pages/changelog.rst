@@ -7,11 +7,16 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2018.01.28
+
+Features:
+  + ecs-appliance: Update des Metric Systems
+  
 2018.01.14
 ----------
 
 Features:
-  + ecs-appliance: update der ssl tunnel configuration
+  + ecs-appliance: Update der ssl tunnel configuration
 
 2017.11.12
 ----------
