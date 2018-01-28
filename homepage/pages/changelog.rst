@@ -8,6 +8,7 @@ Veröffentlichungsinformationen
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
 2018.01.28
+----------
 
 Features:
   + ecs-appliance: Update des Metric Systems
