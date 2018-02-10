@@ -51,28 +51,31 @@
 <span id="mocca"></span><h2>Mocca<a class="headerlink" href="#mocca" title="Permalink to this headline">¶</a></h2>
 <p>Info:</p>
 <ul class="simple">
-<li>Current Mocca: 1.3.27 (2017-06-29), also available: 1.3.28 (2017-07-26), but missing &#8220;war&#8221;</li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/software/mocca/description">Mocca Description</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/mocca/index.html">Mocca Homepage</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/mocca/bkucommon/configuration.html">bkucommon Configuration</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/mocca/BKUOnline/">BKUOnline</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/mocca/BKUOnline/deployment.html">BKUOnline Deployment</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/mocca/BKUOnline/configuration.html">BKUOnline Configuration</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/mocca/BKUOnline/upgrade13.html">BKUOnline Upgrade Info</a></li>
-<li><a class="reference external" href="https://www.auto.tuwien.ac.at/bib/pdf_TR/TR0174.pdf">Security Analysis of the Austrian Citizen Card Environment MOCCA and E-Card</a></li>
+<li>Current Mocca: bkuOnline 1.3.27 (2017-06-29) , WebStart 1.3.30 (2018-01-16)</li>
+<li><a class="reference external" href="https://webstart.buergerkarte.at/mocca/index.html">Mocca WebStart</a><ul>
+<li><a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Install</a></li>
+<li><a class="reference external" href="http://localhost:3495/ca.crt">CA Install</a></li>
+<li><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">Test</a></li>
 </ul>
+</li>
+<li><a class="reference external" href="https://joinup.ec.europa.eu/release/mocca-1330/1330">Mocca Release</a></li>
+<li><a class="reference external" href="https://www.auto.tuwien.ac.at/bib/pdf_TR/TR0174.pdf">Security Analysis of the Austrian Citizen Card Environment MOCCA and E-Card</a></li>
+<li><a class="reference external" href="https://www.egiz.gv.at/files/download/Studie.pdf">MOCCA Usability Analyse</a></li>
+</ul>
+<p>[//]: &lt;&gt; (https://joinup.ec.europa.eu/site/mocca/index.html)
+[//]: &lt;&gt; (https://joinup.ec.europa.eu/site/mocca/bkucommon/configuration.html)
+[//]: &lt;&gt; (https://joinup.ec.europa.eu/site/mocca/BKUOnline/)
+[//]: &lt;&gt; (https://joinup.ec.europa.eu/site/mocca/BKUOnline/deployment.html)
+[//]: &lt;&gt; (https://joinup.ec.europa.eu/site/mocca/BKUOnline/configuration.html)
+[//]: &lt;&gt; (https://joinup.ec.europa.eu/site/mocca/BKUOnline/upgrade13.html)</p>
 <p>Download:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://joinup.ec.europa.eu/site/mocca">Download Site</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/system/files/project/bkuonline-1.3.27.war">bkuonline-1.3.27.war</a></li>
+<li><a class="reference external" href="https://joinup.ec.europa.eu/sites/default/files/distribution/2017-06/bkuonline-1.3.27.war">Mocca bkuonline-1.3.27.war</a></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="n">f43f49cbd7ef4df56741097ff5f0637a83cf6cb64701bc484633257ec122dc6a</span>  <span class="n">bkuonline</span><span class="o">-</span><span class="mf">1.3</span><span class="o">.</span><span class="mf">23.</span><span class="n">war</span>
-<span class="n">sha256</span><span class="o">=</span><span class="n">c3a7270294bc3a43790061e9eec059ef6a124eb3bd55d20edfd8a7b6b6b89b23</span>  <span class="n">bkuonline</span><span class="o">-</span><span class="mf">1.3</span><span class="o">.</span><span class="mf">27.</span><span class="n">war</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="n">c3a7270294bc3a43790061e9eec059ef6a124eb3bd55d20edfd8a7b6b6b89b23</span>  <span class="n">bkuonline</span><span class="o">-</span><span class="mf">1.3</span><span class="o">.</span><span class="mf">27.</span><span class="n">war</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li>Optional: <a class="reference external" href="https://joinup.ec.europa.eu/system/files/project/bkuwebstart-1.3.27_0.zip">bkuwebstart-1.3.27_0.zip</a></li>
-</ul>
 <p>Sourcecode:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://git.egiz.gv.at/mocca">http://git.egiz.gv.at/mocca</a></li>
@@ -80,9 +83,18 @@
 <div class="section" id="changes">
 <span id="changes"></span><h3>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>MOCCA 1.3.28 (unused)<ul>
+<li>MOCCA 1.3.30<ul>
+<li>Certificate update</li>
+</ul>
+</li>
+<li>MOCCA 1.3.29<ul>
 <li>Library Update</li>
-<li>Information: Missing &#8221;.war&#8221; in released files</li>
+<li>Included PAdES signature</li>
+<li>Certificate update</li>
+</ul>
+</li>
+<li>MOCCA 1.3.28<ul>
+<li>Library Update</li>
 </ul>
 </li>
 <li>MOCCA 1.3.27<ul>
@@ -114,12 +126,14 @@
 <span id="pdf-as"></span><h2>PDF-AS<a class="headerlink" href="#pdf-as" title="Permalink to this headline">¶</a></h2>
 <p>Info:</p>
 <ul class="simple">
-<li>Current PDF-AS:4.1.0 (2017-01-17), previous: 4.0.11 (2016-07-01)</li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/software/pdf-as/description">PDF-AS Description</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.0.11/docs/PDFAS4_Dokumentation.pdf">Documenation - DE</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.0.11/docs/PDFAS4_WebDokumentation.pdf">Web Interface Documenation - DE</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.0.11/docs/AnbindungExterneWebanwendung.pdf">External Service Documentation - DE</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.0.11/docs/PDFAS4_Profile_Dokumentation.pdf">Profile Documentation -  DE</a></li>
+<li>Current PDF-AS:4.1.1 (2017-08-29), previous: PDF-AS:4.1.0 (2017-01-17)</li>
+<li><a class="reference external" href="https://joinup.ec.europa.eu/asset/pdf/asset_release/pdf-411">PDF-AS Release</a><ul>
+<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.1/docs/PDFAS4_Dokumentation.pdf">Documenation - DE</a></li>
+<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.1/docs/PDFAS4_WebDokumentation.pdf">Web Interface Documenation - DE</a></li>
+<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.1/docs/AnbindungExterneWebanwendung.pdf">External Service Documentation - DE</a></li>
+<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.1/docs/PDFAS4_Profile_Dokumentation.pdf">Profile Documentation -  DE</a></li>
+</ul>
+</li>
 <li><a class="reference external" href="https://www.ref.gv.at/uploads/media/Layout_Amtssignatur_las_2-0-1_20140610.pdf">Goverment Profile Documentation - DE</a></li>
 <li><a class="reference external" href="http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil1.pdf">PDF-AS Workshop Part 1 - DE</a></li>
 <li><a class="reference external" href="http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil2.pdf">PDF-AS Workshop Part 2 - DE</a></li>
@@ -127,34 +141,41 @@
 </ul>
 <p>Download:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.0/">Download Site</a></li>
+<li><a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.1/">Download Site</a></li>
+<li><a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.1/pdf-as-web-4.1.1.war">pdf-as-web-4.1.1.war</a></li>
 <li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.0/pdf-as-web-4.1.0.war">pdf-as-web-4.1.0.war</a></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="mi">2008</span><span class="n">e413032fc926e30b2d666f4363707328a5171a4b170c0fb0599a4e894421</span>  <span class="n">pdf</span><span class="o">-</span><span class="k">as</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">11.</span><span class="n">war</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="n">e22d53a21d9f73388825a431dcfa96de45891d83e352f7210415116bfb259dc6</span>  <span class="n">pdf</span><span class="o">-</span><span class="k">as</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="mf">4.1</span><span class="o">.</span><span class="mf">1.</span><span class="n">war</span>
 <span class="n">sha256</span><span class="o">=</span><span class="n">d625cd40a0baadf9ccf2a9bb46f6808efb7929e3fbe107b087b8c42f5b6c1971</span>  <span class="n">pdf</span><span class="o">-</span><span class="k">as</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="mf">4.1</span><span class="o">.</span><span class="mf">0.</span><span class="n">war</span>
+<span class="n">sha256</span><span class="o">=</span><span class="mi">2008</span><span class="n">e413032fc926e30b2d666f4363707328a5171a4b170c0fb0599a4e894421</span>  <span class="n">pdf</span><span class="o">-</span><span class="k">as</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">11.</span><span class="n">war</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.0/cfg/defaultConfig.zip">defaultConfig.zip</a></li>
+<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.1/cfg/defaultConfig.zip">defaultConfig.zip</a></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="n">ea28689b77094eb03017acdfb11ed1a571ec4bdb27905a2f06205eddbe931fcc</span> <span class="n">defaultConfig</span><span class="o">.</span><span class="n">zip</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="mi">392718</span><span class="n">b4b8e57582ec529061c25437b3858574a90214e429069cbc084333ca8d</span> <span class="n">defaultConfig</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li>Optional:<ul>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.0/cfg/pdf-as-web.properties">pdf-as-web.properties</a></li>
+<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/releases/4.1.1/cfg/pdf-as-web.properties">pdf-as-web.properties</a></li>
 </ul>
 </li>
 </ul>
 <p>Sourcecode:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://git.egiz.gv.at/pdf-as-4/">http://git.egiz.gv.at/pdf-as-4/</a></li>
-<li><a class="reference external" href="https://joinup.ec.europa.eu/site/pdf-as/maven/at/gv/egiz/pdfas/">automated builds from source</a></li>
 </ul>
 <div class="section" id="changes">
 <span id="id1"></span><h3>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>PDF-AS 4.1<ul>
+<li>PDF-AS 4.1.1<ul>
+<li>Minor bug fixes</li>
+<li>Changes for PAdES signatures</li>
+<li>Library Update</li>
+</ul>
+</li>
+<li>PDF-AS 4.1.0<ul>
 <li>PDF-AS Library<ul>
 <li>a new pdf backend is available based on pdfbox 2.0.3, changes that are available with the new backend:<ul>
 <li>unicode characters can now be rendered in the signature block when using TTF fonts</li>
