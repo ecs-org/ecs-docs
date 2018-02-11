@@ -12,13 +12,13 @@ Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
 Features:
   + ecs-appliance: Update des Metric Systems
-  + ecs-docs: Screencast Durchlauf einer Sitzung Screencast hinzugefügt
-  + ecs: #676 Unterstützung für Emails mit Zeichensatz iso-8859-8-i und  iso-8859-8-e
+  + ecs-docs: neuer Screencast "Durchlauf einer Sitzung" auf der Homepage verfügbar
+  + ecs: #676 Unterstützung für Emails mit Zeichensatz iso-8859-8-i und iso-8859-8-e
 
 Wording: 
   + ecs: #683 Der Hilfetext für neue Nachrichten wurde adaptiert
 
-Bugs: 
+Bugfixes: 
   + ecs: #675 "Protokoll Versenden" wird jetzt nur für die Office-Gruppe angezeigt
   
 2018.01.28
