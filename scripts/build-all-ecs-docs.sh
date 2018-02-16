@@ -24,3 +24,7 @@ cd $srcpath/_build
 > .nojekyll
 printf "%b" "FROM nginx\nCOPY . /usr/share/nginx/html\n" > Dockerfile
 printf "%b" '<!doctype html>\n<html>\n<head>\n<meta http-equiv="REFRESH" content="0; url=./homepage/index.html" />\n<title></title>\n</head>\n<body></body>\n</html>\n' > index.html
+if test -f ~/work/egiz/pdf-as-web-4.1.0.war; then
+    echo "Warning: including old pdf-as-web-4.1.0.war in _build"
+    cp ~/work/egiz/pdf-as-web-4.1.0.war .
+fi
