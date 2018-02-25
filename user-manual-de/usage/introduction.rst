@@ -9,4 +9,5 @@ In diesem Handbuch erhalten Sie eine Einführung über die Benutzung der ECS-Web
 Unterstützte Browser
 ++++++++++++++++++++
 
-Um die ECS-Applikation benutzen zu können wird ein moderner Webbrowser der HTML5-Generation benötigt, wie zum Beispiel Firefox 28, Chrome 29, Safari 7, Microsoft Internet Explorer 11, Microsoft Edge 20, sowie alle neueren Versionen.
+Um die ECS-Applikation benutzen zu können wird ein moderner Webbrowser der HTML5-Generation benötigt, wie zum Beispiel Firefox (28+), Chrome (29+), Safari (7+), Microsoft Edge (20+), sowie alle neueren Versionen.
+
