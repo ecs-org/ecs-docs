@@ -7,6 +7,19 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2018.02.25
+----------
+
+Wording:
+  + ecs: Öffentliches Register: "Prüfärtzin/arzt" wurde durch "Prüfärztin/arzt" ersetzt
+
+2018.02.18
+----------
+
+Features:
+  + ecs-appliance: Neuer Link für PDF-AS (noch benötigte Unterstützung für online signing)
+
+
 2018.02.11
 ----------
 
@@ -43,7 +56,7 @@ Features:
 ----------
 
 Features:
-  + ecs-docs:  Eine detailierte Beschreibung der Funktionalität des Agenda- und Protkollversendens wurde in die Dokumentation hinzugefügt
+  + ecs-docs: Eine detailierte Beschreibung der Funktionalität des Agenda- und Protkollversendens wurde in die Dokumentation hinzugefügt
     
 2017.10.19
 ----------
