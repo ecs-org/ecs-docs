@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Einrichtung der elektronischen Signatur &#8212; ecs-user-manual-de 0 TODO:use git id Dokumentation</title>
+    
+    <link rel="stylesheet" href="../_static/better.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0 TODO:use git id',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="top" title="ecs-user-manual-de 0 TODO:use git id Dokumentation" href="../index.html" />
+    <link rel="up" title="Für die Geschäftsstelle" href="index.html" />
+    <link rel="next" title="Verwaltung" href="administration.html" />
+    <link rel="prev" title="Meldungen" href="open_notifications.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../static/custom.css" type="text/css" />
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="einrichtung-der-elektronischen-signatur">
+<h1>Einrichtung der elektronischen Signatur<a class="headerlink" href="#einrichtung-der-elektronischen-signatur" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="vorraussetzungen">
+<h2>Vorraussetzungen<a class="headerlink" href="#vorraussetzungen" title="Link zu dieser Überschrift">¶</a></h2>
+<ul>
+<li><p class="first">ein von ECS unterstützter aktueller Webbrowser (firefox,chrome,safari,edge)</p>
+</li>
+<li><p class="first">Java Version 8, zur Installation siehe die <a class="reference external" href="https://java.com/de/download/">Download-Seite von java.com</a></p>
+</li>
+<li><dl class="first docutils">
+<dt>ein Kartenlesegerät zum Anschluß über USB an den Computer</dt>
+<dd><ul class="first last simple">
+<li>Gelistet unter buergerkarte.at: <a class="reference external" href="http://www.cryptoshop.com/gemalto-idbridge-ct30-ecard.html">Cryptoshop - Gemalto IDBridge CT30 ecard</a></li>
+<li>Liste von anderen <a href="#id7"><span class="problematic" id="id8">`SmartCard Reader im Preisportal Geizhals &lt;https://geizhals.at/?cat=sm_r&amp;xf=2925_USB-A+2.0%7E2957_SmartCard`_</span></a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eine als Bürgerkarte aktivierte E-Card oder eine andere von A-Trust ausgestellte Signaturkarte</dt>
+<dd><ul class="first simple">
+<li>Um Ihre E-Card zu aktivieren gehen sie zur <a href="#id9"><span class="problematic" id="id10">`&#8221;Bürgerkarte aktivieren&#8221; Seite von buergerkarte.at &lt;https://www.buergerkarte.at/aktivieren-karte.html`_</span></a></li>
+</ul>
+<p>Wir empfehlen die <em>&#8220;Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich&#8221;</em></p>
+<ul class="last simple">
+<li>Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen</li>
+<li>Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.</li>
+<li><a class="reference external" href="https://www.buergerkarte.at/ausweisliste.html">Liste der akzeptierten Lichtbildausweise</a></li>
+<li><a class="reference external" href="https://www.buergerkarte.at/registrierungsstellen.html">Liste der Registrierungsstellen</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="einrichtung-der-signatursoftware-mocca-als-lokale-bku">
+<h2>Einrichtung der Signatursoftware Mocca als lokale BKU<a class="headerlink" href="#einrichtung-der-signatursoftware-mocca-als-lokale-bku" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="momentan-benotigte-zusatzkonfiguration">
+<h3>momentan benötigte zusatzkonfiguration<a class="headerlink" href="#momentan-benotigte-zusatzkonfiguration" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li>modify ~/.mocca/conf/configuration.xml</li>
+</ul>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
+&lt;?xml version=&#8221;1.0&#8221; encoding=&#8221;UTF-8&#8221;?&gt;
+&lt;MoccaConfiguration version=&#8221;1.0&#8221;&gt;</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;CCID&gt;</dt>
+<dd><dl class="first docutils">
+<dt>&lt;!&#8211;</dt>
+<dd>Disable use of card reader integrated PIN pad</dd>
+</dl>
+<p class="last">&#8211;&gt;
+&lt;disablePinpad&gt;false&lt;/disablePinpad&gt;</p>
+</dd>
+</dl>
+<p>&lt;/CCID&gt;
+&lt;SSL&gt;</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;!&#8211;</dt>
+<dd>Use alternative directories for the certificate stores
+The example below uses the .mocca user directory</dd>
+</dl>
+<p>&#8211;&gt;</p>
+<p>&lt;certDirectory&gt;../certs/certStore&lt;/certDirectory&gt;
+&lt;caDirectory&gt;../certs/trustStore&lt;/caDirectory&gt;</p>
+</div></blockquote>
+<p>&lt;/SSL&gt;</p>
+</div></blockquote>
+<p>&lt;/MoccaConfiguration&gt;</p>
+<p><a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+<ul>
+<li><dl class="first docutils">
+<dt>download <a class="reference external" href="https://www.identrust.com/certificates/trustid/root-download-x3.html">https://www.identrust.com/certificates/trustid/root-download-x3.html</a></dt>
+<dd><ul class="first last simple">
+<li>to ~/.mocca/certs/certStore/toBeAdded</li>
+<li>to ~/.mocca/certs/trustStore</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">restart Mocca</p>
+</li>
+</ul>
+</div>
+<div class="section" id="testen-der-elektronischen-signatur">
+<h3>Testen der elektronischen Signatur<a class="headerlink" href="#testen-der-elektronischen-signatur" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">https://www.buergerkarte.at/test-suite-karte.html</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="im-ecs-signieren">
+<h2>Im ECS signieren<a class="headerlink" href="#im-ecs-signieren" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Setzen Sie in ihren Profil (Click auf das Personen Icon und dann auf ihren Namen),
+clicken sie auf &#8220;Profil Bearbeiten&#8221;.</p>
+<p>Unter &#8220;Signatur Umgebung&#8221; wählen sie &#8220;bku&#8221; aus.
+Mit Click auf &#8220;Speichern&#8221;, speichern sie ihre Einstellung.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Einrichtung der elektronischen Signatur</a><ul>
+<li><a class="reference internal" href="#vorraussetzungen">Vorraussetzungen</a></li>
+<li><a class="reference internal" href="#einrichtung-der-signatursoftware-mocca-als-lokale-bku">Einrichtung der Signatursoftware Mocca als lokale BKU</a><ul>
+<li><a class="reference internal" href="#momentan-benotigte-zusatzkonfiguration">momentan benötigte zusatzkonfiguration</a></li>
+<li><a class="reference internal" href="#testen-der-elektronischen-signatur">Testen der elektronischen Signatur</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#im-ecs-signieren">Im ECS signieren</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Vorheriges Thema</h4>
+  <p class="topless"><a href="open_notifications.html"
+                        title="vorheriges Kapitel">Meldungen</a></p>
+  <h4>Nächstes Thema</h4>
+  <p class="topless"><a href="administration.html"
+                        title="nächstes Kapitel">Verwaltung</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="related bottom">
+  <nav id="rellinks">
+    <ul>
+        <li>
+          &larr;
+          <a href="open_notifications.html" title="Previous document">Meldungen</a>
+        </li>
+        <li>
+          <a href="administration.html" title="Next document">Verwaltung</a>
+          &rarr;
+        </li>
+    </ul>
+  </nav>
+  <nav id="breadcrumbs">
+    <ul>
+      <li><a href="../index.html">ECS Benutzer-Handbuch</a></li>
+      <li>
+        <a href="index.html">Für die Geschäftsstelle</a>
+      </li> 
+    </ul>
+  </nav>
+  </div>
+  <footer id="pagefooter">&copy; Copyright 2017 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften.
+
+  </footer>
+
+  
+  </body>
+</html>

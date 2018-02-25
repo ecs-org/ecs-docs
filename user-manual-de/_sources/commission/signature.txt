@@ -1,0 +1,78 @@
+=======================================
+Einrichtung der elektronischen Signatur
+=======================================
+
+Vorraussetzungen
+================
+
++ ein von ECS unterstützter aktueller Webbrowser (firefox,chrome,safari,edge)
+
++ Java Version 8, zur Installation siehe die `Download-Seite von java.com <https://java.com/de/download/>`_
+
++ ein Kartenlesegerät zum Anschluß über USB an den Computer
+    + Gelistet unter buergerkarte.at: `Cryptoshop - Gemalto IDBridge CT30 ecard <http://www.cryptoshop.com/gemalto-idbridge-ct30-ecard.html>`_
+    + Liste von anderen `SmartCard Reader im Preisportal Geizhals <https://geizhals.at/?cat=sm_r&xf=2925_USB-A+2.0%7E2957_SmartCard`_
+
++ eine als Bürgerkarte aktivierte E-Card oder eine andere von A-Trust ausgestellte Signaturkarte
+    + Um Ihre E-Card zu aktivieren gehen sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html`_
+
+    Wir empfehlen die *"Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich"*
+        
+    + Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen
+    + Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.
+    + `Liste der akzeptierten Lichtbildausweise <https://www.buergerkarte.at/ausweisliste.html>`_
+    + `Liste der Registrierungsstellen <https://www.buergerkarte.at/registrierungsstellen.html>`_
+
+Einrichtung der Signatursoftware Mocca als lokale BKU
+=====================================================
+
+
+momentan benötigte zusatzkonfiguration
+++++++++++++++++++++++++++++++++++++++
+
++ modify ~/.mocca/conf/configuration.xml
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<MoccaConfiguration version="1.0">
+  <CCID>
+    <!--
+      Disable use of card reader integrated PIN pad
+    -->
+    <disablePinpad>false</disablePinpad>
+  </CCID>
+  <SSL>
+    <!--
+      Use alternative directories for the certificate stores
+      The example below uses the .mocca user directory
+    -->
+    
+    <certDirectory>../certs/certStore</certDirectory>
+    <caDirectory>../certs/trustStore</caDirectory>
+  </SSL>
+</MoccaConfiguration>
+
+```
+
++ download https://www.identrust.com/certificates/trustid/root-download-x3.html
+    + to ~/.mocca/certs/certStore/toBeAdded
+    + to ~/.mocca/certs/trustStore
+
++ restart Mocca
+
+Testen der elektronischen Signatur
+++++++++++++++++++++++++++++++++++
+
++ https://www.buergerkarte.at/test-suite-karte.html
+
+
+
+Im ECS signieren
+================
+
+Setzen Sie in ihren Profil (Click auf das Personen Icon und dann auf ihren Namen),
+clicken sie auf "Profil Bearbeiten".
+
+Unter "Signatur Umgebung" wählen sie "bku" aus.
+Mit Click auf "Speichern", speichern sie ihre Einstellung.
+

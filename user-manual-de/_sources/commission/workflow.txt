@@ -46,8 +46,11 @@ Wird bei einem dieser Arbeitsschritte ein Fehler gefunden, kommt das Votum zurü
 Sobald alle Fehler beseitigt sind, wird das Votum von einem Mitglied der EC-Signing Gruppe signiert.
 Das so erzeugte elektronisch signierte Votum wird vom ECS automatisch dem Einreicher zugänglich gemacht.
 
-Für die elektronische Signierung wird eine E-Card benötigt, die dafür aktiviert wurde.
-Siehe die `Seite zur Buergerkarte <https://www.buergerkarte.at/>`_.
+Für die elektronische Signierung wird eine als Bürgerkarte aktivierte E-Card,  
+oder eine andere von A-Trust ausgestellte Signaturkarte benötigt.
+
+Zum Einrichten der elektronischen Signierung siehe die :doc:`signature`
+
 
 Mögliche Beschlüsse
 +++++++++++++++++++

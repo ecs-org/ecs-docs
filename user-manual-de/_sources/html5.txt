@@ -28,10 +28,10 @@ Sie benutzen einen nicht unterstützten Browser.
 +----------------+---------------+-----------------+---------------+-----------------+----------------+
 | |firefox_logo|_| |chrome_logo|_| |edge_logo|_    | |safari_logo|_| |ios_logo|      | |android_logo| |
 +----------------+---------------+-----------------+---------------+-----------------+----------------+
-| Firefox_ 28+   | Chrome_ 30+   | Edge_ 12.10240+ |  Safari_ 9+   | IOS 9.x+        | Android 5+     |
+| Firefox_ 28+   | Chrome_ 29+   | Edge_ 12.10240+ |  Safari_ 7+   | IOS 9.x+        | Android 5+     |
 +----------------+---------------+-----------------+---------------+-----------------+----------------+
 
-**aber nicht: Internet Explorer 10 , Firefox 24 oder andere ältere.**
+**aber nicht: Internet Explorer 10 , oder andere ältere.**
 (Internet Explorer 11 wird mit Einschränkungen unterstützt.)
 
 Was für Möglichkeiten haben Sie das ECS trotzdem zu benutzen:

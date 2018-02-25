@@ -46,7 +46,9 @@ Sourcecode:
     * Certificate update
 * MOCCA 1.3.28 - 2017-07-26
     * Library Update
+    * Removed bkuonline support
 * MOCCA 1.3.27 - 2017-06-23
+    * Last bkuonline support 
     * Security Bugfix
 * MOCCA 1.3.26 - 2017-05-29
     * New card implementation (A-Trust signature card CardOSV5.3)
@@ -96,8 +98,10 @@ Sourcecode:
   * Minor bug fixes
   * Changes for PAdES signatures
   * Library Update
+  * Removed bkuonline support
 
 * PDF-AS 4.1.0 - 2017-01-17
+  * Last bkuonline support
   * PDF-AS Library
     * a new pdf backend is available based on pdfbox 2.0.3, changes that are available with the new backend:
       * unicode characters can now be rendered in the signature block when using TTF fonts
@@ -108,3 +112,8 @@ Sourcecode:
 
 * PDF-AS 4.0.11 - 2016-07-01
   * First ECS Version
+
+## Mobile Signature (aka "Handy Signatur") from A-Trust
+
+* [Technical Documentation](https://labs.a-trust.at/developer/pdf/SignatureServer_1.2.2.pdf)
+
