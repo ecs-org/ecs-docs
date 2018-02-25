@@ -13,6 +13,10 @@ Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 Wording:
   + ecs: Öffentliches Register: "Prüfärtzin/arzt" wurde durch "Prüfärztin/arzt" ersetzt
 
+Features:
+  + ecs-appliance: Aktualisierung der Restlaufzeit des Letsencrypt Zertifikats bei Erneuerung
+
+
 2018.02.18
 ----------
 
