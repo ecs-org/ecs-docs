@@ -12,6 +12,9 @@ Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
 Wording:
   + ecs: Öffentliches Register: "Prüfärtzin/arzt" wurde durch "Prüfärztin/arzt" ersetzt
+  + ecs: #689 Erinnerungsnachricht Votumsverlängerung Einreicher:
+      + 'Seitenmenü rechts auf "Studien Meldungen"' wurde durch
+      + 'Menü oben auf "Studien"' ersetzt
 
 Features:
   + ecs-appliance: Aktualisierung der Restlaufzeit des Letsencrypt Zertifikats bei Erneuerung
