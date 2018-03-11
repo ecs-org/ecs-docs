@@ -7,12 +7,19 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2018.03.11
+----------
+
+Features:
+  + ecs-appliance: Update der Letsencrypt Software und Verbesserung der Robustheit bei Zertifikat Erneuerungsfehlern
+
+
 2018.02.25
 ----------
 
 Wording:
   + ecs: Öffentliches Register: "Prüfärtzin/arzt" wurde durch "Prüfärztin/arzt" ersetzt
-  + ecs: #689 Erinnerungsnachricht Votumsverlängerung Einreicher:
+  + ecs: #689 Erinnerungsnachricht Votumsverlängerung Einreicher
       + 'Seitenmenü rechts auf "Studien Meldungen"' wurde durch
       + 'Menü oben auf "Studien"' ersetzt
 
