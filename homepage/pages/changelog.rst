@@ -11,7 +11,7 @@ Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 ----------
 
 Features:
-  + ecs-appliance: Update der Letsencrypt Software und Verbesserung der Robustheit bei Zertifikat Erneuerungsfehlern
+  + ecs-appliance: #680 Update der Letsencrypt Software und Verbesserung der Robustheit bei Zertifikat Erneuerungsfehlern
 
 
 2018.02.25
