@@ -150,14 +150,6 @@ Geben Sie im Tab *Sponsor* die zuständige Sponsororganisation dieser Studie an.
 
 Ist der Sponsor ident mit dem Rechungsempfänger, tragen Sie die Angaben zum Sponsor ein. Sollte der Sponsor nicht der Rechnungsempfänger sein, aktivieren Sie die diesbezügliche Checkbox. Dadurch können Sie für Sponsor und Rechnungsempfänger getrennt Anschrift und Kontaktdaten eingeben.
 
-**Diplomarbeit/Dissertation**
-
-Falls es sich bei dieser Studie um eine Dissertation oder Diplomarbeit handelt, muss unter *Firma bzw. Organisation* die Ethikkommission und unter Kontaktperson Ihr Betreuer angegeben werden.
-
-**Universität als Sponsorin**
-
-Bei nicht kommerziell gesponserten Studien ist die Ethikkommission als Sponsorin anzugeben.
-
 Antragsteller
 +++++++++++++
 
