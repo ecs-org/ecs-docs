@@ -26,7 +26,7 @@ Einrichtung der Signatursoftware
 
 1. `Installation der lokalen Bürgerkartenumgebungs-Software Mocca <https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp>`_
 
-
+2. `Aktivieren des lokalen https Zertifikats von Mocca <http://localhost:3495/ca.crt>`_
 2. `Testen der elektronischen Signatur mit lokaler BKU <https://www.buergerkarte.at/test-suite-karte.html>`_
 
 **Achtung:**  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version  noch ein Letsencrypt Stammzertifikat.
@@ -40,7 +40,7 @@ Solange Mocca dieses Zertifikat nicht inkludiert hat, wird im ECS beim Signieren
 
 angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installation zu machen:
     
-3. Mocca beenden falls es gestartet ist
+3. Mocca beenden (Wichtig, weil ansonsten die Änderungen überschrieben werden)
 4. Öffnen des "versteckten" Mocca-Konfigurations-Ordner
     
     + OSX: `~/.mocca` (`versteckter Ordner unter OSX anzeigen <https://www.urbanstudio.de/blog/mac-os-x-versteckte-ordner-anzeigen/>`_)
@@ -51,6 +51,7 @@ angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installati
     im Ordner `.mocca/conf`
 6. Herunterladen und speichern der Datei :download:`DST-Root-CA-X3.crt <DST-Root-CA-X3.crt>` 
     in den Ordner `.mocca/certs/certStore/toBeAdded`
+    und in den Ordner `.mocca/certs/trustStore`
 7. Mocca erneut starten
 
     
