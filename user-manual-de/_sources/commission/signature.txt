@@ -1,78 +1,94 @@
-=======================================
-Einrichtung der elektronischen Signatur
-=======================================
+======================
+Elektronische Signatur
+======================
 
-Vorraussetzungen
+Voraussetzungen
 ================
 
-+ ein von ECS unterstützter aktueller Webbrowser (firefox,chrome,safari,edge)
++ ein von ECS unterstützter **aktueller Webbrowser** (Firefox,Chrome,Safari,Edge)
 
-+ Java Version 8, zur Installation siehe die `Download-Seite von java.com <https://java.com/de/download/>`_
++ **Java** Version 8/9, zur Installation siehe die `Download-Seite von java.com <https://java.com/de/download/>`_
 
-+ ein Kartenlesegerät zum Anschluß über USB an den Computer
++ ein Kartenlesegerät zum Anschluss über USB an den Computer
     + Gelistet unter buergerkarte.at: `Cryptoshop - Gemalto IDBridge CT30 ecard <http://www.cryptoshop.com/gemalto-idbridge-ct30-ecard.html>`_
-    + Liste von anderen `SmartCard Reader im Preisportal Geizhals <https://geizhals.at/?cat=sm_r&xf=2925_USB-A+2.0%7E2957_SmartCard`_
+    + Liste von anderen `SmartCard Reader im Preisportal Geizhals <https://geizhals.at/?cat=sm_r&xf=2925_USB-A+2.0%7E2957_SmartCard&sort=p#productlist>`_
 
-+ eine als Bürgerkarte aktivierte E-Card oder eine andere von A-Trust ausgestellte Signaturkarte
-    + Um Ihre E-Card zu aktivieren gehen sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html`_
-
-    Wir empfehlen die *"Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich"*
++ eine als **Bürgerkarte aktivierte E-Card** oder eine andere von **A-Trust ausgestellte Signaturkarte**
+    + Um Ihre E-Card zu aktivieren gehen sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html>`_.
+    + Wir empfehlen die *"Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich"* 
         
     + Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen
     + Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.
     + `Liste der akzeptierten Lichtbildausweise <https://www.buergerkarte.at/ausweisliste.html>`_
     + `Liste der Registrierungsstellen <https://www.buergerkarte.at/registrierungsstellen.html>`_
 
-Einrichtung der Signatursoftware Mocca als lokale BKU
-=====================================================
+Einrichtung der Signatursoftware
+============================================
+
+1. `Installation der lokalen Bürgerkartenumgebungs-Software Mocca <https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp>`_
 
 
-momentan benötigte zusatzkonfiguration
-++++++++++++++++++++++++++++++++++++++
+2. `Testen der elektronischen Signatur mit lokaler BKU <https://www.buergerkarte.at/test-suite-karte.html>`_
 
-+ modify ~/.mocca/conf/configuration.xml
+**Achtung:**  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version  noch ein Letsencrypt Stammzertifikat.
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<MoccaConfiguration version="1.0">
-  <CCID>
-    <!--
-      Disable use of card reader integrated PIN pad
-    -->
-    <disablePinpad>false</disablePinpad>
-  </CCID>
-  <SSL>
-    <!--
-      Use alternative directories for the certificate stores
-      The example below uses the .mocca user directory
-    -->
+Solange Mocca dieses Zertifikat nicht inkludiert hat, wird im ECS beim Signieren die Fehlermeldung 
+::
+
+    Error Code: 2010 
+    HTTPS-Bindung: Fehler beim Aufbau der TLS-Verbindung
+
+
+angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installation zu machen:
     
-    <certDirectory>../certs/certStore</certDirectory>
-    <caDirectory>../certs/trustStore</caDirectory>
-  </SSL>
-</MoccaConfiguration>
+3. Mocca beenden falls es gestartet ist
+4. Öffnen des "versteckten" Mocca-Konfigurations-Ordner
+    
+    + OSX: `~/.mocca` (`versteckter Ordner unter OSX anzeigen <https://www.urbanstudio.de/blog/mac-os-x-versteckte-ordner-anzeigen/>`_)
+    + Windows: `%userprofile%/.mocca` , (`versteckte Ordner unter Windows anzeigen <https://support.microsoft.com/de-at/help/14201/windows-show-hidden-files>`_)
+    + Linux: `~/.mocca`
 
-```
+5. Herunterladen und austauschen der Datei :download:`configuration.xml <configuration.xml>` 
+    im Ordner `.mocca/conf`
+6. Herunterladen und speichern der Datei :download:`DST-Root-CA-X3.crt <DST-Root-CA-X3.crt>` 
+    in den Ordner `.mocca/certs/certStore/toBeAdded`
+7. Mocca erneut starten
 
-+ download https://www.identrust.com/certificates/trustid/root-download-x3.html
-    + to ~/.mocca/certs/certStore/toBeAdded
-    + to ~/.mocca/certs/trustStore
-
-+ restart Mocca
-
-Testen der elektronischen Signatur
-++++++++++++++++++++++++++++++++++
-
-+ https://www.buergerkarte.at/test-suite-karte.html
-
-
+    
 
 Im ECS signieren
 ================
 
-Setzen Sie in ihren Profil (Click auf das Personen Icon und dann auf ihren Namen),
-clicken sie auf "Profil Bearbeiten".
+Benutzer der Gruppe "Signing" haben die Tätigkeiten "Votum Signierung" und Amendment-Antwort Signierung" zu Verfügung. Um signieren zu können, muss die "lokale BKU (Bürgerkartenumgebung)" Software auf den verwendeten Computer gestartet sein.
 
-Unter "Signatur Umgebung" wählen sie "bku" aus.
-Mit Click auf "Speichern", speichern sie ihre Einstellung.
+Die Signierungsseite beinhaltet jeweils eine Vorschau der zu signierten Daten, einen Navigationsblock und ein Signierungsfenster.
+
+Navigationsblock:
+
++ Mit "Zurückwerfen" wird das Votum/die Amendment-Antwort wieder in den Bearbeitungsarbeitsablauf zum letzten Arbeitsschritt vor der Signierung zurück geschickt.
+
++ Mit "Überspringen" wird das Votum/die Amendment-Antwort jetzt nicht signiert, und das ECS schlägt das nächste zu signierende Dokument vor.
+
++ Mit "Abbrechen" wird die aktuelle Signierungstätigkeit abgebrochen und in das Hauptmenü gewechselt
+
+Signierungsfenster:
+
++ Um das dargestellte Votum/die Amendment-Antwort zu signieren, geben Sie den PIN-Code ein sobald das Signierungsfenster dazu hinweist. Nicht erfolgreich signierte Voten/Amendment-Antworten bleiben weiterhin als unsignierte Tätigkeiten im System.
+
+
+Bürgerkartenumgebung wechseln
+-----------------------------
+
+Um die verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Profil (Klick auf das Personen Icon rechts oben und dann auf ihren Namen) und dort auf "Profil Bearbeiten".
+
+Als vorletzten Einstellungspunkt finden sie den Punkt "Signatur Umgebung".
+
++ wählen sie "lokale BKU" für Mocca als lokale BKU aus. 
+
+  
++ wählen sie "online BKU(veraltet)" für Mocca als online BKU aus.
+
+    **Achtung:** Diese Art der Signaturumgebung ist veraltet und wird nur noch bis zum 5. September 2018 funktionieren, und kann nur mit Firefox 52-ESR und aktivierten Java-Plugin verwendet werden. 
+
+Mit Klick auf "Speichern", speichern sie ihre Einstellung.
 

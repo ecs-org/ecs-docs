@@ -37,6 +37,25 @@ Die abwesende Person bekommt dafür in der Benutzerverwaltung den Status *Verhin
 Wenn eine Person als "abwesend" markiert wurde, wechselt in der Benutzerverwaltung der Link *Als Verhindert markieren* zu *Als Anwesend markieren*. Damit Sie die Anzeige zur Abwesenheit aufheben können, klicken Sie auf den Link *Als Anwesend markieren* und speichern Sie die Änderungen.
 Eine abwesende Person kann ihren Status, über den sie durch eine Meldung informiert wurde, im Profil oder in der Benutzerverwaltung ändern.
 
+Aussscheiden von ehemaligen Office, Executive und Signing BenutzerInnen
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Dabei ist es wichtig folgende Schritte zu tun:
+
++ Die betreffene Person (ehemalige Office/Executive/Signing Person) als **verhindert** markieren.
++ Eine **Nachrichten Vertretung**, also eine Nachfolgeperson, welche in der selben Gruppe ist, **auswählen**.
++ **Danach** ist diese Person auf **inaktiv** zu setzen, damit sie sich nicht mehr einloggen kann.
+
+Warum ist dies wichtig:
+Das ECS merkt sich welche Office Person zuletzt bei einer Tätigkeit einer Studie mitgewirkt hat.
+Falls ein/e EinreicherIn an die EK schreibt, wird dies automatisch der letzten Office Person, 
+welche eine Tätigkeit mit dieser Studie gehabt hat weiter gereicht. 
+
+Durch die Nachrichtenvertretung sorgen Sie dafür, 
+dass Nachrichten an die inaktive Person, an die Vertretungsperson weitergeleitet werden.
+Sobald eine Tätigkeit im ECS in dieser Studie von der Vertretungsperson durchgeführt worden ist,
+merkt sich das ECS die neue Ansprechperson, und neuere Nachrichten werden danach an die neue Ansprechperson gesendet.
+
 Abrechnung
 ==========
 

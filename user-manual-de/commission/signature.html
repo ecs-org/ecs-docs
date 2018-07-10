@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Einrichtung der elektronischen Signatur &#8212; ecs-user-manual-de 0 TODO:use git id Dokumentation</title>
+    <title>Elektronische Signatur &#8212; ecs-user-manual-de 0 TODO:use git id Dokumentation</title>
     
     <link rel="stylesheet" href="../_static/better.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -28,6 +28,9 @@
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="top" title="ecs-user-manual-de 0 TODO:use git id Dokumentation" href="../index.html" />
+    <link rel="up" title="Für die Geschäftsstelle" href="index.html" />
+    <link rel="next" title="Verwaltung" href="administration.html" />
+    <link rel="prev" title="Meldungen" href="open_notifications.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../static/custom.css" type="text/css" />
   </head>
@@ -38,31 +41,29 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="einrichtung-der-elektronischen-signatur">
-<h1>Einrichtung der elektronischen Signatur<a class="headerlink" href="#einrichtung-der-elektronischen-signatur" title="Link zu dieser Überschrift">¶</a></h1>
-<div class="section" id="vorraussetzungen">
-<h2>Vorraussetzungen<a class="headerlink" href="#vorraussetzungen" title="Link zu dieser Überschrift">¶</a></h2>
+  <div class="section" id="elektronische-signatur">
+<h1>Elektronische Signatur<a class="headerlink" href="#elektronische-signatur" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="voraussetzungen">
+<h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link zu dieser Überschrift">¶</a></h2>
 <ul>
-<li><p class="first">ein von ECS unterstützter aktueller Webbrowser (firefox,chrome,safari,edge)</p>
+<li><p class="first">ein von ECS unterstützter <strong>aktueller Webbrowser</strong> (Firefox,Chrome,Safari,Edge)</p>
 </li>
-<li><p class="first">Java Version 8, zur Installation siehe die <a class="reference external" href="https://java.com/de/download/">Download-Seite von java.com</a></p>
+<li><p class="first"><strong>Java</strong> Version 8/9, zur Installation siehe die <a class="reference external" href="https://java.com/de/download/">Download-Seite von java.com</a></p>
 </li>
 <li><dl class="first docutils">
-<dt>ein Kartenlesegerät zum Anschluß über USB an den Computer</dt>
+<dt>ein Kartenlesegerät zum Anschluss über USB an den Computer</dt>
 <dd><ul class="first last simple">
 <li>Gelistet unter buergerkarte.at: <a class="reference external" href="http://www.cryptoshop.com/gemalto-idbridge-ct30-ecard.html">Cryptoshop - Gemalto IDBridge CT30 ecard</a></li>
-<li>Liste von anderen <a href="#id7"><span class="problematic" id="id8">`SmartCard Reader im Preisportal Geizhals &lt;https://geizhals.at/?cat=sm_r&amp;xf=2925_USB-A+2.0%7E2957_SmartCard`_</span></a></li>
+<li>Liste von anderen <a class="reference external" href="https://geizhals.at/?cat=sm_r&amp;xf=2925_USB-A+2.0%7E2957_SmartCard&amp;sort=p#productlist">SmartCard Reader im Preisportal Geizhals</a></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>eine als Bürgerkarte aktivierte E-Card oder eine andere von A-Trust ausgestellte Signaturkarte</dt>
-<dd><ul class="first simple">
-<li>Um Ihre E-Card zu aktivieren gehen sie zur <a href="#id9"><span class="problematic" id="id10">`&#8221;Bürgerkarte aktivieren&#8221; Seite von buergerkarte.at &lt;https://www.buergerkarte.at/aktivieren-karte.html`_</span></a></li>
-</ul>
-<p>Wir empfehlen die <em>&#8220;Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich&#8221;</em></p>
-<ul class="last simple">
+<dt>eine als <strong>Bürgerkarte aktivierte E-Card</strong> oder eine andere von <strong>A-Trust ausgestellte Signaturkarte</strong></dt>
+<dd><ul class="first last simple">
+<li>Um Ihre E-Card zu aktivieren gehen sie zur <a class="reference external" href="https://www.buergerkarte.at/aktivieren-karte.html">&#8220;Bürgerkarte aktivieren&#8221; Seite von buergerkarte.at</a>.</li>
+<li>Wir empfehlen die <em>&#8220;Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich&#8221;</em></li>
 <li>Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen</li>
 <li>Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.</li>
 <li><a class="reference external" href="https://www.buergerkarte.at/ausweisliste.html">Liste der akzeptierten Lichtbildausweise</a></li>
@@ -73,70 +74,76 @@
 </li>
 </ul>
 </div>
-<div class="section" id="einrichtung-der-signatursoftware-mocca-als-lokale-bku">
-<h2>Einrichtung der Signatursoftware Mocca als lokale BKU<a class="headerlink" href="#einrichtung-der-signatursoftware-mocca-als-lokale-bku" title="Link zu dieser Überschrift">¶</a></h2>
-<div class="section" id="momentan-benotigte-zusatzkonfiguration">
-<h3>momentan benötigte zusatzkonfiguration<a class="headerlink" href="#momentan-benotigte-zusatzkonfiguration" title="Link zu dieser Überschrift">¶</a></h3>
-<ul class="simple">
-<li>modify ~/.mocca/conf/configuration.xml</li>
+<div class="section" id="einrichtung-der-signatursoftware">
+<h2>Einrichtung der Signatursoftware<a class="headerlink" href="#einrichtung-der-signatursoftware" title="Link zu dieser Überschrift">¶</a></h2>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Installation der lokalen Bürgerkartenumgebungs-Software Mocca</a></li>
+<li><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">Testen der elektronischen Signatur mit lokaler BKU</a></li>
+</ol>
+<p><strong>Achtung:</strong>  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version  noch ein Letsencrypt Stammzertifikat.</p>
+<p>Solange Mocca dieses Zertifikat nicht inkludiert hat, wird im ECS beim Signieren die Fehlermeldung</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">2010</span>
+<span class="n">HTTPS</span><span class="o">-</span><span class="n">Bindung</span><span class="p">:</span> <span class="n">Fehler</span> <span class="n">beim</span> <span class="n">Aufbau</span> <span class="n">der</span> <span class="n">TLS</span><span class="o">-</span><span class="n">Verbindung</span>
+</pre></div>
+</div>
+<p>angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installation zu machen:</p>
+<ol class="arabic" start="3">
+<li><p class="first">Mocca beenden falls es gestartet ist</p>
+</li>
+<li><p class="first">Öffnen des &#8220;versteckten&#8221; Mocca-Konfigurations-Ordner</p>
+<blockquote>
+<div><ul class="simple">
+<li>OSX: <cite>~/.mocca</cite> (<a class="reference external" href="https://www.urbanstudio.de/blog/mac-os-x-versteckte-ordner-anzeigen/">versteckter Ordner unter OSX anzeigen</a>)</li>
+<li>Windows: <cite>%userprofile%/.mocca</cite> , (<a class="reference external" href="https://support.microsoft.com/de-at/help/14201/windows-show-hidden-files">versteckte Ordner unter Windows anzeigen</a>)</li>
+<li>Linux: <cite>~/.mocca</cite></li>
 </ul>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
-&lt;?xml version=&#8221;1.0&#8221; encoding=&#8221;UTF-8&#8221;?&gt;
-&lt;MoccaConfiguration version=&#8221;1.0&#8221;&gt;</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&lt;CCID&gt;</dt>
-<dd><dl class="first docutils">
-<dt>&lt;!&#8211;</dt>
-<dd>Disable use of card reader integrated PIN pad</dd>
-</dl>
-<p class="last">&#8211;&gt;
-&lt;disablePinpad&gt;false&lt;/disablePinpad&gt;</p>
-</dd>
-</dl>
-<p>&lt;/CCID&gt;
-&lt;SSL&gt;</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&lt;!&#8211;</dt>
-<dd>Use alternative directories for the certificate stores
-The example below uses the .mocca user directory</dd>
-</dl>
-<p>&#8211;&gt;</p>
-<p>&lt;certDirectory&gt;../certs/certStore&lt;/certDirectory&gt;
-&lt;caDirectory&gt;../certs/trustStore&lt;/caDirectory&gt;</p>
 </div></blockquote>
-<p>&lt;/SSL&gt;</p>
-</div></blockquote>
-<p>&lt;/MoccaConfiguration&gt;</p>
-<p><a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
-<ul>
+</li>
 <li><dl class="first docutils">
-<dt>download <a class="reference external" href="https://www.identrust.com/certificates/trustid/root-download-x3.html">https://www.identrust.com/certificates/trustid/root-download-x3.html</a></dt>
-<dd><ul class="first last simple">
-<li>to ~/.mocca/certs/certStore/toBeAdded</li>
-<li>to ~/.mocca/certs/trustStore</li>
-</ul>
+<dt>Herunterladen und austauschen der Datei <a class="reference download internal" href="../_downloads/configuration.xml" download=""><code class="xref download docutils literal"><span class="pre">configuration.xml</span></code></a></dt>
+<dd><p class="first last">im Ordner <cite>.mocca/conf</cite></p>
 </dd>
 </dl>
 </li>
-<li><p class="first">restart Mocca</p>
+<li><dl class="first docutils">
+<dt>Herunterladen und speichern der Datei <a class="reference download internal" href="../_downloads/DST-Root-CA-X3.crt" download=""><code class="xref download docutils literal"><span class="pre">DST-Root-CA-X3.crt</span></code></a></dt>
+<dd><p class="first last">in den Ordner <cite>.mocca/certs/certStore/toBeAdded</cite></p>
+</dd>
+</dl>
 </li>
-</ul>
-</div>
-<div class="section" id="testen-der-elektronischen-signatur">
-<h3>Testen der elektronischen Signatur<a class="headerlink" href="#testen-der-elektronischen-signatur" title="Link zu dieser Überschrift">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">https://www.buergerkarte.at/test-suite-karte.html</a></li>
-</ul>
-</div>
+<li><p class="first">Mocca erneut starten</p>
+</li>
+</ol>
 </div>
 <div class="section" id="im-ecs-signieren">
 <h2>Im ECS signieren<a class="headerlink" href="#im-ecs-signieren" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Setzen Sie in ihren Profil (Click auf das Personen Icon und dann auf ihren Namen),
-clicken sie auf &#8220;Profil Bearbeiten&#8221;.</p>
-<p>Unter &#8220;Signatur Umgebung&#8221; wählen sie &#8220;bku&#8221; aus.
-Mit Click auf &#8220;Speichern&#8221;, speichern sie ihre Einstellung.</p>
+<p>Benutzer der Gruppe &#8220;Signing&#8221; haben die Tätigkeiten &#8220;Votum Signierung&#8221; und Amendment-Antwort Signierung&#8221; zu Verfügung. Um signieren zu können, muss die &#8220;lokale BKU (Bürgerkartenumgebung)&#8221; Software auf den verwendeten Computer gestartet sein.</p>
+<p>Die Signierungsseite beinhaltet jeweils eine Vorschau der zu signierten Daten, einen Navigationsblock und ein Signierungsfenster.</p>
+<p>Navigationsblock:</p>
+<ul class="simple">
+<li>Mit &#8220;Zurückwerfen&#8221; wird das Votum/die Amendment-Antwort wieder in den Bearbeitungsarbeitsablauf zum letzten Arbeitsschritt vor der Signierung zurück geschickt.</li>
+<li>Mit &#8220;Überspringen&#8221; wird das Votum/die Amendment-Antwort jetzt nicht signiert, und das ECS schlägt das nächste zu signierende Dokument vor.</li>
+<li>Mit &#8220;Abbrechen&#8221; wird die aktuelle Signierungstätigkeit abgebrochen und in das Hauptmenü gewechselt</li>
+</ul>
+<p>Signierungsfenster:</p>
+<ul class="simple">
+<li>Um das dargestellte Votum/die Amendment-Antwort zu signieren, geben Sie den PIN-Code ein sobald das Signierungsfenster dazu hinweist. Nicht erfolgreich signierte Voten/Amendment-Antworten bleiben weiterhin als unsignierte Tätigkeiten im System.</li>
+</ul>
+<div class="section" id="burgerkartenumgebung-wechseln">
+<h3>Bürgerkartenumgebung wechseln<a class="headerlink" href="#burgerkartenumgebung-wechseln" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Um die verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Profil (Klick auf das Personen Icon rechts oben und dann auf ihren Namen) und dort auf &#8220;Profil Bearbeiten&#8221;.</p>
+<p>Als vorletzten Einstellungspunkt finden sie den Punkt &#8220;Signatur Umgebung&#8221;.</p>
+<ul>
+<li><p class="first">wählen sie &#8220;lokale BKU&#8221; für Mocca als lokale BKU aus.</p>
+</li>
+<li><p class="first">wählen sie &#8220;online BKU(veraltet)&#8221; für Mocca als online BKU aus.</p>
+<blockquote>
+<div><p><strong>Achtung:</strong> Diese Art der Signaturumgebung ist veraltet und wird nur noch bis zum 5. September 2018 funktionieren, und kann nur mit Firefox 52-ESR und aktivierten Java-Plugin verwendet werden.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>Mit Klick auf &#8220;Speichern&#8221;, speichern sie ihre Einstellung.</p>
+</div>
 </div>
 </div>
 
@@ -148,18 +155,23 @@ Mit Click auf &#8220;Speichern&#8221;, speichern sie ihre Einstellung.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Inhalt</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Einrichtung der elektronischen Signatur</a><ul>
-<li><a class="reference internal" href="#vorraussetzungen">Vorraussetzungen</a></li>
-<li><a class="reference internal" href="#einrichtung-der-signatursoftware-mocca-als-lokale-bku">Einrichtung der Signatursoftware Mocca als lokale BKU</a><ul>
-<li><a class="reference internal" href="#momentan-benotigte-zusatzkonfiguration">momentan benötigte zusatzkonfiguration</a></li>
-<li><a class="reference internal" href="#testen-der-elektronischen-signatur">Testen der elektronischen Signatur</a></li>
+<li><a class="reference internal" href="#">Elektronische Signatur</a><ul>
+<li><a class="reference internal" href="#voraussetzungen">Voraussetzungen</a></li>
+<li><a class="reference internal" href="#einrichtung-der-signatursoftware">Einrichtung der Signatursoftware</a></li>
+<li><a class="reference internal" href="#im-ecs-signieren">Im ECS signieren</a><ul>
+<li><a class="reference internal" href="#burgerkartenumgebung-wechseln">Bürgerkartenumgebung wechseln</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#im-ecs-signieren">Im ECS signieren</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Vorheriges Thema</h4>
+  <p class="topless"><a href="open_notifications.html"
+                        title="vorheriges Kapitel">Meldungen</a></p>
+  <h4>Nächstes Thema</h4>
+  <p class="topless"><a href="administration.html"
+                        title="nächstes Kapitel">Verwaltung</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Schnellsuche</h3>
     <form class="search" action="../search.html" method="get">
@@ -178,11 +190,22 @@ Mit Click auf &#8220;Speichern&#8221;, speichern sie ihre Einstellung.</p>
   <div class="related bottom">
   <nav id="rellinks">
     <ul>
+        <li>
+          &larr;
+          <a href="open_notifications.html" title="Previous document">Meldungen</a>
+        </li>
+        <li>
+          <a href="administration.html" title="Next document">Verwaltung</a>
+          &rarr;
+        </li>
     </ul>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="../index.html">ECS Benutzer-Handbuch</a></li> 
+      <li><a href="../index.html">ECS Benutzer-Handbuch</a></li>
+      <li>
+        <a href="index.html">Für die Geschäftsstelle</a>
+      </li> 
     </ul>
   </nav>
   </div>

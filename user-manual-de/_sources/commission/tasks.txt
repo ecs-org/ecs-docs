@@ -1,6 +1,6 @@
-========
-Aufgaben
-========
+====================
+Aufgaben - Allgemein
+====================
 
 Aufgaben im ECS-System sind immer studienbezogen. Sie bilden die Arbeitsschritte zu einer Studie ab.
 
