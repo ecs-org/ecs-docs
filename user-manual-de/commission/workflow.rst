@@ -1,6 +1,6 @@
-=======================================
-Übersicht der studienbezogenen Aufgaben
-=======================================
+=========================
+Aufgaben im Arbeitsablauf
+=========================
 
 Einreichung
 ===========
@@ -40,14 +40,19 @@ Votum/Mitteilung
 .. image:: /images/workflow/vote.png
 
 Nach Beendigung einer Sitzung wird für alle Studien, zu denen in dieser Sitzung ein Beschluss gefasst wurde, der Votum-Arbeitsablauf gestartet.
+
 Der erste Schritt ist die Erstellung der Endfassung des Votumstextes (Ausbesserung von Tippfehlern, Ersetzung von Abkürzungen, etc.) durch einen Mitarbeiter der Office-Gruppe.
+
 Danach wird das Votum von der Office-Gruppe intern überprüft, um danach an die Executive-Gruppe für die endgültige Überprüfung übergeben zu werden.
 Wird bei einem dieser Arbeitsschritte ein Fehler gefunden, kommt das Votum zurück an die Office-Gruppe.
-Sobald alle Fehler beseitigt sind, wird das Votum von einem Mitglied der EC-Signing Gruppe signiert.
-Das so erzeugte elektronisch signierte Votum wird vom ECS automatisch dem Einreicher zugänglich gemacht.
 
-Für die elektronische Signierung wird eine E-Card benötigt, die dafür aktiviert wurde.
-Siehe die `Seite zur Buergerkarte <https://www.buergerkarte.at/>`_.
+Für endgültige Beschlüsse (B1 positiv und B4 negativ) wird das Votum nach erfolgreicher Kontrolle von einem Mitglied der EC-Signing Gruppe signiert.
+Im Falle der temporären Beschlüsse (B2,B3) und der Zurückziehung der Studie (B5) entfällt dieser Schritt.
+
+Das so erzeugte Votum wird danach vom ECS automatisch dem Einreicher anderen berechtigten Beteiligten zugänglich gemacht.
+
+Für die elektronische Signierung wird eine Signaturkarte benötigt.
+Siehe den Abschnitt :doc:`signature` für die Installation und Konfiguration.
 
 Mögliche Beschlüsse
 +++++++++++++++++++

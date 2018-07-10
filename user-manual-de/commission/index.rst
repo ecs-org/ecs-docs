@@ -15,5 +15,6 @@ Inhaltsverzeichnis
    meeting
    communication
    open_notifications
+   signature
    administration
 
