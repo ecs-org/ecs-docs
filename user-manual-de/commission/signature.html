@@ -78,9 +78,9 @@
 <h2>Einrichtung der Signatursoftware<a class="headerlink" href="#einrichtung-der-signatursoftware" title="Link zu dieser Überschrift">¶</a></h2>
 <ol class="arabic simple">
 <li><a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Installation der lokalen Bürgerkartenumgebungs-Software Mocca</a></li>
+<li><a class="reference external" href="http://localhost:3495/ca.crt">Aktivieren des lokalen https Zertifikats von Mocca</a></li>
+<li><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">Testen der elektronischen Signatur mit lokaler BKU</a></li>
 </ol>
-<p>2. <a class="reference external" href="http://localhost:3495/ca.crt">Aktivieren des lokalen https Zertifikats von Mocca</a>
-2. <a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">Testen der elektronischen Signatur mit lokaler BKU</a></p>
 <p><strong>Achtung:</strong>  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version  noch ein Letsencrypt Stammzertifikat.</p>
 <p>Solange Mocca dieses Zertifikat nicht inkludiert hat, wird im ECS beim Signieren die Fehlermeldung</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">2010</span>
@@ -88,7 +88,7 @@
 </pre></div>
 </div>
 <p>angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installation zu machen:</p>
-<ol class="arabic" start="3">
+<ol class="arabic" start="4">
 <li><p class="first">Mocca beenden (Wichtig, weil ansonsten die Änderungen überschrieben werden)</p>
 </li>
 <li><p class="first">Öffnen des &#8220;versteckten&#8221; Mocca-Konfigurations-Ordner</p>
