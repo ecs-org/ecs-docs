@@ -14,7 +14,7 @@ Voraussetzungen
     + Liste von anderen `SmartCard Reader im Preisportal Geizhals <https://geizhals.at/?cat=sm_r&xf=2925_USB-A+2.0%7E2957_SmartCard&sort=p#productlist>`_
 
 + eine als **Bürgerkarte aktivierte E-Card** oder eine andere von **A-Trust ausgestellte Signaturkarte**
-    + Um Ihre E-Card zu aktivieren gehen sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html>`_.
+    + Um Ihre E-Card zu aktivieren gehen Sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html>`_.
     + Wir empfehlen die *"Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich"* 
     + Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen
     + Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.
@@ -101,14 +101,19 @@ Bürgerkartenumgebung wechseln
 
 Um die im ECS verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Profil (Klick auf das Personen Icon rechts oben und dann auf ihren Namen) und dort auf "Profil Bearbeiten".
 
-Als vorletzten Eintrag finden sie den Punkt "Signatur Umgebung".
+Als vorletzten Eintrag finden Sie den Punkt "Signatur Umgebung".
 
-+ wählen sie "lokale BKU" für Mocca als lokale BKU aus. 
++ wählen Sie "lokale BKU" für Mocca als lokale BKU aus. 
 
-  
-+ wählen sie "online BKU(veraltet)" für Mocca als online BKU aus.
+    
++ wählen Sie "online BKU(veraltet)" für Mocca als online BKU aus.
 
     **Achtung:** Diese Art der Signaturumgebung ist veraltet und wird nur noch bis zum 5. September 2018 funktionieren, und kann nur mit Firefox 52-ESR und aktivierten Java-Plugin verwendet werden. 
 
++ wählen Sie "Handy Signatur" um statt der Signaturkarte die Handysignatur zu verwenden.
+
+    **Information:** Leider weigert sich der Betreiber A-Trust die Stammzertifikate für Zertifikate von Letsencrypt zu akzeptieren.
+    Es ist daher momentan nicht möglich die Handysignatur mit den ECS und einen Letsencrypt Zertifikat zu verwenden.
+    
 Mit Klick auf "Speichern", speichern Sie Ihre Einstellung.
 
