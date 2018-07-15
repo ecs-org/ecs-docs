@@ -7,6 +7,19 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2018.07.15
+----------
+
+Features:
+  + ecs: #681 Unterstützung der Signaturumgebung "lokale BKU" 
+
+Dokumentation:
+  + Beschreibung der notwendigen Einrichtungsschritte für die elektronische Signatur
+  + Beschreibung der notwendigen Tätigkeiten beim ausscheiden von Office/Executive/Signing Benutzerinnen 
+  + Einreicher, erneutes Einreichen: Beschreibung der Zeitpunkte (von Sitzungsbeginn bis zur Votumsausstellung) wo keine Nachreichung möglich ist
+  + Administrator Manual: Update der technischen Dokumentation der Signatursoftware
+
+  
 2018.03.11
 ----------
 
