@@ -72,49 +72,75 @@
 </dd>
 </dl>
 </li>
+<li><p class="first">Die Signatursoftware Mocca installiert als <strong>lokale Bürgerkartenumgebung</strong></p>
+</li>
 </ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warnung</p>
+<p class="last">Die zusätzlich im ECS vorhandene &#8220;Online BKU&#8221; Version von Mocca ist veraltet und wird ab 5. September 2018 nicht mehr funktionieren. Wechseln Sie zeitnahe auf die &#8220;lokale BKU&#8221;.</p>
 </div>
-<div class="section" id="einrichtung-der-signatursoftware">
-<h2>Einrichtung der Signatursoftware<a class="headerlink" href="#einrichtung-der-signatursoftware" title="Link zu dieser Überschrift">¶</a></h2>
+</div>
+<div class="section" id="einrichtung-der-signatursoftware-mocca">
+<h2>Einrichtung der Signatursoftware Mocca<a class="headerlink" href="#einrichtung-der-signatursoftware-mocca" title="Link zu dieser Überschrift">¶</a></h2>
 <ol class="arabic simple">
 <li><a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Installation der lokalen Bürgerkartenumgebungs-Software Mocca</a></li>
 <li><a class="reference external" href="http://localhost:3495/ca.crt">Aktivieren des lokalen https Zertifikats von Mocca</a></li>
 <li><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">Testen der elektronischen Signatur mit lokaler BKU</a></li>
+<li>Anpassen von Mocca für das noch fehlende Stammzertifikat von Letsencrypt</li>
 </ol>
-<p><strong>Achtung:</strong>  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version  noch ein Letsencrypt Stammzertifikat.</p>
+<p><strong>Achtung:</strong>  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version noch ein Letsencrypt Stammzertifikat.</p>
 <p>Solange Mocca dieses Zertifikat nicht inkludiert hat, wird im ECS beim Signieren die Fehlermeldung</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">2010</span>
 <span class="n">HTTPS</span><span class="o">-</span><span class="n">Bindung</span><span class="p">:</span> <span class="n">Fehler</span> <span class="n">beim</span> <span class="n">Aufbau</span> <span class="n">der</span> <span class="n">TLS</span><span class="o">-</span><span class="n">Verbindung</span>
 </pre></div>
 </div>
 <p>angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installation zu machen:</p>
-<ol class="arabic" start="4">
-<li><p class="first">Mocca beenden (Wichtig, weil ansonsten die Änderungen überschrieben werden)</p>
-</li>
-<li><p class="first">Öffnen des &#8220;versteckten&#8221; Mocca-Konfigurations-Ordner</p>
 <blockquote>
-<div><ul class="simple">
+<div><ol class="arabic">
+<li><p class="first">Mocca beenden (wichtig, weil ansonsten die Änderungen überschrieben werden)</p>
+</li>
+<li><dl class="first docutils">
+<dt>Öffnen des &#8220;versteckten&#8221; Mocca-Konfigurations-Ordner im Benutzerordner</dt>
+<dd><ul class="first last simple">
 <li>OSX: <cite>~/.mocca</cite> (<a class="reference external" href="https://www.urbanstudio.de/blog/mac-os-x-versteckte-ordner-anzeigen/">versteckter Ordner unter OSX anzeigen</a>)</li>
 <li>Windows: <cite>%userprofile%/.mocca</cite> , (<a class="reference external" href="https://support.microsoft.com/de-at/help/14201/windows-show-hidden-files">versteckte Ordner unter Windows anzeigen</a>)</li>
 <li>Linux: <cite>~/.mocca</cite></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </li>
 <li><dl class="first docutils">
 <dt>Herunterladen und austauschen der Datei <a class="reference download internal" href="../_downloads/configuration.xml" download=""><code class="xref download docutils literal"><span class="pre">configuration.xml</span></code></a></dt>
-<dd><p class="first last">im Ordner <cite>.mocca/conf</cite></p>
+<dd><ul class="first last simple">
+<li>im Ordner <cite>.mocca/conf</cite></li>
+</ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Herunterladen und speichern der Datei <a class="reference download internal" href="../_downloads/DST-Root-CA-X3.crt" download=""><code class="xref download docutils literal"><span class="pre">DST-Root-CA-X3.crt</span></code></a></dt>
-<dd><p class="first last">in den Ordner <cite>.mocca/certs/certStore/toBeAdded</cite>
-und in den Ordner <cite>.mocca/certs/trustStore</cite></p>
+<dd><ul class="first last simple">
+<li>in den Ordner <cite>.mocca/certs/certStore/toBeAdded</cite></li>
+<li>und in den Ordner <cite>.mocca/certs/trustStore</cite></li>
+</ul>
 </dd>
 </dl>
 </li>
 <li><p class="first">Mocca erneut starten</p>
 </li>
+</ol>
+</div></blockquote>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li>Zurücksetzen von Mocca auf die Standardeinstellungen</li>
+</ol>
+<blockquote>
+<div>Sobald die aktuelle Mocca Version das Stammzertifikat inkludiert hat,
+sind folgende Schritte zu machen:</div></blockquote>
+<ol class="arabic simple">
+<li>Mocca beenden</li>
+<li>Löschen des gesamten Mocca-Konfiguration-Ordners: <cite>.mocca</cite></li>
+<li>Mocca erneut starten</li>
 </ol>
 </div>
 <div class="section" id="im-ecs-signieren">
@@ -133,8 +159,8 @@ und in den Ordner <cite>.mocca/certs/trustStore</cite></p>
 </ul>
 <div class="section" id="burgerkartenumgebung-wechseln">
 <h3>Bürgerkartenumgebung wechseln<a class="headerlink" href="#burgerkartenumgebung-wechseln" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Um die verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Profil (Klick auf das Personen Icon rechts oben und dann auf ihren Namen) und dort auf &#8220;Profil Bearbeiten&#8221;.</p>
-<p>Als vorletzten Einstellungspunkt finden sie den Punkt &#8220;Signatur Umgebung&#8221;.</p>
+<p>Um die im ECS verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Profil (Klick auf das Personen Icon rechts oben und dann auf ihren Namen) und dort auf &#8220;Profil Bearbeiten&#8221;.</p>
+<p>Als vorletzten Eintrag finden sie den Punkt &#8220;Signatur Umgebung&#8221;.</p>
 <ul>
 <li><p class="first">wählen sie &#8220;lokale BKU&#8221; für Mocca als lokale BKU aus.</p>
 </li>
@@ -144,7 +170,7 @@ und in den Ordner <cite>.mocca/certs/trustStore</cite></p>
 </div></blockquote>
 </li>
 </ul>
-<p>Mit Klick auf &#8220;Speichern&#8221;, speichern sie ihre Einstellung.</p>
+<p>Mit Klick auf &#8220;Speichern&#8221;, speichern Sie Ihre Einstellung.</p>
 </div>
 </div>
 </div>
@@ -159,7 +185,7 @@ und in den Ordner <cite>.mocca/certs/trustStore</cite></p>
   <ul>
 <li><a class="reference internal" href="#">Elektronische Signatur</a><ul>
 <li><a class="reference internal" href="#voraussetzungen">Voraussetzungen</a></li>
-<li><a class="reference internal" href="#einrichtung-der-signatursoftware">Einrichtung der Signatursoftware</a></li>
+<li><a class="reference internal" href="#einrichtung-der-signatursoftware-mocca">Einrichtung der Signatursoftware Mocca</a></li>
 <li><a class="reference internal" href="#im-ecs-signieren">Im ECS signieren</a><ul>
 <li><a class="reference internal" href="#burgerkartenumgebung-wechseln">Bürgerkartenumgebung wechseln</a></li>
 </ul>

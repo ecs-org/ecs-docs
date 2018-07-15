@@ -21,8 +21,13 @@ Voraussetzungen
     + `Liste der akzeptierten Lichtbildausweise <https://www.buergerkarte.at/ausweisliste.html>`_
     + `Liste der Registrierungsstellen <https://www.buergerkarte.at/registrierungsstellen.html>`_
 
-Einrichtung der Signatursoftware
-============================================
++ Die Signatursoftware Mocca installiert als **lokale Bürgerkartenumgebung**
+
+
+.. Warning:: Die zusätzlich im ECS vorhandene "Online BKU" Version von Mocca ist veraltet und wird ab 5. September 2018 nicht mehr funktionieren. Wechseln Sie zeitnahe auf die "lokale BKU".
+    
+Einrichtung der Signatursoftware Mocca
+======================================
 
 1. `Installation der lokalen Bürgerkartenumgebungs-Software Mocca <https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp>`_
 
@@ -30,7 +35,10 @@ Einrichtung der Signatursoftware
 
 3. `Testen der elektronischen Signatur mit lokaler BKU <https://www.buergerkarte.at/test-suite-karte.html>`_
 
-**Achtung:**  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version  noch ein Letsencrypt Stammzertifikat.
+4. Anpassen von Mocca für das noch fehlende Stammzertifikat von Letsencrypt
+
+
+**Achtung:**  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version noch ein Letsencrypt Stammzertifikat.
 
 Solange Mocca dieses Zertifikat nicht inkludiert hat, wird im ECS beim Signieren die Fehlermeldung 
 ::
@@ -41,21 +49,32 @@ Solange Mocca dieses Zertifikat nicht inkludiert hat, wird im ECS beim Signieren
 
 angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installation zu machen:
     
-4. Mocca beenden (Wichtig, weil ansonsten die Änderungen überschrieben werden)
-5. Öffnen des "versteckten" Mocca-Konfigurations-Ordner
+    1. Mocca beenden (wichtig, weil ansonsten die Änderungen überschrieben werden)
     
-    + OSX: `~/.mocca` (`versteckter Ordner unter OSX anzeigen <https://www.urbanstudio.de/blog/mac-os-x-versteckte-ordner-anzeigen/>`_)
-    + Windows: `%userprofile%/.mocca` , (`versteckte Ordner unter Windows anzeigen <https://support.microsoft.com/de-at/help/14201/windows-show-hidden-files>`_)
-    + Linux: `~/.mocca`
+    2. Öffnen des "versteckten" Mocca-Konfigurations-Ordner im Benutzerordner
+        + OSX: `~/.mocca` (`versteckter Ordner unter OSX anzeigen <https://www.urbanstudio.de/blog/mac-os-x-versteckte-ordner-anzeigen/>`_)
+        + Windows: `%userprofile%/.mocca` , (`versteckte Ordner unter Windows anzeigen <https://support.microsoft.com/de-at/help/14201/windows-show-hidden-files>`_)
+        + Linux: `~/.mocca`
 
-6. Herunterladen und austauschen der Datei :download:`configuration.xml <configuration.xml>` 
-    im Ordner `.mocca/conf`
-7. Herunterladen und speichern der Datei :download:`DST-Root-CA-X3.crt <DST-Root-CA-X3.crt>` 
-    in den Ordner `.mocca/certs/certStore/toBeAdded`
-    und in den Ordner `.mocca/certs/trustStore`
-8. Mocca erneut starten
-
+    3. Herunterladen und austauschen der Datei :download:`configuration.xml <configuration.xml>` 
+        + im Ordner `.mocca/conf`
     
+    4. Herunterladen und speichern der Datei :download:`DST-Root-CA-X3.crt <DST-Root-CA-X3.crt>` 
+        + in den Ordner `.mocca/certs/certStore/toBeAdded`
+        + und in den Ordner `.mocca/certs/trustStore`
+    5. Mocca erneut starten
+
+----
+
+5. Zurücksetzen von Mocca auf die Standardeinstellungen
+
+  Sobald die aktuelle Mocca Version das Stammzertifikat inkludiert hat, 
+  sind folgende Schritte zu machen:
+
+1. Mocca beenden
+2. Löschen des gesamten Mocca-Konfiguration-Ordners: `.mocca`
+3. Mocca erneut starten
+
 
 Im ECS signieren
 ================
@@ -80,9 +99,9 @@ Signierungsfenster:
 Bürgerkartenumgebung wechseln
 -----------------------------
 
-Um die verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Profil (Klick auf das Personen Icon rechts oben und dann auf ihren Namen) und dort auf "Profil Bearbeiten".
+Um die im ECS verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Profil (Klick auf das Personen Icon rechts oben und dann auf ihren Namen) und dort auf "Profil Bearbeiten".
 
-Als vorletzten Einstellungspunkt finden sie den Punkt "Signatur Umgebung".
+Als vorletzten Eintrag finden sie den Punkt "Signatur Umgebung".
 
 + wählen sie "lokale BKU" für Mocca als lokale BKU aus. 
 
@@ -91,5 +110,5 @@ Als vorletzten Einstellungspunkt finden sie den Punkt "Signatur Umgebung".
 
     **Achtung:** Diese Art der Signaturumgebung ist veraltet und wird nur noch bis zum 5. September 2018 funktionieren, und kann nur mit Firefox 52-ESR und aktivierten Java-Plugin verwendet werden. 
 
-Mit Klick auf "Speichern", speichern sie ihre Einstellung.
+Mit Klick auf "Speichern", speichern Sie Ihre Einstellung.
 

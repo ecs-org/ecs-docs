@@ -47,12 +47,12 @@ Danach wird das Votum von der Office-Gruppe intern überprüft, um danach an die
 Wird bei einem dieser Arbeitsschritte ein Fehler gefunden, kommt das Votum zurück an die Office-Gruppe.
 
 Für endgültige Beschlüsse (B1 positiv und B4 negativ) wird das Votum nach erfolgreicher Kontrolle von einem Mitglied der EC-Signing Gruppe signiert.
-Im Falle der temporären Beschlüsse (B2,B3) und der Zurückziehung der Studie (B5) entfällt dieser Schritt.
+Das signierte Votum wird danach vom ECS automatisch den Einreicher und anderen berechtigten Beteiligten zugänglich gemacht.
 
-Das so erzeugte Votum wird danach vom ECS automatisch dem Einreicher anderen berechtigten Beteiligten zugänglich gemacht.
+Im Falle der temporären Beschlüsse (B2,B3) und der Zurückziehung der Studie (B5) entfällt der Signierungsschritt und das ECS veröffentlicht die Mitteilung direkt nach positiven Abschluss der Tätigkeit "Votum Überprüfung Executive"
 
 Für die elektronische Signierung wird eine Signaturkarte benötigt.
-Siehe den Abschnitt :doc:`signature` für die Installation und Konfiguration.
+Zur Installation und Konfiguration siehe den Abschnitt ":doc:`signature` "
 
 Mögliche Beschlüsse
 +++++++++++++++++++
@@ -65,7 +65,8 @@ B2
   Die Mitglieder der EK beauftragen die Geschäftsstelle, die Änderungen zu überwachen.
 
   Nachdem die Nachbesserungen eingelangt sind, wird eine **B2 Änderungsbewertung** generiert.
-  Ziel dieser Aufgabe ist es zu entscheiden, ob das Votum in ein positives (B1) Votum umgewandelt, oder die Studie bis zur nächsten Sitzung vertagt wird (B3).
+  Ziel dieser Aufgabe ist es zu entscheiden, ob das Votum in ein positives (B1) Votum umgewandelt, es weitere Nachbesserungen gibt und das aktuelle (B2) Votum beibehalten wird, oder falls die Auflagen über längere Zeit nicht erfüllt werden die Studie mittels (B3) Votum wieder ein Tagesordnungspunkt der nächsten Sitzung wird.
+    
   Passieren innerhalb von einem halben Jahr keine Änderungen, werden die einreichenden Personen mit Hilfe einer Systemnachricht informiert.
   Ein Jahr ohne Änderungen nach Beschluss des B2 Votums werden nochmals die einreichenden Personen und zusätzlich die Geschäftsstelle informiert.
 
