@@ -64,17 +64,6 @@ angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installati
         + und in den Ordner `.mocca/certs/trustStore`
     5. Mocca erneut starten
 
-----
-
-5. Zurücksetzen von Mocca auf die Standardeinstellungen
-
-  Sobald die aktuelle Mocca Version das Stammzertifikat inkludiert hat, 
-  sind folgende Schritte zu machen:
-
-1. Mocca beenden
-2. Löschen des gesamten Mocca-Konfiguration-Ordners: `.mocca`
-3. Mocca erneut starten
-
 
 Im ECS signieren
 ================
