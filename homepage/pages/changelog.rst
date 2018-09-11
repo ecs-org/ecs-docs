@@ -7,6 +7,13 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2018.08.12
+----------
+
+Features:
+  + ecs-appliance: Upgrade des Metric Systems Prometheus von 1.x auf 2.x
+  
+
 2018.07.15
 ----------
 
