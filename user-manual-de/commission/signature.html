@@ -86,50 +86,7 @@
 <li><a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Installation der lokalen Bürgerkartenumgebungs-Software Mocca</a></li>
 <li><a class="reference external" href="http://localhost:3495/ca.crt">Aktivieren des lokalen https Zertifikats von Mocca</a></li>
 <li><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">Testen der elektronischen Signatur mit lokaler BKU</a></li>
-<li>Anpassen von Mocca für das noch fehlende Stammzertifikat von Letsencrypt</li>
 </ol>
-<p><strong>Achtung:</strong>  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version noch ein Letsencrypt Stammzertifikat.</p>
-<p>Solange Mocca dieses Zertifikat nicht inkludiert hat, wird im ECS beim Signieren die Fehlermeldung</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="n">Code</span><span class="p">:</span> <span class="mi">2010</span>
-<span class="n">HTTPS</span><span class="o">-</span><span class="n">Bindung</span><span class="p">:</span> <span class="n">Fehler</span> <span class="n">beim</span> <span class="n">Aufbau</span> <span class="n">der</span> <span class="n">TLS</span><span class="o">-</span><span class="n">Verbindung</span>
-</pre></div>
-</div>
-<p>angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installation zu machen:</p>
-<blockquote>
-<div><ol class="arabic">
-<li><p class="first">Mocca beenden (wichtig, weil ansonsten die Änderungen überschrieben werden)</p>
-</li>
-<li><dl class="first docutils">
-<dt>Öffnen des &#8220;versteckten&#8221; Mocca-Konfigurations-Ordner im Benutzerordner</dt>
-<dd><ul class="first last simple">
-<li>OSX: <cite>~/.mocca</cite> (<a class="reference external" href="https://www.urbanstudio.de/blog/mac-os-x-versteckte-ordner-anzeigen/">versteckter Ordner unter OSX anzeigen</a>)</li>
-<li>Windows: <cite>%userprofile%/.mocca</cite> , (<a class="reference external" href="https://support.microsoft.com/de-at/help/14201/windows-show-hidden-files">versteckte Ordner unter Windows anzeigen</a>)</li>
-<li>Linux: <cite>~/.mocca</cite></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Herunterladen und austauschen der Datei <a class="reference download internal" href="../_downloads/configuration.xml" download=""><code class="xref download docutils literal"><span class="pre">configuration.xml</span></code></a></dt>
-<dd><ul class="first last simple">
-<li>im Ordner <cite>.mocca/conf</cite></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>Herunterladen und speichern der Datei <a class="reference download internal" href="../_downloads/DST-Root-CA-X3.crt" download=""><code class="xref download docutils literal"><span class="pre">DST-Root-CA-X3.crt</span></code></a></dt>
-<dd><ul class="first last simple">
-<li>in den Ordner <cite>.mocca/certs/certStore/toBeAdded</cite></li>
-<li>und in den Ordner <cite>.mocca/certs/trustStore</cite></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p class="first">Mocca erneut starten</p>
-</li>
-</ol>
-</div></blockquote>
 </div>
 <div class="section" id="im-ecs-signieren">
 <h2>Im ECS signieren<a class="headerlink" href="#im-ecs-signieren" title="Link zu dieser Überschrift">¶</a></h2>

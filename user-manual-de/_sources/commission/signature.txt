@@ -35,35 +35,6 @@ Einrichtung der Signatursoftware Mocca
 
 3. `Testen der elektronischen Signatur mit lokaler BKU <https://www.buergerkarte.at/test-suite-karte.html>`_
 
-4. Anpassen von Mocca für das noch fehlende Stammzertifikat von Letsencrypt
-
-
-**Achtung:**  Mit Stand 10. Juli 2018 fehlt der aktuellen Mocca Version noch ein Letsencrypt Stammzertifikat.
-
-Solange Mocca dieses Zertifikat nicht inkludiert hat, wird im ECS beim Signieren die Fehlermeldung 
-::
-
-    Error Code: 2010 
-    HTTPS-Bindung: Fehler beim Aufbau der TLS-Verbindung
-
-
-angezeigt und es sind noch folgende Zusatzschritte nach erfolgreicher Installation zu machen:
-    
-    1. Mocca beenden (wichtig, weil ansonsten die Änderungen überschrieben werden)
-    
-    2. Öffnen des "versteckten" Mocca-Konfigurations-Ordner im Benutzerordner
-        + OSX: `~/.mocca` (`versteckter Ordner unter OSX anzeigen <https://www.urbanstudio.de/blog/mac-os-x-versteckte-ordner-anzeigen/>`_)
-        + Windows: `%userprofile%/.mocca` , (`versteckte Ordner unter Windows anzeigen <https://support.microsoft.com/de-at/help/14201/windows-show-hidden-files>`_)
-        + Linux: `~/.mocca`
-
-    3. Herunterladen und austauschen der Datei :download:`configuration.xml <configuration.xml>` 
-        + im Ordner `.mocca/conf`
-    
-    4. Herunterladen und speichern der Datei :download:`DST-Root-CA-X3.crt <DST-Root-CA-X3.crt>` 
-        + in den Ordner `.mocca/certs/certStore/toBeAdded`
-        + und in den Ordner `.mocca/certs/trustStore`
-    5. Mocca erneut starten
-
 
 Im ECS signieren
 ================
