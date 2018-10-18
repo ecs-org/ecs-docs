@@ -7,6 +7,13 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2018.10.18
+----------
+
+Dokumentation:
+  + Aktualisierung der notwendigen Einrichtungsschritte für die elektronische Signatur
+
+
 2018.08.12
 ----------
 
