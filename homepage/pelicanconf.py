@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 import os
+from datetime import datetime
 
-AUTHOR = '2017 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften'
+AUTHOR = datetime.now().strftime("%Y") +' Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften'
 SITENAME = 'ECS - Ethics Committee System'
 SITEURL = ''
 #THEME = 'simple'
