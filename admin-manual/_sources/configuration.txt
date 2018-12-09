@@ -102,7 +102,7 @@ appliance:
   # extra:  # write out extra files on appliance configure
   #   files:
   #     - path: /path/of/filename
-  #       content: |
+  #       contents: |
   #           # Your content here
   #       owner: user:group
   #       permissions: "0600"

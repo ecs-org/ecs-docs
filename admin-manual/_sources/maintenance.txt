@@ -98,8 +98,9 @@ Host:
 + if `appliance:metric:server` is set, these exported metrics are collected and 
     stored by a prometheus server and alerts are issued using email to root
     using the prometheus alert server
-    + there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh
-        + for a detailed alert list look at the [alert.rules sourcefile](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules)
+    + there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh, a.o.
+        + for a detailed alert list look at the [alert.rules.yml sourcefile](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules.yml)
+        + to **add custom rules create rules** files in the config yaml using "file:*:contents" with a path of "/app/etc/prometheus-rules.d/*.rules.yml"
     + the prometheus gui is at [http://172.17.0.1:9090](http://172.17.0.1:9090)
     + the prometheus alert gui is at [http://172.17.0.1:9093](http://172.17.0.1:9093)
 + if `appliance:metric:gui` is set, a grafana server is started to display the collected metrics
@@ -228,4 +229,4 @@ systemctl restart appliance
 
 + ip adress config
     + `ip -o addr show | grep -Ev "veth[0-9a-f]{7}"; default_iface=$(awk '$2 == 00000000 { print $1 }' /proc/net/route); default_ip=$(ip addr show dev "$default_iface" | awk '$1 == "inet" { sub("/.*", "", $2); print $2 }'); echo "Default Interface: $default_iface , Default IP: $default_ip`
-  
+

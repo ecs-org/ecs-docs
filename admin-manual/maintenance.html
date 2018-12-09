@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Maintenance &#8212; ecs-admin-manual 2018-11-19@13:41 documentation</title>
+    <title>Maintenance &#8212; ecs-admin-manual 2018-12-09@16:34 documentation</title>
     
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2018-11-19@13:41',
+        VERSION:     '2018-12-09@16:34',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="ecs-admin-manual 2018-11-19@13:41 documentation" href="index.html" />
+    <link rel="top" title="ecs-admin-manual 2018-12-09@16:34 documentation" href="index.html" />
     <link rel="next" title="Digital signed pdf documents" href="mocca-pdfas.html" />
     <link rel="prev" title="Configure Appliance" href="configuration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -164,8 +164,9 @@ mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)</li>
 <li>if <code class="docutils literal"><span class="pre">appliance:metric:server</span></code> is set, these exported metrics are collected and
 stored by a prometheus server and alerts are issued using email to root
 using the prometheus alert server<ul>
-<li>there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh<ul>
-<li>for a detailed alert list look at the <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules">alert.rules sourcefile</a></li>
+<li>there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh, a.o.<ul>
+<li>for a detailed alert list look at the <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules.yml">alert.rules.yml sourcefile</a></li>
+<li>to <strong>add custom rules create rules</strong> files in the config yaml using &#8220;file:<em>:contents&#8221; with a path of &#8220;/app/etc/prometheus-rules.d/</em>.rules.yml&#8221;</li>
 </ul>
 </li>
 <li>the prometheus gui is at <a class="reference external" href="http://172.17.0.1:9090">http://172.17.0.1:9090</a></li>
@@ -218,8 +219,6 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
 <li>eg. <code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/bin/bash</span></code></li>
 </ul>
 </li>
-</ul>
-<ul class="simple">
 <li>shell as app user with activated environment<ul>
 <li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">/bin/bash</span></code></li>
 </ul>
@@ -389,7 +388,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2018-11-19@13:41 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2018-12-09@16:34 documentation</a></li> 
     </ul>
   </nav>
   </div>
