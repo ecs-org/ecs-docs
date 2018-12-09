@@ -10,5 +10,5 @@ project = 'ecs-admin-manual'
 language = 'en'
 latex_documents = [
     (master_doc, '{}.tex'.format(project), 'ECS Administration Manual',
-     'Latex Author Name', 'howto'),
+     author, 'howto'),
 ]

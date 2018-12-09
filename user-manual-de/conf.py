@@ -7,10 +7,10 @@ sys.path.append(os.path.join(os.getcwd(),".."))
 from include.baseconf import *
 
 project = 'ecs-user-manual-de'
-html_short_title = "ECS Benutzer-Handbuch"
+html_short_title = "ECS BenutzerInnen-Handbuch"
 language = 'de'
 latex_documents = [
     (master_doc, '{}.tex'.format(project), 'Ecs BenutzerInnen Handbuch',
-     'Latex Author Name', 'howto'),
+     author, 'howto'),
 ]
 
