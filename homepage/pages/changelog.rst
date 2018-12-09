@@ -7,7 +7,7 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
-2018.12.02
+2018.12.09
 ----------
 
 Features:
