@@ -13,9 +13,9 @@ Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 Features:
   + #715 die "Ethik-Kommission der Vinzenz Gruppe Wien" wurde den ECS hinzugefügt
   + ecs-appliance:
-    + Aktualisierung des Linux Kernels auf linux-generic/virtual-hwe-16.04
-    + #688 kein zusätzliches Backup bei System-Neustart
-    + #677 Erweiterung des Metrik- und Alarm- System Prometheus um zusätzliche Metriken und Alarme
+      + Aktualisierung des Linux Kernels auf linux-generic/virtual-hwe-16.04
+      + #688 kein zusätzliches Backup bei System-Neustart
+      + #677 Erweiterung des Metrik- und Alarm- System Prometheus um zusätzliche Metriken und Alarme
 
 Bugfixes:
   + #716 im Sitzungsprotokoll PDF werden jetzt statt den geplanten Start und Endzeiten die tatsächlichen Start und Endzeiten angegeben
