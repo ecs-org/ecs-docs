@@ -9,3 +9,4 @@ Das ECS benutzen
    view
    communication
    notepad
+   pdfviewer

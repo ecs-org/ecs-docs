@@ -7,18 +7,37 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2018.12.02
+----------
+
+Features:
+  + #715 die "Ethik-Kommission der Vinzenz Gruppe Wien" wurde den ECS hinzugefügt
+  + ecs-appliance:
+    + Aktualisierung des Linux Kernels auf linux-generic/virtual-hwe-16.04
+    + #688 kein zusätzliches Backup bei System-Neustart
+    + #677 Erweiterung des Metrik- und Alarm- System Prometheus um zusätzliche Metriken und Alarme
+
+Bugfixes:
+  + #716 im Sitzungsprotokoll PDF werden jetzt statt den geplanten Start und Endzeiten die tatsächlichen Start und Endzeiten angegeben
+
+Wording:
+  + #700 AMG-Tab/Einreichen als "...lokale Ethikkommision" wurde durch "...lokale Ethikkommission" ersetzt
+
+Dokumentation:
+  + #668 Beschreibung der verwendbaren Tastaturkombinationen der `internen PDF-Leseansicht <https://ecs-org.github.io/ecs-docs/user-manual-de/usage/pdfviewer.html>`_
+
 2018.10.18
 ----------
 
 Dokumentation:
-  + Aktualisierung der notwendigen Einrichtungsschritte für die elektronische Signatur
+  + Aktualisierung der notwendigen `Einrichtungsschritte für die elektronische Signatur <https://ecs-org.github.io/ecs-docs/user-manual-de/commission/signature.html>`_
 
 
 2018.08.12
 ----------
 
 Features:
-  + ecs-appliance: Upgrade des Metric Systems Prometheus von 1.x auf 2.x
+  + ecs-appliance: Aktualisierung des Metrik- und Alarm- System Prometheus von 1.x auf 2.x
   
 
 2018.07.15

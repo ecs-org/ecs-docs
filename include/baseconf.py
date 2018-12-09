@@ -44,6 +44,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.graphviz',
     'sphinx.ext.imgmath',
+    'sphinx_markdown_tables',
 ]
 
 # change graphviz calling to prepend the c preprocessor to the calling chain
