@@ -12,7 +12,7 @@ it can be stacked on top of the developer vm, but is independent of it.
   deployment
   configuration
   maintenance
-  mocca-pdfas
+  mocca_pdfas
   development
 
 ```

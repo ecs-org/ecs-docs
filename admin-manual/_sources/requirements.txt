@@ -236,11 +236,12 @@ Postgres Database:
   + Google Chrome
   + Apple Safari
   + Microsoft Edge
-  + Microsoft Internetexplorer 11
-+ Internal User need:
++ Internal ECS User need:
   + Mozilla Firefox
   + Working HTTPS including HTTP-Client Certificate support. See common challenges described under [Security Products](#firewall-endpointprotection-antivirus-security-products)
-+ Signing User need:
-  + Mozilla Firefox ESR
-  + Sun Java with Firefox Plugin
++ Additional requirements for Signing User:
+  + **Java** Version 8/9, to install go to the [Download-Page of java.com](https://java.com/de/download/)
+  + Installation of the Java Signingsoftware [Mocca](https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp)
+  + see [Digital signed pdf documents](./mocca_pdfas.html) for technical details
+  + see [User-Manual (German) - Elektronische Signatur](../user-manual-de/commission/signature.html)
 

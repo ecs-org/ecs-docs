@@ -197,39 +197,38 @@ ecs:
 
 #### Ethics Commission UUID's
 
-```eval_rst
-================================  ====================================================================================
-23d805c6b5f14d8b9196a12005fd2961  Ethikkommission der Medizinischen Universität Wien
-7b51f38bde8a4161a0dc34647fc7e654  Ethikkommission Krankenhaus Barmh.Brüder - Wien
-85dc386061584fbe8549ce4e4d828fbd  Ethikkommission der Stadt Wien gemäß KAG, AMG und MPG
-d6a22c635a584521b107481ac18318f6  Ethikkommission Forschungsinstitut des Wiener Roten Kreuzes
-55ae93ec9df04d6abfc8d233ec5ccf8e  Ethikkommission Krankenhaus Barmh.Schwestern - Wien
-7cd6d52120b3474ba502931b9f60a5f3  Ethikkommission Confraternität-Priv.Klin. Josefstadt und Priv.Klin. Döbling
-7df9ebaf15434709b09c3def9a6c8769  Ethikkommission St.Anna Kinderspital
-f122f144616541d391fde2dcc761aff4  Ethikkommission Österreichische Arbeitsgemeinschaft für Klinische Pharmakologie
-25b6744780434a3f96a1e43b405d3848  Ethikkommission Privatkrankenanstalt Rudolfinerhaus
-d542994ced34403db841786a1c1ab892  Ethikkommission Rheuma-Zentrum Wien-Oberlaa
-5615dfbaf8c8445d960d1e2cd9c00dc3  Ethikkommission Krankenhaus des Göttlichen Heilandes
-4d3a2d5f138940f293ee87fe6ec1d5b2  Ethikkommission Evangelisches Krankenhaus
-8d2950e3a0294f68bde647a54df6d823  Ethikkommission der Allgemeinen Unfallversicherungsanstalt
-9f6b509e716e413f865d95bdd630e9bc  Ethikkommission Immunologische Tagesklinik
-b17f32f604fa4452b5ff3a2baa9e0704  Ethikkommission des Landes Niederösterreich
-6688ce16a3b84d42b1531389e6039891  Ethikkommission Krankenhaus Elisabethinen
-e4dcd05a31ad475ca72dea7b84ef030e  Ethikkommission des Landes Oberösterreich
-e269491bb9c040aaad6a5f11df343f38  Ethikkommission Krankenhaus Barmh.Brüder - Linz
-1cca34032077445d95dabf7802fade28  Ethikkommission Krankenhaus Barmh.Schwestern - Linz
-39cbb589ef044d27bceb6ee5ac796ae7  Ethikkommission für das Bundesland Salzburg
-280414583b894c809a9baa8134d7fe4b  Ethikkommission der Medizinischen Universität Innsbruck
-183881da8200493aa7edd8bebeea75b9  Ethikkommission des Landes Vorarlberg
-95821eba88f34b2195f96e747d7f6b16  Ethikkommission des Landes Burgenland gemäß KAG, AMG und MPG
-6e7cfab5f8cd40df83c9de4fac9bb20f  Ethikkommission des Landes Steiermark gemäß AMG und MPG
-75b5a9714f354a5b842aa01029148036  Ethikkommission Krankenhaus Barmh.Brüder - Graz
-9287fb0878b94f9f9d90b5582d1cefca  Ethikkommission Krankenhaus Barmh.Brüder - Eggenberg
-e17ee744e4e840778f316cf3f79de6b4  Ethikkommission der Medizinischen Universität Graz
-ec9f179a52a04a7aa52446232c3fd4bd  Ethikkommission des Landes Kärnten
-c890205dcb7543c8a76bf324512c5f81  Ethikkommission des Krankenhaus St. Josef
-dc1b115d9809461ba3ea9450b079ddd6  Kommission für Scientific Integrity und Ethik der Karl Landsteiner Privatuniversität
-================================  ====================================================================================
+```
+| 23d805c6b5f14d8b9196a12005fd2961 | Ethikkommission der Medizinischen Universität Wien
+| 7b51f38bde8a4161a0dc34647fc7e654 | Ethikkommission Krankenhaus Barmh.Brüder - Wien
+| 85dc386061584fbe8549ce4e4d828fbd | Ethikkommission der Stadt Wien gemäß KAG, AMG und MPG
+| d6a22c635a584521b107481ac18318f6 | Ethikkommission Forschungsinstitut des Wiener Roten Kreuzes
+| 55ae93ec9df04d6abfc8d233ec5ccf8e | Ethikkommission Krankenhaus Barmh.Schwestern - Wien
+| 7cd6d52120b3474ba502931b9f60a5f3 | Ethikkommission Confraternität-Priv.Klin. Josefstadt und Priv.Klin. Döbling
+| 7df9ebaf15434709b09c3def9a6c8769 | Ethikkommission St.Anna Kinderspital
+| f122f144616541d391fde2dcc761aff4 | Ethikkommission Österreichische Arbeitsgemeinschaft für Klinische Pharmakologie
+| 25b6744780434a3f96a1e43b405d3848 | Ethikkommission Privatkrankenanstalt Rudolfinerhaus
+| d542994ced34403db841786a1c1ab892 | Ethikkommission Rheuma-Zentrum Wien-Oberlaa
+| 5615dfbaf8c8445d960d1e2cd9c00dc3 | Ethikkommission Krankenhaus des Göttlichen Heilandes
+| 4d3a2d5f138940f293ee87fe6ec1d5b2 | Ethikkommission Evangelisches Krankenhaus
+| 8d2950e3a0294f68bde647a54df6d823 | Ethikkommission der Allgemeinen Unfallversicherungsanstalt
+| 9f6b509e716e413f865d95bdd630e9bc | Ethikkommission Immunologische Tagesklinik
+| b17f32f604fa4452b5ff3a2baa9e0704 | Ethikkommission des Landes Niederösterreich
+| 6688ce16a3b84d42b1531389e6039891 | Ethikkommission Krankenhaus Elisabethinen
+| e4dcd05a31ad475ca72dea7b84ef030e | Ethikkommission des Landes Oberösterreich
+| e269491bb9c040aaad6a5f11df343f38 | Ethikkommission Krankenhaus Barmh.Brüder - Linz
+| 1cca34032077445d95dabf7802fade28 | Ethikkommission Krankenhaus Barmh.Schwestern - Linz
+| 39cbb589ef044d27bceb6ee5ac796ae7 | Ethikkommission für das Bundesland Salzburg
+| 280414583b894c809a9baa8134d7fe4b | Ethikkommission der Medizinischen Universität Innsbruck
+| 183881da8200493aa7edd8bebeea75b9 | Ethikkommission des Landes Vorarlberg
+| 95821eba88f34b2195f96e747d7f6b16 | Ethikkommission des Landes Burgenland gemäß KAG, AMG und MPG
+| 6e7cfab5f8cd40df83c9de4fac9bb20f | Ethikkommission des Landes Steiermark gemäß AMG und MPG
+| 75b5a9714f354a5b842aa01029148036 | Ethikkommission Krankenhaus Barmh.Brüder - Graz
+| 9287fb0878b94f9f9d90b5582d1cefca | Ethikkommission Krankenhaus Barmh.Brüder - Eggenberg
+| e17ee744e4e840778f316cf3f79de6b4 | Ethikkommission der Medizinischen Universität Graz
+| ec9f179a52a04a7aa52446232c3fd4bd | Ethikkommission des Landes Kärnten
+| c890205dcb7543c8a76bf324512c5f81 | Ethikkommission des Krankenhaus St. Josef
+| dc1b115d9809461ba3ea9450b079ddd6 | Kommission für Scientific Integrity und Ethik der Karl Landsteiner Privatuniversität
+| 50dba0126a0746dc8802e6c0e0199dad | Ethik-Kommission der Vinzenz Gruppe Wien
 ```
 
 ### First Activation 
