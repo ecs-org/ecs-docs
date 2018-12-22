@@ -7,6 +7,14 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2018.12.23
+----------
+
+Features:
+  + Verbesserung und Aktualisierung des Metrik und Alarmmeldungssystems
+      + #679 Alarme vor Ablauf des Letsencrypt Zertifikats
+
+
 2018.12.09
 ----------
 
