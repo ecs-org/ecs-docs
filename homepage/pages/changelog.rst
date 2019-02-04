@@ -7,13 +7,24 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2019.02.10
+----------
+
+Features:
+  + #723 Die bisherigen EK's der Vinzenzgruppe "EK Krankenhauses St. Josef", "EK Krankenhauses der Barmherzigen Schwestern Wien" und "EK Krankenhauses Göttlicher Heiland" welche durch die neue "Ethik-Kommission der Vinzenz Gruppe Wien" ersetzt wurden, tragen jetzt den Namenszusatz "Nicht verwenden" in der Bezeichnung, um eine irrtümliche Zuordnung für Neueinreichungen auszuschließen.
+
+2019.01.22
+----------
+
+Bugfixes:
+  + #722 Der Nachrichtenüberblick einer Studie hat keine Nachrichten angezeigt. Dies wurde ausgebessert.
+
 2018.12.23
 ----------
 
 Features:
   + Verbesserung und Aktualisierung des Metrik und Alarmmeldungssystems
       + #679 Alarme vor Ablauf des Letsencrypt Zertifikats
-
 
 2018.12.09
 ----------
