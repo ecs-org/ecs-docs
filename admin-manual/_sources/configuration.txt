@@ -202,13 +202,13 @@ ecs:
 | 7b51f38bde8a4161a0dc34647fc7e654 | Ethikkommission Krankenhaus Barmh.Brüder - Wien
 | 85dc386061584fbe8549ce4e4d828fbd | Ethikkommission der Stadt Wien gemäß KAG, AMG und MPG
 | d6a22c635a584521b107481ac18318f6 | Ethikkommission Forschungsinstitut des Wiener Roten Kreuzes
-| 55ae93ec9df04d6abfc8d233ec5ccf8e | Ethikkommission Krankenhaus Barmh.Schwestern - Wien
+| 55ae93ec9df04d6abfc8d233ec5ccf8e | Nicht verwenden: Ethikkommission Krankenhaus Barmh.Schwestern - Wien
 | 7cd6d52120b3474ba502931b9f60a5f3 | Ethikkommission Confraternität-Priv.Klin. Josefstadt und Priv.Klin. Döbling
 | 7df9ebaf15434709b09c3def9a6c8769 | Ethikkommission St.Anna Kinderspital
 | f122f144616541d391fde2dcc761aff4 | Ethikkommission Österreichische Arbeitsgemeinschaft für Klinische Pharmakologie
 | 25b6744780434a3f96a1e43b405d3848 | Ethikkommission Privatkrankenanstalt Rudolfinerhaus
 | d542994ced34403db841786a1c1ab892 | Ethikkommission Rheuma-Zentrum Wien-Oberlaa
-| 5615dfbaf8c8445d960d1e2cd9c00dc3 | Ethikkommission Krankenhaus des Göttlichen Heilandes
+| 5615dfbaf8c8445d960d1e2cd9c00dc3 | Nicht verwenden: Ethikkommission Krankenhaus des Göttlichen Heilandes
 | 4d3a2d5f138940f293ee87fe6ec1d5b2 | Ethikkommission Evangelisches Krankenhaus
 | 8d2950e3a0294f68bde647a54df6d823 | Ethikkommission der Allgemeinen Unfallversicherungsanstalt
 | 9f6b509e716e413f865d95bdd630e9bc | Ethikkommission Immunologische Tagesklinik
@@ -226,7 +226,7 @@ ecs:
 | 9287fb0878b94f9f9d90b5582d1cefca | Ethikkommission Krankenhaus Barmh.Brüder - Eggenberg
 | e17ee744e4e840778f316cf3f79de6b4 | Ethikkommission der Medizinischen Universität Graz
 | ec9f179a52a04a7aa52446232c3fd4bd | Ethikkommission des Landes Kärnten
-| c890205dcb7543c8a76bf324512c5f81 | Ethikkommission des Krankenhaus St. Josef
+| c890205dcb7543c8a76bf324512c5f81 | Nicht verwenden: Ethikkommission des Krankenhaus St. Josef
 | dc1b115d9809461ba3ea9450b079ddd6 | Kommission für Scientific Integrity und Ethik der Karl Landsteiner Privatuniversität
 | 50dba0126a0746dc8802e6c0e0199dad | Ethik-Kommission der Vinzenz Gruppe Wien
 ```
