@@ -22,11 +22,12 @@ After the initial ecs version was open sourced by the medical university of vien
 a followup in 2016 broadend the ecs application to a more general audience.
 
 ```
-Copyright 2018  Medizinische Universität Wien
-Copyright 2018  Medizinische Universität Innsbruck
-Copyright 2018  Medizinische Universität Graz
-Copyright 2018  Johannes Kepler Universität Linz
-Copyright 2018  Karl Landsteiner Privatuniversität für Gesundheitswissenschaften
+Copyright 2019  Medizinische Universität Wien
+Copyright 2019  Medizinische Universität Innsbruck
+Copyright 2019  Medizinische Universität Graz
+Copyright 2019  Johannes Kepler Universität Linz
+Copyright 2019  Karl Landsteiner Privatuniversität für Gesundheitswissenschaften
+Copyright 2019  Land Salzburg
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

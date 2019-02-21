@@ -71,7 +71,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'ecs-docs-generic'
-copyright = 'Copyright '+ datetime.now().strftime("%Y") +' Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften'
+copyright = 'Copyright '+ datetime.now().strftime("%Y") +' Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg'
 author = 'ECS Development Team'
 
 # The version info for the project you're documenting, acts as replacement for
