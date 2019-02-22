@@ -7,6 +7,15 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2019.02.24
+----------
+
+Bugfixes:
+  + #622 In seltenen Fällen wurden die Erinnerungsnachrichten für ablaufende Voten nicht verschickt. Dies wurde ausgebessert. Des weiteren wurde der Zeitpunkt der Versendung auf 09:00 festgesetzt.
+
+Wording:
+  + Die Copyrightinformation wurde um einen weiteren Eintrag "Land Salzburg" ergänzt, und das Jahr auf 2019 angepasst.
+
 2019.02.10
 ----------
 
