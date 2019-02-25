@@ -51,7 +51,7 @@ LV vg0 root / ext4 300G
 IMAGE /root/.oldroot/nfs/install/../images/Ubuntu-1604-xenial-64-minimal.tar.gz
 ```
 
-### Network attached Storage 
+### Optional Network attached Storage 
 
 + The appliance supports two external network attached storage volumes, one for permanent data and one for volatile data. 
 + To have seperate volatile and/or data partitions, change storage:ignore:volatile and/or storage:ignore:data to false.
