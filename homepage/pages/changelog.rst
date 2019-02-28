@@ -7,6 +7,12 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2019.03.03
+----------
+
+Features:
+  + #713 Das BenutzerInnen Profil Feld "SozialversicherungsNr" wurde entfernt.
+
 2019.02.24
 ----------
 

@@ -4,7 +4,7 @@
 
 ### irrtümliche Bestätigung eines falschen Zertifikats
 
-Safari merkt sich bei Aufruf einer Website mit Client Zertifikat Unterstützung ihre Auswahl und das ECS lehnt sie ab, weil sie ein ungültiges Zertifikat präsentieren.
+Safari merkt sich bei Aufruf einer Website mit Client Zertifikat Unterstützung ihre Auswahl und das ECS verweigert Zugang mit nicht vom ECS ausgestellten Zertifikaten.
 
 Das ist schnell wieder geändert.
 
