@@ -7,6 +7,12 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2019.05.05
+----------
+
+Features:
+  + #728 Es wurden zwei neue medizinische Kategorien ("Neonatologie" und "Ursprungsstudie") hinzugefügt
+
 2019.03.03
 ----------
 
