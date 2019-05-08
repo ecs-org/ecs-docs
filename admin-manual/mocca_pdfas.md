@@ -9,22 +9,20 @@ Mocca and PDF-AS are developed by EGIZ, the eGovernment Innovation Centre of Aus
 
 ## Mocca
 
-
-* Current Frozen (bkuonline) Version: 1.3.27 (2017-06-23) 
-* Next Version: 1.3.33 (2018-02-07)
+* Current Frozen (onlineBKU) Release: [Mocca 1.3.27 (2017-06-23)](https://joinup.ec.europa.eu/release/mocca-1327)
+* Next Version (localBKU) Release: [Mocca 1.4.1 (2019-05-07)](https://joinup.ec.europa.eu/release/mocca/141)
 * [Mocca WebStart from buergerkarte.at](https://webstart.buergerkarte.at/mocca/index.html)
     * [Install](https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp)
     * [CA Install from local running BKU](http://localhost:3495/ca.crt)
     * [Test](https://www.buergerkarte.at/test-suite-karte.html)
-* [Mocca 1.3.27 Release](https://joinup.ec.europa.eu/release/mocca-1327)
-* [Mocca 1.3.33 Release](https://joinup.ec.europa.eu/release/mocca/1333)
+
 * [Security Analysis of the Austrian Citizen Card Environment MOCCA and E-Card](https://www.auto.tuwien.ac.at/bib/pdf_TR/TR0174.pdf)
 * [MOCCA Usability Analyse](https://www.egiz.gv.at/files/download/Studie.pdf)
 
 
 ### Download
-  * [Mocca bkuonline-1.3.27.war](https://joinup.ec.europa.eu/sites/default/files/distribution/2017-06/bkuonline-1.3.27.war)
-  * [Mocca BKUWebStart-1.3.33.zip](https://joinup.ec.europa.eu/sites/default/files/distribution/access_url/2018-05/9a1d3230-338a-4e27-811a-a670be194d73/BKUWebStart-1.3.33.zip)
+  * Online BKU: [Mocca 1.3.27 - bkuonline-1.3.27.war](https://joinup.ec.europa.eu/sites/default/files/distribution/2017-06/bkuonline-1.3.27.war)
+  * Local BKU: [Mocca 1.4.1 - Release Directory](https://apps.egiz.gv.at/releases/mocca/1.4.1/)
 
 ```
 sha256=c3a7270294bc3a43790061e9eec059ef6a124eb3bd55d20edfd8a7b6b6b89b23  bkuonline-1.3.27.war
@@ -34,7 +32,27 @@ sha256=c3a7270294bc3a43790061e9eec059ef6a124eb3bd55d20edfd8a7b6b6b89b23  bkuonli
   * [http://git.egiz.gv.at/mocca](http://git.egiz.gv.at/mocca)
 
 ### Changes
-
+* MOCCA 1.4.1 - 2019-05-07
+    * Update TrustStore and CertStore (The following Certificates were added to MOCCA):
+        * D-TRUST Root Class 3 CA 2 EV 2009
+        * D-TRUST CA 2-2EV 2016
+        * Thwate RSA CA 2018
+        * RapidSSL RSA CA 2018
+    * The BKU icon was updated
+* MOCCA 1.4.0 - 2018-09-25
+    * Update of PKI-Module and the CertSore to the latest version
+    * Changes to build standalone-installer for Java Version 11 and later
+        * Standalone installer for Windows (MSI), MacOS (DMG) and Linux (ZIP) are now available.
+    * New MOCCA update mechanism:
+        * MOCCA verifies now during startup if there is a newer version available and notifies the user if this is the case.
+    * Update of security-relevant libraries
+* MOCCA 1.3.34 - 2018-08-30
+    * New Certificates in the truststore:
+        * DSTRootCAX3
+        * DigiCertGlobalRootG2
+    * New Certificates in the certstore:
+        * GeoTrustRSACA2018
+        * ThwateTLSRSACAG1
 * MOCCA 1.3.33 - 2018-05-15
     * Bulk Signature Branch merged into Master Branch 
     * Small Bug Fix: Error code 2000 when using Java 8 
@@ -70,35 +88,49 @@ sha256=c3a7270294bc3a43790061e9eec059ef6a124eb3bd55d20edfd8a7b6b6b89b23  bkuonli
 
 ## PDF-AS
 
-* Current frozen (onlinebku) version: PDF-AS:4.1.0 - 2017-01-17
-* next Version: PDF-AS 4.1.4 - 2018-06-27
-* [PDF-AS Release](https://joinup.ec.europa.eu/asset/pdf/asset_release/pdf-414)
-    * [Documenation - DE](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.4/docs/PDFAS4_Dokumentation.pdf)
-    * [Web Interface Documenation - DE](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.4/docs/PDFAS4_WebDokumentation.pdf)
-    * [External Service Documentation - DE](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.4/docs/AnbindungExterneWebanwendung.pdf)
-    * [Profile Documentation -  DE](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.4/docs/PDFAS4_Profile_Dokumentation.pdf)
+* Current Frozen (onlineBKU) Release:
+    * [PDF-AS 4.1.0 (2017-01-17)](https://joinup.ec.europa.eu/release/pdf-410)
+    * [PDF-AS defaultConfig 4.1.1 (2017-08-29)](https://joinup.ec.europa.eu/release/pdf/411)
+* Next Version (localBKU) Release: [PDF-AS 4.1.5 (2018-12-07)](https://joinup.ec.europa.eu/release/pdf/415)
+    * [Documenation - DE](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_Dokumentation.pdf)
+    * [Web Interface Documenation - DE](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_WebDokumentation.pdf)
+    * [External Service Documentation - DE](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/AnbindungExterneWebanwendung.pdf)
+    * [Profile Documentation -  DE](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_Profile_Dokumentation.pdf)
 * [Goverment Profile Documentation - DE](https://www.ref.gv.at/uploads/media/Layout_Amtssignatur_las_2-0-1_20140610.pdf)
 * [PDF-AS Workshop Part 1 - DE](http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil1.pdf)
 * [PDF-AS Workshop Part 2 - DE](http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil2.pdf)
 * [Goverment sponsored Digital Signature Test Site - DE](https://www.buergerkarte.at/einfach-signieren/)
 
 ### Download
-* [Download Site](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.4/)
-* [pdf-as-web-4.1.4.war](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.4/pdf-as-web-4.1.4.war)
-* [pdf-as-web-4.1.0.war](https://ecs-org.github.io/ecs-docs/pdf-as-web-4.1.0.war)
+* [Download Site](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/)
+
+* Current 4.1.5 [pdf-as-web-4.1.5.war](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/pdf-as-web-4.1.5.war)
+```
+sha256=a54f3dd8c77e5d7ef47b05465143b09014dfd802240e557f39aaaf7c9fb2d518  pdf-as-web-4.1.5.war
+```
+* Current 4.1.5 [defaultConfig.zip](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/cfg/defaultConfig.zip)
+```
+sha256= 22a73c4a45fb44f6a0a30db9a95a5cb5ef3b5ee4e14ca768e3ebb15f5597813f  defaultConfig.zip
+```
+
+* old frozen 4.1.0 [pdf-as-web-4.1.0.war](https://ecs-org.github.io/ecs-docs/pdf-as-web-4.1.0.war)
 ```
 sha256=d625cd40a0baadf9ccf2a9bb46f6808efb7929e3fbe107b087b8c42f5b6c1971  pdf-as-web-4.1.0.war
 ```
-* [defaultConfig.zip](https://apps.egiz.gv.at/releases/pdf-as/release/4.1.4/cfg/defaultConfig.zip) 
+* old frozen 4.1.1 [defaultConfig-4.1.1.zip](https://ecs-org.github.io/ecs-docs/defaultConfig-4.1.1.zip)
 ```
-sha256= defaultConfig.zip
+sha256=392718b4b8e57582ec529061c25437b3858574a90214e429069cbc084333ca8d  defaultConfig-4.1.1.zip
 ```
+
   
 * Sourcecode:
   * [http://git.egiz.gv.at/pdf-as-4/](http://git.egiz.gv.at/pdf-as-4/)
 
 ### Changes
 
+* PDF-AS 4.1.5 - 2018-12-07
+    * Beta state of the Security Layer 2.0 functionality has been added
+    * Bug fixes regarding positioning feature (positioning with a "footer" paramter, positioning with a "page" parameter)
 * PDF-AS 4.1.4 - 2018-06-27
     * PDF-AS Library
         * Color profile for PDFA added
