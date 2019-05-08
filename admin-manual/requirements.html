@@ -1,38 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Requirements &#8212; ecs-admin-manual 2019-02-28@19:25 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Requirements &#8212; ecs-admin-manual 2019-05-08@20:12 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019-02-28@19:25',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="ecs-admin-manual 2019-02-28@19:25 documentation" href="index.html" />
     <link rel="next" title="Deploy Appliance" href="deployment.html" />
     <link rel="prev" title="Ecs Administration Handbook" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="static/custom.css" type="text/css" />
-  </head>
-  <body role="document">  
+      <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  </head><body>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -40,58 +28,60 @@
           <div class="body" role="main">
             
   <div class="section" id="requirements">
-<span id="requirements"></span><h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
 <p>The ecs software is designed to run as an external available internet web-service, reachable by everyone.</p>
 <div class="section" id="hosting-requirements">
-<span id="hosting-requirements"></span><h2>Hosting Requirements<a class="headerlink" href="#hosting-requirements" title="Permalink to this headline">¶</a></h2>
+<h2>Hosting Requirements<a class="headerlink" href="#hosting-requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>a Virtual Machine on a supported Hypervisor or Hardware sized according to the <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> Chapter</li>
-<li>a Backup space (for encrypted backup data) accessable by one of 25 supported storage protocols explained under <a class="reference external" href="#backup-storage">Backup Storage</a></li>
-<li>DNS A Record pointing to a fixed public IPV4 address,a MX Record and a reverse PTR Record as described under <a class="reference external" href="#dns-setup">DNS Setup</a></li>
-<li>incoming tcp ports 22,25,80,443,465 of a fixed public IPV4 address and IPV4 and internet connectivity for the vm as described under <a class="reference external" href="#internet-connectivity">Internet Connectivity</a></li>
-<li>Working HTTPS including HTTP-Client Certificate support. See common challenges described under <a class="reference external" href="#firewall-endpointprotection-antivirus-security-products">Security Products</a></li>
+<li><p>a Virtual Machine on a supported Hypervisor or Hardware sized according to the <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> Chapter</p></li>
+<li><p>a Backup space (for encrypted backup data) accessable by one of 25 supported storage protocols explained under <a class="reference external" href="#backup-storage">Backup Storage</a></p></li>
+<li><p>DNS A Record pointing to a fixed public IPV4 address,a MX Record and a reverse PTR Record as described under <a class="reference external" href="#dns-setup">DNS Setup</a></p></li>
+<li><p>incoming tcp ports 22,25,80,443,465 of a fixed public IPV4 address and IPV4 and internet connectivity for the vm as described under <a class="reference external" href="#internet-connectivity">Internet Connectivity</a></p></li>
+<li><p>Working HTTPS including HTTP-Client Certificate support. See common challenges described under <a class="reference external" href="#firewall-endpointprotection-antivirus-security-products">Security Products</a></p></li>
 </ul>
 <div class="section" id="hypervisor">
-<span id="hypervisor"></span><h3>Hypervisor<a class="headerlink" href="#hypervisor" title="Permalink to this headline">¶</a></h3>
+<h3>Hypervisor<a class="headerlink" href="#hypervisor" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The base of the virtual machine is a Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image.</li>
-<li>The appliance was tested on the following hypervisors:<ul>
-<li>KVM, XEN, VMware Sphere, HyperV</li>
+<li><p>The base of the virtual machine is a Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image.</p></li>
+<li><p>The appliance was tested on the following hypervisors:</p>
+<ul>
+<li><p>KVM, XEN, VMware Sphere, HyperV</p></li>
 </ul>
 </li>
-<li>Rollouts to Amazon EC2, Google GCE or Openstack Clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented but probably need some tweaking.</li>
-<li>Follow the Assessment Chapter for the right sizing of CPU-cores, memory and harddisk.</li>
+<li><p>Rollouts to Amazon EC2, Google GCE or Openstack Clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented but probably need some tweaking.</p></li>
+<li><p>Follow the Assessment Chapter for the right sizing of CPU-cores, memory and harddisk.</p></li>
 </ul>
 </div>
 <div class="section" id="backup-storage">
-<span id="backup-storage"></span><h3>Backup Storage<a class="headerlink" href="#backup-storage" title="Permalink to this headline">¶</a></h3>
+<h3>Backup Storage<a class="headerlink" href="#backup-storage" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>For storing backup data the appliance needs a storage space accessable via one of the 24 duplicity supported storage protocols.</li>
-<li>In addition to the supported duplicity protocols the appliance has support for <strong>cifs</strong> (windows file sharing attached volumes, including automatic mount and unmount)</li>
-<li>Tested protocols so far: localfile, ftp, ftpssl, ssh/scp, ssh/sftp, http/webdav, cifs</li>
-<li>For Details see: <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html#sect7">Duplicity Manual - Section URL-Format</a></li>
-<li>Storage at Rest: All backup data is encrypted before it leaves the machine using gpg (GnuPG) and is saved without any prior decryption on the target space.</li>
-<li>The storage space may be hosted internal or external, using the same provider as the machine hosting or using a different provider. The hosting provider may be a trusted or untrusted third-party.</li>
-<li>Rotation and Retention is automatic, the backup process is unattended.</li>
-<li>See <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> for the correct storage space size.</li>
+<li><p>For storing backup data the appliance needs a storage space accessable via one of the 24 duplicity supported storage protocols.</p></li>
+<li><p>In addition to the supported duplicity protocols the appliance has support for <strong>cifs</strong> (windows file sharing attached volumes, including automatic mount and unmount)</p></li>
+<li><p>Tested protocols so far: localfile, ftp, ftpssl, ssh/scp, ssh/sftp, http/webdav, cifs</p></li>
+<li><p>For Details see: <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html#sect7">Duplicity Manual - Section URL-Format</a></p></li>
+<li><p>Storage at Rest: All backup data is encrypted before it leaves the machine using gpg (GnuPG) and is saved without any prior decryption on the target space.</p></li>
+<li><p>The storage space may be hosted internal or external, using the same provider as the machine hosting or using a different provider. The hosting provider may be a trusted or untrusted third-party.</p></li>
+<li><p>Rotation and Retention is automatic, the backup process is unattended.</p></li>
+<li><p>See <a class="reference external" href="#cores-memory-harddisk-backup-space-assessment">Assessment</a> for the correct storage space size.</p></li>
 </ul>
 </div>
 <div class="section" id="dns-setup">
-<span id="dns-setup"></span><h3>DNS Setup<a class="headerlink" href="#dns-setup" title="Permalink to this headline">¶</a></h3>
+<h3>DNS Setup<a class="headerlink" href="#dns-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>For Web-Access a dns [sub]domain with a A Entry pointing to the public IPv4 Address is needed</li>
-<li>For Email Sending and Receiving the following entries are required:<ul>
-<li>a MX Record pointing to the choosen domain name</li>
-<li>a reverse PTR Record pointing to the domain name</li>
-<li>a spf TXT Entry, eg. &#8220;v=spf1 a mx ptr ~all&#8221;</li>
-<li>a dkim TXT Entry, see the env.yml configuration file for detailed data</li>
+<li><p>For Web-Access a dns [sub]domain with a A Entry pointing to the public IPv4 Address is needed</p></li>
+<li><p>For Email Sending and Receiving the following entries are required:</p>
+<ul>
+<li><p>a MX Record pointing to the choosen domain name</p></li>
+<li><p>a reverse PTR Record pointing to the domain name</p></li>
+<li><p>a spf TXT Entry, eg. “v=spf1 a mx ptr ~all”</p></li>
+<li><p>a dkim TXT Entry, see the env.yml configuration file for detailed data</p></li>
 </ul>
 </li>
 </ul>
 <p><strong>Once you generated a config env.yml, at the top of the file you will find the corresponding DNS Entries (including DKIM TXT key) for pasting into the DNS Server</strong></p>
 <p><strong>Warning</strong>: For Email functionality the MX Record, reverse PTR Record, SPF TXT Record and the DKIM TXT Record are important to setup. Eg. failing to setup reverse PTR will result in broken email sending, because the target mailserver will think the emails are spam and will bounce messages.</p>
-<p>Examples for domains &#8220;https://whatever.me&#8221; and &#8220;https://sub.whatever.me&#8221;:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Main Domain Example for whatever.me</span>
+<p>Examples for domains “https://whatever.me” and “https://sub.whatever.me”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Main Domain Example for whatever.me</span>
 <span class="o">@</span>  <span class="n">IN</span> <span class="n">A</span>   <span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span>
 <span class="o">@</span>  <span class="n">IN</span> <span class="n">MX</span>  <span class="mi">10</span> <span class="n">whatever</span><span class="o">.</span><span class="n">me</span>
 <span class="o">@</span>  <span class="n">IN</span> <span class="n">TXT</span> <span class="s2">&quot;v=spf1 a mx ptr ~all&quot;</span>
@@ -108,20 +98,23 @@
 </div>
 </div>
 <div class="section" id="internet-connectivity">
-<span id="internet-connectivity"></span><h3>Internet Connectivity<a class="headerlink" href="#internet-connectivity" title="Permalink to this headline">¶</a></h3>
+<h3>Internet Connectivity<a class="headerlink" href="#internet-connectivity" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>permanent internet connectivity with a big (&gt;=100Mbit) upload channel</li>
-<li>an IPv4 address and dns server settings need to be served to the machine by DHCP for automatic configuration<ul>
-<li>this can be <strong>any internal or the public IPv4 Address</strong> if the hosting location needs this, but it must be served by DHCP</li>
-<li><strong>Unusable</strong> internal nets are <strong>172.17.X.X and 10.0.3.X</strong>, because these are used by the appliance itself</li>
+<li><p>permanent internet connectivity with a big (&gt;=100Mbit) upload channel</p></li>
+<li><p>an IPv4 address and dns server settings need to be served to the machine by DHCP for automatic configuration</p>
+<ul>
+<li><p>this can be <strong>any internal or the public IPv4 Address</strong> if the hosting location needs this, but it must be served by DHCP</p></li>
+<li><p><strong>Unusable</strong> internal nets are <strong>172.17.X.X and 10.0.3.X</strong>, because these are used by the appliance itself</p></li>
 </ul>
 </li>
-<li>a public IPv4-Address or the incoming TCP ports <strong>22,25,80,443,465 and ICMP/ping</strong> of this address forwarded to the machine<ul>
-<li>port 22 - ssh: ssh publickey authentification is used. this connection is used for installation and optional support</li>
-<li>port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers of forwarded ecs communication. if the hosting locations policy does not permit this, the ecs will work without it, but loses email answering functionality</li>
-<li>port 80 - http: the appliance communicates only over https, but needs http for letsencrypt client certificate renewal and for redirecting to the https site</li>
-<li>port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in self-service<ul>
-<li>ICMP/ping - ping: for monitoring the system</li>
+<li><p>a public IPv4-Address or the incoming TCP ports <strong>22,25,80,443,465 and ICMP/ping</strong> of this address forwarded to the machine</p>
+<ul>
+<li><p>port 22 - ssh: ssh publickey authentification is used. this connection is used for installation and optional support</p></li>
+<li><p>port 25,465 - smtp: the incoming email server of the appliance will receive emails from answers of forwarded ecs communication. if the hosting locations policy does not permit this, the ecs will work without it, but loses email answering functionality</p></li>
+<li><p>port 80 - http: the appliance communicates only over https, but needs http for letsencrypt client certificate renewal and for redirecting to the https site</p></li>
+<li><p>port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in self-service</p>
+<ul>
+<li><p>ICMP/ping - ping: for monitoring the system</p></li>
 </ul>
 </li>
 </ul>
@@ -129,296 +122,299 @@
 </ul>
 </div>
 <div class="section" id="firewall-endpointprotection-antivirus-security-products">
-<span id="firewall-endpointprotection-antivirus-security-products"></span><h3>&#8220;Firewall&#8221;/Endpointprotection/&#8221;Antivirus&#8221; Security Products:<a class="headerlink" href="#firewall-endpointprotection-antivirus-security-products" title="Permalink to this headline">¶</a></h3>
+<h3>“Firewall”/Endpointprotection/”Antivirus” Security Products:<a class="headerlink" href="#firewall-endpointprotection-antivirus-security-products" title="Permalink to this headline">¶</a></h3>
 <p><strong>Warning</strong>: many security products are known to disturb/break HTTPS Host
 Certificate and Client Certificate validation and weaken the transport protocols on the wire.
 See the findings of <a class="reference external" href="https://jhalderm.com/pub/papers/interception-ndss17.pdf">the Security Impact of HTTPS Interception</a> Paper.</p>
 <div class="section" id="firewall">
-<span id="firewall"></span><h4>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h4>
+<h4>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h4>
 <p>The appliance does not need a firewall but works as long as the incoming ports
 listed are forwarded to the machine and outgoing traffic from the machine is permitted.</p>
 </div>
 <div class="section" id="host-certificates">
-<span id="host-certificates"></span><h4>Host Certificates<a class="headerlink" href="#host-certificates" title="Permalink to this headline">¶</a></h4>
+<h4>Host Certificates<a class="headerlink" href="#host-certificates" title="Permalink to this headline">¶</a></h4>
 <p>The appliance uses LetsEncrypt to issue https/ssl host certificates and also takes care of the renewal of these host certificates. There is no IT-administration task involved in this process.</p>
 </div>
 <div class="section" id="client-certificates">
-<span id="client-certificates"></span><h4>Client Certificates<a class="headerlink" href="#client-certificates" title="Permalink to this headline">¶</a></h4>
+<h4>Client Certificates<a class="headerlink" href="#client-certificates" title="Permalink to this headline">¶</a></h4>
 <p>The ecs appliance uses https client certificates for protection of elevated user rights.
 Https client certificates are issued by the appliance itself and can be done in selfservice as an internal ecs webfrontend user. There is no IT-Administration task involved in this process.</p>
 <p><strong>Warning</strong>: If the hosting location has some mandatory security product,
 you probably need some extra configuration in the security product to fix support for Client Certificates.</p>
-<p><strong>This may also apply to to the pc&#8217;s of internal ecs desktops.</strong>
-Some desktop &#8220;antivirus&#8221; products may need similar extra configuration to have working https client certificate support. So far there have been findings of Kaspersky and McAfee products to need extra configuration.</p>
+<p><strong>This may also apply to to the pc’s of internal ecs desktops.</strong>
+Some desktop “antivirus” products may need similar extra configuration to have working https client certificate support. So far there have been findings of Kaspersky and McAfee products to need extra configuration.</p>
 </div>
 </div>
 </div>
 <div class="section" id="cores-memory-harddisk-backup-space-assessment">
-<span id="cores-memory-harddisk-backup-space-assessment"></span><h2>Cores, Memory, Harddisk &amp; Backup Space Assessment<a class="headerlink" href="#cores-memory-harddisk-backup-space-assessment" title="Permalink to this headline">¶</a></h2>
+<h2>Cores, Memory, Harddisk &amp; Backup Space Assessment<a class="headerlink" href="#cores-memory-harddisk-backup-space-assessment" title="Permalink to this headline">¶</a></h2>
 <p>All data size units in this document are 1024 based.</p>
 <ul class="simple">
-<li>1 GB = 1024 MB, 1 MB = 1024 KB , 1 KB = 1024 bytes</li>
+<li><p>1 GB = 1024 MB, 1 MB = 1024 KB , 1 KB = 1024 bytes</p></li>
 </ul>
 <p>As a guideline, if you have more memory available, add some extra memory.</p>
 <p><strong>Warning</strong>: If you deviate from the example values below, be sure to add the needed memory per core if you add more cores, because many of the appliance processes get scaled to the number of cores.</p>
 <ul class="simple">
-<li>Minimum CPU/Memory: 2 Cores, 4GB</li>
+<li><p>Minimum CPU/Memory: 2 Cores, 4GB</p></li>
 </ul>
 <p>Core Calculation:</p>
 <ul class="simple">
-<li>20 Studies per Month: 2 Cores</li>
-<li>40 Studies per Month: 2-4 Cores</li>
-<li>100-250 Studies per Month: 4-8 Cores</li>
+<li><p>20 Studies per Month: 2 Cores</p></li>
+<li><p>40 Studies per Month: 2-4 Cores</p></li>
+<li><p>100-250 Studies per Month: 4-8 Cores</p></li>
 </ul>
 <p>Memory Calculation:</p>
 <ul class="simple">
-<li>2GB Base + 1GB per Core + Disk-size of Database (eg. 2GB)</li>
-<li>eg. 2 Cores = 4 GB + 1 GB Database= 5GB</li>
-<li>eg. 8 Cores = 10 GB + 8 GB Database= 18GB</li>
+<li><p>2GB Base + 1GB per Core + Disk-size of Database (eg. 2GB)</p></li>
+<li><p>eg. 2 Cores = 4 GB + 1 GB Database= 5GB</p></li>
+<li><p>eg. 8 Cores = 10 GB + 8 GB Database= 18GB</p></li>
 </ul>
 <p>Storage Calculation (10 Years):</p>
 <ul class="simple">
-<li>System: 5GB</li>
-<li>Temporary Workspace: 30GB</li>
-<li>Database: (Studies-per-Month/ 12,5)GB</li>
-<li>Document-Storage: (120 * Studies-per-Month * 17)MB</li>
+<li><p>System: 5GB</p></li>
+<li><p>Temporary Workspace: 30GB</p></li>
+<li><p>Database: (Studies-per-Month/ 12,5)GB</p></li>
+<li><p>Document-Storage: (120 * Studies-per-Month * 17)MB</p></li>
 </ul>
 <p>Backup Space Calculation (10 Years):</p>
 <ul class="simple">
-<li>Data: 2 (Fullbackups) * max(Document-Storage) + max(Database) + 2 Months delta grow</li>
+<li><p>Data: 2 (Fullbackups) * max(Document-Storage) + max(Database) + 2 Months delta grow</p></li>
 </ul>
 <p>Limits:
 The current ecs implementation can sustain 250 Studies per Month for 10 years.
 Larger implementations are possible with some refactoring in certain parts of the ecs.</p>
 <div class="section" id="years-calculation">
-<span id="years-calculation"></span><h3>10 Years Calculation<a class="headerlink" href="#years-calculation" title="Permalink to this headline">¶</a></h3>
+<h3>10 Years Calculation<a class="headerlink" href="#years-calculation" title="Permalink to this headline">¶</a></h3>
 <p>After 10 Years, the values noted will be reached.</p>
 <div class="section" id="studies-per-month">
-<span id="studies-per-month"></span><h4>100 Studies per Month<a class="headerlink" href="#studies-per-month" title="Permalink to this headline">¶</a></h4>
-<table border="1" class="docutils">
+<h4>100 Studies per Month<a class="headerlink" href="#studies-per-month" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-center">
 <colgroup>
-<col width="28%" />
-<col width="9%" />
-<col width="63%" />
+<col style="width: 28%" />
+<col style="width: 9%" />
+<col style="width: 63%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Items</th>
-<th class="head">Size</th>
-<th class="head">Calculation</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Items</p></th>
+<th class="head"><p>Size</p></th>
+<th class="head"><p>Calculation</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Base &amp; Temp</td>
-<td>50GB</td>
-<td>&nbsp;</td>
+<tbody>
+<tr class="row-even"><td><p>Base &amp; Temp</p></td>
+<td><p>50GB</p></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td>Database</td>
-<td>8GB</td>
-<td>4074220 / 59 * 120</td>
+<tr class="row-odd"><td><p>Database</p></td>
+<td><p>8GB</p></td>
+<td><p>4074220 / 59 * 120</p></td>
 </tr>
-<tr class="row-even"><td>Document-Storage</td>
-<td>195GB</td>
-<td>100684328 / 59 * 120</td>
+<tr class="row-even"><td><p>Document-Storage</p></td>
+<td><p>195GB</p></td>
+<td><p>100684328 / 59 * 120</p></td>
 </tr>
-<tr class="row-odd"><td>Disksize</td>
-<td>253GB</td>
-<td>52428800 + 8286549 + 204781684</td>
+<tr class="row-odd"><td><p>Disksize</p></td>
+<td><p>253GB</p></td>
+<td><p>52428800 + 8286549 + 204781684</p></td>
 </tr>
-<tr class="row-even"><td>Backup</td>
-<td>444GB</td>
-<td>2 x 204781684+ 52428800+ 204781684/120*2</td>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>444GB</p></td>
+<td><p>2 x 204781684+ 52428800+ 204781684/120*2</p></td>
 </tr>
-<tr class="row-odd"><td>recommended Cores</td>
-<td>6</td>
-<td>&nbsp;</td>
+<tr class="row-odd"><td><p>recommended Cores</p></td>
+<td><p>6</p></td>
+<td></td>
 </tr>
-<tr class="row-even"><td>recommended Memory</td>
-<td>16GB+</td>
-<td>2+ 8+ 6</td>
+<tr class="row-even"><td><p>recommended Memory</p></td>
+<td><p>16GB+</p></td>
+<td><p>2+ 8+ 6</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="studies-per-month">
-<span id="id1"></span><h4>250 Studies per Month<a class="headerlink" href="#studies-per-month" title="Permalink to this headline">¶</a></h4>
-<table border="1" class="docutils">
+<div class="section" id="id1">
+<h4>250 Studies per Month<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-center">
 <colgroup>
-<col width="75%" />
-<col width="25%" />
+<col style="width: 75%" />
+<col style="width: 25%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Items</th>
-<th class="head">Size</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Items</p></th>
+<th class="head"><p>Size</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Base &amp; Temp</td>
-<td>50GB</td>
+<tbody>
+<tr class="row-even"><td><p>Base &amp; Temp</p></td>
+<td><p>50GB</p></td>
 </tr>
-<tr class="row-odd"><td>Database</td>
-<td>20GB</td>
+<tr class="row-odd"><td><p>Database</p></td>
+<td><p>20GB</p></td>
 </tr>
-<tr class="row-even"><td>Document-Storage</td>
-<td>500GB</td>
+<tr class="row-even"><td><p>Document-Storage</p></td>
+<td><p>500GB</p></td>
 </tr>
-<tr class="row-odd"><td>Disksize</td>
-<td>570GB</td>
+<tr class="row-odd"><td><p>Disksize</p></td>
+<td><p>570GB</p></td>
 </tr>
-<tr class="row-even"><td>Backup</td>
-<td>1332GB</td>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>1332GB</p></td>
 </tr>
-<tr class="row-odd"><td>recommended Cores</td>
-<td>8</td>
+<tr class="row-odd"><td><p>recommended Cores</p></td>
+<td><p>8</p></td>
 </tr>
-<tr class="row-even"><td>recommended Memory</td>
-<td>30GB+</td>
+<tr class="row-even"><td><p>recommended Memory</p></td>
+<td><p>30GB+</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="studies-per-month">
-<span id="id2"></span><h4>40 Studies per Month<a class="headerlink" href="#studies-per-month" title="Permalink to this headline">¶</a></h4>
-<table border="1" class="docutils">
+<div class="section" id="id2">
+<h4>40 Studies per Month<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-center">
 <colgroup>
-<col width="75%" />
-<col width="25%" />
+<col style="width: 75%" />
+<col style="width: 25%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Items</th>
-<th class="head">Size</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Items</p></th>
+<th class="head"><p>Size</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Base &amp; Temp</td>
-<td>50GB</td>
+<tbody>
+<tr class="row-even"><td><p>Base &amp; Temp</p></td>
+<td><p>50GB</p></td>
 </tr>
-<tr class="row-odd"><td>Database</td>
-<td>3,2GB</td>
+<tr class="row-odd"><td><p>Database</p></td>
+<td><p>3,2GB</p></td>
 </tr>
-<tr class="row-even"><td>Document-Storage</td>
-<td>78GB</td>
+<tr class="row-even"><td><p>Document-Storage</p></td>
+<td><p>78GB</p></td>
 </tr>
-<tr class="row-odd"><td>Disksize</td>
-<td>131GB</td>
+<tr class="row-odd"><td><p>Disksize</p></td>
+<td><p>131GB</p></td>
 </tr>
-<tr class="row-even"><td>Backup</td>
-<td>178GB</td>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>178GB</p></td>
 </tr>
-<tr class="row-odd"><td>recommended Cores</td>
-<td>4</td>
+<tr class="row-odd"><td><p>recommended Cores</p></td>
+<td><p>4</p></td>
 </tr>
-<tr class="row-even"><td>recommended Memory</td>
-<td>9,5GB+</td>
+<tr class="row-even"><td><p>recommended Memory</p></td>
+<td><p>9,5GB+</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="studies-per-month">
-<span id="id3"></span><h4>20 Studies per Month<a class="headerlink" href="#studies-per-month" title="Permalink to this headline">¶</a></h4>
-<table border="1" class="docutils">
+<div class="section" id="id3">
+<h4>20 Studies per Month<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-center">
 <colgroup>
-<col width="75%" />
-<col width="25%" />
+<col style="width: 75%" />
+<col style="width: 25%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Items</th>
-<th class="head">Size</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Items</p></th>
+<th class="head"><p>Size</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Base &amp; Temp</td>
-<td>50GB</td>
+<tbody>
+<tr class="row-even"><td><p>Base &amp; Temp</p></td>
+<td><p>50GB</p></td>
 </tr>
-<tr class="row-odd"><td>Database</td>
-<td>1,6GB</td>
+<tr class="row-odd"><td><p>Database</p></td>
+<td><p>1,6GB</p></td>
 </tr>
-<tr class="row-even"><td>Document-Storage</td>
-<td>40GB</td>
+<tr class="row-even"><td><p>Document-Storage</p></td>
+<td><p>40GB</p></td>
 </tr>
-<tr class="row-odd"><td>Disksize</td>
-<td>92GB</td>
+<tr class="row-odd"><td><p>Disksize</p></td>
+<td><p>92GB</p></td>
 </tr>
-<tr class="row-even"><td>Backup</td>
-<td>89GB</td>
+<tr class="row-even"><td><p>Backup</p></td>
+<td><p>89GB</p></td>
 </tr>
-<tr class="row-odd"><td>recommended Cores</td>
-<td>2</td>
+<tr class="row-odd"><td><p>recommended Cores</p></td>
+<td><p>2</p></td>
 </tr>
-<tr class="row-even"><td>recommended Memory</td>
-<td>6GB+</td>
+<tr class="row-even"><td><p>recommended Memory</p></td>
+<td><p>6GB+</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="test-instance">
-<span id="test-instance"></span><h4>Test Instance<a class="headerlink" href="#test-instance" title="Permalink to this headline">¶</a></h4>
-<table border="1" class="docutils">
+<h4>Test Instance<a class="headerlink" href="#test-instance" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-center">
 <colgroup>
-<col width="72%" />
-<col width="28%" />
+<col style="width: 72%" />
+<col style="width: 28%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Items</th>
-<th class="head">Size</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Items</p></th>
+<th class="head"><p>Size</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Disksize</td>
-<td>20-40GB</td>
+<tbody>
+<tr class="row-even"><td><p>Disksize</p></td>
+<td><p>20-40GB</p></td>
 </tr>
-<tr class="row-odd"><td>recommended Cores</td>
-<td>1-2</td>
+<tr class="row-odd"><td><p>recommended Cores</p></td>
+<td><p>1-2</p></td>
 </tr>
-<tr class="row-even"><td>recommended Memory</td>
-<td>4GB+</td>
+<tr class="row-even"><td><p>recommended Memory</p></td>
+<td><p>4GB+</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="section" id="research-data">
-<span id="research-data"></span><h3>Research data<a class="headerlink" href="#research-data" title="Permalink to this headline">¶</a></h3>
+<h3>Research data<a class="headerlink" href="#research-data" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>EC with ~100 Studies per Month</li>
-<li>Runtime: ~5 Years (59 month) (15.1.2012 - 15.12.2016 ~ 4 Years, 11 Months)</li>
-<li>Studies: 5861 in 59 Months, or ~100 (99,339) Studies per Month</li>
+<li><p>EC with ~100 Studies per Month</p></li>
+<li><p>Runtime: ~5 Years (59 month) (15.1.2012 - 15.12.2016 ~ 4 Years, 11 Months)</p></li>
+<li><p>Studies: 5861 in 59 Months, or ~100 (99,339) Studies per Month</p></li>
 </ul>
 <p>Document Storage:</p>
 <ul class="simple">
-<li>Current space used: 97GB (100684328KB)</li>
-<li>Directories: 69K Directories</li>
-<li>Files: 296K Files</li>
-<li>Files per Directory: Peak at 4-6 Files per Directory</li>
-<li>average 339KB per File</li>
-<li>average space per study: 17178KB ~ 16,78MB</li>
+<li><p>Current space used: 97GB (100684328KB)</p></li>
+<li><p>Directories: 69K Directories</p></li>
+<li><p>Files: 296K Files</p></li>
+<li><p>Files per Directory: Peak at 4-6 Files per Directory</p></li>
+<li><p>average 339KB per File</p></li>
+<li><p>average space per study: 17178KB ~ 16,78MB</p></li>
 </ul>
 <p>Postgres Database:</p>
 <ul class="simple">
-<li>compressed migrated production dump: 475MB</li>
-<li>diskspace used: ~4GB (4074220 KB, 1GB pg_xlog)</li>
+<li><p>compressed migrated production dump: 475MB</p></li>
+<li><p>diskspace used: ~4GB (4074220 KB, 1GB pg_xlog)</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="client-desktop-requirements">
-<span id="client-desktop-requirements"></span><h2>Client Desktop Requirements<a class="headerlink" href="#client-desktop-requirements" title="Permalink to this headline">¶</a></h2>
+<h2>Client Desktop Requirements<a class="headerlink" href="#client-desktop-requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>As a submitter one of the following browsers is needed:<ul>
-<li>Mozilla Firefox</li>
-<li>Google Chrome</li>
-<li>Apple Safari</li>
-<li>Microsoft Edge</li>
+<li><p>As a submitter one of the following browsers is needed:</p>
+<ul>
+<li><p>Mozilla Firefox</p></li>
+<li><p>Google Chrome</p></li>
+<li><p>Apple Safari</p></li>
+<li><p>Microsoft Edge</p></li>
 </ul>
 </li>
-<li>Internal ECS User need:<ul>
-<li>Mozilla Firefox</li>
-<li>Working HTTPS including HTTP-Client Certificate support. See common challenges described under <a class="reference external" href="#firewall-endpointprotection-antivirus-security-products">Security Products</a></li>
+<li><p>Internal ECS User need:</p>
+<ul>
+<li><p>Mozilla Firefox</p></li>
+<li><p>Working HTTPS including HTTP-Client Certificate support. See common challenges described under <a class="reference external" href="#firewall-endpointprotection-antivirus-security-products">Security Products</a></p></li>
 </ul>
 </li>
-<li>Additional requirements for Signing User:<ul>
-<li><strong>Java</strong> Version 8/9, to install go to the <a class="reference external" href="https://java.com/de/download/">Download-Page of java.com</a></li>
-<li>Installation of the Java Signingsoftware <a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Mocca</a></li>
-<li>see <a class="reference external" href="mocca_pdfas.html">Digital signed pdf documents</a> for technical details</li>
-<li>see <a class="reference external" href="../user-manual-de/commission/signature.html">User-Manual (German) - Elektronische Signatur</a></li>
+<li><p>Additional requirements for Signing User:</p>
+<ul>
+<li><p><strong>Java</strong> Version 8/9, to install go to the <a class="reference external" href="https://java.com/de/download/">Download-Page of java.com</a></p></li>
+<li><p>Installation of the Java Signingsoftware <a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Mocca</a></p></li>
+<li><p>see <a class="reference external" href="./mocca_pdfas.html">Digital signed pdf documents</a> for technical details</p></li>
+<li><p>see <a class="reference external" href="../user-manual-de/commission/signature.html">User-Manual (German) - Elektronische Signatur</a></p></li>
 </ul>
 </li>
 </ul>
@@ -431,7 +427,7 @@ Larger implementations are possible with some refactoring in certain parts of th
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Requirements</a><ul>
 <li><a class="reference internal" href="#hosting-requirements">Hosting Requirements</a><ul>
@@ -439,7 +435,7 @@ Larger implementations are possible with some refactoring in certain parts of th
 <li><a class="reference internal" href="#backup-storage">Backup Storage</a></li>
 <li><a class="reference internal" href="#dns-setup">DNS Setup</a></li>
 <li><a class="reference internal" href="#internet-connectivity">Internet Connectivity</a></li>
-<li><a class="reference internal" href="#firewall-endpointprotection-antivirus-security-products">&#8220;Firewall&#8221;/Endpointprotection/&#8221;Antivirus&#8221; Security Products:</a><ul>
+<li><a class="reference internal" href="#firewall-endpointprotection-antivirus-security-products">“Firewall”/Endpointprotection/”Antivirus” Security Products:</a><ul>
 <li><a class="reference internal" href="#firewall">Firewall</a></li>
 <li><a class="reference internal" href="#host-certificates">Host Certificates</a></li>
 <li><a class="reference internal" href="#client-certificates">Client Certificates</a></li>
@@ -450,9 +446,9 @@ Larger implementations are possible with some refactoring in certain parts of th
 <li><a class="reference internal" href="#cores-memory-harddisk-backup-space-assessment">Cores, Memory, Harddisk &amp; Backup Space Assessment</a><ul>
 <li><a class="reference internal" href="#years-calculation">10 Years Calculation</a><ul>
 <li><a class="reference internal" href="#studies-per-month">100 Studies per Month</a></li>
-<li><a class="reference internal" href="#studies-per-month">250 Studies per Month</a></li>
-<li><a class="reference internal" href="#studies-per-month">40 Studies per Month</a></li>
-<li><a class="reference internal" href="#studies-per-month">20 Studies per Month</a></li>
+<li><a class="reference internal" href="#id1">250 Studies per Month</a></li>
+<li><a class="reference internal" href="#id2">40 Studies per Month</a></li>
+<li><a class="reference internal" href="#id3">20 Studies per Month</a></li>
 <li><a class="reference internal" href="#test-instance">Test Instance</a></li>
 </ul>
 </li>
@@ -470,17 +466,13 @@ Larger implementations are possible with some refactoring in certain parts of th
   <h4>Next topic</h4>
   <p class="topless"><a href="deployment.html"
                         title="next chapter">Deploy Appliance</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
+<form class="search" action="search.html" method="get">
+  <input type="text" name="q"
+   placeholder="type to search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
         </div>
       </div>
       <div class="clearer"></div>
@@ -500,7 +492,7 @@ Larger implementations are possible with some refactoring in certain parts of th
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2019-02-28@19:25 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2019-05-08@20:12 documentation</a></li> 
     </ul>
   </nav>
   </div>

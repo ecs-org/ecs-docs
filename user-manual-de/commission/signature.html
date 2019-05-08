@@ -1,40 +1,27 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Elektronische Signatur &#8212; ecs-user-manual-de 2019-02-28@19:25 Dokumentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Elektronische Signatur &#8212; ecs-user-manual-de 2019-05-08@20:11 Dokumentation</title>
     <link rel="stylesheet" href="../_static/better.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '2019-02-28@19:25',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="top" title="ecs-user-manual-de 2019-02-28@19:25 Dokumentation" href="../index.html" />
-    <link rel="up" title="Für die Geschäftsstelle" href="index.html" />
     <link rel="next" title="Verwaltung" href="administration.html" />
     <link rel="prev" title="Meldungen" href="open_notifications.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../static/custom.css" type="text/css" />
-  </head>
-  <body role="document">  
+      <link rel="stylesheet" href="../static/custom.css" type="text/css" />
+  </head><body>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -45,90 +32,84 @@
 <h1>Elektronische Signatur<a class="headerlink" href="#elektronische-signatur" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="section" id="voraussetzungen">
 <h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link zu dieser Überschrift">¶</a></h2>
-<ul>
-<li><p class="first">ein von ECS unterstützter <strong>aktueller Webbrowser</strong> (Firefox,Chrome,Safari,Edge)</p>
-</li>
-<li><p class="first"><strong>Java</strong> Version 8/9, zur Installation siehe die <a class="reference external" href="https://java.com/de/download/">Download-Seite von java.com</a></p>
-</li>
-<li><dl class="first docutils">
-<dt>ein Kartenlesegerät zum Anschluss über USB an den Computer</dt>
-<dd><ul class="first last simple">
-<li>Gelistet unter buergerkarte.at: <a class="reference external" href="http://www.cryptoshop.com/gemalto-idbridge-ct30-ecard.html">Cryptoshop - Gemalto IDBridge CT30 ecard</a></li>
-<li>Liste von anderen <a class="reference external" href="https://geizhals.at/?cat=sm_r&amp;xf=2925_USB-A+2.0%7E2957_SmartCard&amp;sort=p#productlist">SmartCard Reader im Preisportal Geizhals</a></li>
+<ul class="simple">
+<li><p>ein von ECS unterstützter <strong>aktueller Webbrowser</strong> (Firefox,Chrome,Safari,Edge)</p></li>
+<li><p><strong>Java</strong> Version 8/9, zur Installation siehe die <a class="reference external" href="https://java.com/de/download/">Download-Seite von java.com</a></p></li>
+<li><dl class="simple">
+<dt>ein Kartenlesegerät zum Anschluss über USB an den Computer</dt><dd><ul>
+<li><p>Gelistet unter buergerkarte.at: <a class="reference external" href="http://www.cryptoshop.com/gemalto-idbridge-ct30-ecard.html">Cryptoshop - Gemalto IDBridge CT30 ecard</a></p></li>
+<li><p>Liste von anderen <a class="reference external" href="https://geizhals.at/?cat=sm_r&amp;xf=2925_USB-A+2.0%7E2957_SmartCard&amp;sort=p#productlist">SmartCard Reader im Preisportal Geizhals</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>eine als <strong>Bürgerkarte aktivierte E-Card</strong> oder eine andere von <strong>A-Trust ausgestellte Signaturkarte</strong></dt>
-<dd><ul class="first last simple">
-<li>Um Ihre E-Card zu aktivieren gehen Sie zur <a class="reference external" href="https://www.buergerkarte.at/aktivieren-karte.html">&#8220;Bürgerkarte aktivieren&#8221; Seite von buergerkarte.at</a>.</li>
-<li>Wir empfehlen die <em>&#8220;Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich&#8221;</em></li>
-<li>Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen</li>
-<li>Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.</li>
-<li><a class="reference external" href="https://www.buergerkarte.at/ausweisliste.html">Liste der akzeptierten Lichtbildausweise</a></li>
-<li><a class="reference external" href="https://www.buergerkarte.at/registrierungsstellen.html">Liste der Registrierungsstellen</a></li>
+<li><dl class="simple">
+<dt>eine als <strong>Bürgerkarte aktivierte E-Card</strong> oder eine andere von <strong>A-Trust ausgestellte Signaturkarte</strong></dt><dd><ul>
+<li><p>Um Ihre E-Card zu aktivieren gehen Sie zur <a class="reference external" href="https://www.buergerkarte.at/aktivieren-karte.html">„Bürgerkarte aktivieren“ Seite von buergerkarte.at</a>.</p></li>
+<li><p>Wir empfehlen die <em>„Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich“</em></p></li>
+<li><p>Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen</p></li>
+<li><p>Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.</p></li>
+<li><p><a class="reference external" href="https://www.buergerkarte.at/ausweisliste.html">Liste der akzeptierten Lichtbildausweise</a></p></li>
+<li><p><a class="reference external" href="https://www.buergerkarte.at/registrierungsstellen.html">Liste der Registrierungsstellen</a></p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p class="first">Die Signatursoftware Mocca installiert als <strong>lokale Bürgerkartenumgebung</strong></p>
-</li>
+<li><p>Die Signatursoftware Mocca installiert als <strong>lokale Bürgerkartenumgebung</strong></p></li>
 </ul>
 <div class="admonition warning">
-<p class="first admonition-title">Warnung</p>
-<p class="last">Die zusätzlich im ECS vorhandene &#8220;Online BKU&#8221; Version von Mocca ist veraltet und wird ab 5. September 2018 nicht mehr funktionieren. Wechseln Sie zeitnahe auf die &#8220;lokale BKU&#8221;.</p>
+<p class="admonition-title">Warnung</p>
+<p>Die zusätzlich im ECS vorhandene „Online BKU“ Version von Mocca ist veraltet und wird ab 5. September 2018 nicht mehr funktionieren. Wechseln Sie zeitnahe auf die „lokale BKU“.</p>
 </div>
 </div>
 <div class="section" id="einrichtung-der-signatursoftware-mocca">
 <h2>Einrichtung der Signatursoftware Mocca<a class="headerlink" href="#einrichtung-der-signatursoftware-mocca" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Verwenden Sie für diese Schritte den Webbrowser welchen sie später für das ECS zum signieren einsetzen wollen. Falls sie einen weiteren Browser zur Signierung verwenden wollen, wiederholen sie die Punkte 2 und 3 um den Browser für Mocca zu konfigurieren und zu testen.</p>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Installation der lokalen Bürgerkartenumgebungs-Software Mocca</a></li>
-<li>Mit gestarteter Mocca Software (im ausgewählten Webbrowser):</li>
+<li><p><a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Installation der lokalen Bürgerkartenumgebungs-Software Mocca</a></p></li>
+<li><p>Mit gestarteter Mocca Software (im ausgewählten Webbrowser):</p></li>
 </ol>
 <blockquote>
 <div><p><a class="reference external" href="http://localhost:3495/ca.crt">Bestätigen des lokalen https Zertifikats von Mocca</a></p>
 <p><a class="reference external" href="http://localhost:3495/help/help.install.cacert.html">Detailinformation zur Zertifikatinstallation</a></p>
 </div></blockquote>
 <ol class="arabic simple" start="3">
-<li><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">Testen der elektronischen Signatur mit lokaler BKU</a></li>
+<li><p><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">Testen der elektronischen Signatur mit lokaler BKU</a></p></li>
 </ol>
 </div>
 <div class="section" id="im-ecs-signieren">
 <h2>Im ECS signieren<a class="headerlink" href="#im-ecs-signieren" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Benutzer der Gruppe &#8220;Signing&#8221; haben die Tätigkeiten &#8220;Votum Signierung&#8221; und Amendment-Antwort Signierung&#8221; zu Verfügung. Um signieren zu können, muss die &#8220;lokale BKU (Bürgerkartenumgebung)&#8221; Software auf den verwendeten Computer gestartet sein.</p>
+<p>Benutzer der Gruppe „Signing“ haben die Tätigkeiten „Votum Signierung“ und Amendment-Antwort Signierung“ zu Verfügung. Um signieren zu können, muss die „lokale BKU (Bürgerkartenumgebung)“ Software auf den verwendeten Computer gestartet sein.</p>
 <p>Die Signierungsseite beinhaltet jeweils eine Vorschau der zu signierten Daten, einen Navigationsblock und ein Signierungsfenster.</p>
 <p>Navigationsblock:</p>
 <ul class="simple">
-<li>Mit &#8220;Zurückwerfen&#8221; wird das Votum/die Amendment-Antwort wieder in den Bearbeitungsarbeitsablauf zum letzten Arbeitsschritt vor der Signierung zurück geschickt.</li>
-<li>Mit &#8220;Überspringen&#8221; wird das Votum/die Amendment-Antwort jetzt nicht signiert, und das ECS schlägt das nächste zu signierende Dokument vor.</li>
-<li>Mit &#8220;Abbrechen&#8221; wird die aktuelle Signierungstätigkeit abgebrochen und in das Hauptmenü gewechselt</li>
+<li><p>Mit „Zurückwerfen“ wird das Votum/die Amendment-Antwort wieder in den Bearbeitungsarbeitsablauf zum letzten Arbeitsschritt vor der Signierung zurück geschickt.</p></li>
+<li><p>Mit „Überspringen“ wird das Votum/die Amendment-Antwort jetzt nicht signiert, und das ECS schlägt das nächste zu signierende Dokument vor.</p></li>
+<li><p>Mit „Abbrechen“ wird die aktuelle Signierungstätigkeit abgebrochen und in das Hauptmenü gewechselt</p></li>
 </ul>
 <p>Signierungsfenster:</p>
 <ul class="simple">
-<li>Um das dargestellte Votum/die Amendment-Antwort zu signieren, geben Sie den PIN-Code ein sobald das Signierungsfenster dazu hinweist. Nicht erfolgreich signierte Voten/Amendment-Antworten bleiben weiterhin als unsignierte Tätigkeiten im System.</li>
+<li><p>Um das dargestellte Votum/die Amendment-Antwort zu signieren, geben Sie den PIN-Code ein sobald das Signierungsfenster dazu hinweist. Nicht erfolgreich signierte Voten/Amendment-Antworten bleiben weiterhin als unsignierte Tätigkeiten im System.</p></li>
 </ul>
 <div class="section" id="burgerkartenumgebung-wechseln">
 <h3>Bürgerkartenumgebung wechseln<a class="headerlink" href="#burgerkartenumgebung-wechseln" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Um die im ECS verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Profil (Klick auf das Personen Icon rechts oben und dann auf ihren Namen) und dort auf &#8220;Profil Bearbeiten&#8221;.</p>
-<p>Als vorletzten Eintrag finden Sie den Punkt &#8220;Signatur Umgebung&#8221;.</p>
+<p>Um die im ECS verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Profil (Klick auf das Personen Icon rechts oben und dann auf ihren Namen) und dort auf „Profil Bearbeiten“.</p>
+<p>Als vorletzten Eintrag finden Sie den Punkt „Signatur Umgebung“.</p>
 <ul>
-<li><p class="first">wählen Sie &#8220;lokale BKU&#8221; für Mocca als lokale BKU aus.</p>
-</li>
-<li><p class="first">wählen Sie &#8220;online BKU(veraltet)&#8221; für Mocca als online BKU aus.</p>
+<li><p>wählen Sie „lokale BKU“ für Mocca als lokale BKU aus.</p></li>
+<li><p>wählen Sie „online BKU(veraltet)“ für Mocca als online BKU aus.</p>
 <blockquote>
 <div><p><strong>Achtung:</strong> Diese Art der Signaturumgebung ist veraltet und wird nur noch bis zum 5. September 2018 funktionieren, und kann nur mit Firefox 52-ESR und aktivierten Java-Plugin verwendet werden.</p>
 </div></blockquote>
 </li>
-<li><p class="first">wählen Sie &#8220;Handy Signatur&#8221; um statt der Signaturkarte die Handysignatur zu verwenden.</p>
+<li><p>wählen Sie „Handy Signatur“ um statt der Signaturkarte die Handysignatur zu verwenden.</p>
 <blockquote>
 <div><p><strong>Information:</strong> Leider weigert sich der Betreiber A-Trust die Stammzertifikate für Zertifikate von Letsencrypt zu akzeptieren.
 Es ist daher momentan nicht möglich die Handysignatur mit den ECS und einen Letsencrypt Zertifikat zu verwenden.</p>
 </div></blockquote>
 </li>
 </ul>
-<p>Mit Klick auf &#8220;Speichern&#8221;, speichern Sie Ihre Einstellung.</p>
+<p>Mit Klick auf „Speichern“, speichern Sie Ihre Einstellung.</p>
 </div>
 </div>
 </div>
@@ -139,7 +120,7 @@ Es ist daher momentan nicht möglich die Handysignatur mit den ECS und einen Let
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Inhalt</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Elektronische Signatur</a><ul>
 <li><a class="reference internal" href="#voraussetzungen">Voraussetzungen</a></li>
@@ -158,17 +139,13 @@ Es ist daher momentan nicht möglich die Handysignatur mit den ECS und einen Let
   <h4>Nächstes Thema</h4>
   <p class="topless"><a href="administration.html"
                         title="nächstes Kapitel">Verwaltung</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Schnellsuche</h3>
-    <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Los" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
+<form class="search" action="../search.html" method="get">
+  <input type="text" name="q"
+   placeholder="type to search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
         </div>
       </div>
       <div class="clearer"></div>

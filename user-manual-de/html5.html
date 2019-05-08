@@ -1,37 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Für ein besseres, benutzbares &amp; standardisiertes Netz &#8212; ecs-user-manual-de 2019-02-28@19:25 Dokumentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Für ein besseres, benutzbares &amp; standardisiertes Netz &#8212; ecs-user-manual-de 2019-05-08@20:11 Dokumentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019-02-28@19:25',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
-    <link rel="top" title="ecs-user-manual-de 2019-02-28@19:25 Dokumentation" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="static/custom.css" type="text/css" />
-  </head>
-  <body role="document">  
+      <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  </head><body>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -43,29 +31,29 @@
 <p><img alt="html5" src="_images/html5.png" />
 Sie benutzen einen nicht unterstützten Browser.</p>
 <p><strong>Es tut uns leid, aber das ECS System unterstützt nur Browser der HTML5 Generation wie:</strong></p>
-<table border="1" class="docutils">
+<table class="docutils align-center">
 <colgroup>
-<col width="17%" />
-<col width="16%" />
-<col width="18%" />
-<col width="16%" />
-<col width="18%" />
-<col width="17%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 17%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference external" href="http://www.mozilla-europe.org/de/firefox/"><img alt="firefox_logo" src="_images/firefox_logo.png" /></a></td>
-<td><a class="reference external" href="http://www.google.com/chrome/intl/de/landing_tv.html"><img alt="chrome_logo" src="_images/chrome_logo.jpg" /></a></td>
-<td><a class="reference external" href="https://www.microsoft.com/de-AT/windows/microsoft-edge"><img alt="edge_logo" src="_images/edge_logo.png" /></a></td>
-<td><a class="reference external" href="http://www.apple.com/de/safari/download/"><img alt="safari_logo" src="_images/safari_logo.jpg" /></a></td>
-<td><img alt="ios_logo" src="_images/ios_logo.jpg" /></td>
-<td><img alt="android_logo" src="_images/android_logo.jpg" /></td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="http://www.mozilla-europe.org/de/firefox/"><img alt="firefox_logo" src="_images/firefox_logo.png" /></a></p></td>
+<td><p><a class="reference external" href="http://www.google.com/chrome/intl/de/landing_tv.html"><img alt="chrome_logo" src="_images/chrome_logo.jpg" /></a></p></td>
+<td><p><a class="reference external" href="https://www.microsoft.com/de-AT/windows/microsoft-edge"><img alt="edge_logo" src="_images/edge_logo.png" /></a></p></td>
+<td><p><a class="reference external" href="http://www.apple.com/de/safari/download/"><img alt="safari_logo" src="_images/safari_logo.jpg" /></a></p></td>
+<td><p><img alt="ios_logo" src="_images/ios_logo.jpg" /></p></td>
+<td><p><img alt="android_logo" src="_images/android_logo.jpg" /></p></td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="http://www.mozilla-europe.org/de/firefox/">Firefox</a> 28+</td>
-<td><a class="reference external" href="http://www.google.com/chrome/intl/de/landing_tv.html">Chrome</a> 29+</td>
-<td><a class="reference external" href="https://www.microsoft.com/de-AT/windows/microsoft-edge">Edge</a> 12.10240+</td>
-<td><a class="reference external" href="http://www.apple.com/de/safari/download/">Safari</a> 7+</td>
-<td>IOS 9.x+</td>
-<td>Android 5+</td>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.mozilla-europe.org/de/firefox/">Firefox</a> 28+</p></td>
+<td><p><a class="reference external" href="http://www.google.com/chrome/intl/de/landing_tv.html">Chrome</a> 29+</p></td>
+<td><p><a class="reference external" href="https://www.microsoft.com/de-AT/windows/microsoft-edge">Edge</a> 12.10240+</p></td>
+<td><p><a class="reference external" href="http://www.apple.com/de/safari/download/">Safari</a> 7+</p></td>
+<td><p>IOS 9.x+</p></td>
+<td><p>Android 5+</p></td>
 </tr>
 </tbody>
 </table>
@@ -73,8 +61,8 @@ Sie benutzen einen nicht unterstützten Browser.</p>
 (Internet Explorer 11 wird mit Einschränkungen unterstützt.)</p>
 <p>Was für Möglichkeiten haben Sie das ECS trotzdem zu benutzen:</p>
 <ul class="simple">
-<li>Sie können selber oder einen Administrator/in bitten einen neuen Browser auf Ihren Rechner zu installieren</li>
-<li>Klicken Sie auf eine der oben dargestellten Browser Symbole um zur Installationsseite zu wechseln.</li>
+<li><p>Sie können selber oder einen Administrator/in bitten einen neuen Browser auf Ihren Rechner zu installieren</p></li>
+<li><p>Klicken Sie auf eine der oben dargestellten Browser Symbole um zur Installationsseite zu wechseln.</p></li>
 </ul>
 </div>
 
@@ -84,17 +72,13 @@ Sie benutzen einen nicht unterstützten Browser.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" role="search">
-  <h3>Schnellsuche</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Los" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
+<form class="search" action="search.html" method="get">
+  <input type="text" name="q"
+   placeholder="type to search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
         </div>
       </div>
       <div class="clearer"></div>

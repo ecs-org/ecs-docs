@@ -1,36 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Appliance Hooks &#8212; ecs-admin-manual 2019-02-28@19:25 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Appliance Hooks &#8212; ecs-admin-manual 2019-05-08@20:12 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019-02-28@19:25',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="ecs-admin-manual 2019-02-28@19:25 documentation" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="static/custom.css" type="text/css" />
-  </head>
-  <body role="document">  
+      <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  </head><body>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -38,16 +26,16 @@
           <div class="body" role="main">
             
   <div class="section" id="appliance-hooks">
-<span id="appliance-hooks"></span><h1>Appliance Hooks<a class="headerlink" href="#appliance-hooks" title="Permalink to this headline">¶</a></h1>
-<p>The appliance can be customized using hook scripts which should be placed under <code class="docutils literal"><span class="pre">/app/etc/hooks/{hookname}/*.sh</span></code>.</p>
+<h1>Appliance Hooks<a class="headerlink" href="#appliance-hooks" title="Permalink to this headline">¶</a></h1>
+<p>The appliance can be customized using hook scripts which should be placed under <code class="docutils literal notranslate"><span class="pre">/app/etc/hooks/{hookname}/*.sh</span></code>.</p>
 <p>To add hook files add an entry under appliance:extra:files.
-Any shellscript in a hook directory ending with &#8221;.sh&#8221; will be executed on hook trigger.</p>
+Any shellscript in a hook directory ending with “.sh” will be executed on hook trigger.</p>
 <p>The following hooks are defined:</p>
 <ul class="simple">
-<li>prepare-ecs.early</li>
-<li>prepare-ecs.late</li>
-<li>prepare-appliance.early</li>
-<li>prepare-appliance.late</li>
+<li><p>prepare-ecs.early</p></li>
+<li><p>prepare-ecs.late</p></li>
+<li><p>prepare-appliance.early</p></li>
+<li><p>prepare-appliance.late</p></li>
 </ul>
 </div>
 
@@ -57,17 +45,13 @@ Any shellscript in a hook directory ending with &#8221;.sh&#8221; will be execut
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
+<form class="search" action="search.html" method="get">
+  <input type="text" name="q"
+   placeholder="type to search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
         </div>
       </div>
       <div class="clearer"></div>
@@ -79,7 +63,7 @@ Any shellscript in a hook directory ending with &#8221;.sh&#8221; will be execut
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2019-02-28@19:25 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2019-05-08@20:12 documentation</a></li> 
     </ul>
   </nav>
   </div>

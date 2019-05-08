@@ -1,38 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Configure Appliance &#8212; ecs-admin-manual 2019-02-28@19:25 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Configure Appliance &#8212; ecs-admin-manual 2019-05-08@20:12 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019-02-28@19:25',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="ecs-admin-manual 2019-02-28@19:25 documentation" href="index.html" />
     <link rel="next" title="Maintenance" href="maintenance.html" />
     <link rel="prev" title="Deploy Appliance" href="deployment.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="static/custom.css" type="text/css" />
-  </head>
-  <body role="document">  
+      <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  </head><body>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -40,61 +28,62 @@
           <div class="body" role="main">
             
   <div class="section" id="configure-appliance">
-<span id="configure-appliance"></span><h1>Configure Appliance<a class="headerlink" href="#configure-appliance" title="Permalink to this headline">¶</a></h1>
+<h1>Configure Appliance<a class="headerlink" href="#configure-appliance" title="Permalink to this headline">¶</a></h1>
 <p>The Appliance is configured using a yaml configuration file
 which can be placed in one of the following locations:</p>
 <ul class="simple">
-<li>local file at <code class="docutils literal"><span class="pre">/app/env.yml</span></code> (no-cloud config)</li>
-<li>a attached drive with label cidata (cloud-init: no-cloud)</li>
-<li>a attached drive with label config-2 (cloud-init: openstack)</li>
-<li>aws-ec2 meta-data server (amazon elastic computing cloud)</li>
-<li>gce meta-data server (google compute engine)</li>
+<li><p>local file at <code class="docutils literal notranslate"><span class="pre">/app/env.yml</span></code> (no-cloud config)</p></li>
+<li><p>a attached drive with label cidata (cloud-init: no-cloud)</p></li>
+<li><p>a attached drive with label config-2 (cloud-init: openstack)</p></li>
+<li><p>aws-ec2 meta-data server (amazon elastic computing cloud)</p></li>
+<li><p>gce meta-data server (google compute engine)</p></li>
 </ul>
-<p>It will be copied to <code class="docutils literal"><span class="pre">/run/active-env.yml</span></code> (ramdisk) on each appliance startup.</p>
+<p>It will be copied to <code class="docutils literal notranslate"><span class="pre">/run/active-env.yml</span></code> (ramdisk) on each appliance startup.</p>
 <p><strong>warning</strong>: Do <strong>not</strong> reuse an already existing configuration for a different domain/instance, <strong>always</strong> create a new configuration, to not leak secrets between domains.</p>
 <div class="section" id="create-a-new-configuration">
-<span id="create-a-new-configuration"></span><h2>Create a new Configuration<a class="headerlink" href="#create-a-new-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>Create a new Configuration<a class="headerlink" href="#create-a-new-configuration" title="Permalink to this headline">¶</a></h2>
 <p>on an installed but unconfigured appliance:</p>
 <ul class="simple">
-<li>enter installed but empty appliance</li>
-<li>make a new env.yml: <code class="docutils literal"><span class="pre">env-create.sh</span> <span class="pre">*domainname.domain*</span> <span class="pre">/app/env.yml</span></code></li>
-<li>edit settings in &#8220;/app/env.yml&#8221;, see comments inside file</li>
-<li>Optional: package env into different formats<ul>
-<li><code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">/app/env.yml</span></code></li>
-<li>see <code class="docutils literal"><span class="pre">env-package.sh</span></code> for more options</li>
-<li>transfer, print out &#8220;/app/env.yml.pdf&#8221; and store in a safe place.</li>
+<li><p>enter installed but empty appliance</p></li>
+<li><p>make a new env.yml: <code class="docutils literal notranslate"><span class="pre">env-create.sh</span> <span class="pre">*domainname.domain*</span> <span class="pre">/app/env.yml</span></code></p></li>
+<li><p>edit settings in “/app/env.yml”, see comments inside file</p></li>
+<li><p>Optional: package env into different formats</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">env-package.sh</span> <span class="pre">--requirements;</span> <span class="pre">env-package.sh</span> <span class="pre">/app/env.yml</span></code></p></li>
+<li><p>see <code class="docutils literal notranslate"><span class="pre">env-package.sh</span></code> for more options</p></li>
+<li><p>transfer, print out “/app/env.yml.pdf” and store in a safe place.</p></li>
 </ul>
 </li>
-<li>save an encrypted copy of env.yml in a safe place.</li>
-<li><strong>Important</strong>: The <strong>env.yml contains all needed secrets</strong> for a working appliance and is <strong>the only relevant piece of information</strong> if you want to recover from backup in case of a storage failure.</li>
-<li><strong>Warning</strong>: Only use ascii charset in env.yml, saltstack expects yaml in ascii charset</li>
+<li><p>save an encrypted copy of env.yml in a safe place.</p></li>
+<li><p><strong>Important</strong>: The <strong>env.yml contains all needed secrets</strong> for a working appliance and is <strong>the only relevant piece of information</strong> if you want to recover from backup in case of a storage failure.</p></li>
+<li><p><strong>Warning</strong>: Only use ascii charset in env.yml, saltstack expects yaml in ascii charset</p></li>
 </ul>
 <p>for offline environment creation, using your local machine:</p>
 <ul class="simple">
-<li>have saltstack installed (minion does not need to run)</li>
-<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ecs-org/ecs-appliance</span> <span class="pre">~/path-to-project/ecs-appliance</span></code></li>
-<li>use env-create.sh and env-package.sh like explained below,
-but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</li>
-<li>copy ~/<em>domainname.domain</em>/env.yml to appliance machine at /app/env.yml</li>
+<li><p>have saltstack installed (minion does not need to run)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ecs-org/ecs-appliance</span>&#160; <span class="pre">~/path-to-project/ecs-appliance</span></code></p></li>
+<li><p>use env-create.sh and env-package.sh like explained below,
+but add ~/path-to-project/ecs-appliance/salt/common/ to the callpath.</p></li>
+<li><p>copy ~/<em>domainname.domain</em>/env.yml to appliance machine at /app/env.yml</p></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">root</span><span class="nd">@target</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">ip</span> <span class="s1">&#39;/bin/bash -c &quot;mkdir -p /app/&quot;&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">root</span><span class="nd">@target</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">ip</span> <span class="s1">&#39;/bin/bash -c &quot;mkdir -p /app/&quot;&#39;</span>
 <span class="n">scp</span> <span class="n">env</span><span class="o">.</span><span class="n">yml</span> <span class="n">root</span><span class="nd">@target</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">ip</span><span class="p">:</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
 <p>for a development server:</p>
 <ul class="simple">
-<li>run <code class="docutils literal"><span class="pre">cp</span> <span class="pre">/app/appliance/salt/pillar/default-env.sls</span> <span class="pre">/app/env.yml</span></code> and edit settings in &#8220;/app/env.yml&#8221;.</li>
+<li><p>run <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/app/appliance/salt/pillar/default-env.sls</span> <span class="pre">/app/env.yml</span></code> and edit settings in “/app/env.yml”.</p></li>
 </ul>
 </div>
 <div class="section" id="modify-configuration">
-<span id="modify-configuration"></span><h2>Modify Configuration<a class="headerlink" href="#modify-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>Modify Configuration<a class="headerlink" href="#modify-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Any applied change in the config file will reconfigure the appliance on the next appliance restart run to the new values found in the configuration.</p>
 <p>Eg. if you want to change your backup target to a different location,
 just change the value and restart the appliance, it will detect and configure
 all needed changes to the environment.</p>
 <p>See the comments in the configuration for different possibilities for the appliance configuration.</p>
-<p>&#8220;gpg_secret&#8221;, &#8220;base64_secret&#8221;, &#8220;rsa_secret&#8221; are placeholder which will be generated with the corresponding data on environment creation using <code class="docutils literal"><span class="pre">env-create.sh</span></code>. see <code class="docutils literal"><span class="pre">salt/appliance/env-template.yml</span></code> for details on the creation procedure.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#cloud-config</span>
+<p>“gpg_secret”, “base64_secret”, “rsa_secret” are placeholder which will be generated with the corresponding data on environment creation using <code class="docutils literal notranslate"><span class="pre">env-create.sh</span></code>. see <code class="docutils literal notranslate"><span class="pre">salt/appliance/env-template.yml</span></code> for details on the creation procedure.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#cloud-config</span>
 <span class="c1"># XXX keep the &quot;#cloud-config&quot; line first and unchanged, software expects this header</span>
 
 <span class="n">ssh_authorized_keys</span><span class="p">:</span>
@@ -231,8 +220,8 @@ all needed changes to the environment.</p>
 </pre></div>
 </div>
 <div class="section" id="ethics-commission-uuid-s">
-<span id="ethics-commission-uuid-s"></span><h3>Ethics Commission UUID&#8217;s<a class="headerlink" href="#ethics-commission-uuid-s" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="mi">23</span><span class="n">d805c6b5f14d8b9196a12005fd2961</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">der</span> <span class="n">Medizinischen</span> <span class="n">Universität</span> <span class="n">Wien</span>
+<h3>Ethics Commission UUID’s<a class="headerlink" href="#ethics-commission-uuid-s" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="mi">23</span><span class="n">d805c6b5f14d8b9196a12005fd2961</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">der</span> <span class="n">Medizinischen</span> <span class="n">Universität</span> <span class="n">Wien</span>
 <span class="o">|</span> <span class="mi">7</span><span class="n">b51f38bde8a4161a0dc34647fc7e654</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">Krankenhaus</span> <span class="n">Barmh</span><span class="o">.</span><span class="n">Brüder</span> <span class="o">-</span> <span class="n">Wien</span>
 <span class="o">|</span> <span class="mi">85</span><span class="n">dc386061584fbe8549ce4e4d828fbd</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">der</span> <span class="n">Stadt</span> <span class="n">Wien</span> <span class="n">gemäß</span> <span class="n">KAG</span><span class="p">,</span> <span class="n">AMG</span> <span class="n">und</span> <span class="n">MPG</span>
 <span class="o">|</span> <span class="n">d6a22c635a584521b107481ac18318f6</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">Forschungsinstitut</span> <span class="n">des</span> <span class="n">Wiener</span> <span class="n">Roten</span> <span class="n">Kreuzes</span>
@@ -255,7 +244,7 @@ all needed changes to the environment.</p>
 <span class="o">|</span> <span class="mi">280414583</span><span class="n">b894c809a9baa8134d7fe4b</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">der</span> <span class="n">Medizinischen</span> <span class="n">Universität</span> <span class="n">Innsbruck</span>
 <span class="o">|</span> <span class="mi">183881</span><span class="n">da8200493aa7edd8bebeea75b9</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">des</span> <span class="n">Landes</span> <span class="n">Vorarlberg</span>
 <span class="o">|</span> <span class="mi">95821</span><span class="n">eba88f34b2195f96e747d7f6b16</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">des</span> <span class="n">Landes</span> <span class="n">Burgenland</span> <span class="n">gemäß</span> <span class="n">KAG</span><span class="p">,</span> <span class="n">AMG</span> <span class="n">und</span> <span class="n">MPG</span>
-<span class="o">|</span> <span class="mi">6</span><span class="n">e7cfab5f8cd40df83c9de4fac9bb20f</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">des</span> <span class="n">Landes</span> <span class="n">Steiermark</span> <span class="n">gemäß</span> <span class="n">AMG</span> <span class="n">und</span> <span class="n">MPG</span>
+<span class="o">|</span> <span class="mf">6e7</span><span class="n">cfab5f8cd40df83c9de4fac9bb20f</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">des</span> <span class="n">Landes</span> <span class="n">Steiermark</span> <span class="n">gemäß</span> <span class="n">AMG</span> <span class="n">und</span> <span class="n">MPG</span>
 <span class="o">|</span> <span class="mi">75</span><span class="n">b5a9714f354a5b842aa01029148036</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">Krankenhaus</span> <span class="n">Barmh</span><span class="o">.</span><span class="n">Brüder</span> <span class="o">-</span> <span class="n">Graz</span>
 <span class="o">|</span> <span class="mi">9287</span><span class="n">fb0878b94f9f9d90b5582d1cefca</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">Krankenhaus</span> <span class="n">Barmh</span><span class="o">.</span><span class="n">Brüder</span> <span class="o">-</span> <span class="n">Eggenberg</span>
 <span class="o">|</span> <span class="n">e17ee744e4e840778f316cf3f79de6b4</span> <span class="o">|</span> <span class="n">Ethikkommission</span> <span class="n">der</span> <span class="n">Medizinischen</span> <span class="n">Universität</span> <span class="n">Graz</span>
@@ -268,9 +257,9 @@ all needed changes to the environment.</p>
 </div>
 </div>
 <div class="section" id="first-activation">
-<span id="first-activation"></span><h2>First Activation<a class="headerlink" href="#first-activation" title="Permalink to this headline">¶</a></h2>
+<h2>First Activation<a class="headerlink" href="#first-activation" title="Permalink to this headline">¶</a></h2>
 <p>on the target vm:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create a empty ecs database</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a empty ecs database</span>
 <span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">createdb</span> <span class="n">ecs</span> <span class="o">-</span><span class="n">T</span> <span class="n">template0</span>  <span class="o">-</span><span class="n">l</span> <span class="n">de_DE</span><span class="o">.</span><span class="n">utf8</span>
 
 <span class="c1"># activate env </span>
@@ -284,10 +273,10 @@ all needed changes to the environment.</p>
 <p>While restarting, the appliance configures itself to the new environment.
 See the progress of the preperation by browsing to https://<em>domainname.domain</em> .</p>
 <div class="section" id="first-internal-user-setup">
-<span id="first-internal-user-setup"></span><h3>First Internal User setup<a class="headerlink" href="#first-internal-user-setup" title="Permalink to this headline">¶</a></h3>
+<h3>First Internal User setup<a class="headerlink" href="#first-internal-user-setup" title="Permalink to this headline">¶</a></h3>
 <p>After the appliance is ready and shows the login screen, login via ssh to create
 the first internal office user, with a corresponding client certificate and disable test user.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># create first internal office user (f=female, m=male)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create first internal office user (f=female, m=male)</span>
 <span class="n">create</span><span class="o">-</span><span class="n">internal</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">sh</span> <span class="n">useremail</span><span class="nd">@domain</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;First Name&quot;</span> <span class="s2">&quot;Second Name&quot;</span> <span class="s2">&quot;f&quot;</span> 
 
 <span class="c1"># create and send matching client certificate</span>
@@ -312,12 +301,12 @@ the first internal office user, with a corresponding client certificate and disa
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Configure Appliance</a><ul>
 <li><a class="reference internal" href="#create-a-new-configuration">Create a new Configuration</a></li>
 <li><a class="reference internal" href="#modify-configuration">Modify Configuration</a><ul>
-<li><a class="reference internal" href="#ethics-commission-uuid-s">Ethics Commission UUID&#8217;s</a></li>
+<li><a class="reference internal" href="#ethics-commission-uuid-s">Ethics Commission UUID’s</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#first-activation">First Activation</a><ul>
@@ -334,17 +323,13 @@ the first internal office user, with a corresponding client certificate and disa
   <h4>Next topic</h4>
   <p class="topless"><a href="maintenance.html"
                         title="next chapter">Maintenance</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
+<form class="search" action="search.html" method="get">
+  <input type="text" name="q"
+   placeholder="type to search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
         </div>
       </div>
       <div class="clearer"></div>
@@ -364,7 +349,7 @@ the first internal office user, with a corresponding client certificate and disa
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2019-02-28@19:25 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2019-05-08@20:12 documentation</a></li> 
     </ul>
   </nav>
   </div>

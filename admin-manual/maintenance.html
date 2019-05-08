@@ -1,38 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Maintenance &#8212; ecs-admin-manual 2019-02-28@19:25 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Maintenance &#8212; ecs-admin-manual 2019-05-08@20:12 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2019-02-28@19:25',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="ecs-admin-manual 2019-02-28@19:25 documentation" href="index.html" />
     <link rel="next" title="Digital signed pdf documents" href="mocca_pdfas.html" />
     <link rel="prev" title="Configure Appliance" href="configuration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="static/custom.css" type="text/css" />
-  </head>
-  <body role="document">  
+      <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  </head><body>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -40,166 +28,178 @@
           <div class="body" role="main">
             
   <div class="section" id="maintenance">
-<span id="maintenance"></span><h1>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h1>
+<h1>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="reconfigure-a-running-appliance">
-<span id="reconfigure-a-running-appliance"></span><h2>Reconfigure a running Appliance<a class="headerlink" href="#reconfigure-a-running-appliance" title="Permalink to this headline">¶</a></h2>
+<h2>Reconfigure a running Appliance<a class="headerlink" href="#reconfigure-a-running-appliance" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>edit /app/env.yml</li>
-<li>optional, build new env package:<ul>
-<li>first time requisites install, call <code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">--requirements</span></code></li>
-<li>build new env package call <code class="docutils literal"><span class="pre">env-package.sh</span> <span class="pre">/app/env.yml</span></code></li>
+<li><p>edit /app/env.yml</p></li>
+<li><p>optional, build new env package:</p>
+<ul>
+<li><p>first time requisites install, call <code class="docutils literal notranslate"><span class="pre">env-package.sh</span> <span class="pre">--requirements</span></code></p></li>
+<li><p>build new env package call <code class="docutils literal notranslate"><span class="pre">env-package.sh</span> <span class="pre">/app/env.yml</span></code></p></li>
 </ul>
 </li>
-<li>activate changes into current environment, call <code class="docutils literal"><span class="pre">env-update.sh</span></code></li>
-<li>restart and apply new environment: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code></li>
+<li><p>activate changes into current environment, call <code class="docutils literal notranslate"><span class="pre">env-update.sh</span></code></p></li>
+<li><p>restart and apply new environment: <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="start-stop-update-appliance">
-<span id="start-stop-update-appliance"></span><h2>Start, Stop, Update Appliance<a class="headerlink" href="#start-stop-update-appliance" title="Permalink to this headline">¶</a></h2>
+<h2>Start, Stop, Update Appliance<a class="headerlink" href="#start-stop-update-appliance" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Start appliance: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance</span></code></li>
-<li>Stop appliance: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">appliance</span></code></li>
-<li>Update Appliance (appliance and ecs): <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></li>
+<li><p>Start appliance: <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance</span></code></p></li>
+<li><p>Stop appliance: <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">appliance</span></code></p></li>
+<li><p>Update Appliance (appliance and ecs): <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="recover-from-failed-state">
-<span id="recover-from-failed-state"></span><h2>Recover from failed state<a class="headerlink" href="#recover-from-failed-state" title="Permalink to this headline">¶</a></h2>
+<h2>Recover from failed state<a class="headerlink" href="#recover-from-failed-state" title="Permalink to this headline">¶</a></h2>
 <p>if the appliance.service enters fail state, it creates a file named
-&#8220;/run/appliance_failed&#8221;.</p>
-<p>After resolving the issue, remove this file using <code class="docutils literal"><span class="pre">rm</span> <span class="pre">/run/appliance_failed</span></code>
-before restarting the service using <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code>.</p>
+“/run/appliance_failed”.</p>
+<p>After resolving the issue, remove this file using <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">/run/appliance_failed</span></code>
+before restarting the service using <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">appliance</span></code>.</p>
 <p>If the issue was within the ecs-appliance sourcecode, re-run an appliance update:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">appliance</span><span class="o">-</span><span class="n">failed</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">appliance</span><span class="o">-</span><span class="n">failed</span>
 <span class="n">touch</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">flags</span><span class="o">/</span><span class="n">force</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="n">appliance</span>
 <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">appliance</span><span class="o">-</span><span class="n">update</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="desaster-recovery-from-backup">
-<span id="desaster-recovery-from-backup"></span><h2>Desaster Recovery from backup<a class="headerlink" href="#desaster-recovery-from-backup" title="Permalink to this headline">¶</a></h2>
+<h2>Desaster Recovery from backup<a class="headerlink" href="#desaster-recovery-from-backup" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>install a new unconfigured appliance as described in chapter install</li>
-<li>copy old saved env.yml to new target machine at /app/env.yml</li>
-<li>reboot new target machine, appliance will configure but stop because of empty database</li>
-<li>ssh into new target machine, execute <code class="docutils literal"><span class="pre">recover-from-backup.sh</span> <span class="pre">--yes-i-am-sure</span></code></li>
+<li><p>install a new unconfigured appliance as described in chapter install</p></li>
+<li><p>copy old saved env.yml to new target machine at /app/env.yml</p></li>
+<li><p>reboot new target machine, appliance will configure but stop because of empty database</p></li>
+<li><p>ssh into new target machine, execute <code class="docutils literal notranslate"><span class="pre">recover-from-backup.sh</span> <span class="pre">--yes-i-am-sure</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="automatic-updates">
-<span id="automatic-updates"></span><h2>Automatic Updates<a class="headerlink" href="#automatic-updates" title="Permalink to this headline">¶</a></h2>
+<h2>Automatic Updates<a class="headerlink" href="#automatic-updates" title="Permalink to this headline">¶</a></h2>
 <p>Updates are scheduled depending appliance:update:oncalendar once per day at 06:30 per default.</p>
 <p>Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.</p>
 <p>The following items are updated:</p>
 <ul class="simple">
-<li>appliance source will be updated and executed</li>
-<li>all system packages are updated, special precautions are taken for docker, postgresql and the kernel including a reboot if needed</li>
-<li>lets encrypt certificates are updated</li>
-<li>ecs source will be updated and rebuild<ul>
-<li>the ecs-docs source will be updated</li>
-<li>the corresponding support container will be updated</li>
-<li>database migrations will be executed (including a dump before doing so)</li>
+<li><p>appliance source will be updated and executed</p></li>
+<li><p>all system packages are updated, special precautions are taken for docker, postgresql and the kernel including a reboot if needed</p></li>
+<li><p>lets encrypt certificates are updated</p></li>
+<li><p>ecs source will be updated and rebuild</p>
+<ul>
+<li><p>the ecs-docs source will be updated</p></li>
+<li><p>the corresponding support container will be updated</p></li>
+<li><p>database migrations will be executed (including a dump before doing so)</p></li>
 </ul>
 </li>
 </ul>
-<p><strong>Warning</strong>: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the root cause. <strong>If you do not make metric recording and alerting, we recommend updating only manual.</strong> To do this, enter &#8220;False&#8221; under appliance:update:automatic in the file env.yml. For a manual update run call <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p>
+<p><strong>Warning</strong>: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the root cause. <strong>If you do not make metric recording and alerting, we recommend updating only manual.</strong> To do this, enter “False” under appliance:update:automatic in the file env.yml. For a manual update run call <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p>
 </div>
 <div class="section" id="backup-configuration">
-<span id="backup-configuration"></span><h2>Backup Configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>Backup Configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Backup is done using duplicity, see <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html">Duplicity Manual</a></li>
-<li>Cycle: Backup is done once per day around 00:30</li>
-<li>Safety Measures for backup:<ul>
-<li>Database must exist</li>
-<li>Storage-Vault must not be empty</li>
+<li><p>Backup is done using duplicity, see <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html">Duplicity Manual</a></p></li>
+<li><p>Cycle: Backup is done once per day around 00:30</p></li>
+<li><p>Safety Measures for backup:</p>
+<ul>
+<li><p>Database must exist</p></li>
+<li><p>Storage-Vault must not be empty</p></li>
 </ul>
 </li>
-<li>Contents:<ul>
-<li>/data/ecs-storage-vault: All uploaded and all created documents</li>
-<li>/data/ecs-pgdump: Current database dump</li>
+<li><p>Contents:</p>
+<ul>
+<li><p>/data/ecs-storage-vault: All uploaded and all created documents</p></li>
+<li><p>/data/ecs-pgdump: Current database dump</p></li>
 </ul>
 </li>
-<li>Type, Rotation &amp; Retention:<ul>
-<li>Backup will start with a full backup and do incremental backups afterwards</li>
-<li>2 Months after the first full backup a second full backup will be created</li>
-<li>Rotation: Every Backup (full or incremental) will be purged after 4 Months</li>
+<li><p>Type, Rotation &amp; Retention:</p>
+<ul>
+<li><p>Backup will start with a full backup and do incremental backups afterwards</p></li>
+<li><p>2 Months after the first full backup a second full backup will be created</p></li>
+<li><p>Rotation: Every Backup (full or incremental) will be purged after 4 Months</p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="logging-configuration">
-<span id="logging-configuration"></span><h2>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Container:</p>
 <ul class="simple">
-<li>all container log to stdout and stderr</li>
-<li>docker has the logs of every container available<ul>
-<li>look at a log stream using eg. <code class="docutils literal"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">ecs_ecs.web_1</span></code></li>
+<li><p>all container log to stdout and stderr</p></li>
+<li><p>docker has the logs of every container available</p>
+<ul>
+<li><p>look at a log stream using eg. <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">ecs_ecs.web_1</span></code></p></li>
 </ul>
 </li>
-<li>journald will get the container logs via the appliance.service which calls docker-compose<ul>
-<li>this includes backend nginx, uwsgi, beat, worker, smtpd, redis, memcached, pdfas, mocca</li>
-<li>to follow use <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance</span> <span class="pre">-f</span></code></li>
+<li><p>journald will get the container logs via the appliance.service which calls docker-compose</p>
+<ul>
+<li><p>this includes backend nginx, uwsgi, beat, worker, smtpd, redis, memcached, pdfas, mocca</p></li>
+<li><p>to follow use <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance</span> <span class="pre">-f</span></code></p></li>
 </ul>
 </li>
 </ul>
 <p>Host:</p>
 <ul class="simple">
-<li>all logging (except postgres) is going through journald</li>
-<li>follow whole journal: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-f</span></code></li>
-<li>only follow service, eg. prepare-appliance: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">prepare-appliance</span> <span class="pre">-f</span></code></li>
-<li>follow frontend nginx: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">nginx</span> <span class="pre">-f</span></code></li>
-<li>search for salt-call output: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">$(which</span> <span class="pre">salt-call)</span></code></li>
+<li><p>all logging (except postgres) is going through journald</p></li>
+<li><p>follow whole journal: <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-f</span></code></p></li>
+<li><p>only follow service, eg. prepare-appliance: <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">prepare-appliance</span> <span class="pre">-f</span></code></p></li>
+<li><p>follow frontend nginx: <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">nginx</span> <span class="pre">-f</span></code></p></li>
+<li><p>search for salt-call output: <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">$(which</span> <span class="pre">salt-call)</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="metrics-collection">
-<span id="metrics-collection"></span><h2>Metrics Collection<a class="headerlink" href="#metrics-collection" title="Permalink to this headline">¶</a></h2>
+<h2>Metrics Collection<a class="headerlink" href="#metrics-collection" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>if <code class="docutils literal"><span class="pre">appliance:metric:exporter</span></code> is set, metrics are exported from the subsystems<ul>
-<li>export metrics of:
+<li><p>if <code class="docutils literal notranslate"><span class="pre">appliance:metric:exporter</span></code> is set, metrics are exported from the subsystems</p>
+<ul>
+<li><p>export metrics of:
 frontend nginx, redis, memcached, uwsgi, cadvisor,
 process details(uwsgi, postgres, nginx, celery),
 prometheus node(diskstats, entropy, filefd, filesystem, hwmon, loadavg,
-mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)</li>
-<li>additional service metrics from: appliance-backup, appliance-update</li>
+mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)</p></li>
+<li><p>additional service metrics from: appliance-backup, appliance-update</p></li>
 </ul>
 </li>
-<li>if <code class="docutils literal"><span class="pre">appliance:metric:server</span></code> is set, these exported metrics are collected and
+<li><p>if <code class="docutils literal notranslate"><span class="pre">appliance:metric:server</span></code> is set, these exported metrics are collected and
 stored by a prometheus server and alerts are issued using email to root
-using the prometheus alert server<ul>
-<li>there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh, a.o.<ul>
-<li>for a detailed alert list look at the <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules.yml">alert.rules.yml sourcefile</a></li>
-<li>to <strong>add custom rules create rules</strong> files in the config yaml using &#8220;file:<em>:contents&#8221; with a path of &#8220;/app/etc/prometheus-rules.d/</em>.rules.yml&#8221;</li>
+using the prometheus alert server</p>
+<ul>
+<li><p>there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh, a.o.</p>
+<ul>
+<li><p>for a detailed alert list look at the <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules.yml">alert.rules.yml sourcefile</a></p></li>
+<li><p>to <strong>add custom rules create rules</strong> files in the config yaml using “file:<em>:contents” with a path of “/app/etc/prometheus-rules.d/</em>.rules.yml”</p></li>
 </ul>
 </li>
-<li>the prometheus gui is at <a class="reference external" href="http://172.17.0.1:9090">http://172.17.0.1:9090</a></li>
-<li>the prometheus alert gui is at <a class="reference external" href="http://172.17.0.1:9093">http://172.17.0.1:9093</a></li>
+<li><p>the prometheus gui is at <a class="reference external" href="http://172.17.0.1:9090">http://172.17.0.1:9090</a></p></li>
+<li><p>the prometheus alert gui is at <a class="reference external" href="http://172.17.0.1:9093">http://172.17.0.1:9093</a></p></li>
 </ul>
 </li>
-<li>if <code class="docutils literal"><span class="pre">appliance:metric:gui</span></code> is set, a grafana server is started to display the collected metrics<ul>
-<li>grafana is available at <a class="reference external" href="http://localhost:3000">http://localhost:3000</a></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">appliance:metric:gui</span></code> is set, a grafana server is started to display the collected metrics</p>
+<ul>
+<li><p>grafana is available at <a class="reference external" href="http://localhost:3000">http://localhost:3000</a></p></li>
 </ul>
 </li>
-<li>if <code class="docutils literal"><span class="pre">appliance:metric:pghero</span></code> is set, start a pghero instance for postgres inspection<ul>
-<li>pghero is avaiable at <a class="reference external" href="http://localhost:5081">http://localhost:5081</a></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">appliance:metric:pghero</span></code> is set, start a pghero instance for postgres inspection</p>
+<ul>
+<li><p>pghero is avaiable at <a class="reference external" href="http://localhost:5081">http://localhost:5081</a></p></li>
 </ul>
 </li>
 </ul>
-<p>Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use <code class="docutils literal"><span class="pre">ssh</span> <span class="pre">root&#64;hostname</span> <span class="pre">-L</span> <span class="pre">9090:172.17.0.1:9090</span></code></p>
+<p>Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">root&#64;hostname</span> <span class="pre">-L</span> <span class="pre">9090:172.17.0.1:9090</span></code></p>
 </div>
 <div class="section" id="alerting-setup">
-<span id="alerting-setup"></span><h2>Alerting Setup<a class="headerlink" href="#alerting-setup" title="Permalink to this headline">¶</a></h2>
-<p>if <code class="docutils literal"><span class="pre">ecs:settings[&quot;SENTRY_DSN&quot;]</span></code> and <code class="docutils literal"><span class="pre">appliance:sentry:dsn</span></code> are defined,
+<h2>Alerting Setup<a class="headerlink" href="#alerting-setup" title="Permalink to this headline">¶</a></h2>
+<p>if <code class="docutils literal notranslate"><span class="pre">ecs:settings[&quot;SENTRY_DSN&quot;]</span></code> and <code class="docutils literal notranslate"><span class="pre">appliance:sentry:dsn</span></code> are defined,
 the appliance will report the following items to sentry:</p>
 <ul class="simple">
-<li>python exceptions in web, worker, beat, smtpd</li>
-<li>salt-call exceptions and state returns with error states</li>
-<li>systemd service exceptions where appliance-failed or service-failed is triggered</li>
-<li>shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry</li>
-<li>internal mails to root, eg. prometheus alerts</li>
+<li><p>python exceptions in web, worker, beat, smtpd</p></li>
+<li><p>salt-call exceptions and state returns with error states</p></li>
+<li><p>systemd service exceptions where appliance-failed or service-failed is triggered</p></li>
+<li><p>shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry</p></li>
+<li><p>internal mails to root, eg. prometheus alerts</p></li>
 </ul>
 </div>
 <div class="section" id="email-challenges">
-<span id="email-challenges"></span><h2>Email Challenges<a class="headerlink" href="#email-challenges" title="Permalink to this headline">¶</a></h2>
+<h2>Email Challenges<a class="headerlink" href="#email-challenges" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mail-send-from-ecs-to-emailserver-doing-greylisting">
-<span id="mail-send-from-ecs-to-emailserver-doing-greylisting"></span><h3>Mail send from ECS to Emailserver doing greylisting<a class="headerlink" href="#mail-send-from-ecs-to-emailserver-doing-greylisting" title="Permalink to this headline">¶</a></h3>
+<h3>Mail send from ECS to Emailserver doing greylisting<a class="headerlink" href="#mail-send-from-ecs-to-emailserver-doing-greylisting" title="Permalink to this headline">¶</a></h3>
 <p>Issue:
 Emails send from the appliance to a target mailserver that does greylisting will always be delayed.</p>
 <p>Resolution:
@@ -209,115 +209,131 @@ The appliance always uses a new unique email address for each outgoing mail (bes
 </div>
 </div>
 <div class="section" id="maintenance-commands-in-a-running-ecs-container">
-<span id="maintenance-commands-in-a-running-ecs-container"></span><h2>Maintenance commands in a running ecs container<a class="headerlink" href="#maintenance-commands-in-a-running-ecs-container" title="Permalink to this headline">¶</a></h2>
+<h2>Maintenance commands in a running ecs container<a class="headerlink" href="#maintenance-commands-in-a-running-ecs-container" title="Permalink to this headline">¶</a></h2>
 <p>for most ecs commands it is not important to which instance (web,worker)
-you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
+you connect to, “ecs_ecs.web_1” is used as example.</p>
 <ul class="simple">
-<li>image = ecs, mocca, pdfas, memcached, redis</li>
-<li>ecs.startcommand = web, worker, beat, smtpd</li>
-<li>as root <code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_image[.startcommand]_1</span> <span class="pre">/path/to/command</span></code><ul>
-<li>eg. <code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/bin/bash</span></code></li>
+<li><p>image = ecs, mocca, pdfas, memcached, redis</p></li>
+<li><p>ecs.startcommand = web, worker, beat, smtpd</p></li>
+<li><p>as root <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_image[.startcommand]_1</span> <span class="pre">/path/to/command</span></code></p>
+<ul>
+<li><p>eg. <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/bin/bash</span></code></p></li>
 </ul>
 </li>
-<li>shell as app user with activated environment<ul>
-<li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">/bin/bash</span></code></li>
+<li><p>shell as app user with activated environment</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">/bin/bash</span></code></p></li>
 </ul>
 </li>
-<li>manualy create a celery task:<ul>
-<li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">celery</span> <span class="pre">--serializer=pickle</span> <span class="pre">-A</span> <span class="pre">ecs</span> <span class="pre">call</span> <span class="pre">ecs.integration.tasks.clearsessions</span></code></li>
+<li><p>manualy create a celery task:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">celery</span> <span class="pre">--serializer=pickle</span> <span class="pre">-A</span> <span class="pre">ecs</span> <span class="pre">call</span> <span class="pre">ecs.integration.tasks.clearsessions</span></code></p></li>
 </ul>
 </li>
-<li>celery events console<ul>
-<li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">/bin/bash</span> <span class="pre">-c</span> <span class="pre">&quot;TERM=screen</span> <span class="pre">celery</span> <span class="pre">-A</span> <span class="pre">ecs</span> <span class="pre">events&quot;</span></code></li>
+<li><p>celery events console</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">/bin/bash</span> <span class="pre">-c</span> <span class="pre">&quot;TERM=screen</span> <span class="pre">celery</span> <span class="pre">-A</span> <span class="pre">ecs</span> <span class="pre">events&quot;</span></code></p></li>
 </ul>
 </li>
-<li>enter a django shell_plus as app user in a running container<ul>
-<li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">./manage.py</span> <span class="pre">shell_plus</span></code></li>
+<li><p>enter a django shell_plus as app user in a running container</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">ecs_ecs.web_1</span> <span class="pre">/start</span> <span class="pre">run</span> <span class="pre">./manage.py</span> <span class="pre">shell_plus</span></code></p></li>
 </ul>
 </li>
-<li>generate all workflow graphs</li>
+<li><p>generate all workflow graphs</p></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">ecs_ecs</span><span class="o">.</span><span class="n">web_1</span> <span class="o">/</span><span class="n">start</span> <span class="n">run</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">ecs_ecs</span><span class="o">.</span><span class="n">web_1</span> <span class="o">/</span><span class="n">start</span> <span class="n">run</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
 <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">workflow_dot</span> <span class="n">core</span><span class="o">.</span><span class="n">submission</span> <span class="o">|</span> <span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="o">-</span><span class="n">osubmission</span><span class="o">.</span><span class="n">png</span>
 <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">workflow_dot</span> <span class="n">notifications</span><span class="o">.</span><span class="n">notification</span> <span class="o">|</span> <span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="o">-</span><span class="n">onotification</span><span class="o">.</span><span class="n">png</span>
 <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">workflow_dot</span> <span class="n">votes</span><span class="o">.</span><span class="n">vote</span> <span class="o">|</span> <span class="n">dot</span> <span class="o">-</span><span class="n">Tpng</span> <span class="o">-</span><span class="n">ovote</span><span class="o">.</span><span class="n">png</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>generate ECX-Format Documentation</li>
+<li><p>generate ECX-Format Documentation</p></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">ecs_ecs</span><span class="o">.</span><span class="n">web_1</span> <span class="o">/</span><span class="n">start</span> <span class="n">run</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">ecs_ecs</span><span class="o">.</span><span class="n">web_1</span> <span class="o">/</span><span class="n">start</span> <span class="n">run</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
 <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">ecx_format</span> <span class="o">-</span><span class="n">t</span> <span class="n">html</span> <span class="o">-</span><span class="n">o</span> <span class="n">ecx</span><span class="o">-</span><span class="nb">format</span><span class="o">.</span><span class="n">html</span>
 <span class="o">./</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">ecx_format</span> <span class="o">-</span><span class="n">t</span> <span class="n">pdf</span> <span class="o">-</span><span class="n">o</span> <span class="n">ecx</span><span class="o">-</span><span class="nb">format</span><span class="o">.</span><span class="n">pdf</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="maintenance-commands-for-the-appliance-host">
-<span id="maintenance-commands-for-the-appliance-host"></span><h2>Maintenance commands for the appliance host<a class="headerlink" href="#maintenance-commands-for-the-appliance-host" title="Permalink to this headline">¶</a></h2>
+<h2>Maintenance commands for the appliance host<a class="headerlink" href="#maintenance-commands-for-the-appliance-host" title="Permalink to this headline">¶</a></h2>
 <p>All snippets expect root.</p>
 <ul class="simple">
-<li>destroy and recreate database:</li>
+<li><p>destroy and recreate database:</p></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gosu</span> <span class="n">app</span> <span class="n">dropdb</span> <span class="n">ecs</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gosu</span> <span class="n">app</span> <span class="n">dropdb</span> <span class="n">ecs</span>
 <span class="n">gosu</span> <span class="n">postgres</span> <span class="n">createdb</span> <span class="n">ecs</span> <span class="o">-</span><span class="n">T</span> <span class="n">template0</span> <span class="o">-</span><span class="n">l</span> <span class="n">de_DE</span><span class="o">.</span><span class="n">utf8</span>
 <span class="n">rm</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span><span class="n">last_running_ecs</span>
 <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">appliance</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>get latest dump from backup to /root/ecs.pgdump.gz:<ul>
-<li><code class="docutils literal"><span class="pre">duply</span> <span class="pre">/root/.duply/appliance-backup</span> <span class="pre">fetch</span> <span class="pre">ecs-pgdump/ecs.pgdump.gz</span> <span class="pre">/root/ecs.pgdump.gz</span></code></li>
+<li><p>get latest dump from backup to /root/ecs.pgdump.gz:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">duply</span> <span class="pre">/root/.duply/appliance-backup</span> <span class="pre">fetch</span> <span class="pre">ecs-pgdump/ecs.pgdump.gz</span> <span class="pre">/root/ecs.pgdump.gz</span></code></p></li>
 </ul>
 </li>
-<li>quick update appliance code:<ul>
-<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/app/appliance;</span> <span class="pre">gosu</span> <span class="pre">app</span> <span class="pre">git</span> <span class="pre">pull;</span> <span class="pre">salt-call</span> <span class="pre">state.highstate</span> <span class="pre">pillar='{&quot;appliance&quot;:{&quot;enabled&quot;:true}}'</span> <span class="pre">2&gt;&amp;1;</span> <span class="pre">rm</span> <span class="pre">/var/www/html/503.html</span></code></li>
+<li><p>quick update appliance code:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/app/appliance;</span> <span class="pre">gosu</span> <span class="pre">app</span> <span class="pre">git</span> <span class="pre">pull;</span> <span class="pre">salt-call</span> <span class="pre">state.highstate</span> <span class="pre">pillar='{&quot;appliance&quot;:{&quot;enabled&quot;:true}}'</span> <span class="pre">2&gt;&amp;1;</span> <span class="pre">rm</span> <span class="pre">/var/www/html/503.html</span></code></p></li>
 </ul>
 </li>
-<li>check which system packages are available for update:<ul>
-<li><code class="docutils literal"><span class="pre">/usr/lib/update-notifier/apt-check</span> <span class="pre">-p</span></code></li>
+<li><p>check which system packages are available for update:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/usr/lib/update-notifier/apt-check</span> <span class="pre">-p</span></code></p></li>
 </ul>
 </li>
-<li>cleanup last activity stamps for unattended upgrades, so unattended-upgrades will do all activity again<ul>
-<li><code class="docutils literal"><span class="pre">touch</span> <span class="pre">/app/etc/flags/force.update.system</span></code> before <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></li>
+<li><p>cleanup last activity stamps for unattended upgrades, so unattended-upgrades will do all activity again</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">/app/etc/flags/force.update.system</span></code> before <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">appliance-update</span></code></p></li>
 </ul>
 </li>
-<li>list active systemd timer: <code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">list-timers</span> <span class="pre">--all</span></code></li>
-<li>display systemd service change: <code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-m</span> <span class="pre">_PID=1</span> <span class="pre">-f</span></code></li>
-<li>manual run letsencrypt client (do not call as root): <code class="docutils literal"><span class="pre">gosu</span> <span class="pre">app</span> <span class="pre">dehydrated</span> <span class="pre">--help</span></code></li>
-<li>display revoked certificates serials:<ul>
-<li><code class="docutils literal"><span class="pre">openssl</span> <span class="pre">crl</span> <span class="pre">-inform</span> <span class="pre">PEM</span> <span class="pre">-text</span> <span class="pre">-noout</span> <span class="pre">-in</span> <span class="pre">/app/etc/crl.pem</span></code></li>
+<li><p>list active systemd timer: <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">list-timers</span> <span class="pre">--all</span></code></p></li>
+<li><p>display systemd service change: <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-m</span> <span class="pre">_PID=1</span> <span class="pre">-f</span></code></p></li>
+<li><p>manual run letsencrypt client (do not call as root): <code class="docutils literal notranslate"><span class="pre">gosu</span> <span class="pre">app</span> <span class="pre">dehydrated</span> <span class="pre">--help</span></code></p></li>
+<li><p>display revoked certificates serials:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">crl</span> <span class="pre">-inform</span> <span class="pre">PEM</span> <span class="pre">-text</span> <span class="pre">-noout</span> <span class="pre">-in</span> <span class="pre">/app/etc/crl.pem</span></code></p></li>
 </ul>
 </li>
-<li>get cummulative cpu,mem,net,disk statistics of container:<ul>
-<li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">stats</span> <span class="pre">$(docker</span> <span class="pre">ps|grep</span> <span class="pre">-v</span> <span class="pre">&quot;NAMES&quot;|awk</span> <span class="pre">'{</span> <span class="pre">print</span> <span class="pre">$NF</span> <span class="pre">}'|tr</span> <span class="pre">&quot;\n&quot;</span> <span class="pre">&quot;</span> <span class="pre">&quot;)</span></code></li>
+<li><p>get cummulative cpu,mem,net,disk statistics of container:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">stats</span> <span class="pre">$(docker</span> <span class="pre">ps|grep</span> <span class="pre">-v</span> <span class="pre">&quot;NAMES&quot;|awk</span> <span class="pre">'{</span> <span class="pre">print</span> <span class="pre">$NF</span> <span class="pre">}'|tr</span> <span class="pre">&quot;\n&quot;</span> <span class="pre">&quot;</span> <span class="pre">&quot;)</span></code></p></li>
 </ul>
 </li>
-<li>read details of a container in yaml:<ul>
-<li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">inspect</span> <span class="pre">1b17069fe3ba</span> <span class="pre">|</span> <span class="pre">python</span> <span class="pre">-c</span> <span class="pre">'import</span> <span class="pre">sys,</span> <span class="pre">yaml,</span> <span class="pre">json;</span> <span class="pre">yaml.safe_dump(json.load(sys.stdin),</span> <span class="pre">sys.stdout,</span> <span class="pre">default_flow_style=False)'</span> <span class="pre">|</span> <span class="pre">less</span></code></li>
+<li><p>read details of a container in yaml:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">inspect</span> <span class="pre">1b17069fe3ba</span> <span class="pre">|</span> <span class="pre">python</span> <span class="pre">-c</span> <span class="pre">'import</span> <span class="pre">sys,</span> <span class="pre">yaml,</span> <span class="pre">json;</span> <span class="pre">yaml.safe_dump(json.load(sys.stdin),</span> <span class="pre">sys.stdout,</span> <span class="pre">default_flow_style=False)'</span> <span class="pre">|</span> <span class="pre">less</span></code></p></li>
 </ul>
 </li>
-<li>activate /run/active-env.yml in current shell of appliance vm:<ul>
-<li><code class="docutils literal"><span class="pre">.</span> <span class="pre">/usr/local/share/appliance/env.include;</span> <span class="pre">ENV_YML=/run/active-env.yml</span> <span class="pre">userdata_to_env</span> <span class="pre">ecs,appliance</span></code></li>
-<li>to also set *GIT_SOURCE defaults: <code class="docutils literal"><span class="pre">.</span> <span class="pre">/usr/local/share/appliance/appliance.include</span></code></li>
+<li><p>activate /run/active-env.yml in current shell of appliance vm:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">/usr/local/share/appliance/env.include;</span> <span class="pre">ENV_YML=/run/active-env.yml</span> <span class="pre">userdata_to_env</span> <span class="pre">ecs,appliance</span></code></p></li>
+<li><p>to also set *GIT_SOURCE defaults: <code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">/usr/local/share/appliance/appliance.include</span></code></p></li>
 </ul>
 </li>
-<li>send sentry test entry:</li>
+<li><p>send sentry test entry:</p></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">.</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">appliance</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">include</span><span class="p">;</span> <span class="o">.</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">appliance</span><span class="o">/</span><span class="n">appliance</span><span class="o">.</span><span class="n">include</span><span class="p">;</span> <span class="n">ENV_YML</span><span class="o">=/</span><span class="n">run</span><span class="o">/</span><span class="n">active</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span> <span class="n">userdata_to_env</span> <span class="n">ecs</span><span class="p">,</span><span class="n">appliance</span><span class="p">;</span> <span class="n">sentry_entry</span> <span class="s2">&quot;test&quot;</span> <span class="s2">&quot;Test Message $(hostname -f)&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">appliance</span><span class="o">/</span><span class="n">env</span><span class="o">.</span><span class="n">include</span><span class="p">;</span> <span class="o">.</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">appliance</span><span class="o">/</span><span class="n">appliance</span><span class="o">.</span><span class="n">include</span><span class="p">;</span> <span class="n">ENV_YML</span><span class="o">=/</span><span class="n">run</span><span class="o">/</span><span class="n">active</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">yml</span> <span class="n">userdata_to_env</span> <span class="n">ecs</span><span class="p">,</span><span class="n">appliance</span><span class="p">;</span> <span class="n">sentry_entry</span> <span class="s2">&quot;test&quot;</span> <span class="s2">&quot;Test Message $(hostname -f)&quot;</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>most time spent in state.highstate:<ul>
-<li><code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-B</span> <span class="pre">5</span> <span class="pre">-E</span> <span class="pre">&quot;Duration:</span> <span class="pre">[0-9]{3,5}\.&quot;</span></code></li>
-<li><code class="docutils literal"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;ID:&quot;</span> <span class="pre">-A6</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-E</span> <span class="pre">&quot;(ID:|Function:|Duration:)&quot;</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/.*(ID:|Function:|Duration)(.*)/\1</span> <span class="pre">\2/g&quot;</span> <span class="pre">|</span> <span class="pre">paste</span> <span class="pre">-s</span> <span class="pre">-d</span> <span class="pre">'</span> <span class="pre">\n'</span> <span class="pre">-</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/ID:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Function:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Duration</span> <span class="pre">:</span> <span class="pre">([^</span> <span class="pre">]+</span> <span class="pre">ms)/\3</span> <span class="pre">\2</span> <span class="pre">\1/g&quot;</span> <span class="pre">|sort</span> <span class="pre">-n</span></code></li>
+<li><p>most time spent in state.highstate:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-B</span> <span class="pre">5</span> <span class="pre">-E</span> <span class="pre">&quot;Duration:</span> <span class="pre">[0-9]{3,5}\.&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;ID:&quot;</span> <span class="pre">-A6</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-E</span> <span class="pre">&quot;(ID:|Function:|Duration:)&quot;</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/.*(ID:|Function:|Duration)(.*)/\1</span> <span class="pre">\2/g&quot;</span> <span class="pre">|</span> <span class="pre">paste</span> <span class="pre">-s</span> <span class="pre">-d</span> <span class="pre">'</span>&#160; <span class="pre">\n'</span>&#160; <span class="pre">-</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/ID:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Function:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Duration</span> <span class="pre">:</span> <span class="pre">([^</span> <span class="pre">]+</span> <span class="pre">ms)/\3</span> <span class="pre">\2</span> <span class="pre">\1/g&quot;</span> <span class="pre">|sort</span> <span class="pre">-n</span></code></p></li>
 </ul>
 </li>
-<li>check send emails<ul>
-<li><code class="docutils literal"><span class="pre">for</span> <span class="pre">a</span> <span class="pre">in</span> <span class="pre">sent</span> <span class="pre">deferred</span> <span class="pre">bounced;</span> <span class="pre">do</span> <span class="pre">echo</span> <span class="pre">&quot;####</span> <span class="pre">$a&quot;;</span> <span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">postfix</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;status=$a&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$7}'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/to=&lt;//g'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/&gt;,//g'</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n;</span> <span class="pre">done</span></code></li>
+<li><p>check send emails</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">a</span> <span class="pre">in</span> <span class="pre">sent</span> <span class="pre">deferred</span> <span class="pre">bounced;</span> <span class="pre">do</span> <span class="pre">echo</span> <span class="pre">&quot;####</span> <span class="pre">$a&quot;;</span> <span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">postfix</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;status=$a&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$7}'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/to=&lt;//g'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/&gt;,//g'</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n;</span> <span class="pre">done</span></code></p></li>
 </ul>
 </li>
-<li>ip adress config<ul>
-<li><code class="docutils literal"><span class="pre">ip</span> <span class="pre">-o</span> <span class="pre">addr</span> <span class="pre">show</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-Ev</span> <span class="pre">&quot;veth[0-9a-f]{7}&quot;;</span> <span class="pre">default_iface=$(awk</span> <span class="pre">'$2</span> <span class="pre">==</span> <span class="pre">00000000</span> <span class="pre">{</span> <span class="pre">print</span> <span class="pre">$1</span> <span class="pre">}'</span> <span class="pre">/proc/net/route);</span> <span class="pre">default_ip=$(ip</span> <span class="pre">addr</span> <span class="pre">show</span> <span class="pre">dev</span> <span class="pre">&quot;$default_iface&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'$1</span> <span class="pre">==</span> <span class="pre">&quot;inet&quot;</span> <span class="pre">{</span> <span class="pre">sub(&quot;/.*&quot;,</span> <span class="pre">&quot;&quot;,</span> <span class="pre">$2);</span> <span class="pre">print</span> <span class="pre">$2</span> <span class="pre">}');</span> <span class="pre">echo</span> <span class="pre">&quot;Default</span> <span class="pre">Interface:</span> <span class="pre">$default_iface</span> <span class="pre">,</span> <span class="pre">Default</span> <span class="pre">IP:</span> <span class="pre">$default_ip</span></code></li>
+<li><p>ip adress config</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">-o</span> <span class="pre">addr</span> <span class="pre">show</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-Ev</span> <span class="pre">&quot;veth[0-9a-f]{7}&quot;;</span> <span class="pre">default_iface=$(awk</span> <span class="pre">'$2</span> <span class="pre">==</span> <span class="pre">00000000</span> <span class="pre">{</span> <span class="pre">print</span> <span class="pre">$1</span> <span class="pre">}'</span> <span class="pre">/proc/net/route);</span> <span class="pre">default_ip=$(ip</span> <span class="pre">addr</span> <span class="pre">show</span> <span class="pre">dev</span> <span class="pre">&quot;$default_iface&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'$1</span> <span class="pre">==</span> <span class="pre">&quot;inet&quot;</span> <span class="pre">{</span> <span class="pre">sub(&quot;/.*&quot;,</span> <span class="pre">&quot;&quot;,</span> <span class="pre">$2);</span> <span class="pre">print</span> <span class="pre">$2</span> <span class="pre">}');</span> <span class="pre">echo</span> <span class="pre">&quot;Default</span> <span class="pre">Interface:</span> <span class="pre">$default_iface</span> <span class="pre">,</span> <span class="pre">Default</span> <span class="pre">IP:</span> <span class="pre">$default_ip</span></code></p></li>
 </ul>
 </li>
 </ul>
@@ -330,7 +346,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Maintenance</a><ul>
 <li><a class="reference internal" href="#reconfigure-a-running-appliance">Reconfigure a running Appliance</a></li>
@@ -358,17 +374,13 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="mocca_pdfas.html"
                         title="next chapter">Digital signed pdf documents</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
+<form class="search" action="search.html" method="get">
+  <input type="text" name="q"
+   placeholder="type to search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
         </div>
       </div>
       <div class="clearer"></div>
@@ -388,7 +400,7 @@ you connect to, &#8220;ecs_ecs.web_1&#8221; is used as example.</p>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2019-02-28@19:25 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2019-05-08@20:12 documentation</a></li> 
     </ul>
   </nav>
   </div>
