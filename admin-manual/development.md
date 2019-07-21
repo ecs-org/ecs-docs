@@ -12,6 +12,12 @@
     + SMTP/SSL Proxy: Stunnel - [stunnel.conf](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/stunnel/stunnel.conf)
     + SSH Daemon: openssh [ssh config](https://github.com/ecs-org/ecs-appliance/tree/master/salt/ssh)
     + SMTP Outgoing: postfix - [main.cf](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf)
+    + SMTP Incoming: ecs - [smtpd.py](https://github.com/ecs-org/ecs/blob/master/ecs/communication/smtpd.py)
+
++ Automatic Email Compliance
+    + [rfc3834 Recommendations for Automatic Responses to Electronic Mail](https://tools.ietf.org/html/rfc3834)
+    + set and evaluate headerfield "Auto-Submitted"
+    + add headerfield "In-Reply-To" and "References" to emails originated via smtp
 
 + Services running inside docker container
     + The ECS Application (Web, Worker, incoming Mail) 
