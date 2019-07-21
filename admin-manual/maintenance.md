@@ -216,8 +216,14 @@ systemctl restart appliance
 
 + send sentry test entry:
 
+    + using bash and ravencat.py
 ```
 . /usr/local/share/appliance/env.include; . /usr/local/share/appliance/appliance.include; ENV_YML=/run/active-env.yml userdata_to_env ecs,appliance; sentry_entry "test" "Test Message $(hostname -f)"
+```
+    + using a django management command
+```
+docker exec -it ecs_ecs.web_1 /start run /bin/bash
+./manage.py raven test
 ```
 
 + most time spent in state.highstate:
