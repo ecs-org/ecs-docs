@@ -7,6 +7,18 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2019.07.28
+----------
+
+Features:
+  + #661 und #722 Das ECS kennzeichnet und verarbeitet automatische Email Nachrichten jetzt besser so daß keine automatischen Schleifen mehr entstehen können.
+
+2019.07.21
+----------
+
+Bugfixes:
+  + #729 Manuelle BenutzerInnen Einladungen werden jetzt mit Zusatztext und Aktivierungslink verschickt. Dieser Link läuft nach 14 Tagen wieder ab.
+
 2019.05.05
 ----------
 
