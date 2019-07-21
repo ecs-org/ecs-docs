@@ -2,9 +2,11 @@
 
 ### Service Architecture
 
-+ Base: Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image
-+ saltstack salt is used for system installation
-+ letsencrypt is used for ssl host certificates
++ Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image
+
++ Saltstack salt is used for system installation
+
++ Letsencrypt is used for ssl host certificates
 
 + Services running on the host system
     + Webserver: NGINX 1.10 - [nginx.conf](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/nginx/nginx.conf)
@@ -14,8 +16,7 @@
     + SMTP Outgoing: postfix - [main.cf](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf)
     + SMTP Incoming: ecs - [smtpd.py](https://github.com/ecs-org/ecs/blob/master/ecs/communication/smtpd.py)
 
-+ Automatic Email Compliance
-    + [rfc3834 Recommendations for Automatic Responses to Electronic Mail](https://tools.ietf.org/html/rfc3834)
++ Compliance to [rfc3834 Recommendations for Automatic Responses to Electronic Mail](https://tools.ietf.org/html/rfc3834)
     + set and evaluate headerfield "Auto-Submitted"
     + add headerfield "In-Reply-To" and "References" to emails originated via smtp
 
