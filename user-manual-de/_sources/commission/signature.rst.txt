@@ -34,9 +34,9 @@ Verwenden Sie für diese Schritte den Webbrowser welchen sie später für das EC
 1. `Installation der lokalen Bürgerkartenumgebungs-Software Mocca <https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp>`_
 
 2. Mit gestarteter Mocca Software (im ausgewählten Webbrowser):
-  `Bestätigen des lokalen https Zertifikats von Mocca <http://localhost:3495/ca.crt>`_
-  
-  `Detailinformation zur Zertifikatinstallation <http://localhost:3495/help/help.install.cacert.html>`_
+
+  + `Bestätigen des lokalen https Zertifikats von Mocca <http://localhost:3495/ca.crt>`_
+  + `Detailinformation zur Zertifikatinstallation <http://localhost:3495/help/help.install.cacert.html>`_
 
 3. `Testen der elektronischen Signatur mit lokaler BKU <https://www.buergerkarte.at/test-suite-karte.html>`_
 

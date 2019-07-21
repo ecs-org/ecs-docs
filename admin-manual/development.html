@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Development &#8212; ecs-admin-manual 2019-05-08@20:12 documentation</title>
+    <title>Development &#8212; ecs-admin-manual 2019-07-21@15:13 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -31,9 +31,9 @@
 <div class="section" id="service-architecture">
 <h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Base: Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image</p></li>
-<li><p>saltstack salt is used for system installation</p></li>
-<li><p>letsencrypt is used for ssl host certificates</p></li>
+<li><p>Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image</p></li>
+<li><p>Saltstack salt is used for system installation</p></li>
+<li><p>Letsencrypt is used for ssl host certificates</p></li>
 <li><p>Services running on the host system</p>
 <ul>
 <li><p>Webserver: NGINX 1.10 - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/nginx/nginx.conf">nginx.conf</a></p></li>
@@ -41,6 +41,13 @@
 <li><p>SMTP/SSL Proxy: Stunnel - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/stunnel/stunnel.conf">stunnel.conf</a></p></li>
 <li><p>SSH Daemon: openssh <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/ssh">ssh config</a></p></li>
 <li><p>SMTP Outgoing: postfix - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf">main.cf</a></p></li>
+<li><p>SMTP Incoming: ecs - <a class="reference external" href="https://github.com/ecs-org/ecs/blob/master/ecs/communication/smtpd.py">smtpd.py</a></p></li>
+</ul>
+</li>
+<li><p>Compliance to <a class="reference external" href="https://tools.ietf.org/html/rfc3834">rfc3834 Recommendations for Automatic Responses to Electronic Mail</a></p>
+<ul>
+<li><p>set and evaluate headerfield “Auto-Submitted”</p></li>
+<li><p>add headerfield “In-Reply-To” and “References” to emails originated via smtp</p></li>
 </ul>
 </li>
 <li><p>Services running inside docker container</p>
@@ -467,7 +474,7 @@ but will use /run/active-env.yml if available</p></li>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2019-05-08@20:12 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2019-07-21@15:13 documentation</a></li> 
     </ul>
   </nav>
   </div>
