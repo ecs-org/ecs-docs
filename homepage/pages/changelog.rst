@@ -13,6 +13,9 @@ Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 Features:
   + #661 und #722 Das ECS kennzeichnet und verarbeitet automatische Email Nachrichten jetzt besser so daß keine automatischen Schleifen mehr entstehen können.
 
+Bugfixes:
+  + #695 "Phantom" BenutzerInnen, werden jetzt nach den ersten manuellen Login als aktive BenutzerInnnen gekennzeichnet
+
 2019.07.21
 ----------
 
