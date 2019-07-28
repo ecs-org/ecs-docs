@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Configure Appliance &#8212; ecs-admin-manual 2019-07-21@15:13 documentation</title>
+    <title>Configure Appliance &#8212; ecs-admin-manual 2019-07-28@14:35 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -197,13 +197,16 @@ all needed changes to the environment.</p>
       <span class="n">EMAIL_BACKEND</span> <span class="o">=</span> <span class="s1">&#39;django.core.mail.backends.console.EmailBackend&#39;</span>
       <span class="n">EMAIL_BACKEND_UNFILTERED</span> <span class="o">=</span> <span class="s1">&#39;django.core.mail.backends.smtp.EmailBackend&#39;</span>
       <span class="n">EMAIL_UNFILTERED_DOMAINS</span> <span class="o">=</span> <span class="p">()</span> <span class="c1"># = (&#39;example.com&#39;,)</span>
+      <span class="n">EMAIL_UNFILTERED_INDIVIDUALS</span> <span class="o">=</span> <span class="p">()</span> <span class="c1"># = (&#39;ada@example.org&#39;, &#39;tom@example.com&#39;)</span>
 
       <span class="n">SMTPD_CONFIG</span><span class="p">[</span><span class="s1">&#39;listen_addr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8025</span><span class="p">)</span>
       <span class="n">SMTPD_CONFIG</span><span class="p">[</span><span class="s1">&#39;domain&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DOMAIN</span>
 
-      <span class="c1"># User registration, password reset, send client certificate and mail to</span>
-      <span class="c1"># receivers at a domain included in EMAIL_UNFILTERED_DOMAINS will be sent via</span>
-      <span class="c1"># EMAIL_BACKEND_UNFILTERED. All other mail will be sent via EMAIL_BACKEND.</span>
+      <span class="c1"># EMAIL_BACKEND_UNFILTERED will be used for</span>
+      <span class="c1">#  User registration &amp; invitation, password reset, send client certificate,</span>
+      <span class="c1">#  and all mails to domains in EMAIL_UNFILTERED_DOMAINS and user</span>
+      <span class="c1">#  listed in EMAIL_UNFILTERED_INDIVIDUALS will be sent via</span>
+      <span class="c1">#  EMAIL_BACKEND_UNFILTERED. All other mail will be sent via EMAIL_BACKEND.</span>
       <span class="c1">#</span>
       <span class="c1"># Backend to use to NOT sent email but log email to console:</span>
       <span class="c1">#   django.core.mail.backends.console.EmailBackend</span>
@@ -349,7 +352,7 @@ the first internal office user, with a corresponding client certificate and disa
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2019-07-21@15:13 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2019-07-28@14:35 documentation</a></li> 
     </ul>
   </nav>
   </div>
