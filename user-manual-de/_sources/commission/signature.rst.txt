@@ -10,8 +10,10 @@ Voraussetzungen
 + **Java** Version 8/9, zur Installation siehe die `Download-Seite von java.com <https://java.com/de/download/>`_
 
 + ein Kartenlesegerät zum Anschluss über USB an den Computer
-    + Gelistet unter buergerkarte.at: `Cryptoshop - Gemalto IDBridge CT30 ecard <http://www.cryptoshop.com/gemalto-idbridge-ct30-ecard.html>`_
-    + Liste von anderen `SmartCard Reader im Preisportal Geizhals <https://geizhals.at/?cat=sm_r&xf=2925_USB-A+2.0%7E2957_SmartCard&sort=p#productlist>`_
+    + Gelistet unter buergerkarte.at:
+        + `Cryptoshop - Gemalto IDBridge CT30 ecard <http://www.cryptoshop.com/products/smartcardreader/gemalto-idbridge-ct30-ecard.html>`_
+        + `Cryptoshop - Gemalto IDBridge CT40 ecard <http://www.cryptoshop.com/products/smartcardreader/gemalto-idbridge-ct40-gempc-usb-sl-fur-e-card.html>`_
+    + Liste von anderen `SmartCard Reader im Preisportal Geizhals <https://geizhals.at/?cat=nwpcie&xf=14066_extern+kabelgebunden~16574_Smartcard&sort=p#productlist>`_
 
 + eine als **Bürgerkarte aktivierte E-Card** oder eine andere von **A-Trust ausgestellte Signaturkarte**
     + Um Ihre E-Card zu aktivieren gehen Sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html>`_.

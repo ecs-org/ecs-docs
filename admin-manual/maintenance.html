@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Maintenance &#8212; ecs-admin-manual 2019-07-28@14:35 documentation</title>
+    <title>Maintenance &#8212; ecs-admin-manual 2019-07-30@14:58 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -337,9 +337,14 @@ you connect to, “ecs_ecs.web_1” is used as example.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance-update</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;ID:&quot;</span> <span class="pre">-A6</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-E</span> <span class="pre">&quot;(ID:|Function:|Duration:)&quot;</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/.*(ID:|Function:|Duration)(.*)/\1</span> <span class="pre">\2/g&quot;</span> <span class="pre">|</span> <span class="pre">paste</span> <span class="pre">-s</span> <span class="pre">-d</span> <span class="pre">'</span>&#160; <span class="pre">\n'</span>&#160; <span class="pre">-</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/ID:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Function:</span> <span class="pre">+([^</span> <span class="pre">]+)</span> <span class="pre">Duration</span> <span class="pre">:</span> <span class="pre">([^</span> <span class="pre">]+</span> <span class="pre">ms)/\3</span> <span class="pre">\2</span> <span class="pre">\1/g&quot;</span> <span class="pre">|sort</span> <span class="pre">-n</span></code></p></li>
 </ul>
 </li>
-<li><p>check send emails</p>
+<li><p>check send emails from postfix</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">a</span> <span class="pre">in</span> <span class="pre">sent</span> <span class="pre">deferred</span> <span class="pre">bounced;</span> <span class="pre">do</span> <span class="pre">echo</span> <span class="pre">&quot;####</span> <span class="pre">$a&quot;;</span> <span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">postfix</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;status=$a&quot;</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$7}'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/to=&lt;//g'</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/&gt;,//g'</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-n;</span> <span class="pre">done</span></code></p></li>
+</ul>
+</li>
+<li><p>check for incoming or outgoing smtp from ecs</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">-u</span> <span class="pre">appliance</span> <span class="pre">--since</span> <span class="pre">&quot;2019-07-27&quot;</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-Ei</span> <span class="pre">&quot;ecs.(worker_1|smtpd_1).+(Accepted</span> <span class="pre">email|Rejected</span> <span class="pre">email|Forward</span> <span class="pre">|Forwarding|Not</span> <span class="pre">forwarding|email</span> <span class="pre">raised</span> <span class="pre">exception|Invalid</span> <span class="pre">message</span> <span class="pre">format|Relay</span> <span class="pre">access</span> <span class="pre">denied)&quot;</span>&#160; <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/([^</span> <span class="pre">]+</span> <span class="pre">[^</span> <span class="pre">]+</span> <span class="pre">[0-9:]+</span> <span class="pre">).*ecs.communication.tasks.forward_messages\[[0-9a-f-]+\]:(.*)/\1\2/g&quot;</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">-r</span> <span class="pre">&quot;s/([^</span> <span class="pre">]+</span> <span class="pre">[^</span> <span class="pre">]+</span> <span class="pre">[0-9:]+</span> <span class="pre">).+ecs.smtpd_1.+INFO</span> <span class="pre">(.*)/\1</span> <span class="pre">\2/g&quot;</span></code></p></li>
 </ul>
 </li>
 <li><p>ip adress config</p>
@@ -411,7 +416,7 @@ you connect to, “ecs_ecs.web_1” is used as example.</p>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2019-07-28@14:35 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2019-07-30@14:58 documentation</a></li> 
     </ul>
   </nav>
   </div>

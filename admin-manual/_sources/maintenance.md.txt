@@ -230,8 +230,11 @@ docker exec -it ecs_ecs.web_1 /start run /bin/bash
     + `journalctl -u appliance-update | grep -B 5 -E "Duration: [0-9]{3,5}\."`
     + `journalctl -u appliance-update | grep "ID:" -A6 | grep -E "(ID:|Function:|Duration:)" | sed -r "s/.*(ID:|Function:|Duration)(.*)/\1 \2/g" | paste -s -d '  \n'  - | sed -r "s/ID: +([^ ]+) Function: +([^ ]+) Duration : ([^ ]+ ms)/\3 \2 \1/g" |sort -n`
 
-+ check send emails
++ check send emails from postfix
     + `for a in sent deferred bounced; do echo "#### $a"; journalctl -u postfix | grep "status=$a" | awk '{print $7}' | sed 's/to=<//g' | sed 's/>,//g' | sort -n; done`
+
++ check for incoming or outgoing smtp from ecs
+    + `journalctl -u appliance --since "2019-07-27" | grep -Ei "ecs.(worker_1|smtpd_1).+(Accepted email|Rejected email|Forward |Forwarding|Not forwarding|email raised exception|Invalid message format|Relay access denied)"  | sed -r "s/([^ ]+ [^ ]+ [0-9:]+ ).*ecs.communication.tasks.forward_messages\[[0-9a-f-]+\]:(.*)/\1\2/g" | sed -r "s/([^ ]+ [^ ]+ [0-9:]+ ).+ecs.smtpd_1.+INFO (.*)/\1 \2/g"`
 
 + ip adress config
     + `ip -o addr show | grep -Ev "veth[0-9a-f]{7}"; default_iface=$(awk '$2 == 00000000 { print $1 }' /proc/net/route); default_ip=$(ip addr show dev "$default_iface" | awk '$1 == "inet" { sub("/.*", "", $2); print $2 }'); echo "Default Interface: $default_iface , Default IP: $default_ip`
