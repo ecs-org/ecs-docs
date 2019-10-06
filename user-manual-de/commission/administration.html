@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta charset="utf-8" />
-    <title>Verwaltung &#8212; ecs-user-manual-de 2019-07-30@14:58 Dokumentation</title>
+    <title>Verwaltung &#8212; ecs-user-manual-de 2019-10-06@14:16 Dokumentation</title>
     <link rel="stylesheet" href="../_static/better.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -119,7 +119,10 @@ merkt sich das ECS die neue Ansprechperson, und neuere Nachrichten werden danach
 </div>
 <div class="section" id="pki">
 <h2>PKI<a class="headerlink" href="#pki" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Interne Benutzer brauchen aus Sicherheitsgründen ein Client Zertifikat, um sich in das System einloggen zu können. (Zuvor muss ein Benutzerkonto erstellt und eine interne Gruppe gewählt werden.) Erstellen Sie das Client Zertifikat, indem Sie unter <em>User</em> den neuen Benutzer auswählen und geben Sie dann unter <em>Cn</em> eine Bezeichnung für das Client Zertifikat ein (z. B.: Büro_Laptop, Privater_Laptop_Mustermann, Sitzungstablet_3, o. ä.) Sobald das Zertifikat erstellt ist, wird es per Email an die betreffende Person gesendet. Übermitteln Sie nun das Passwort für die Entschlüsselung des Zertifikats. Es scheint nach der Erstellung des Zertifikats bei Ihnen auf. Wählen Sie für die Übermittlung des Codes einen sicheren Kanal (z. B. Sprachanruf. Nicht Email!). Nun wird das Passwort eingegeben und das Client Zertifikat auf dem betreffenden Computer importiert. (Sehen Sie unten die einzelnen Schritte des Importierens im Firefox und Chrome.) Sobald das Client Zertifikat importiert ist, muss der Browser neu gestartet werden. Der neue Benutzer kann sich nun in das System einloggen.</p>
+<p>Interne Benutzer brauchen aus Sicherheitsgründen ein Client Zertifikat, um sich in das System einloggen zu können. (Zuvor muss ein Benutzerkonto erstellt und eine interne Gruppe gewählt werden.)</p>
+<p>Erstellen Sie das Client Zertifikat, indem Sie unter <em>User</em> den neuen Benutzer auswählen und geben Sie dann unter <em>Cn</em> eine Bezeichnung für das Client Zertifikat ein (z. B.: Büro_Laptop, Privater_Laptop_Mustermann, Sitzungstablet_3, o. ä.) Sobald das Zertifikat erstellt ist, wird es per Email an die betreffende Person gesendet.</p>
+<p>Übermitteln Sie nun das Passwort für die Entschlüsselung des Zertifikats. Es scheint nach der Erstellung des Zertifikats bei Ihnen einmalig auf. Wählen Sie für die Übermittlung des Codes einen anderen Kanal, z. B. Sprachanruf. Stellen Sie sicher das sie die richtige Person zur Übermittlung haben. Verwenden sie <strong>nicht Email!</strong>.</p>
+<p>Nun wird das Passwort eingegeben und das Client Zertifikat auf dem betreffenden Computer importiert. (Sehen Sie unten die einzelnen Schritte des Importierens im Firefox und Chrome.) Sobald das Client Zertifikat importiert ist, muss der Browser neu gestartet werden. Der neue Benutzer kann sich nun in das System einloggen.</p>
 <p>Importvorgang bei Firefox: <em>Preferences</em> -&gt; <em>Advanced</em> -&gt; <em>Certificates</em> -&gt; <em>View Certificates</em> -&gt; <em>Your Certificates</em> -&gt; <em>Import…</em> -&gt; Datei auswählen -&gt; Passwort eingeben</p>
 <p>Importvorgang bei Chrome: <em>Settings</em> -&gt; <em>Show Advanced Settings…</em> -&gt; <em>HTTPS/SSL</em> -&gt; <em>Manage Certificates</em> -&gt; <em>Your Certificates</em> -&gt; <em>Import…</em> -&gt; Datei auswählen -&gt; Passwort eingeben</p>
 </div>

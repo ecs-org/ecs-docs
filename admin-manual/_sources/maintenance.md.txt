@@ -56,7 +56,7 @@ The following items are updated:
 
 ### Backup Configuration
 
-+ Backup is done using duplicity, see [Duplicity Manual](http://duplicity.nongnu.org/duplicity.1.html)
++ Backup is done using duplicity, see [Duplicity Manual](http://duplicity.nongnu.org/duplicity.1.html) and [duply](http://duply.net/wiki/index.php/Duply-documentation)
 + Cycle: Backup is done once per day around 00:30
 + Safety Measures for backup:
   + Database must exist
@@ -68,6 +68,25 @@ The following items are updated:
     + Backup will start with a full backup and do incremental backups afterwards
     + 2 Months after the first full backup a second full backup will be created
     + Rotation: Every Backup (full or incremental) will be purged after 4 Months
+
+#### Extra Configuration needed for scp/sftp backup (ssh)
+
+if appliance:backup:url is using either scp or sftp (preferred):
+
++ add ssh host entry in /root/.ssh/known_hosts for duplicity to connect to the ssh server
++ create this entry by executing: `duply /root/.duply/appliance-backup status`
++ add this key to env.yml as extra:state:
+```
+appliance:
+  extra:
+    states: |
+        sftp_server_hostkey_into_known_hosts:
+          file.append:
+            - name: /root/.ssh/known_hosts
+            - makedirs: true
+            - text: |
+                [1.2.3.4]:12345 ssh-rsa XXXHOSTKEYXXX
+```
 
 ### Logging Configuration
 

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Maintenance &#8212; ecs-admin-manual 2019-07-30@14:58 documentation</title>
+    <title>Maintenance &#8212; ecs-admin-manual 2019-10-06@14:16 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -95,7 +95,7 @@ before restarting the service using <code class="docutils literal notranslate"><
 <div class="section" id="backup-configuration">
 <h2>Backup Configuration<a class="headerlink" href="#backup-configuration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Backup is done using duplicity, see <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html">Duplicity Manual</a></p></li>
+<li><p>Backup is done using duplicity, see <a class="reference external" href="http://duplicity.nongnu.org/duplicity.1.html">Duplicity Manual</a> and <a class="reference external" href="http://duply.net/wiki/index.php/Duply-documentation">duply</a></p></li>
 <li><p>Cycle: Backup is done once per day around 00:30</p></li>
 <li><p>Safety Measures for backup:</p>
 <ul>
@@ -117,6 +117,26 @@ before restarting the service using <code class="docutils literal notranslate"><
 </ul>
 </li>
 </ul>
+<div class="section" id="extra-configuration-needed-for-scp-sftp-backup-ssh">
+<h3>Extra Configuration needed for scp/sftp backup (ssh)<a class="headerlink" href="#extra-configuration-needed-for-scp-sftp-backup-ssh" title="Permalink to this headline">¶</a></h3>
+<p>if appliance:backup:url is using either scp or sftp (preferred):</p>
+<ul class="simple">
+<li><p>add ssh host entry in /root/.ssh/known_hosts for duplicity to connect to the ssh server</p></li>
+<li><p>create this entry by executing: <code class="docutils literal notranslate"><span class="pre">duply</span> <span class="pre">/root/.duply/appliance-backup</span> <span class="pre">status</span></code></p></li>
+<li><p>add this key to env.yml as extra:state:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">appliance</span><span class="p">:</span>
+  <span class="n">extra</span><span class="p">:</span>
+    <span class="n">states</span><span class="p">:</span> <span class="o">|</span>
+        <span class="n">sftp_server_hostkey_into_known_hosts</span><span class="p">:</span>
+          <span class="n">file</span><span class="o">.</span><span class="n">append</span><span class="p">:</span>
+            <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="o">/</span><span class="n">root</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">known_hosts</span>
+            <span class="o">-</span> <span class="n">makedirs</span><span class="p">:</span> <span class="n">true</span>
+            <span class="o">-</span> <span class="n">text</span><span class="p">:</span> <span class="o">|</span>
+                <span class="p">[</span><span class="mf">1.2</span><span class="o">.</span><span class="mf">3.4</span><span class="p">]:</span><span class="mi">12345</span> <span class="n">ssh</span><span class="o">-</span><span class="n">rsa</span> <span class="n">XXXHOSTKEYXXX</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="logging-configuration">
 <h2>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline">¶</a></h2>
@@ -370,7 +390,10 @@ you connect to, “ecs_ecs.web_1” is used as example.</p>
 <li><a class="reference internal" href="#recover-from-failed-state">Recover from failed state</a></li>
 <li><a class="reference internal" href="#desaster-recovery-from-backup">Desaster Recovery from backup</a></li>
 <li><a class="reference internal" href="#automatic-updates">Automatic Updates</a></li>
-<li><a class="reference internal" href="#backup-configuration">Backup Configuration</a></li>
+<li><a class="reference internal" href="#backup-configuration">Backup Configuration</a><ul>
+<li><a class="reference internal" href="#extra-configuration-needed-for-scp-sftp-backup-ssh">Extra Configuration needed for scp/sftp backup (ssh)</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#logging-configuration">Logging Configuration</a></li>
 <li><a class="reference internal" href="#metrics-collection">Metrics Collection</a></li>
 <li><a class="reference internal" href="#alerting-setup">Alerting Setup</a></li>
@@ -416,7 +439,7 @@ you connect to, “ecs_ecs.web_1” is used as example.</p>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2019-07-30@14:58 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2019-10-06@14:16 documentation</a></li> 
     </ul>
   </nav>
   </div>
