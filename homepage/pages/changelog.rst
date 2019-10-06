@@ -7,6 +7,12 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2019.10.06
+----------
+
+Bugfixes:
+  + #734 Die Neueinstufung einer ursprünglich retrospektiven Diplomarbeit welche nach der Sitzung ein B2 und später ein B3 bekommen hat um wieder in einer Sitzung besprochen zu werden kann jetzt abgeschlossen werden
+
 2019.07.28
 ----------
 

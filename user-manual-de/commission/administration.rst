@@ -119,7 +119,13 @@ Das Einfügen von Textbausteinen ist überall dort möglich, wo Sie das blaue Pa
 PKI
 ===
 
-Interne Benutzer brauchen aus Sicherheitsgründen ein Client Zertifikat, um sich in das System einloggen zu können. (Zuvor muss ein Benutzerkonto erstellt und eine interne Gruppe gewählt werden.) Erstellen Sie das Client Zertifikat, indem Sie unter *User* den neuen Benutzer auswählen und geben Sie dann unter *Cn* eine Bezeichnung für das Client Zertifikat ein (z. B.: Büro_Laptop, Privater_Laptop_Mustermann, Sitzungstablet_3, o. ä.) Sobald das Zertifikat erstellt ist, wird es per Email an die betreffende Person gesendet. Übermitteln Sie nun das Passwort für die Entschlüsselung des Zertifikats. Es scheint nach der Erstellung des Zertifikats bei Ihnen auf. Wählen Sie für die Übermittlung des Codes einen sicheren Kanal (z. B. Sprachanruf. Nicht Email!). Nun wird das Passwort eingegeben und das Client Zertifikat auf dem betreffenden Computer importiert. (Sehen Sie unten die einzelnen Schritte des Importierens im Firefox und Chrome.) Sobald das Client Zertifikat importiert ist, muss der Browser neu gestartet werden. Der neue Benutzer kann sich nun in das System einloggen. 
+Interne Benutzer brauchen aus Sicherheitsgründen ein Client Zertifikat, um sich in das System einloggen zu können. (Zuvor muss ein Benutzerkonto erstellt und eine interne Gruppe gewählt werden.)
+
+Erstellen Sie das Client Zertifikat, indem Sie unter *User* den neuen Benutzer auswählen und geben Sie dann unter *Cn* eine Bezeichnung für das Client Zertifikat ein (z. B.: Büro_Laptop, Privater_Laptop_Mustermann, Sitzungstablet_3, o. ä.) Sobald das Zertifikat erstellt ist, wird es per Email an die betreffende Person gesendet.
+
+Übermitteln Sie nun das Passwort für die Entschlüsselung des Zertifikats. Es scheint nach der Erstellung des Zertifikats bei Ihnen einmalig auf. Wählen Sie für die Übermittlung des Codes einen anderen Kanal, z. B. Sprachanruf. Stellen Sie sicher das sie die richtige Person zur Übermittlung haben. Verwenden sie **nicht Email!**.
+
+Nun wird das Passwort eingegeben und das Client Zertifikat auf dem betreffenden Computer importiert. (Sehen Sie unten die einzelnen Schritte des Importierens im Firefox und Chrome.) Sobald das Client Zertifikat importiert ist, muss der Browser neu gestartet werden. Der neue Benutzer kann sich nun in das System einloggen.
 
 Importvorgang bei Firefox: *Preferences* -> *Advanced* -> *Certificates* -> *View Certificates* -> *Your Certificates* -> *Import...* -> Datei auswählen -> Passwort eingeben
 
