@@ -276,7 +276,7 @@ latex_elements = {
     "preamble": """
 % set how deep the table of contents and section numbering will be rendered
 \\setcounter{secnumdepth}{2}
-\\setcounter{tocdepth}{1}
+\\setcounter{tocdepth}{2}
 
 % some compatibility for docutils/sphinx
 \\usepackage{parskip}
