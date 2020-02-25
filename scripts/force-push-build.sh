@@ -7,7 +7,5 @@ if ! scripts/build-all-ecs-docs.sh; then
     echo "Error: build-all-ecs-docs failed"
     exit 1
 fi
-ghp_remote="origin"
-ghp_branch="gh-pages"
 
-ghp-import -r $ghp_remote -b $ghp_branch -m "regenerate docs" -p $srcpath/_build/ 
+ghp-import -r origin -b gh-pages -m "regenerate docs" -p $srcpath/_build/
