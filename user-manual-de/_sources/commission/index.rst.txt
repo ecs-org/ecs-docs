@@ -2,9 +2,6 @@
 Für die Geschäftsstelle
 =======================
 
-Inhaltsverzeichnis
-==================
-
 .. toctree::
    :titlesonly:
 

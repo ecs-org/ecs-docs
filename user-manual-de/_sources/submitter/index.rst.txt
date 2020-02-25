@@ -1,6 +1,6 @@
-==============
-Für Einreicher
-==============
+================
+Für Einreichende
+================
 
 .. toctree::
    :titlesonly:

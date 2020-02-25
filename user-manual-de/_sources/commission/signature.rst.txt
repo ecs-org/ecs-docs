@@ -7,7 +7,7 @@ Voraussetzungen
 
 + ein von ECS unterstützter **aktueller Webbrowser** (Firefox,Chrome,Safari,Edge)
 
-+ **Java** Version 8/9, zur Installation siehe die `Download-Seite von java.com <https://java.com/de/download/>`_
++ eine aktuelle **Java** Version, zur Installation für Windows/Mac siehe die `Download-Seite von java.com <https://java.com/de/download/>`_
 
 + ein Kartenlesegerät zum Anschluss über USB an den Computer
     + Gelistet unter buergerkarte.at:
@@ -15,23 +15,32 @@ Voraussetzungen
         + `Cryptoshop - Gemalto IDBridge CT40 ecard <http://www.cryptoshop.com/products/smartcardreader/gemalto-idbridge-ct40-gempc-usb-sl-fur-e-card.html>`_
     + Liste von anderen `SmartCard Reader im Preisportal Geizhals <https://geizhals.at/?cat=nwpcie&xf=14066_extern+kabelgebunden~16574_Smartcard&sort=p#productlist>`_
 
-+ eine als **Bürgerkarte aktivierte E-Card** oder eine andere von **A-Trust ausgestellte Signaturkarte**
-    + Um Ihre E-Card zu aktivieren gehen Sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html>`_.
-    + Wir empfehlen die *"Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich"* 
-    + Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen
-    + Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.
-    + `Liste der akzeptierten Lichtbildausweise <https://www.buergerkarte.at/ausweisliste.html>`_
-    + `Liste der Registrierungsstellen <https://www.buergerkarte.at/registrierungsstellen.html>`_
++ eine gültige Österreichische Signaturkarte
+    + alle österreichischenn E-Cards ausgestellt vor September 2019 können als **Bürgerkarte aktivierte E-Card** zum Signieren verwendet werden
+        + Um Ihre E-Card zu aktivieren gehen Sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html>`_.
+        + Wir empfehlen die *"Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich"*
+        
+          Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen
+          Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.
+          
+          `Liste der akzeptierten Lichtbildausweise <https://www.buergerkarte.at/ausweisliste.html>`_
+          
+          `Liste der Registrierungsstellen <https://www.buergerkarte.at/registrierungsstellen.html>`_
+    + eine von **A-Trust ausgestellte Signaturkarte**
+        + Um eine A-Trust Signaturkarte zu erwerben gehen sie auf https://www.a-trust.at/de/preisliste/ und wählen sie "**a.sign premium (Bürgerkarte)**"
+        + Falls Sie vorher eine E-Card mit Mocca benutzt haben, ist nichts einzurichten,der Computer ist signierbereit.
+        + Installieren sie bitte **nicht** den von A-Trust empfohlenen Client, sondern installieren/verwenden sie die OpenSource Bürgerkarten Software Mocca. Deinstallieren sie den A-Trust Client falls er installiert ist, wir haben Probleme mit gleichzeitiger Benutzung rückgemeldet bekommen.
+        + Für den Mocca Client sind bis jetzt keine Einschränkungen bekannt, die eine gleichzeitige Installation mit den A-Trust Client notwendig machen würden.
+    + eventuell weitere österreichische Signaturkarten
 
 + Die Signatursoftware Mocca installiert als **lokale Bürgerkartenumgebung**
-
-
-.. Warning:: Die zusätzlich im ECS vorhandene "Online BKU" Version von Mocca ist veraltet und wird ab 5. September 2018 nicht mehr funktionieren. Wechseln Sie zeitnahe auf die "lokale BKU".
     
+
+
 Einrichtung der Signatursoftware Mocca
 ======================================
 
-Verwenden Sie für diese Schritte den Webbrowser welchen sie später für das ECS zum signieren einsetzen wollen. Falls sie einen weiteren Browser zur Signierung verwenden wollen, wiederholen sie die Punkte 2 und 3 um den Browser für Mocca zu konfigurieren und zu testen.
+Verwenden Sie für diese Schritte den Webbrowser welchen sie später für das ECS zum signieren einsetzen wollen. Je nach Betriebsystem können verschiedene Browser/Java Kombination eventuell nicht funktionieren. Signieren mit Firefox ist auf allen (Windows,Mac,Linux) Platformen funtional. Falls sie einen weiteren Browser zur Signierung verwenden wollen, wiederholen sie die Punkte 2 und 3 um den Browser für Mocca zu konfigurieren und zu testen. Deinstallieren sie den A-Trust Client, falls er installiert ist.
 
 1. `Installation der lokalen Bürgerkartenumgebungs-Software Mocca <https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp>`_
 
@@ -72,15 +81,10 @@ Als vorletzten Eintrag finden Sie den Punkt "Signatur Umgebung".
 
 + wählen Sie "lokale BKU" für Mocca als lokale BKU aus. 
 
-    
-+ wählen Sie "online BKU(veraltet)" für Mocca als online BKU aus.
-
-    **Achtung:** Diese Art der Signaturumgebung ist veraltet und wird nur noch bis zum 5. September 2018 funktionieren, und kann nur mit Firefox 52-ESR und aktivierten Java-Plugin verwendet werden. 
-
 + wählen Sie "Handy Signatur" um statt der Signaturkarte die Handysignatur zu verwenden.
 
     **Information:** Leider weigert sich der Betreiber A-Trust die Stammzertifikate für Zertifikate von Letsencrypt zu akzeptieren.
-    Es ist daher momentan nicht möglich die Handysignatur mit den ECS und einen Letsencrypt Zertifikat zu verwenden.
+    Es ist daher nicht möglich die Handysignatur mit den ECS und einen Letsencrypt Server Zertifikat zu verwenden.
     
 Mit Klick auf "Speichern", speichern Sie Ihre Einstellung.
 
