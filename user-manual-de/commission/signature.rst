@@ -19,10 +19,13 @@ Voraussetzungen
     + alle österreichischenn E-Cards ausgestellt vor September 2019 können als **Bürgerkarte aktivierte E-Card** zum Signieren verwendet werden
         + Um Ihre E-Card zu aktivieren gehen Sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html>`_.
         + Wir empfehlen die *"Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich"*
-            + Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen
-            + Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.
-        + `Liste der akzeptierten Lichtbildausweise <https://www.buergerkarte.at/ausweisliste.html>`_
-        + `Liste der Registrierungsstellen <https://www.buergerkarte.at/registrierungsstellen.html>`_
+        
+          Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen
+          Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.
+          
+          `Liste der akzeptierten Lichtbildausweise <https://www.buergerkarte.at/ausweisliste.html>`_
+          
+          `Liste der Registrierungsstellen <https://www.buergerkarte.at/registrierungsstellen.html>`_
     + eine von **A-Trust ausgestellte Signaturkarte**
         + Um eine A-Trust Signaturkarte zu erwerben gehen sie auf https://www.a-trust.at/de/preisliste/ und wählen sie "**a.sign premium (Bürgerkarte)**"
         + Falls Sie vorher eine E-Card mit Mocca benutzt haben, ist nichts einzurichten,der Computer ist signierbereit.
