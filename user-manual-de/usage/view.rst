@@ -64,14 +64,23 @@ Sobald die Kommission bezüglich einer Studie zu einem Beschluss gekommen ist un
 
 Sie können das Votum auch als PDF herunterladen.
 
+Gültigkeitsüberprüfung der elektronischen Signatur
+--------------------------------------------------
+
 Um die Gültigkeit der Signatur zu überprüfen, verwenden Sie beispielsweise die Seiten folgender öffentlicher Stellen:
 
  https://www.signaturpruefung.gv.at/
 
  https://www.a-trust.at/pdfverify/
 
- http://www.signaturpruefung.at/verifier/
 
+Um die Gültigkeit der Signatur im Adobe Acrobat Reader zu überprüfen, aktivieren Sie die Einstellung "Automatische Updates der von der Europäischen Union geprüften und als vertrauenswürdig erachteten Zertifikate" im Trust-Manager des Programms. Eine detailierte Anleitung finden sie unter:
+
+ https://forum.buergerkarte.at/thread/562-signaturprüfung-in-acrobat/
+
+ https://theblog.adobe.com/eu-trusted-list-now-available-in-adobe-acrobat
+
+ 
 Weitere Information zur Signierung mittels Bürgerkarte finden Sie unter:
 
  http://buergerkarte.at/
