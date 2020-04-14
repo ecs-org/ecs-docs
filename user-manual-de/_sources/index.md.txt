@@ -12,4 +12,12 @@ Sie können das Handbuch auch [als PDF](https://ecs-org.github.io/ecs-docs/ecs-u
   reviewer/index
   commission/index
 
+.. only:: html
+
+  .. toctree::
+    :hidden:
+
+    html5
+    noscript
+
 ```

@@ -19,28 +19,27 @@ Voraussetzungen
     + alle österreichischenn E-Cards ausgestellt vor September 2019 können als **Bürgerkarte aktivierte E-Card** zum Signieren verwendet werden
         + Um Ihre E-Card zu aktivieren gehen Sie zur `"Bürgerkarte aktivieren" Seite von buergerkarte.at <https://www.buergerkarte.at/aktivieren-karte.html>`_.
         + Wir empfehlen die *"Persönliche Aktivierung in einer der zahlreichen Registrierungsstellen in ganz Österreich"*
-        
+
           Voraussetzung: Amtlichen Lichtbildausweis und e-card mitbringen
           Vorteil: Die Aktivierung wird von ausgebildeten Mitarbeitern durchgeführt und Ihre Bürgerkarte ist sofort einsatzbereit.
-          
+
           `Liste der akzeptierten Lichtbildausweise <https://www.buergerkarte.at/ausweisliste.html>`_
-          
+
           `Liste der Registrierungsstellen <https://www.buergerkarte.at/registrierungsstellen.html>`_
     + eine von **A-Trust ausgestellte Signaturkarte**
-        + Um eine A-Trust Signaturkarte zu erwerben gehen sie auf https://www.a-trust.at/de/preisliste/ und wählen sie "**a.sign premium (Bürgerkarte)**"
+        + Um eine A-Trust Signaturkarte zu erwerben gehen Sie auf https://www.a-trust.at/de/preisliste/ und wählen Sie "**a.sign premium (Bürgerkarte)**"
         + Falls Sie vorher eine E-Card mit Mocca benutzt haben, ist nichts einzurichten,der Computer ist signierbereit.
-        + Installieren sie bitte **nicht** den von A-Trust empfohlenen Client, sondern installieren/verwenden sie die OpenSource Bürgerkarten Software Mocca. Deinstallieren sie den A-Trust Client falls er installiert ist, wir haben Probleme mit gleichzeitiger Benutzung rückgemeldet bekommen.
+        + Installieren Sie bitte **nicht** den von A-Trust empfohlenen Client, sondern installieren/verwenden Sie die OpenSource Bürgerkarten Software Mocca. Deinstallieren Sie den A-Trust Client falls er installiert ist, wir haben Probleme mit gleichzeitiger Benutzung rückgemeldet bekommen.
         + Für den Mocca Client sind bis jetzt keine Einschränkungen bekannt, die eine gleichzeitige Installation mit den A-Trust Client notwendig machen würden.
     + eventuell weitere österreichische Signaturkarten
 
 + Die Signatursoftware Mocca installiert als **lokale Bürgerkartenumgebung**
-    
 
 
 Einrichtung der Signatursoftware Mocca
 ======================================
 
-Verwenden Sie für diese Schritte den Webbrowser welchen sie später für das ECS zum signieren einsetzen wollen. Je nach Betriebsystem können verschiedene Browser/Java Kombination eventuell nicht funktionieren. Signieren mit Firefox ist auf allen (Windows,Mac,Linux) Platformen funtional. Falls sie einen weiteren Browser zur Signierung verwenden wollen, wiederholen sie die Punkte 2 und 3 um den Browser für Mocca zu konfigurieren und zu testen. Deinstallieren sie den A-Trust Client, falls er installiert ist.
+Verwenden Sie für diese Schritte den Webbrowser welchen Sie später für das ECS zum signieren einsetzen wollen. Je nach Betriebsystem können verschiedene Browser/Java Kombination eventuell nicht funktionieren. Signieren mit Firefox ist auf allen (Windows,Mac,Linux) Platformen funktional. Falls Sie einen weiteren Browser zur Signierung verwenden wollen, wiederholen Sie die Punkte 2 und 3 um den Browser für Mocca zu konfigurieren und zu testen. Deinstallieren Sie den A-Trust Client, falls er installiert ist.
 
 1. `Installation der lokalen Bürgerkartenumgebungs-Software Mocca <https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp>`_
 
@@ -79,12 +78,11 @@ Um die im ECS verwendete Bürgerkartenumgebung zu ändern gehen  Sie auf ihr Pro
 
 Als vorletzten Eintrag finden Sie den Punkt "Signatur Umgebung".
 
-+ wählen Sie "lokale BKU" für Mocca als lokale BKU aus. 
++ wählen Sie "lokale BKU" für Mocca als lokale BKU aus.
 
 + wählen Sie "Handy Signatur" um statt der Signaturkarte die Handysignatur zu verwenden.
 
     **Information:** Leider weigert sich der Betreiber A-Trust die Stammzertifikate für Zertifikate von Letsencrypt zu akzeptieren.
     Es ist daher nicht möglich die Handysignatur mit den ECS und einen Letsencrypt Server Zertifikat zu verwenden.
-    
-Mit Klick auf "Speichern", speichern Sie Ihre Einstellung.
 
+Mit Klick auf "Speichern", speichern Sie Ihre Einstellung.

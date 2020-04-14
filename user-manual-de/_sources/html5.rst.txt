@@ -28,7 +28,7 @@ Sie benutzen einen nicht unterstützten Browser.
 +----------------+---------------+-----------------+---------------+-----------------+----------------+
 | |firefox_logo|_| |chrome_logo|_| |edge_logo|_    | |safari_logo|_| |ios_logo|      | |android_logo| |
 +----------------+---------------+-----------------+---------------+-----------------+----------------+
-| Firefox_ 28+   | Chrome_ 29+   | Edge_ 12.10240+ |  Safari_ 7+   | IOS 9.x+        | Android 5+     |
+| Firefox_ 28+   | Chrome_ 29+   | Edge_ 20+       |  Safari_ 8+   | IOS 9.x+        | Android 5+     |
 +----------------+---------------+-----------------+---------------+-----------------+----------------+
 
 **aber nicht: Internet Explorer 10 , oder andere ältere.**
