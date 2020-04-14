@@ -11,10 +11,8 @@ Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 ----------
 
 Dokumentation:
-  + #735 Usermanual ergänzt um die Akquirierung und Nutzung einer A-Trust Signaturkarte
-  https://ecs-org.github.io/ecs-docs/user-manual-de/commission/signature.html
-  + Gültigkeitsüberprüfung der elektronischen Signatur im Acrobat Reader
-  https://ecs-org.github.io/ecs-docs/user-manual-de/usage/view.html#gultigkeitsuberprufung-der-elektronischen-signatur
+  + #735 Usermanual ergänzt um die `Akquirierung und Nutzung einer A-Trust Signaturkarte <https://ecs-org.github.io/ecs-docs/user-manual-de/commission/signature.html>`_
+  + `Gültigkeitsüberprüfung der elektronischen Signatur im Acrobat Reader <https://ecs-org.github.io/ecs-docs/user-manual-de/usage/view.html#gultigkeitsuberprufung-der-elektronischen-signatur>`_
 
 2019.10.06
 ----------
