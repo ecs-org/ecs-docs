@@ -7,6 +7,15 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2020.03.01
+----------
+
+Dokumentation:
+  + #735 Usermanual ergänzt um die Akquirierung und Nutzung einer A-Trust Signaturkarte
+  https://ecs-org.github.io/ecs-docs/user-manual-de/commission/signature.html
+  + Gültigkeitsüberprüfung der elektronischen Signatur im Acrobat Reader
+  https://ecs-org.github.io/ecs-docs/user-manual-de/usage/view.html#gultigkeitsuberprufung-der-elektronischen-signatur
+
 2019.10.06
 ----------
 
@@ -99,21 +108,21 @@ Dokumentation:
 
 Features:
   + ecs-appliance: Aktualisierung des Metrik- und Alarm- System Prometheus von 1.x auf 2.x
-  
+
 
 2018.07.15
 ----------
 
 Features:
-  + ecs: #681 Unterstützung der Signaturumgebung "lokale BKU" 
+  + ecs: #681 Unterstützung der Signaturumgebung "lokale BKU"
 
 Dokumentation:
   + Beschreibung der notwendigen Einrichtungsschritte für die elektronische Signatur
-  + Beschreibung der notwendigen Tätigkeiten beim ausscheiden von Office/Executive/Signing Benutzerinnen 
+  + Beschreibung der notwendigen Tätigkeiten beim ausscheiden von Office/Executive/Signing Benutzerinnen
   + Einreicher, erneutes Einreichen: Beschreibung der Zeitpunkte (von Sitzungsbeginn bis zur Votumsausstellung) wo keine Nachreichung möglich ist
   + Administrator Manual: Update der technischen Dokumentation der Signatursoftware
 
-  
+
 2018.03.11
 ----------
 
@@ -149,18 +158,18 @@ Features:
   + ecs-docs: neuer Screencast "Durchlauf einer Sitzung" auf der Homepage verfügbar
   + ecs: #676 Unterstützung für Emails mit Zeichensatz iso-8859-8-i und iso-8859-8-e
 
-Wording: 
+Wording:
   + ecs: #683 Der Hilfetext für neue Nachrichten wurde adaptiert
 
-Bugfixes: 
+Bugfixes:
   + ecs: #675 "Protokoll Versenden" wird jetzt nur für die Office-Gruppe angezeigt
-  
+
 2018.01.28
 ----------
 
 Features:
   + ecs-appliance: Update des Metric Systems
-  
+
 2018.01.14
 ----------
 
@@ -178,7 +187,7 @@ Features:
 
 Features:
   + ecs-docs: Eine detailierte Beschreibung der Funktionalität des Agenda- und Protkollversendens wurde in die Dokumentation hinzugefügt
-    
+
 2017.10.19
 ----------
 
@@ -192,7 +201,7 @@ Features:
   + ecs-appliance: #673 Alte Backups werden jetzt nach Ablauf der Zeit korrekt gelöscht
 
 2017.08.13
----------- 
+----------
 
 Features:
   + ecs-appliance: #664, #665 Zusätzliche Alarme wenn das Backup oder ein Update nicht innerhalb der erwarteten Zeit gestartet worden sind
@@ -201,14 +210,14 @@ Features:
 ----------
 
 Features:
-  + ecs-appliance: Aktualisierung der E-Card/Buergerkarten Software Mocca 1.3.27 (inkludiert Unterstützung für CardOSV5.3) & PDF-AS 4.1.0 
+  + ecs-appliance: Aktualisierung der E-Card/Buergerkarten Software Mocca 1.3.27 (inkludiert Unterstützung für CardOSV5.3) & PDF-AS 4.1.0
 
 2017.04.29
 ----------
 
 Bugfixes:
   + #656: Ein Amendment konnte auf Grund von nicht sichtbaren Sonderzeichen im Text nicht eingereicht werden
-  
+
 2017.04.12
 ----------
 
@@ -238,7 +247,7 @@ Bugfixes:
 ----------
 
 Bugfixes:
-  + #650: Ein Fehler der bei der Eingabe des Barcodes auftrat, 
+  + #650: Ein Fehler der bei der Eingabe des Barcodes auftrat,
     wurde behoben.
   + master: Die zu frühe Löschung von temporären Dateien wurde wieder
     auf 30 Tage geändert.
@@ -260,11 +269,11 @@ Bugfixes:
     und eine durch die Spezialistenzuordnung generierte Spezialisten-
     bewertung hat konnte in der Zeitplanung dieser nicht aus einem TOP
     als Teilnehmer entfernt werden. Dieser Fehler wurde behoben.
-  + #641: Es trat ein Fehler beim Rendern von zwei Studien auf. 
+  + #641: Es trat ein Fehler beim Rendern von zwei Studien auf.
     Ggf. müssen die Einreicher eine leere Neueinreichung machen um das
     erneute Rendern des PDFs anzustoßen.
   + #603: Mehrfachklicks beim erneuten Öffnen einer Bewertung lösen
-    jetzt einen 404 Fehler aus, anstatt die selbe Bewertungsaufgabe 
+    jetzt einen 404 Fehler aus, anstatt die selbe Bewertungsaufgabe
     mehrfach zu öffnen.
 
 Features:
@@ -300,7 +309,7 @@ Features:
   + #609: Die Sitzungsübersichtseite wurde neu gestaltet.
   + #606: Der Top und Einreichungen Reiter in Sitzungen wurde zusammen
     gefügt und jetzt werden alle benötigten Informationen im
-    Einreichungen Reiter angezeigt. 
+    Einreichungen Reiter angezeigt.
   + #575: Sicherheit: Das verändern der Sitzungsplanung ist bei
     gestarteter Sitzung nicht möglich.
   + #640: Die Suche nach einem TOP im Suchfeld im Sitzungseditor
@@ -309,7 +318,7 @@ Features:
 
 Wording:
   + Bei manuellen TOPs im Sitzungseditor wurde der doppelt angezeigte Titel entfernt.
-  
+
 2017.02.17
 ----------
 
@@ -366,7 +375,7 @@ Bugfixes:
   + #533: Ein Fehler bei den Erinnerungsnachrichten für ablaufende /
     abgelaufene Voten wurde ausgebessert. Die Votumserinnerungen
     sollten jetzt wieder erwartungsgemäß funktionieren.
-  + master: Tätigkeitserinnerungen von bereits abgeschlossenen 
+  + master: Tätigkeitserinnerungen von bereits abgeschlossenen
     Tasks lösen keine Erinnerung mehr aus.
 
 Features:
@@ -375,7 +384,7 @@ Features:
   + #610: Das Logo wurde überarbeitet und besser positioniert.
   + #598: Die Ausfüllhilfen im PDF wurden gelöscht, da diese nach
     Absprache mit den Vorsitzenden nicht sinnvoll sind. Im Reiter
-    Biometrie wurde eine Ausfüllhilfe ergänzt: 
+    Biometrie wurde eine Ausfüllhilfe ergänzt:
     "Hier nur Kurzinformationen in Stichworten, ausführlicher - wenn
     erforderlich - unter Punkt 7.15 und 7.16)"
 
@@ -393,7 +402,7 @@ Bugfixes:
 Bugfixes:
   + #538: Das "Springen" der Textfelder war für einen Tag zurück
     und ist jetzt wieder behoben.
-  + #484: Das Signierungsfeld wird jetzt auch für 
+  + #484: Das Signierungsfeld wird jetzt auch für
     Kartenleser mit Tastatur richtig angezeigt
 
 Features:
@@ -413,14 +422,14 @@ Features:
   + #563: Die Notizblock Funktion wurde überarbeitet. Der Notizblock
     öffnet sich jetzt in einer geteilten Bildschirmansicht um leichter
     Notizen zu der aktuellen Ansicht zu machen.
-  + #550 Das Boostrap CSS Framework wurde aktualisiert. 
+  + #550 Das Boostrap CSS Framework wurde aktualisiert.
     Damit einhergehend sind verschiedene kleine Layoutänderungen.
   + #484 Das Signierungsfeld wurde vergrößert und zeigt
     jetzt den gesamten Inhalt an
 
 2017.01.26
 ----------
- 
+
 Bugfixes:
   + #592: Der Export von Studien funktioniert wieder.
   + #580: Sicherheitsmeldungen mit einer großen Anzahl von Studien
@@ -464,16 +473,16 @@ Bugfixes:
 ----------
 
 Bugfixes:
-  + #514: Die PDFs von zwei Einreichungen die nicht in ein PDF 
+  + #514: Die PDFs von zwei Einreichungen die nicht in ein PDF
     umgewandelt werden konnten, werden jetzt richtig gerendert. Bitte
     beachten Sie dazu, dass die *Einreicher* eine *neue* Version ihrer
     Studie einreichen muss. Es kann natürlich auch eine Version ohne
     Änderung sein. Geben Sie bitte den Einreichern Bescheid!
   + #556: Die Anzeige der substanziellen Amendments für Spezialisten
     wurde korrigiert.
- 
+
 Features:
-  + #557: Nicht eingereichte Meldungen in offene Meldung Ansicht 
+  + #557: Nicht eingereichte Meldungen in offene Meldung Ansicht
     werden jetzt nach Datum der letzten Änderung sortiert.
   + #541: Die Differenzanzeige zeigt hinzugekommene Änderungen jetzt fett
     geschrieben an und Streichungen durchgestrichen. Dies betrifft auch
@@ -481,9 +490,9 @@ Features:
     -blinde Personen und für den Schwarz/Weiß Ausdruck gewährleistet.
 
 Wording:
-  + #553: Der Tippfehler bei "nur gebärfähige" 2.10.5 im 
+  + #553: Der Tippfehler bei "nur gebärfähige" 2.10.5 im
     Einreichungs-PDF wurde ausgebessert.
- 
+
 2017.01.11
 ----------
 
@@ -492,10 +501,10 @@ Bugfixes:
     löst jetzt kein "herum springen" des Inhalts mehr aus.
   + #552: Die Liste der Substanziellen Amendments im SitzungsTab wird
     jetzt auch für nicht interne BenutzerInnen richtig angezeigt.
- 
+
 Features:
   + Der Title der Studie in der Differenzanzeige wird jetzt genau wie in der Leseansicht angezeigt und ist clickbar.
- 
+
 2017.01.10
 ----------
 
@@ -533,15 +542,15 @@ Bugfixes:
 
 Bugfixes:
   + #530 Der Fehler bei Einreichung,Review & Signing von Amendments bei
-    Studien mit hoher Zahl an Nachreichungen wurde behoben. Die 
+    Studien mit hoher Zahl an Nachreichungen wurde behoben. Die
     Wiederholung der Tätigkeit sollte jetzt korrekt verarbeitet werden.
 
 2016.12.23
 ----------
 
 Bugfixes:
-  + #518 und #515: Nicht ausgefüllte Felder im Reiter Maßnahmen und 
-    Reiter Zentren geben den Benutzern des ECS beim Validieren / 
+  + #518 und #515: Nicht ausgefüllte Felder im Reiter Maßnahmen und
+    Reiter Zentren geben den Benutzern des ECS beim Validieren /
     Abschicken einer Einreichung Rückmeldung, was noch nicht
     korrekt ausgefüllt ist.
 

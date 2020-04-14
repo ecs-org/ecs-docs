@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import os
 from datetime import datetime
 
-AUTHOR = datetime.now().strftime("%Y") +' Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften'
+AUTHOR = datetime.now().strftime("%Y") +' Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg'
 SITENAME = 'ECS - Ethics Committee System'
 SITEURL = ''
 #THEME = 'simple'

@@ -41,7 +41,7 @@ ln -sft ~/ targetdirectoryyouwant/ecs-docs
 ```
 ln -sft ~/bin ~/ecs-docs/scripts/*
 sudo scripts/os-deps-ecs-docs.sh
-scipts/user-deps-ecs-docs.sh
+scripts/user-deps-ecs-docs.sh
 ```
 
 ### build
