@@ -7,6 +7,12 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2020.05.31
+----------
+
+Features:
+  + Die "Ethikkommission des Landes Oberösterreich" wurde umbenannt in "Ethikkommission der Medizinischen Fakultät der JKU"
+
 2020.03.01
 ----------
 
