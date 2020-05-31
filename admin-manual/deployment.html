@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Deploy Appliance &#8212; ecs-admin-manual 2020-04-14@14:49 documentation</title>
+    <title>&lt;no title&gt; &#8212; ecs-admin-manual 2020-05-31@15:22 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -16,8 +16,6 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Configure Appliance" href="configuration.html" />
-    <link rel="prev" title="Requirements" href="requirements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link rel="stylesheet" href="static/custom.css" type="text/css" />
   </head><body>  
@@ -27,75 +25,79 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="deploy-appliance">
-<h1>Deploy Appliance<a class="headerlink" href="#deploy-appliance" title="Permalink to this headline">¶</a></h1>
+  <p>## Deploy Appliance</p>
 <p>The base of the appliance is Ubuntu Xenial (16.04 LTS).
 Installation is done unattended using ssh to login into the machine.</p>
-<p>For a quickstart look at <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/#quickstart">github.com/ecs-org/ecs-appliance/README.md</a>.</p>
-<div class="section" id="as-a-virtual-machine">
-<h2>As a Virtual Machine<a class="headerlink" href="#as-a-virtual-machine" title="Permalink to this headline">¶</a></h2>
-<p>You either need:</p>
+<p>For a quickstart look at [github.com/ecs-org/ecs-appliance/README.md](
+<a class="reference external" href="https://github.com/ecs-org/ecs-appliance/#quickstart">https://github.com/ecs-org/ecs-appliance/#quickstart</a>).</p>
+<p>### As a Virtual Machine</p>
+<p>You either need:
++ a standard ubuntu cloud image from [Ubunu Xenial Cloud Images](<a class="reference external" href="http://cloud-images.ubuntu.com/xenial/current/">http://cloud-images.ubuntu.com/xenial/current/</a>)</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>a cloud-init cidata iso volume with your public key</dt><dd><ul>
+<li><dl class="simple">
+<dt>use the prebuilt cidata iso with the vagrant user and the insecure vagrant ssh key or password</dt><dd><ul>
+<li><p>[vagrant-publickey-growroot.iso](<a class="reference external" href="https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-publickey-growroot.iso">https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-publickey-growroot.iso</a>)</p></li>
+<li><p>[vagrant-password-growroot.iso](<a class="reference external" href="https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-password-growroot.iso">https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-password-growroot.iso</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>you can build your own seed iso using [github.com/ecs-org/cidata-seed](<a class="reference external" href="https://github.com/ecs-org/cidata-seed/">https://github.com/ecs-org/cidata-seed/</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
 <ul class="simple">
-<li><p>a standard ubuntu cloud image from <a class="reference external" href="http://cloud-images.ubuntu.com/xenial/current/">Ubunu Xenial Cloud Images</a></p>
-<ul>
-<li><p>a cloud-init cidata iso volume with your public key</p>
-<ul>
-<li><p>use the prebuilt cidata iso with the vagrant user and the insecure vagrant ssh key or password</p>
-<ul>
-<li><p><a class="reference external" href="https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-publickey-growroot.iso">vagrant-publickey-growroot.iso</a></p></li>
-<li><p><a class="reference external" href="https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-password-growroot.iso">vagrant-password-growroot.iso</a></p></li>
-</ul>
-</li>
-<li><p>you can build your own seed iso using <a class="reference external" href="https://github.com/ecs-org/cidata-seed/">github.com/ecs-org/cidata-seed</a></p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>an already running empty Ubuntu Xenial and a ssh key to login</p>
-<ul>
+<li><dl class="simple">
+<dt>an already running empty Ubuntu Xenial and a ssh key to login</dt><dd><ul>
 <li><p>eg. if your rootserver hoster has a default xenial image</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-<li><p>a local development machine with vagrant and a hypervisor for vagrant installed.</p>
-<ul>
+<li><dl class="simple">
+<dt>a local development machine with vagrant and a hypervisor for vagrant installed.</dt><dd><ul>
 <li><p>vagrant will setup the base machine for you</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 <p>For a virtual machine deployment it is best to stick to the default xenial cloud images layout (flat, first Partition as Root taking all space), unless there is good reason to deviate.</p>
 <p>Start the new virtual machine and login via ssh.</p>
-</div>
-<div class="section" id="on-hardware-or-other-custom-configurations">
-<h2>On Hardware or other custom Configurations<a class="headerlink" href="#on-hardware-or-other-custom-configurations" title="Permalink to this headline">¶</a></h2>
+<p>### On Hardware or other custom Configurations</p>
 <p>Needed:</p>
 <ul class="simple">
-<li><p>an already running empty Ubuntu Xenial and a ssh key to login</p>
-<ul>
+<li><dl class="simple">
+<dt>an already running empty Ubuntu Xenial and a ssh key to login</dt><dd><ul>
 <li><p>eg. if your rootserver hoster has a default xenial image</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
 <p>In a typical root server hosting setup there are two harddisks per machine.
 These should be configured as a raid1 (mirroring) setup with lvm on top of it.</p>
-<p>Example:</p>
-<ul class="simple">
-<li><p>Hardware: <a class="reference external" href="https://www.hetzner.de/de/hosting/produkte_rootserver/px61nvme">Hetzner px61nvme Rootserver</a>  Setup Config:</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DRIVE1</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme1n1</span>
-<span class="n">DRIVE2</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvme0n1</span>
-<span class="n">SWRAID</span> <span class="mi">1</span>
-<span class="n">SWRAIDLEVEL</span> <span class="mi">1</span>
-<span class="n">BOOTLOADER</span> <span class="n">grub</span>
-<span class="n">HOSTNAME</span> <span class="n">Ubuntu</span><span class="o">-</span><span class="mi">1604</span><span class="o">-</span><span class="n">xenial</span><span class="o">-</span><span class="mi">64</span><span class="o">-</span><span class="n">minimal</span>
-<span class="n">PART</span> <span class="o">/</span><span class="n">boot</span> <span class="n">ext3</span> <span class="mi">512</span><span class="n">M</span>
-<span class="n">PART</span> <span class="n">lvm</span> <span class="n">vg0</span> <span class="nb">all</span>
-<span class="n">LV</span> <span class="n">vg0</span> <span class="n">root</span> <span class="o">/</span> <span class="n">ext4</span> <span class="mi">300</span><span class="n">G</span>
-<span class="n">IMAGE</span> <span class="o">/</span><span class="n">root</span><span class="o">/.</span><span class="n">oldroot</span><span class="o">/</span><span class="n">nfs</span><span class="o">/</span><span class="n">install</span><span class="o">/../</span><span class="n">images</span><span class="o">/</span><span class="n">Ubuntu</span><span class="o">-</span><span class="mi">1604</span><span class="o">-</span><span class="n">xenial</span><span class="o">-</span><span class="mi">64</span><span class="o">-</span><span class="n">minimal</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="optional-network-attached-storage">
-<h2>Optional Network attached Storage<a class="headerlink" href="#optional-network-attached-storage" title="Permalink to this headline">¶</a></h2>
+<p>Example:
++ Hardware: [Hetzner px61nvme Rootserver](<a class="reference external" href="https://www.hetzner.de/de/hosting/produkte_rootserver/px61nvme">https://www.hetzner.de/de/hosting/produkte_rootserver/px61nvme</a>)  Setup Config:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">DRIVE1</span> <span class="pre">/dev/nvme1n1</span>
+<span class="pre">DRIVE2</span> <span class="pre">/dev/nvme0n1</span>
+<span class="pre">SWRAID</span> <span class="pre">1</span>
+<span class="pre">SWRAIDLEVEL</span> <span class="pre">1</span>
+<span class="pre">BOOTLOADER</span> <span class="pre">grub</span>
+<span class="pre">HOSTNAME</span> <span class="pre">Ubuntu-1604-xenial-64-minimal</span>
+<span class="pre">PART</span> <span class="pre">/boot</span> <span class="pre">ext3</span> <span class="pre">512M</span>
+<span class="pre">PART</span> <span class="pre">lvm</span> <span class="pre">vg0</span> <span class="pre">all</span>
+<span class="pre">LV</span> <span class="pre">vg0</span> <span class="pre">root</span> <span class="pre">/</span> <span class="pre">ext4</span> <span class="pre">300G</span>
+<span class="pre">IMAGE</span> <span class="pre">/root/.oldroot/nfs/install/../images/Ubuntu-1604-xenial-64-minimal.tar.gz</span>
+<span class="pre">`</span></code></p>
+<p>### Optional Network attached Storage</p>
 <ul class="simple">
 <li><p>The appliance supports two external network attached storage volumes, one for permanent data and one for volatile data.</p></li>
 <li><p>To have seperate volatile and/or data partitions, change storage:ignore:volatile and/or storage:ignore:data to false.</p></li>
@@ -103,45 +105,39 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
 <li><p>Setup will add mountpoints for /data and /volatile and mount them on startup.</p></li>
 <li><p>Use appliance:extra:states and :packages if storage setup needs additional packages installed.</p></li>
 </ul>
-</div>
-<div class="section" id="install-via-ssh-to-an-empty-xenial-vm">
-<h2>Install via ssh to an empty Xenial VM<a class="headerlink" href="#install-via-ssh-to-an-empty-xenial-vm" title="Permalink to this headline">¶</a></h2>
+<p>### Install via ssh to an empty Xenial VM</p>
 <p>ssh into target vm:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">DEBIAN_FRONTEND</span><span class="o">=</span><span class="n">noninteractive</span>
-<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">curl</span>
-<span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">-</span><span class="n">appliance</span><span class="o">.</span><span class="n">sh</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">sh</span>
-<span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span><span class="p">;</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">sh</span><span class="p">;</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">yes</span>  <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="o">|</span> <span class="n">tee</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">log</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="testinstall-using-vagrant">
-<h2>Testinstall using Vagrant<a class="headerlink" href="#testinstall-using-vagrant" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">export</span> <span class="pre">DEBIAN_FRONTEND=noninteractive</span>
+<span class="pre">apt-get</span> <span class="pre">-y</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">apt-get</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">curl</span>
+<span class="pre">curl</span> <span class="pre">https://raw.githubusercontent.com/ecs-org/ecs-appliance/master/bootstrap-appliance.sh</span> <span class="pre">&gt;</span> <span class="pre">/tmp/bootstrap.sh</span>
+<span class="pre">cd</span> <span class="pre">/tmp;</span> <span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">/tmp/bootstrap.sh;</span> <span class="pre">/tmp/bootstrap.sh</span> <span class="pre">--yes</span>&#160; <span class="pre">2&gt;&amp;1</span> <span class="pre">|</span> <span class="pre">tee</span> <span class="pre">/tmp/setup.log</span>
+<span class="pre">`</span></code></p>
+<p>### Testinstall using Vagrant</p>
 <p>on your local machine:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span> <span class="o">~/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span>
-<span class="n">cd</span> <span class="o">~/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span>
-<span class="n">vagrant</span> <span class="n">up</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="upgrade-a-developer-vm">
-<h2>Upgrade a developer vm<a class="headerlink" href="#upgrade-a-developer-vm" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/ecs-org/ecs-appliance</span> <span class="pre">~/ecs-appliance</span>
+<span class="pre">cd</span> <span class="pre">~/ecs-appliance</span>
+<span class="pre">vagrant</span> <span class="pre">up</span>
+<span class="pre">`</span></code></p>
+<p>### Upgrade a developer vm</p>
 <p>Requirement: you need at least 3gb total memory for the appliance, 4gb minimum if you want metrics active.</p>
 <p>on a developer vm:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># clone from public repository</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">ecs</span><span class="o">-</span><span class="n">appliance</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">appliance</span>
-<span class="c1"># install saltstack and start appliance install</span>
-<span class="n">curl</span> <span class="o">-</span><span class="n">o</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">bootstrap_salt</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">L</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">saltstack</span><span class="o">.</span><span class="n">com</span>
-<span class="n">sudo</span> <span class="n">bash</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;mkdir -p /etc/salt; cp /app/appliance/salt/minion /etc/salt/minion; </span><span class="se">\</span>
-<span class="s2">    chmod +x /tmp/bootstrap_salt.sh; /tmp/bootstrap_salt.sh -X&quot;</span>
-<span class="n">sudo</span> <span class="n">salt</span><span class="o">-</span><span class="n">call</span> <span class="n">state</span><span class="o">.</span><span class="n">highstate</span> <span class="n">pillar</span><span class="o">=</span><span class="s1">&#39;{&quot;appliance&quot;: {&quot;enabled&quot;: true}}&#39;</span>
-</pre></div>
-</div>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
+# clone from public repository
+git clone <a class="reference external" href="https://github.com/ecs-org/ecs-appliance">https://github.com/ecs-org/ecs-appliance</a> /app/appliance
+# install saltstack and start appliance install
+curl -o /tmp/bootstrap_salt.sh -L <a class="reference external" href="https://bootstrap.saltstack.com">https://bootstrap.saltstack.com</a>
+sudo bash -c “mkdir -p /etc/salt; cp /app/appliance/salt/minion /etc/salt/minion; </p>
+<blockquote>
+<div><p>chmod +x /tmp/bootstrap_salt.sh; /tmp/bootstrap_salt.sh -X”</p>
+</div></blockquote>
+<p>sudo salt-call state.highstate pillar=’{“appliance”: {“enabled”: true}}’
+<a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
 <p>if you also want the builder (for building the appliance image) installed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">salt</span><span class="o">-</span><span class="n">call</span> <span class="n">state</span><span class="o">.</span><span class="n">highstate</span> <span class="n">pillar</span><span class="o">=</span><span class="s1">&#39;{&quot;builder&quot;: {&quot;enabled&quot;: true}, &quot;appliance&quot;: {&quot;enabled&quot;: true}}&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">sudo</span> <span class="pre">salt-call</span> <span class="pre">state.highstate</span> <span class="pre">pillar='{&quot;builder&quot;:</span> <span class="pre">{&quot;enabled&quot;:</span> <span class="pre">true},</span> <span class="pre">&quot;appliance&quot;:</span> <span class="pre">{&quot;enabled&quot;:</span> <span class="pre">true}}'</span>
+<span class="pre">`</span></code></p>
 
 
           </div>
@@ -149,25 +145,6 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Deploy Appliance</a><ul>
-<li><a class="reference internal" href="#as-a-virtual-machine">As a Virtual Machine</a></li>
-<li><a class="reference internal" href="#on-hardware-or-other-custom-configurations">On Hardware or other custom Configurations</a></li>
-<li><a class="reference internal" href="#optional-network-attached-storage">Optional Network attached Storage</a></li>
-<li><a class="reference internal" href="#install-via-ssh-to-an-empty-xenial-vm">Install via ssh to an empty Xenial VM</a></li>
-<li><a class="reference internal" href="#testinstall-using-vagrant">Testinstall using Vagrant</a></li>
-<li><a class="reference internal" href="#upgrade-a-developer-vm">Upgrade a developer vm</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="requirements.html"
-                        title="previous chapter">Requirements</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="configuration.html"
-                        title="next chapter">Configure Appliance</a></p>
 <form class="search" action="search.html" method="get">
   <input type="text" name="q"
    placeholder="type to search" />
@@ -182,19 +159,11 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
   <div class="related bottom">
   <nav id="rellinks">
     <ul>
-        <li>
-          &larr;
-          <a href="requirements.html" title="Previous document">Requirements</a>
-        </li>
-        <li>
-          <a href="configuration.html" title="Next document">Configure Appliance</a>
-          &rarr;
-        </li>
     </ul>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2020-04-14@14:49 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2020-05-31@15:22 documentation</a></li> 
     </ul>
   </nav>
   </div>
