@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; ecs-admin-manual 2020-05-31@15:25 documentation</title>
+    <title>Ecs Administration Handbook &#8212; ecs-admin-manual 2020-05-31@16:11 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -16,6 +16,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Requirements" href="requirements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link rel="stylesheet" href="static/custom.css" type="text/css" />
   </head><body>  
@@ -25,22 +26,66 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p># Ecs Administration Handbook</p>
+  <div class="section" id="ecs-administration-handbook">
+<h1>Ecs Administration Handbook<a class="headerlink" href="#ecs-administration-handbook" title="Permalink to this headline">¶</a></h1>
 <p>The ecs appliance is a selfservice production setup virtual machine builder and executor.
 it can be stacked on top of the developer vm, but is independent of it.</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>eval_rst
-.. toctree:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
-
-<span class="n">requirements</span>
-<span class="n">deployment</span>
-<span class="n">configuration</span>
-<span class="n">maintenance</span>
-<span class="n">mocca_pdfas</span>
-<span class="n">development</span>
-</pre></div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#hosting-requirements">Hosting Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#cores-memory-harddisk-backup-space-assessment">Cores, Memory, Harddisk &amp; Backup Space Assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#client-desktop-requirements">Client Desktop Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deploy Appliance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#as-a-virtual-machine">As a Virtual Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#on-hardware-or-other-custom-configurations">On Hardware or other custom Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#optional-network-attached-storage">Optional Network attached Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#install-via-ssh-to-an-empty-xenial-vm">Install via ssh to an empty Xenial VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#testinstall-using-vagrant">Testinstall using Vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html#upgrade-a-developer-vm">Upgrade a developer vm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configure Appliance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#create-a-new-configuration">Create a new Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#modify-configuration">Modify Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#first-activation">First Activation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="maintenance.html">Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#reconfigure-a-running-appliance">Reconfigure a running Appliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#start-stop-update-appliance">Start, Stop, Update Appliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#recover-from-failed-state">Recover from failed state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#desaster-recovery-from-backup">Desaster Recovery from backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#automatic-updates">Automatic Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#backup-configuration">Backup Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#logging-configuration">Logging Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#metrics-collection">Metrics Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#alerting-setup">Alerting Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#email-challenges">Email Challenges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#maintenance-commands-in-a-running-ecs-container">Maintenance commands in a running ecs container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintenance.html#maintenance-commands-for-the-appliance-host">Maintenance commands for the appliance host</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mocca_pdfas.html">Digital signed pdf documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mocca_pdfas.html#mocca">Mocca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mocca_pdfas.html#pdf-as">PDF-AS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mocca_pdfas.html#mobile-signature-aka-handy-signatur-from-a-trust">Mobile Signature (aka “Handy Signatur”) from A-Trust</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#service-architecture">Service Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#repository-layout">Repository Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#execution-order">Execution Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#runtime-layout">Runtime Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#container-volume-mapping">Container Volume Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#environment-mapping">Environment Mapping</a></li>
+</ul>
+</li>
+</ul>
 </div>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+</div>
 
 
           </div>
@@ -48,6 +93,9 @@ it can be stacked on top of the developer vm, but is independent of it.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h4>Next topic</h4>
+  <p class="topless"><a href="requirements.html"
+                        title="next chapter">Requirements</a></p>
 <form class="search" action="search.html" method="get">
   <input type="text" name="q"
    placeholder="type to search" />
@@ -62,15 +110,19 @@ it can be stacked on top of the developer vm, but is independent of it.</p>
   <div class="related bottom">
   <nav id="rellinks">
     <ul>
+        <li>
+          <a href="requirements.html" title="Next document">Requirements</a>
+          &rarr;
+        </li>
     </ul>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="#">ecs-admin-manual 2020-05-31@15:25 documentation</a></li> 
+      <li><a href="#">ecs-admin-manual 2020-05-31@16:11 documentation</a></li> 
     </ul>
   </nav>
   </div>
-  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg.
+  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe.
 
   </footer>
 

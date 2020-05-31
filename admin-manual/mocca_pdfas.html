@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; ecs-admin-manual 2020-05-31@15:25 documentation</title>
+    <title>Digital signed pdf documents &#8212; ecs-admin-manual 2020-05-31@16:11 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -16,6 +16,8 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development" href="development.html" />
+    <link rel="prev" title="Maintenance" href="maintenance.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link rel="stylesheet" href="static/custom.css" type="text/css" />
   </head><body>  
@@ -25,334 +27,293 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p># Digital signed pdf documents</p>
+  <div class="section" id="digital-signed-pdf-documents">
+<h1>Digital signed pdf documents<a class="headerlink" href="#digital-signed-pdf-documents" title="Permalink to this headline">¶</a></h1>
 <p>The ECS uses Mocca and PDF-AS to create digital signed pdf documents.</p>
 <p>Mocca and PDF-AS are developed by EGIZ, the eGovernment Innovation Centre of Austria, a joint initiative of the Federal Chancellery and the Graz University of Technology, at the Institute for Applied Information Processing and Communications Technology (IAIK).</p>
 <ul class="simple">
-<li><p>[EGIZ Mocca - a modular, open source citizen card environment](<a class="reference external" href="http://www.egiz.gv.at/en/schwerpunkte/9-MOCCA">http://www.egiz.gv.at/en/schwerpunkte/9-MOCCA</a>)</p></li>
-<li><p>[EGIZ PDF-AS - a java framework for creating digitial signatures on PDF documents](<a class="reference external" href="http://www.egiz.gv.at/en/schwerpunkte/16-pdf-as">http://www.egiz.gv.at/en/schwerpunkte/16-pdf-as</a>)</p></li>
+<li><p><a class="reference external" href="http://www.egiz.gv.at/en/schwerpunkte/9-MOCCA">EGIZ Mocca - a modular, open source citizen card environment</a></p></li>
+<li><p><a class="reference external" href="http://www.egiz.gv.at/en/schwerpunkte/16-pdf-as">EGIZ PDF-AS - a java framework for creating digitial signatures on PDF documents</a></p></li>
 </ul>
-<p>## Mocca</p>
+<div class="section" id="mocca">
+<h2>Mocca<a class="headerlink" href="#mocca" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Current Frozen (onlineBKU) Release: [Mocca 1.3.27 (2017-06-23)](<a class="reference external" href="https://joinup.ec.europa.eu/release/mocca-1327">https://joinup.ec.europa.eu/release/mocca-1327</a>)</p></li>
-<li><p>Next Version (localBKU) Release: [Mocca 1.4.1 (2019-05-07)](<a class="reference external" href="https://joinup.ec.europa.eu/release/mocca/141">https://joinup.ec.europa.eu/release/mocca/141</a>)</p></li>
-<li><dl class="simple">
-<dt>[Mocca WebStart from buergerkarte.at](<a class="reference external" href="https://webstart.buergerkarte.at/mocca/index.html">https://webstart.buergerkarte.at/mocca/index.html</a>)</dt><dd><ul>
-<li><p>[Install](<a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp</a>)</p></li>
-<li><p>[CA Install from local running BKU](<a class="reference external" href="http://localhost:3495/ca.crt">http://localhost:3495/ca.crt</a>)</p></li>
-<li><p>[Test](<a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">https://www.buergerkarte.at/test-suite-karte.html</a>)</p></li>
+<li><p>Current Frozen (onlineBKU) Release: <a class="reference external" href="https://joinup.ec.europa.eu/release/mocca-1327">Mocca 1.3.27 (2017-06-23)</a></p></li>
+<li><p>Next Version (localBKU) Release: <a class="reference external" href="https://joinup.ec.europa.eu/release/mocca/141">Mocca 1.4.1 (2019-05-07)</a></p></li>
+<li><p><a class="reference external" href="https://webstart.buergerkarte.at/mocca/index.html">Mocca WebStart from buergerkarte.at</a></p>
+<ul>
+<li><p><a class="reference external" href="https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp">Install</a></p></li>
+<li><p><a class="reference external" href="http://localhost:3495/ca.crt">CA Install from local running BKU</a></p></li>
+<li><p><a class="reference external" href="https://www.buergerkarte.at/test-suite-karte.html">Test</a></p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><p>[Security Analysis of the Austrian Citizen Card Environment MOCCA and E-Card](<a class="reference external" href="https://www.auto.tuwien.ac.at/bib/pdf_TR/TR0174.pdf">https://www.auto.tuwien.ac.at/bib/pdf_TR/TR0174.pdf</a>)</p></li>
-<li><p>[MOCCA Usability Analyse](<a class="reference external" href="https://www.egiz.gv.at/files/download/Studie.pdf">https://www.egiz.gv.at/files/download/Studie.pdf</a>)</p></li>
+<li><p><a class="reference external" href="https://www.auto.tuwien.ac.at/bib/pdf_TR/TR0174.pdf">Security Analysis of the Austrian Citizen Card Environment MOCCA and E-Card</a></p></li>
+<li><p><a class="reference external" href="https://www.egiz.gv.at/files/download/Studie.pdf">MOCCA Usability Analyse</a></p></li>
 </ul>
-<dl class="simple">
-<dt>### Download</dt><dd><ul class="simple">
-<li><p>Online BKU: [Mocca 1.3.27 - bkuonline-1.3.27.war](<a class="reference external" href="https://joinup.ec.europa.eu/sites/default/files/distribution/2017-06/bkuonline-1.3.27.war">https://joinup.ec.europa.eu/sites/default/files/distribution/2017-06/bkuonline-1.3.27.war</a>)</p></li>
-<li><p>Local BKU: [Mocca 1.4.1 - Release Directory](<a class="reference external" href="https://apps.egiz.gv.at/releases/mocca/1.4.1/">https://apps.egiz.gv.at/releases/mocca/1.4.1/</a>)</p></li>
-</ul>
-</dd>
-</dl>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">sha256=c3a7270294bc3a43790061e9eec059ef6a124eb3bd55d20edfd8a7b6b6b89b23</span>&#160; <span class="pre">bkuonline-1.3.27.war</span>
-<span class="pre">`</span></code></p>
+<div class="section" id="download">
+<h3>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Sourcecode:
-* [<a class="reference external" href="http://git.egiz.gv.at/mocca](http://git.egiz.gv.at/mocca">http://git.egiz.gv.at/mocca](http://git.egiz.gv.at/mocca</a>)</p></li>
+<li><p>Online BKU: <a class="reference external" href="https://joinup.ec.europa.eu/sites/default/files/distribution/2017-06/bkuonline-1.3.27.war">Mocca 1.3.27 - bkuonline-1.3.27.war</a></p></li>
+<li><p>Local BKU: <a class="reference external" href="https://apps.egiz.gv.at/releases/mocca/1.4.1/">Mocca 1.4.1 - Release Directory</a></p></li>
 </ul>
-<p>### Changes
-* MOCCA 1.4.1 - 2019-05-07</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>Update TrustStore and CertStore (The following Certificates were added to MOCCA):</dt><dd><ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="n">c3a7270294bc3a43790061e9eec059ef6a124eb3bd55d20edfd8a7b6b6b89b23</span>  <span class="n">bkuonline</span><span class="o">-</span><span class="mf">1.3</span><span class="o">.</span><span class="mf">27.</span><span class="n">war</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Sourcecode:</p>
+<ul>
+<li><p><a class="reference external" href="http://git.egiz.gv.at/mocca">http://git.egiz.gv.at/mocca</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="changes">
+<h3>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>MOCCA 1.4.1 - 2019-05-07</p>
+<ul>
+<li><p>Update TrustStore and CertStore (The following Certificates were added to MOCCA):</p>
+<ul>
 <li><p>D-TRUST Root Class 3 CA 2 EV 2009</p></li>
 <li><p>D-TRUST CA 2-2EV 2016</p></li>
 <li><p>Thwate RSA CA 2018</p></li>
 <li><p>RapidSSL RSA CA 2018</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 <li><p>The BKU icon was updated</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt>MOCCA 1.4.0 - 2018-09-25</dt><dd><ul>
+</li>
+<li><p>MOCCA 1.4.0 - 2018-09-25</p>
+<ul>
 <li><p>Update of PKI-Module and the CertSore to the latest version</p></li>
-<li><dl class="simple">
-<dt>Changes to build standalone-installer for Java Version 11 and later</dt><dd><ul>
+<li><p>Changes to build standalone-installer for Java Version 11 and later</p>
+<ul>
 <li><p>Standalone installer for Windows (MSI), MacOS (DMG) and Linux (ZIP) are now available.</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>New MOCCA update mechanism:</dt><dd><ul>
+<li><p>New MOCCA update mechanism:</p>
+<ul>
 <li><p>MOCCA verifies now during startup if there is a newer version available and notifies the user if this is the case.</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 <li><p>Update of security-relevant libraries</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.34 - 2018-08-30</dt><dd><ul>
-<li><dl class="simple">
-<dt>New Certificates in the truststore:</dt><dd><ul>
+<li><p>MOCCA 1.3.34 - 2018-08-30</p>
+<ul>
+<li><p>New Certificates in the truststore:</p>
+<ul>
 <li><p>DSTRootCAX3</p></li>
 <li><p>DigiCertGlobalRootG2</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>New Certificates in the certstore:</dt><dd><ul>
+<li><p>New Certificates in the certstore:</p>
+<ul>
 <li><p>GeoTrustRSACA2018</p></li>
 <li><p>ThwateTLSRSACAG1</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.33 - 2018-05-15</dt><dd><ul>
+<li><p>MOCCA 1.3.33 - 2018-05-15</p>
+<ul>
 <li><p>Bulk Signature Branch merged into Master Branch</p></li>
 <li><p>Small Bug Fix: Error code 2000 when using Java 8</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.32 - 2018-04-20</dt><dd><ul>
-<li><dl class="simple">
-<dt>BKUCertificates updated</dt><dd><ul>
+<li><p>MOCCA 1.3.32 - 2018-04-20</p>
+<ul>
+<li><p>BKUCertificates updated</p>
+<ul>
 <li><p>New certificated added to certstore for secure.gesundheit.gv.at</p></li>
 <li><p>Letsencrypt root ca added to truststore</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.31 - 2018-02-07</dt><dd><ul>
+<li><p>MOCCA 1.3.31 - 2018-02-07</p>
+<ul>
 <li><p>Small bug fix in the Request GetInfoBox</p></li>
 <li><p>Support for Java 9</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.30 - 2018-01-15</dt><dd><ul>
+<li><p>MOCCA 1.3.30 - 2018-01-15</p>
+<ul>
 <li><p>Certificate update</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.29 - 2017-08-28</dt><dd><ul>
+<li><p>MOCCA 1.3.29 - 2017-08-28</p>
+<ul>
 <li><p>Library Update</p></li>
 <li><p>Included PAdES signature</p></li>
 <li><p>Certificate update</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.28 - 2017-07-26</dt><dd><ul>
+<li><p>MOCCA 1.3.28 - 2017-07-26</p>
+<ul>
 <li><p>Library Update</p></li>
 <li><p>Removed bkuonline support</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.27 - 2017-06-23</dt><dd><ul>
+<li><p>MOCCA 1.3.27 - 2017-06-23</p>
+<ul>
 <li><p>Last bkuonline support</p></li>
 <li><p>Security Bugfix</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.26 - 2017-05-29</dt><dd><ul>
+<li><p>MOCCA 1.3.26 - 2017-05-29</p>
+<ul>
 <li><p>New card implementation (A-Trust signature card CardOSV5.3)</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.25 - 2017-05-08</dt><dd><ul>
+<li><p>MOCCA 1.3.25 - 2017-05-08</p>
+<ul>
 <li><p>MOCCA Library Update</p></li>
 <li><p>Bugfix</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.24 - 2016-12-01</dt><dd><ul>
+<li><p>MOCCA 1.3.24 - 2016-12-01</p>
+<ul>
 <li><p>Fixed problem, which occured when using MOCCA together with MOA-ID in a single webapp container.</p></li>
 <li><p>System-Properties include now the prefix “.jnlp”</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>MOCCA 1.3.23 - 2016-03-31</dt><dd><ul>
+<li><p>MOCCA 1.3.23 - 2016-03-31</p>
+<ul>
 <li><p>First ECS Version</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-<p>## PDF-AS</p>
+</div>
+</div>
+<div class="section" id="pdf-as">
+<h2>PDF-AS<a class="headerlink" href="#pdf-as" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><dl class="simple">
-<dt>Current Frozen (onlineBKU) Release:</dt><dd><ul>
-<li><p>[PDF-AS 4.1.0 (2017-01-17)](<a class="reference external" href="https://joinup.ec.europa.eu/release/pdf-410">https://joinup.ec.europa.eu/release/pdf-410</a>)</p></li>
-<li><p>[PDF-AS defaultConfig 4.1.1 (2017-08-29)](<a class="reference external" href="https://joinup.ec.europa.eu/release/pdf/411">https://joinup.ec.europa.eu/release/pdf/411</a>)</p></li>
+<li><p>Current Frozen (onlineBKU) Release:</p>
+<ul>
+<li><p><a class="reference external" href="https://joinup.ec.europa.eu/release/pdf-410">PDF-AS 4.1.0 (2017-01-17)</a></p></li>
+<li><p><a class="reference external" href="https://joinup.ec.europa.eu/release/pdf/411">PDF-AS defaultConfig 4.1.1 (2017-08-29)</a></p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>Next Version (localBKU) Release: [PDF-AS 4.1.5 (2018-12-07)](<a class="reference external" href="https://joinup.ec.europa.eu/release/pdf/415">https://joinup.ec.europa.eu/release/pdf/415</a>)</dt><dd><ul>
-<li><p>[Documenation - DE](<a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_Dokumentation.pdf">https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_Dokumentation.pdf</a>)</p></li>
-<li><p>[Web Interface Documenation - DE](<a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_WebDokumentation.pdf">https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_WebDokumentation.pdf</a>)</p></li>
-<li><p>[External Service Documentation - DE](<a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/AnbindungExterneWebanwendung.pdf">https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/AnbindungExterneWebanwendung.pdf</a>)</p></li>
-<li><p>[Profile Documentation -  DE](<a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_Profile_Dokumentation.pdf">https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_Profile_Dokumentation.pdf</a>)</p></li>
+<li><p>Next Version (localBKU) Release: <a class="reference external" href="https://joinup.ec.europa.eu/release/pdf/415">PDF-AS 4.1.5 (2018-12-07)</a></p>
+<ul>
+<li><p><a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_Dokumentation.pdf">Documenation - DE</a></p></li>
+<li><p><a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_WebDokumentation.pdf">Web Interface Documenation - DE</a></p></li>
+<li><p><a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/AnbindungExterneWebanwendung.pdf">External Service Documentation - DE</a></p></li>
+<li><p><a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/docs/PDFAS4_Profile_Dokumentation.pdf">Profile Documentation -  DE</a></p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><p>[Goverment Profile Documentation - DE](<a class="reference external" href="https://www.ref.gv.at/uploads/media/Layout_Amtssignatur_las_2-0-1_20140610.pdf">https://www.ref.gv.at/uploads/media/Layout_Amtssignatur_las_2-0-1_20140610.pdf</a>)</p></li>
-<li><p>[PDF-AS Workshop Part 1 - DE](<a class="reference external" href="http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil1.pdf">http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil1.pdf</a>)</p></li>
-<li><p>[PDF-AS Workshop Part 2 - DE](<a class="reference external" href="http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil2.pdf">http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil2.pdf</a>)</p></li>
-<li><p>[Goverment sponsored Digital Signature Test Site - DE](<a class="reference external" href="https://www.buergerkarte.at/einfach-signieren/">https://www.buergerkarte.at/einfach-signieren/</a>)</p></li>
+<li><p><a class="reference external" href="https://www.ref.gv.at/uploads/media/Layout_Amtssignatur_las_2-0-1_20140610.pdf">Goverment Profile Documentation - DE</a></p></li>
+<li><p><a class="reference external" href="http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil1.pdf">PDF-AS Workshop Part 1 - DE</a></p></li>
+<li><p><a class="reference external" href="http://demo.egiz.gv.at/padesWorkshop/20141209%20Signatur-Workshop-PDF-AS-4.0-Hands-On%20Teil2.pdf">PDF-AS Workshop Part 2 - DE</a></p></li>
+<li><p><a class="reference external" href="https://www.buergerkarte.at/einfach-signieren/">Goverment sponsored Digital Signature Test Site - DE</a></p></li>
 </ul>
-<p>### Download
-* [Download Site](<a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/">https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/</a>)</p>
+<div class="section" id="id1">
+<h3>Download<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Current 4.1.5 [pdf-as-web-4.1.5.war](<a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/pdf-as-web-4.1.5.war">https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/pdf-as-web-4.1.5.war</a>)</p></li>
+<li><p><a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/">Download Site</a></p></li>
+<li><p>Current 4.1.5 <a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/pdf-as-web-4.1.5.war">pdf-as-web-4.1.5.war</a></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">sha256=a54f3dd8c77e5d7ef47b05465143b09014dfd802240e557f39aaaf7c9fb2d518</span>&#160; <span class="pre">pdf-as-web-4.1.5.war</span>
-<span class="pre">`</span></code>
-* Current 4.1.5 [defaultConfig.zip](<a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/cfg/defaultConfig.zip">https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/cfg/defaultConfig.zip</a>)
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">sha256=</span> <span class="pre">22a73c4a45fb44f6a0a30db9a95a5cb5ef3b5ee4e14ca768e3ebb15f5597813f</span>&#160; <span class="pre">defaultConfig.zip</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="n">a54f3dd8c77e5d7ef47b05465143b09014dfd802240e557f39aaaf7c9fb2d518</span>  <span class="n">pdf</span><span class="o">-</span><span class="k">as</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="mf">4.1</span><span class="o">.</span><span class="mf">5.</span><span class="n">war</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>old frozen 4.1.0 [pdf-as-web-4.1.0.war](<a class="reference external" href="https://ecs-org.github.io/ecs-docs/pdf-as-web-4.1.0.war">https://ecs-org.github.io/ecs-docs/pdf-as-web-4.1.0.war</a>)</p></li>
+<li><p>Current 4.1.5 <a class="reference external" href="https://apps.egiz.gv.at/releases/pdf-as/release/4.1.5/cfg/defaultConfig.zip">defaultConfig.zip</a></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">sha256=d625cd40a0baadf9ccf2a9bb46f6808efb7929e3fbe107b087b8c42f5b6c1971</span>&#160; <span class="pre">pdf-as-web-4.1.0.war</span>
-<span class="pre">`</span></code>
-* old frozen 4.1.1 [defaultConfig-4.1.1.zip](<a class="reference external" href="https://ecs-org.github.io/ecs-docs/defaultConfig-4.1.1.zip">https://ecs-org.github.io/ecs-docs/defaultConfig-4.1.1.zip</a>)
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">sha256=392718b4b8e57582ec529061c25437b3858574a90214e429069cbc084333ca8d</span>&#160; <span class="pre">defaultConfig-4.1.1.zip</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span> <span class="mi">22</span><span class="n">a73c4a45fb44f6a0a30db9a95a5cb5ef3b5ee4e14ca768e3ebb15f5597813f</span>  <span class="n">defaultConfig</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>Sourcecode:
-* [<a class="reference external" href="http://git.egiz.gv.at/pdf-as-4/](http://git.egiz.gv.at/pdf-as-4/">http://git.egiz.gv.at/pdf-as-4/](http://git.egiz.gv.at/pdf-as-4/</a>)</p></li>
+<li><p>old frozen 4.1.0 <a class="reference external" href="https://ecs-org.github.io/ecs-docs/pdf-as-web-4.1.0.war">pdf-as-web-4.1.0.war</a></p></li>
 </ul>
-<p>### Changes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="n">d625cd40a0baadf9ccf2a9bb46f6808efb7929e3fbe107b087b8c42f5b6c1971</span>  <span class="n">pdf</span><span class="o">-</span><span class="k">as</span><span class="o">-</span><span class="n">web</span><span class="o">-</span><span class="mf">4.1</span><span class="o">.</span><span class="mf">0.</span><span class="n">war</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><dl class="simple">
-<dt>PDF-AS 4.1.5 - 2018-12-07</dt><dd><ul>
+<li><p>old frozen 4.1.1 <a class="reference external" href="https://ecs-org.github.io/ecs-docs/defaultConfig-4.1.1.zip">defaultConfig-4.1.1.zip</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sha256</span><span class="o">=</span><span class="mi">392718</span><span class="n">b4b8e57582ec529061c25437b3858574a90214e429069cbc084333ca8d</span>  <span class="n">defaultConfig</span><span class="o">-</span><span class="mf">4.1</span><span class="o">.</span><span class="mf">1.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Sourcecode:</p>
+<ul>
+<li><p><a class="reference external" href="http://git.egiz.gv.at/pdf-as-4/">http://git.egiz.gv.at/pdf-as-4/</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Changes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>PDF-AS 4.1.5 - 2018-12-07</p>
+<ul>
 <li><p>Beta state of the Security Layer 2.0 functionality has been added</p></li>
 <li><p>Bug fixes regarding positioning feature (positioning with a “footer” paramter, positioning with a “page” parameter)</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>PDF-AS 4.1.4 - 2018-06-27</dt><dd><ul>
-<li><dl class="simple">
-<dt>PDF-AS Library</dt><dd><ul>
+<li><p>PDF-AS 4.1.4 - 2018-06-27</p>
+<ul>
+<li><p>PDF-AS Library</p>
+<ul>
 <li><p>Color profile for PDFA added</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>PDF-AS 4.1.3 - 2018-05-14</dt><dd><ul>
+<li><p>PDF-AS 4.1.3 - 2018-05-14</p>
+<ul>
 <li><p>Minor bug fixes</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>PDF-AS 4.1.2 - 2018-03-23</dt><dd><ul>
+<li><p>PDF-AS 4.1.2 - 2018-03-23</p>
+<ul>
 <li><p>Minor bug fixes</p></li>
 <li><p>Additional feature regarding placeholder search</p></li>
 <li><p>Pdf file protection</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>PDF-AS 4.1.1 - 2017-08-29</dt><dd><ul>
+<li><p>PDF-AS 4.1.1 - 2017-08-29</p>
+<ul>
 <li><p>Minor bug fixes</p></li>
 <li><p>Changes for PAdES signatures</p></li>
 <li><p>Library Update</p></li>
 <li><p>Removed bkuonline support</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>PDF-AS 4.1.0 - 2017-01-17</dt><dd><ul>
+<li><p>PDF-AS 4.1.0 - 2017-01-17</p>
+<ul>
 <li><p>Last bkuonline support</p></li>
-<li><dl class="simple">
-<dt>PDF-AS Library</dt><dd><ul>
+<li><p>PDF-AS Library</p>
+<ul>
 <li><p>a new pdf backend is available based on pdfbox 2.0.3, changes that are available with the new backend:</p></li>
 <li><p>unicode characters can now be rendered in the signature block when using TTF fonts</p></li>
 <li><p>when using TTF fonts the new backend includes only a subset of used characters in the resulting document, which reduces the resulting size of the document</p></li>
 <li><p>some minor bugs fixes</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>PDF-AS Web</dt><dd><ul>
+<li><p>PDF-AS Web</p>
+<ul>
 <li><p>some minor bugs fixes</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>PDF-AS 4.0.11 - 2016-07-01</dt><dd><ul>
+<li><p>PDF-AS 4.0.11 - 2016-07-01</p>
+<ul>
 <li><p>First ECS Version</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-<p>## Mobile Signature (aka “Handy Signatur”) from A-Trust</p>
+</div>
+</div>
+<div class="section" id="mobile-signature-aka-handy-signatur-from-a-trust">
+<h2>Mobile Signature (aka “Handy Signatur”) from A-Trust<a class="headerlink" href="#mobile-signature-aka-handy-signatur-from-a-trust" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>[Technical Documentation](<a class="reference external" href="https://labs.a-trust.at/developer/pdf/SignatureServer_1.2.2.pdf">https://labs.a-trust.at/developer/pdf/SignatureServer_1.2.2.pdf</a>)</p></li>
+<li><p><a class="reference external" href="https://labs.a-trust.at/developer/pdf/SignatureServer_1.2.2.pdf">Technical Documentation</a></p></li>
 </ul>
+</div>
+</div>
 
 
           </div>
@@ -360,6 +321,30 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Digital signed pdf documents</a><ul>
+<li><a class="reference internal" href="#mocca">Mocca</a><ul>
+<li><a class="reference internal" href="#download">Download</a></li>
+<li><a class="reference internal" href="#changes">Changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pdf-as">PDF-AS</a><ul>
+<li><a class="reference internal" href="#id1">Download</a></li>
+<li><a class="reference internal" href="#id2">Changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mobile-signature-aka-handy-signatur-from-a-trust">Mobile Signature (aka “Handy Signatur”) from A-Trust</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="maintenance.html"
+                        title="previous chapter">Maintenance</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="development.html"
+                        title="next chapter">Development</a></p>
 <form class="search" action="search.html" method="get">
   <input type="text" name="q"
    placeholder="type to search" />
@@ -374,15 +359,23 @@
   <div class="related bottom">
   <nav id="rellinks">
     <ul>
+        <li>
+          &larr;
+          <a href="maintenance.html" title="Previous document">Maintenance</a>
+        </li>
+        <li>
+          <a href="development.html" title="Next document">Development</a>
+          &rarr;
+        </li>
     </ul>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2020-05-31@15:25 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2020-05-31@16:11 documentation</a></li> 
     </ul>
   </nav>
   </div>
-  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg.
+  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe.
 
   </footer>
 

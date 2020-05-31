@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; ecs-admin-manual 2020-05-31@15:25 documentation</title>
+    <title>Development &#8212; ecs-admin-manual 2020-05-31@16:11 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -16,6 +16,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Digital signed pdf documents" href="mocca_pdfas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link rel="stylesheet" href="static/custom.css" type="text/css" />
   </head><body>  
@@ -25,240 +26,409 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>## Development</p>
-<p>### Service Architecture</p>
+  <div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="service-architecture">
+<h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image</p></li>
 <li><p>Saltstack salt is used for system installation</p></li>
 <li><p>Letsencrypt is used for ssl host certificates</p></li>
-<li><dl class="simple">
-<dt>Services running on the host system</dt><dd><ul>
-<li><p>Webserver: NGINX 1.10 - [nginx.conf](<a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/nginx/nginx.conf">https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/nginx/nginx.conf</a>)</p></li>
-<li><p>Database: Postgresql 9.5 Database [postgres config](<a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/appliance/postgresql">https://github.com/ecs-org/ecs-appliance/tree/master/salt/appliance/postgresql</a>)</p></li>
-<li><p>SMTP/SSL Proxy: Stunnel - [stunnel.conf](<a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/stunnel/stunnel.conf">https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/stunnel/stunnel.conf</a>)</p></li>
-<li><p>SSH Daemon: openssh [ssh config](<a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/ssh">https://github.com/ecs-org/ecs-appliance/tree/master/salt/ssh</a>)</p></li>
-<li><p>SMTP Outgoing: postfix - [main.cf](<a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf">https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf</a>)</p></li>
-<li><p>SMTP Incoming: ecs - [smtpd.py](<a class="reference external" href="https://github.com/ecs-org/ecs/blob/master/ecs/communication/smtpd.py">https://github.com/ecs-org/ecs/blob/master/ecs/communication/smtpd.py</a>)</p></li>
+<li><p>Services running on the host system</p>
+<ul>
+<li><p>Webserver: NGINX 1.10 - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/nginx/nginx.conf">nginx.conf</a></p></li>
+<li><p>Database: Postgresql 9.5 Database <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/appliance/postgresql">postgres config</a></p></li>
+<li><p>SMTP/SSL Proxy: Stunnel - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/stunnel/stunnel.conf">stunnel.conf</a></p></li>
+<li><p>SSH Daemon: openssh <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/ssh">ssh config</a></p></li>
+<li><p>SMTP Outgoing: postfix - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf">main.cf</a></p></li>
+<li><p>SMTP Incoming: ecs - <a class="reference external" href="https://github.com/ecs-org/ecs/blob/master/ecs/communication/smtpd.py">smtpd.py</a></p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>Compliance to [rfc3834 Recommendations for Automatic Responses to Electronic Mail](<a class="reference external" href="https://tools.ietf.org/html/rfc3834">https://tools.ietf.org/html/rfc3834</a>)</dt><dd><ul>
+<li><p>Compliance to <a class="reference external" href="https://tools.ietf.org/html/rfc3834">rfc3834 Recommendations for Automatic Responses to Electronic Mail</a></p>
+<ul>
 <li><p>set and evaluate headerfield “Auto-Submitted”</p></li>
 <li><p>add headerfield “In-Reply-To” and “References” to emails originated via smtp</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>Services running inside docker container</dt><dd><ul>
-<li><dl class="simple">
-<dt>The ECS Application (Web, Worker, incoming Mail)</dt><dd><ul>
+<li><p>Services running inside docker container</p>
+<ul>
+<li><p>The ECS Application (Web, Worker, incoming Mail)</p>
+<ul>
 <li><p>Django is served via uwsgi inside the web container</p></li>
 <li><p>Celery is used for asynchronous worker &amp; beat</p></li>
 <li><p>python smtpd is used for incoming Mail processing</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 <li><p>Redis for Queuing Services</p></li>
 <li><p>Memcache for Caching Services</p></li>
 <li><p>tomcat running PDF/AS for Electronic Signed PDF Generation</p></li>
 <li><p>tomcat running Mocca for accessing the Digital ID-Card used for signed PDF-Generation</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>eval_rst
-.. graphviz:: architecture.dot</p>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<div class="graphviz"><img src="_images/graphviz-4f85b385e77ae6b134a8db88cddbb52af476bf7a.png" alt="#### perform execution via cpp | dot
+#include &quot;dot-style.h&quot;
+#define to -&gt;
+
+PROCESSFLOW(&quot;ECS Service Interconnect&quot;)
+    edge [style=dashed]
+    cluster(user,&quot;User&quot;)
+        prod(webclient,&quot;Webbrowser&quot;)
+        prod(emailclient,&quot;Emailclient&quot;)
+    endcluster
+
+    prod(nginx,&quot;Nginx\nWebserver&quot;)
+    prod(stunnel,&quot;Stunnel\nIncoming Mail Proxy&quot;)
+    prod(smartmx,&quot;Postfix\nOutgoing Mailserver&quot;)
+
+    prod(ecs,&quot;ECS-Container\nWebserver\nQueue-Worker\nQueue-Beat\nMailserver&quot;)
+    prod(mocca,&quot;Tomcat-Container\nMocca - Citizen Card System&quot;)
+    prod(pdfas,&quot;Tomcat-Container\nPdfas - PDF Creation&quot;)
+
+    prod(redis,&quot;Redis-Container\nQueuing-Server&quot;)
+    prod(memcache, &quot;Memcache-Container\nMemory-Cache&quot;)
+    prod(postgresql,&quot;PostgreSQL\nDatabase Server&quot;)
+    prod(storagevault,&quot;shared filesystem\nStorage Vault&quot;)
+
+    webclient to nginx bidir(https)
+    emailclient to stunnel unidir(smtp)
+    smartmx to emailclient unidir(smtp)
+
+    nginx to ecs bidir(http)
+    nginx to pdfas bidir(http)
+    nginx to mocca bidir(http)
+
+    ecs to postgresql bidir(sql)
+    ecs to redis bidir(redis)
+    ecs to memcache bidir(memcache)
+    ecs to smartmx unidir(smtp)
+    ecs to storagevault bidir(file)
+    stunnel to ecs unidir(smtp)
+END" class="graphviz" /></div>
 <ul class="simple">
 <li><p>The Appliance uses the default docker network (172.17.0.1/16) for docker container</p></li>
-<li><dl class="simple">
-<dt>Public (Outside) facing Ports</dt><dd><ul>
+<li><p>Public (Outside) facing Ports</p>
+<ul>
 <li><p>NGINX Webserver Ports 80(http) and 443(https)</p></li>
 <li><p>Stunnel Ports 25(smtp) and 465(smtpssl)</p></li>
 <li><p>SSH Daemon 22(ssh)</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-<p>![alt text](network.svg.png “Appliance Network Layout”)</p>
-<p>### Repository Layout</p>
-<p><code class="docutils literal notranslate"><span class="pre">`eval_rst</span>
-<span class="pre">============================================</span>&#160; <span class="pre">==================================================</span>
-<span class="pre">Path</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Description</span>
-<span class="pre">============================================</span>&#160; <span class="pre">==================================================</span>
-<span class="pre">/pillar/*.sls</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">salt</span> <span class="pre">environment</span>
-<span class="pre">/pillar/top.sls</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">defines</span> <span class="pre">the</span> <span class="pre">root</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">environment</span> <span class="pre">tree</span>
-<span class="pre">/pillar/default-env.sls</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">fallback</span> <span class="pre">env</span> <span class="pre">yaml</span> <span class="pre">and</span> <span class="pre">example</span> <span class="pre">localhost</span> <span class="pre">ecs</span> <span class="pre">config</span>
-<span class="pre">/salt/*.sls</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">salt</span> <span class="pre">states</span> <span class="pre">(to</span> <span class="pre">be</span> <span class="pre">executed)</span>
-<span class="pre">/salt/top.sls</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">defines</span> <span class="pre">the</span> <span class="pre">root</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">state</span> <span class="pre">tree</span>
-<span class="pre">/salt/common/init.sls</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">common</span> <span class="pre">install</span>
-<span class="pre">/salt/common/env-create.sh</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">cli</span> <span class="pre">for</span> <span class="pre">env</span> <span class="pre">generation</span>
-<span class="pre">/salt/common/env-package.sh</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">cli</span> <span class="pre">for</span> <span class="pre">building</span> <span class="pre">pdf,iso,tar.gz.gpg</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">env</span>
-<span class="pre">/salt/common/env-update.sh</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">get</span> <span class="pre">env,</span> <span class="pre">test</span> <span class="pre">conversion</span> <span class="pre">and</span> <span class="pre">write</span> <span class="pre">to</span> <span class="pre">/run/active-env.yml</span>
-<span class="pre">/salt/appliance/env-template.yml</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">template</span> <span class="pre">used</span> <span class="pre">to</span> <span class="pre">generate</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">env.yml</span>
-<span class="pre">/salt/appliance/init.sls</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">ecs</span> <span class="pre">appliance</span> <span class="pre">install</span>
-<span class="pre">/salt/appliance/scripts/prepare-env.sh</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">script</span> <span class="pre">started</span> <span class="pre">first</span> <span class="pre">to</span> <span class="pre">read</span> <span class="pre">environment</span>
-<span class="pre">/salt/appliance/scripts/prepare-appliance.sh</span>&#160; <span class="pre">script</span> <span class="pre">started</span> <span class="pre">next</span> <span class="pre">to</span> <span class="pre">setup</span> <span class="pre">services</span>
-<span class="pre">/salt/appliance/scripts/prepare-ecs.sh</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">script</span> <span class="pre">started</span> <span class="pre">next</span> <span class="pre">to</span> <span class="pre">build</span> <span class="pre">container</span>
-<span class="pre">/salt/appliance/update/appliance-update.sh</span>&#160;&#160;&#160; <span class="pre">script</span> <span class="pre">triggerd</span> <span class="pre">from</span> <span class="pre">appliance-update.service</span>
-<span class="pre">/salt/appliance/ecs/docker-compose.yml</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">main</span> <span class="pre">container</span> <span class="pre">group</span> <span class="pre">definition</span>
-<span class="pre">/salt/appliance/systemd/appliance.service</span>&#160;&#160;&#160;&#160; <span class="pre">systemd</span> <span class="pre">appliance</span> <span class="pre">service</span> <span class="pre">that</span> <span class="pre">ties</span> <span class="pre">all</span> <span class="pre">together</span>
-<span class="pre">============================================</span>&#160; <span class="pre">==================================================</span>
-<span class="pre">`</span></code></p>
-<p>### Execution Order</p>
-<p><a href="#id9"><span class="problematic" id="id10">``</span></a>`
-[on start]
+<p><img alt="alt text" src="_images/network.svg.png" /></p>
+</div>
+<div class="section" id="repository-layout">
+<h2>Repository Layout<a class="headerlink" href="#repository-layout" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Path</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/pillar/<a href="#id1"><span class="problematic" id="id2">*</span></a>.sls</p></td>
+<td><p>salt environment</p></td>
+</tr>
+<tr class="row-odd"><td><p>/pillar/top.sls</p></td>
+<td><p>defines the root of the environment tree</p></td>
+</tr>
+<tr class="row-even"><td><p>/pillar/default-env.sls</p></td>
+<td><p>fallback env yaml and example localhost ecs config</p></td>
+</tr>
+<tr class="row-odd"><td><p>/salt/<a href="#id3"><span class="problematic" id="id4">*</span></a>.sls</p></td>
+<td><p>salt states (to be executed)</p></td>
+</tr>
+<tr class="row-even"><td><p>/salt/top.sls</p></td>
+<td><p>defines the root of the state tree</p></td>
+</tr>
+<tr class="row-odd"><td><p>/salt/common/init.sls</p></td>
+<td><p>common install</p></td>
+</tr>
+<tr class="row-even"><td><p>/salt/common/env-create.sh</p></td>
+<td><p>cli for env generation</p></td>
+</tr>
+<tr class="row-odd"><td><p>/salt/common/env-package.sh</p></td>
+<td><p>cli for building pdf,iso,tar.gz.gpg out of env</p></td>
+</tr>
+<tr class="row-even"><td><p>/salt/common/env-update.sh</p></td>
+<td><p>get env, test conversion and write to /run/active-env.yml</p></td>
+</tr>
+<tr class="row-odd"><td><p>/salt/appliance/env-template.yml</p></td>
+<td><p>template used to generate a new env.yml</p></td>
+</tr>
+<tr class="row-even"><td><p>/salt/appliance/init.sls</p></td>
+<td><p>ecs appliance install</p></td>
+</tr>
+<tr class="row-odd"><td><p>/salt/appliance/scripts/prepare-env.sh</p></td>
+<td><p>script started first to read environment</p></td>
+</tr>
+<tr class="row-even"><td><p>/salt/appliance/scripts/prepare-appliance.sh</p></td>
+<td><p>script started next to setup services</p></td>
+</tr>
+<tr class="row-odd"><td><p>/salt/appliance/scripts/prepare-ecs.sh</p></td>
+<td><p>script started next to build container</p></td>
+</tr>
+<tr class="row-even"><td><p>/salt/appliance/update/appliance-update.sh</p></td>
+<td><p>script triggerd from appliance-update.service</p></td>
+</tr>
+<tr class="row-odd"><td><p>/salt/appliance/ecs/docker-compose.yml</p></td>
+<td><p>main container group definition</p></td>
+</tr>
+<tr class="row-even"><td><p>/salt/appliance/systemd/appliance.service</p></td>
+<td><p>systemd appliance service that ties all together</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="execution-order">
+<h2>Execution Order<a class="headerlink" href="#execution-order" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[on start]
 |
-<a href="#id43"><span class="problematic" id="id44">|-- prepare-env
+|-- prepare-env
 |-- prepare-appliance
 |   |
 |   |-- optional: call salt-call state.sls appliance.storage.setup
-|---|</span></a>
+|---|
 |
-<a href="#id11"><span class="problematic" id="id12">|</span></a>– prepare-ecs
-<a href="#id13"><span class="problematic" id="id14">|</span></a>– appliance
+|-- prepare-ecs
+|-- appliance
 |   |
-|   <a href="#id15"><span class="problematic" id="id16">|</span></a>– docker-compose up
+|   |-- docker-compose up
 :
 :   (post-start)
-<a href="#id17"><span class="problematic" id="id18">|</span></a>– appliance-cleanup</p>
-<p>[on error]
+|-- appliance-cleanup
+
+[on error]
 |
-<a href="#id19"><span class="problematic" id="id20">|</span></a>– appliance-failed</p>
-<p>[on update]
+|-- appliance-failed
+
+[on update]
 |
-<a href="#id21"><span class="problematic" id="id22">|</span></a>– appliance-update
+|-- appliance-update
 |   |
-|   <a href="#id23"><span class="problematic" id="id24">|</span></a>– salt-call state.highstate
-|   <a href="#id25"><span class="problematic" id="id26">|</span></a>– apt-daily unattended-upgrades
-|   <a href="#id27"><span class="problematic" id="id28">|</span></a>– letsencrypt update
-?   ?– optional reboot
-|   <a href="#id29"><span class="problematic" id="id30">|</span></a>– systemctl restart appliance
-<a href="#id31"><span class="problematic" id="id32">``</span></a><a href="#id33"><span class="problematic" id="id34">`</span></a></p>
-<p>### Runtime Layout</p>
+|   |-- salt-call state.highstate
+|   |-- apt-daily unattended-upgrades
+|   |-- letsencrypt update
+?   ?-- optional reboot
+|   |-- systemctl restart appliance
+</pre></div>
+</div>
+</div>
+<div class="section" id="runtime-layout">
+<h2>Runtime Layout<a class="headerlink" href="#runtime-layout" title="Permalink to this headline">¶</a></h2>
 <p>Application:</p>
-<p><a href="#id35"><span class="problematic" id="id36">``</span></a><a href="#id37"><span class="problematic" id="id38">`</span></a>eval_rst
-====================================  ===========================================
-Path                                  Description
-====================================  ===========================================
-/app/env.yml                          local (nocloud) environment configuration
-/app/ecs                              ecs repository used for container creation
-/app/appliance                        ecs-appliance repository active on host
-/app/etc                              runtime configuration (symlink of /data/etc)
-/app/etc/tags                         runtime tags
-/app/etc/flags                        runtime flags
-/app/etc/hooks                        runtime hooks
-/app/ecs-ca                           client certificate ca and crl directory</p>
-<blockquote>
-<div><p>(symlink of /data/ecs-ca)</p>
-</div></blockquote>
-<dl class="simple">
-<dt>/app/ecs-gpg                          storage-vault gpg keys directory</dt><dd><p>(symlink of /data/ecs-gpg)</p>
-</dd>
-<dt>/app/ecs-cache                        temporary storage directory</dt><dd><p>(symlink of /volatile/ecs-cache)</p>
-</dd>
-</dl>
-<p>/run/active-env.yml                   current activated configuration
-/run/appliance-failed                 flag that needs to be cleared, before a</p>
-<blockquote>
-<div><p>restart of a failed appliance is possible</p>
-</div></blockquote>
-<p>/usr/local/share/appliance            scripts from the appliance salt source
-/usr/local/[s]bin                     user callable programs
-====================================  ===========================================
-<a href="#id39"><span class="problematic" id="id40">``</span></a><a href="#id41"><span class="problematic" id="id42">`</span></a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Path</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/app/env.yml</p></td>
+<td><p>local (nocloud) environment configuration</p></td>
+</tr>
+<tr class="row-odd"><td><p>/app/ecs</p></td>
+<td><p>ecs repository used for container creation</p></td>
+</tr>
+<tr class="row-even"><td><p>/app/appliance</p></td>
+<td><p>ecs-appliance repository active on host</p></td>
+</tr>
+<tr class="row-odd"><td><p>/app/etc</p></td>
+<td><p>runtime configuration (symlink of /data/etc)</p></td>
+</tr>
+<tr class="row-even"><td><p>/app/etc/tags</p></td>
+<td><p>runtime tags</p></td>
+</tr>
+<tr class="row-odd"><td><p>/app/etc/flags</p></td>
+<td><p>runtime flags</p></td>
+</tr>
+<tr class="row-even"><td><p>/app/etc/hooks</p></td>
+<td><p>runtime hooks</p></td>
+</tr>
+<tr class="row-odd"><td><p>/app/ecs-ca</p></td>
+<td><p>client certificate ca and crl directory
+(symlink of /data/ecs-ca)</p></td>
+</tr>
+<tr class="row-even"><td><p>/app/ecs-gpg</p></td>
+<td><p>storage-vault gpg keys directory
+(symlink of /data/ecs-gpg)</p></td>
+</tr>
+<tr class="row-odd"><td><p>/app/ecs-cache</p></td>
+<td><p>temporary storage directory
+(symlink of /volatile/ecs-cache)</p></td>
+</tr>
+<tr class="row-even"><td><p>/run/active-env.yml</p></td>
+<td><p>current activated configuration</p></td>
+</tr>
+<tr class="row-odd"><td><p>/run/appliance-failed</p></td>
+<td><p>flag that needs to be cleared, before a
+restart of a failed appliance is possible</p></td>
+</tr>
+<tr class="row-even"><td><p>/usr/local/share/appliance</p></td>
+<td><p>scripts from the appliance salt source</p></td>
+</tr>
+<tr class="row-odd"><td><p>/usr/local/[s]bin</p></td>
+<td><p>user callable programs</p></td>
+</tr>
+</tbody>
+</table>
 <p>Data:</p>
-<p><code class="docutils literal notranslate"><span class="pre">`eval_rst</span>
-<span class="pre">==========================</span>&#160; <span class="pre">===========================================</span>
-<span class="pre">Path</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Description</span>
-<span class="pre">==========================</span>&#160; <span class="pre">===========================================</span>
-<span class="pre">/data</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">data</span> <span class="pre">to</span> <span class="pre">keep</span>
-<span class="pre">/data/ecs-ca</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">symlink</span> <span class="pre">target</span> <span class="pre">of</span> <span class="pre">/app/ecs-ca</span>
-<span class="pre">/data/ecs-gpg</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">symlink</span> <span class="pre">target</span> <span class="pre">of</span> <span class="pre">/app/ecs-gpg</span>
-<span class="pre">/data/ecs-storage-vault</span>&#160;&#160;&#160;&#160; <span class="pre">symlink</span> <span class="pre">target</span> <span class="pre">of</span> <span class="pre">/app/ecs-storage-vault</span>
-<span class="pre">/data/etc</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">symlink</span> <span class="pre">target</span> <span class="pre">of</span> <span class="pre">/app/etc</span>
-<span class="pre">/data/ecs-pgdump</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">database</span> <span class="pre">migration</span> <span class="pre">dump</span> <span class="pre">and</span> <span class="pre">backup</span> <span class="pre">dump</span> <span class="pre">diretory</span>
-<span class="pre">/data/postgresql</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">referenced</span> <span class="pre">from</span> <span class="pre">moved</span> <span class="pre">/var/lib/postgresql</span>
-<span class="pre">==========================</span>&#160; <span class="pre">===========================================</span>
-<span class="pre">`</span></code></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Path</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/data</p></td>
+<td><p>data to keep</p></td>
+</tr>
+<tr class="row-odd"><td><p>/data/ecs-ca</p></td>
+<td><p>symlink target of /app/ecs-ca</p></td>
+</tr>
+<tr class="row-even"><td><p>/data/ecs-gpg</p></td>
+<td><p>symlink target of /app/ecs-gpg</p></td>
+</tr>
+<tr class="row-odd"><td><p>/data/ecs-storage-vault</p></td>
+<td><p>symlink target of /app/ecs-storage-vault</p></td>
+</tr>
+<tr class="row-even"><td><p>/data/etc</p></td>
+<td><p>symlink target of /app/etc</p></td>
+</tr>
+<tr class="row-odd"><td><p>/data/ecs-pgdump</p></td>
+<td><p>database migration dump and backup dump diretory</p></td>
+</tr>
+<tr class="row-even"><td><p>/data/postgresql</p></td>
+<td><p>referenced from moved /var/lib/postgresql</p></td>
+</tr>
+</tbody>
+</table>
 <p>Volatile:</p>
-<p><code class="docutils literal notranslate"><span class="pre">`eval_rst</span>
-<span class="pre">==========================</span>&#160; <span class="pre">===========================================</span>
-<span class="pre">Path</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Description</span>
-<span class="pre">==========================</span>&#160; <span class="pre">===========================================</span>
-<span class="pre">/volatile</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">data</span> <span class="pre">that</span> <span class="pre">can</span> <span class="pre">get</span> <span class="pre">deleted</span>
-<span class="pre">/volatile/docker</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">referenced</span> <span class="pre">from</span> <span class="pre">moved</span> <span class="pre">/var/lib/docker</span>
-<span class="pre">/volatile/ecs-cache</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Shared</span> <span class="pre">Cache</span> <span class="pre">Directory</span>
-<span class="pre">/volatile/ecs-backup-test</span>&#160;&#160; <span class="pre">default</span> <span class="pre">target</span> <span class="pre">directory</span> <span class="pre">of</span> <span class="pre">unconfigured</span> <span class="pre">backup</span>
-<span class="pre">/volatile/redis</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">redis</span> <span class="pre">container</span> <span class="pre">database</span> <span class="pre">volume</span>
-<span class="pre">==========================</span>&#160; <span class="pre">===========================================</span>
-<span class="pre">`</span></code></p>
-<p>### Container Volume Mapping</p>
-<p><code class="docutils literal notranslate"><span class="pre">`eval_rst</span>
-<span class="pre">========================</span>&#160; <span class="pre">============</span>&#160; <span class="pre">===============================</span>
-<span class="pre">Host-Path</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Container</span>&#160;&#160;&#160;&#160; <span class="pre">Container-Path</span>
-<span class="pre">========================</span>&#160; <span class="pre">============</span>&#160; <span class="pre">===============================</span>
-<span class="pre">/data/ecs-ca</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">ecs</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/app/ecs-ca</span>
-<span class="pre">/data/ecs-gpg</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">ecs</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/app/ecs-gpg</span>
-<span class="pre">/data/ecs-storage-vault</span>&#160;&#160; <span class="pre">ecs</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/app/ecs-storage-vault</span>
-<span class="pre">/volatile/ecs-cache</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">ecs</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">/app/ecs-cache</span>
-<span class="pre">/app/etc/server.cert.pem</span>&#160; <span class="pre">pdfas/mocca</span>&#160;&#160; <span class="pre">/app/import/server.cert.pem:ro</span>
-<span class="pre">========================</span>&#160; <span class="pre">============</span>&#160; <span class="pre">===============================</span>
-<span class="pre">`</span></code></p>
-<p>### Environment Mapping</p>
-<p>Types of environments:
-+ saltstack get the environment as pillar either from /run/active-env.yml or from a default
-+ shell-scripts and executed programs from these shellscripts get a flattened yaml representation in the environment (see flatyaml.py) usually restricted to ecs,appliance tree of the yaml file</p>
-<p>Buildtime Environment:
-+ the build time call of <cite>salt-call state.highstate</cite> does not need an environment,
-but will use /run/active-env.yml if available</p>
-<p>Runtime Environment:
-+ prepare-env</p>
-<blockquote>
-<div><ul class="simple">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Path</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/volatile</p></td>
+<td><p>data that can get deleted</p></td>
+</tr>
+<tr class="row-odd"><td><p>/volatile/docker</p></td>
+<td><p>referenced from moved /var/lib/docker</p></td>
+</tr>
+<tr class="row-even"><td><p>/volatile/ecs-cache</p></td>
+<td><p>Shared Cache Directory</p></td>
+</tr>
+<tr class="row-odd"><td><p>/volatile/ecs-backup-test</p></td>
+<td><p>default target directory of unconfigured backup</p></td>
+</tr>
+<tr class="row-even"><td><p>/volatile/redis</p></td>
+<td><p>redis container database volume</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="container-volume-mapping">
+<h2>Container Volume Mapping<a class="headerlink" href="#container-volume-mapping" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 18%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Host-Path</p></th>
+<th class="head"><p>Container</p></th>
+<th class="head"><p>Container-Path</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>/data/ecs-ca</p></td>
+<td><p>ecs</p></td>
+<td><p>/app/ecs-ca</p></td>
+</tr>
+<tr class="row-odd"><td><p>/data/ecs-gpg</p></td>
+<td><p>ecs</p></td>
+<td><p>/app/ecs-gpg</p></td>
+</tr>
+<tr class="row-even"><td><p>/data/ecs-storage-vault</p></td>
+<td><p>ecs</p></td>
+<td><p>/app/ecs-storage-vault</p></td>
+</tr>
+<tr class="row-odd"><td><p>/volatile/ecs-cache</p></td>
+<td><p>ecs</p></td>
+<td><p>/app/ecs-cache</p></td>
+</tr>
+<tr class="row-even"><td><p>/app/etc/server.cert.pem</p></td>
+<td><p>pdfas/mocca</p></td>
+<td><p>/app/import/server.cert.pem:ro</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="environment-mapping">
+<h2>Environment Mapping<a class="headerlink" href="#environment-mapping" title="Permalink to this headline">¶</a></h2>
+<p>Types of environments:</p>
+<ul class="simple">
+<li><p>saltstack get the environment as pillar either from /run/active-env.yml or from a default</p></li>
+<li><p>shell-scripts and executed programs from these shellscripts get a flattened yaml representation in the environment (see flatyaml.py) usually restricted to ecs,appliance tree of the yaml file</p></li>
+</ul>
+<p>Buildtime Environment:</p>
+<ul class="simple">
+<li><p>the build time call of <code class="docutils literal notranslate"><span class="pre">salt-call</span> <span class="pre">state.highstate</span></code> does not need an environment,
+but will use /run/active-env.yml if available</p></li>
+</ul>
+<p>Runtime Environment:</p>
+<ul class="simple">
+<li><p>prepare-env</p>
+<ul>
 <li><p>get a environment yaml from all local and network sources</p></li>
 <li><p>writes the result to /run/active-env.yml</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
-<li><dl class="simple">
-<dt>appliance-update, prepare-appliance, prepare-ecs, appliance.service</dt><dd><ul>
+</li>
+<li><p>appliance-update, prepare-appliance, prepare-ecs, appliance.service</p>
+<ul>
 <li><p>parse /run/active-env.yml</p></li>
 <li><p>include defaults from appliance.include (GIT_SOURCE*)</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><p>Storage Setup (<cite>salt-call state.sls appliance.storage.setup</cite>) parses /run/active-env.yml</p></li>
-<li><p>appliance-update will call <cite>salt-call state.highstate</cite> which will use /run/active-env.yml</p></li>
-<li><dl class="simple">
-<dt>appliance.service calls docker-compose up with active env from /run/active-env.yml</dt><dd><ul>
-<li><dl class="simple">
-<dt>docker compose passes the following to the ecs/ecs* container</dt><dd><ul>
+<li><p>Storage Setup (<code class="docutils literal notranslate"><span class="pre">salt-call</span> <span class="pre">state.sls</span> <span class="pre">appliance.storage.setup</span></code>) parses /run/active-env.yml</p></li>
+<li><p>appliance-update will call <code class="docutils literal notranslate"><span class="pre">salt-call</span> <span class="pre">state.highstate</span></code> which will use /run/active-env.yml</p></li>
+<li><p>appliance.service calls docker-compose up with active env from /run/active-env.yml</p>
+<ul>
+<li><p>docker compose passes the following to the ecs/ecs* container</p>
+<ul>
 <li><p>service_urls.env, database_url.env</p></li>
 <li><p>ECS_SETTINGS</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>docker compose passes the following to the mocca and pdfas container</dt><dd><ul>
+<li><p>docker compose passes the following to the mocca and pdfas container</p>
+<ul>
 <li><p>APPLIANCE_DOMAIN as HOSTNAME</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
+</div>
+</div>
 
 
           </div>
@@ -266,6 +436,22 @@ but will use /run/active-env.yml if available</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development</a><ul>
+<li><a class="reference internal" href="#service-architecture">Service Architecture</a></li>
+<li><a class="reference internal" href="#repository-layout">Repository Layout</a></li>
+<li><a class="reference internal" href="#execution-order">Execution Order</a></li>
+<li><a class="reference internal" href="#runtime-layout">Runtime Layout</a></li>
+<li><a class="reference internal" href="#container-volume-mapping">Container Volume Mapping</a></li>
+<li><a class="reference internal" href="#environment-mapping">Environment Mapping</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mocca_pdfas.html"
+                        title="previous chapter">Digital signed pdf documents</a></p>
 <form class="search" action="search.html" method="get">
   <input type="text" name="q"
    placeholder="type to search" />
@@ -280,15 +466,19 @@ but will use /run/active-env.yml if available</p>
   <div class="related bottom">
   <nav id="rellinks">
     <ul>
+        <li>
+          &larr;
+          <a href="mocca_pdfas.html" title="Previous document">Digital signed pdf documents</a>
+        </li>
     </ul>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2020-05-31@15:25 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2020-05-31@16:11 documentation</a></li> 
     </ul>
   </nav>
   </div>
-  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg.
+  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe.
 
   </footer>
 

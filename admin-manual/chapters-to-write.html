@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; ecs-admin-manual 2020-05-31@15:25 documentation</title>
+    <title>describe signing (setup) &#8212; ecs-admin-manual 2020-05-31@16:11 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -25,89 +25,93 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p>## describe signing (setup)</p>
-<p>## describe automatic task and submission closings (ecs cleanup)</p>
-<p>## describe the generated pdf’s</p>
+  <div class="section" id="describe-signing-setup">
+<h1>describe signing (setup)<a class="headerlink" href="#describe-signing-setup" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="describe-automatic-task-and-submission-closings-ecs-cleanup">
+<h1>describe automatic task and submission closings (ecs cleanup)<a class="headerlink" href="#describe-automatic-task-and-submission-closings-ecs-cleanup" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="describe-the-generated-pdf-s">
+<h1>describe the generated pdf’s<a class="headerlink" href="#describe-the-generated-pdf-s" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><dl class="simple">
-<dt>pdf’s:</dt><dd><ul>
+<li><p>pdf’s:</p>
+<ul>
 <li><p>with ec_head:</p></li>
 </ul>
-</dd>
-</dl>
 </li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">templates/checklists/wkhtml2pdf/checklist.html:</span>&#160;&#160;&#160; <span class="pre">{%</span> <span class="pre">include</span> <span class="pre">'wkhtml2pdf/ec_head.inc'</span> <span class="pre">%}</span>
-<span class="pre">templates/meetings/email/agenda.html:</span>&#160;&#160;&#160; <span class="pre">{%</span> <span class="pre">include</span> <span class="pre">'wkhtml2pdf/ec_head.inc'</span> <span class="pre">%}</span>
-<span class="pre">templates/meetings/wkhtml2pdf/agenda.html:</span>&#160;&#160;&#160; <span class="pre">{%</span> <span class="pre">include</span> <span class="pre">'wkhtml2pdf/ec_head.inc'</span> <span class="pre">%}</span>
-<span class="pre">templates/meetings/wkhtml2pdf/protocol.html:</span>&#160;&#160;&#160; <span class="pre">{%</span> <span class="pre">include</span> <span class="pre">'wkhtml2pdf/ec_head.inc'</span> <span class="pre">%}</span>
-<span class="pre">templates/meetings/wkhtml2pdf/timetable.html:</span>&#160;&#160;&#160; <span class="pre">{%</span> <span class="pre">include</span> <span class="pre">'wkhtml2pdf/ec_head.inc'</span> <span class="pre">%}</span>
-<span class="pre">templates/meetings/wkhtml2pdf/vote.html:{%</span> <span class="pre">include</span> <span class="pre">'wkhtml2pdf/ec_head.inc'</span> <span class="pre">%}</span>
-<span class="pre">templates/notifications/answers/wkhtml2pdf/base.html:</span>&#160;&#160;&#160; <span class="pre">{%</span> <span class="pre">include</span> <span class="pre">'wkhtml2pdf/ec_head.inc'</span> <span class="pre">%</span>
-<span class="pre">`</span></code></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>without ec_head:</p></li>
-</ul>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">templates/meetings/email/timetable.html:{%</span> <span class="pre">extends</span> <span class="pre">'wkhtml2pdf/skeleton.html'</span> <span class="pre">%}</span>
-<span class="pre">templates/meetings/wkhtml2pdf/vote_preview.html:{%</span> <span class="pre">extends</span> <span class="pre">'wkhtml2pdf/skeleton.html'</span> <span class="pre">%}</span>
-<span class="pre">templates/notifications/wkhtml2pdf/base.html:{%</span> <span class="pre">extends</span> <span class="pre">'wkhtml2pdf/skeleton.html'</span> <span class="pre">%}</span>
-<span class="pre">templates/submissions/wkhtml2pdf/view.html:{%</span> <span class="pre">extends</span> <span class="pre">'wkhtml2pdf/skeleton.html'</span> <span class="pre">%}</span>
-<span class="pre">`</span></code></p>
-<p>## describe the types of messages the ecs sends
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">git</span> <span class="pre">grep</span> <span class="pre">&quot;send_.*message&quot;</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">&quot;from.*import&quot;</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">&quot;def.*(.*):&quot;</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">templates</span><span class="o">/</span><span class="n">checklists</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">checklist</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">email</span><span class="o">/</span><span class="n">agenda</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">agenda</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">protocol</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">timetable</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">vote</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">notifications</span><span class="o">/</span><span class="n">answers</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">base</span><span class="o">.</span><span class="n">html</span><span class="p">:</span>    <span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;wkhtml2pdf/ec_head.inc&#39;</span> <span class="o">%</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+</span> <span class="n">without</span> <span class="n">ec_head</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">email</span><span class="o">/</span><span class="n">timetable</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;wkhtml2pdf/skeleton.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">vote_preview</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;wkhtml2pdf/skeleton.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">notifications</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">base</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;wkhtml2pdf/skeleton.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">wkhtml2pdf</span><span class="o">/</span><span class="n">view</span><span class="o">.</span><span class="n">html</span><span class="p">:{</span><span class="o">%</span> <span class="n">extends</span> <span class="s1">&#39;wkhtml2pdf/skeleton.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="describe-the-types-of-messages-the-ecs-sends">
+<h1>describe the types of messages the ecs sends<a class="headerlink" href="#describe-the-types-of-messages-the-ecs-sends" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">grep</span> <span class="s2">&quot;send_.*message&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;from.*import&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;def.*(.*):&quot;</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>emails from text template: find . -name “<a href="#id1"><span class="problematic" id="id2">*</span></a>.txt”</p></li>
+<li><p>emails from text template: find . -name “*.txt”</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">templates/submissions/presenter_change_new.txt</span>
-<span class="pre">templates/submissions/acknowledge_message.txt</span>
-<span class="pre">templates/submissions/change_message.txt</span>
-<span class="pre">templates/submissions/new_version_message.txt</span>
-<span class="pre">templates/submissions/creation_message.txt</span>
-<span class="pre">templates/submissions/presenter_change_previous.txt</span>
-<span class="pre">templates/submissions/susar_presenter_change_new.txt</span>
-<span class="pre">templates/submissions/susar_presenter_change_previous.txt</span>
-<span class="pre">templates/submissions/decline_message.txt</span>
-<span class="pre">templates/submissions/vote_publish.txt</span>
-<span class="pre">templates/users/new_signing_user.txt</span>
-<span class="pre">templates/users/indisposed_proxy.txt</span>
-<span class="pre">templates/users/division_of_work.txt</span>
-<span class="pre">templates/search/indexes/help/page_text.txt</span>
-<span class="pre">templates/checklists/external_review_publish.txt</span>
-<span class="pre">templates/checklists/external_review_declined.txt</span>
-<span class="pre">templates/checklists/external_reviewer_invitation.txt</span>
-<span class="pre">templates/notifications/answers/new_message.txt</span>
-<span class="pre">templates/communication/mail/digest.txt</span>
-<span class="pre">templates/msg_core.txt</span>
-<span class="pre">templates/meetings/email/basg.txt</span>
-<span class="pre">templates/meetings/messages/primary_investigator_invitation.txt</span>
-<span class="pre">templates/meetings/messages/expedited_reviewer_invitation.txt</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">presenter_change_new</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">acknowledge_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">change_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">new_version_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">creation_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">presenter_change_previous</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">susar_presenter_change_new</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">susar_presenter_change_previous</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">decline_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">submissions</span><span class="o">/</span><span class="n">vote_publish</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">new_signing_user</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">indisposed_proxy</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">division_of_work</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">search</span><span class="o">/</span><span class="n">indexes</span><span class="o">/</span><span class="n">help</span><span class="o">/</span><span class="n">page_text</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">checklists</span><span class="o">/</span><span class="n">external_review_publish</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">checklists</span><span class="o">/</span><span class="n">external_review_declined</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">checklists</span><span class="o">/</span><span class="n">external_reviewer_invitation</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">notifications</span><span class="o">/</span><span class="n">answers</span><span class="o">/</span><span class="n">new_message</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">communication</span><span class="o">/</span><span class="n">mail</span><span class="o">/</span><span class="n">digest</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">msg_core</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">email</span><span class="o">/</span><span class="n">basg</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="n">primary_investigator_invitation</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">meetings</span><span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="n">expedited_reviewer_invitation</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>emails from html template: find . -name “<a href="#id3"><span class="problematic" id="id4">*</span></a>email.html”</p></li>
+<li><p>emails from html template: find . -name “*email.html”</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">templates/users/registration/activation_email.html</span>
-<span class="pre">templates/users/invitation/invitation_email.html</span>
-<span class="pre">templates/users/password_reset/reset_email.html</span>
-<span class="pre">templates/users/password_reset/register_email.html</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">registration</span><span class="o">/</span><span class="n">activation_email</span><span class="o">.</span><span class="n">html</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">invitation</span><span class="o">/</span><span class="n">invitation_email</span><span class="o">.</span><span class="n">html</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">password_reset</span><span class="o">/</span><span class="n">reset_email</span><span class="o">.</span><span class="n">html</span>
+<span class="n">templates</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">password_reset</span><span class="o">/</span><span class="n">register_email</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>python code sending non template emails:</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">git</span> <span class="pre">grep</span> <span class="pre">&quot;send_.*message&quot;</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">&quot;from.*import&quot;</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">&quot;def.*(.*):&quot;</span>&#160; <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">&quot;/.*\.txt&quot;</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">send_message_on_close</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-v</span> <span class="pre">message_template</span> <span class="pre">|grep</span> <span class="pre">-v</span> <span class="pre">tests.py</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span> <span class="pre">|</span> <span class="pre">manual</span> <span class="pre">filter</span>
-<span class="pre">ecs/core/views/submissions.py</span>
-<span class="pre">ecs/documents/tasks.py</span>
-<span class="pre">ecs/tasks/tasks.py</span>
-<span class="pre">ecs/votes/tasks.py</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">grep</span> <span class="s2">&quot;send_.*message&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;from.*import&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;def.*(.*):&quot;</span>  <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s2">&quot;/.*\.txt&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="n">send_message_on_close</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="n">message_template</span> <span class="o">|</span><span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="n">tests</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span> <span class="o">|</span> <span class="n">manual</span> <span class="nb">filter</span>
+<span class="n">ecs</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">views</span><span class="o">/</span><span class="n">submissions</span><span class="o">.</span><span class="n">py</span>
+<span class="n">ecs</span><span class="o">/</span><span class="n">documents</span><span class="o">/</span><span class="n">tasks</span><span class="o">.</span><span class="n">py</span>
+<span class="n">ecs</span><span class="o">/</span><span class="n">tasks</span><span class="o">/</span><span class="n">tasks</span><span class="o">.</span><span class="n">py</span>
+<span class="n">ecs</span><span class="o">/</span><span class="n">votes</span><span class="o">/</span><span class="n">tasks</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
 
 
           </div>
@@ -115,6 +119,14 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">describe signing (setup)</a></li>
+<li><a class="reference internal" href="#describe-automatic-task-and-submission-closings-ecs-cleanup">describe automatic task and submission closings (ecs cleanup)</a></li>
+<li><a class="reference internal" href="#describe-the-generated-pdf-s">describe the generated pdf’s</a></li>
+<li><a class="reference internal" href="#describe-the-types-of-messages-the-ecs-sends">describe the types of messages the ecs sends</a></li>
+</ul>
+
 <form class="search" action="search.html" method="get">
   <input type="text" name="q"
    placeholder="type to search" />
@@ -133,11 +145,11 @@
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2020-05-31@15:25 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2020-05-31@16:11 documentation</a></li> 
     </ul>
   </nav>
   </div>
-  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg.
+  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe.
 
   </footer>
 

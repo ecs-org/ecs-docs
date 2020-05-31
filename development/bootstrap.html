@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; ecs-development 2020-05-31@15:25 documentation</title>
+    <title>How to build Bootstrap 4 &#8212; ecs-development 2020-05-31@16:11 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -16,6 +16,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Ecs Development Documentation" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <link rel="stylesheet" href="static/custom.css" type="text/css" />
   </head><body>  
@@ -25,72 +26,82 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <p># How to build Bootstrap 4</p>
-<p>## Prerequisites</p>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt>Clone bootstrap from gogs and checkout ecs_bootstrap-v4.0.0-alpha.5 branch. Add Github as remote.</dt><dd><p>&gt;`git clone <a class="reference external" href="ssh://git&#64;gogs.omoikane.ep3.at:10022/ecs/ecs-bootstrap">ssh://git&#64;gogs.omoikane.ep3.at:10022/ecs/ecs-bootstrap</a>.git`
-&gt;`cd ecs-bootstrap`
-&gt;`git checkout ecs_bootstrap`
-&gt;`git remote add github <a class="reference external" href="https://github.com/twbs/bootstrap">https://github.com/twbs/bootstrap</a>.git`</p>
-</dd>
-</dl>
+  <div class="section" id="how-to-build-bootstrap-4">
+<h1>How to build Bootstrap 4<a class="headerlink" href="#how-to-build-bootstrap-4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Clone bootstrap from gogs and checkout ecs_bootstrap-v4.0.0-alpha.5 branch. Add Github as remote.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">ssh://git&#64;gogs.omoikane.ep3.at:10022/ecs/ecs-bootstrap.git</span></code>
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">ecs-bootstrap</span></code>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">ecs_bootstrap</span></code>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">github</span> <span class="pre">https://github.com/twbs/bootstrap.git</span></code></p>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Install [Node](<a class="reference external" href="https://nodejs.org/download">https://nodejs.org/download</a>), [NPM](<a class="reference external" href="https://www.npmjs.com/">https://www.npmjs.com/</a>) with legacy support and [Ruby](<a class="reference external" href="https://www.ruby-lang.org">https://www.ruby-lang.org</a>) with headers.</dt><dd><p>&gt;`sudo apt-get install nodejs nodejs-legacy npm ruby ruby-dev`</p>
-</dd>
-</dl>
+<li><p>Install <a class="reference external" href="https://nodejs.org/download">Node</a>, <a class="reference external" href="https://www.npmjs.com/">NPM</a> with legacy support and <a class="reference external" href="https://www.ruby-lang.org">Ruby</a> with headers.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">nodejs</span> <span class="pre">nodejs-legacy</span> <span class="pre">npm</span> <span class="pre">ruby</span> <span class="pre">ruby-dev</span></code></p>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Install [Grunt](<a class="reference external" href="http://gruntjs.com/">http://gruntjs.com/</a>) and [Bundler](<a class="reference external" href="http://bundler.io/">http://bundler.io/</a>).</dt><dd><p>&gt;`sudo npm install -g grunt-cli`
-&gt;`sudo gem install bundler`</p>
-</dd>
-</dl>
+<li><p>Install <a class="reference external" href="http://gruntjs.com/">Grunt</a> and <a class="reference external" href="http://bundler.io/">Bundler</a>.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">grunt-cli</span></code>
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">gem</span> <span class="pre">install</span> <span class="pre">bundler</span></code></p>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Install dependencies inside the bootstrap directory.</dt><dd><p>&gt;`npm install –no-optional`
-&gt;`bundle install`</p>
-</dd>
-</dl>
+<li><p>Install dependencies inside the bootstrap directory.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">--no-optional</span></code>
+<code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">install</span></code></p>
+</div></blockquote>
 </li>
 </ol>
-<p>If <cite>bundle install</cite> fails, do a <cite>bundle update</cite>, then try again.</p>
-<p>## Building Bootstrap</p>
-<p>Once everything is ready, you can run the following tasks inside the _ecs-<a href="#id1"><span class="problematic" id="id2">bootstrap_</span></a> directory:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">install</span></code> fails, do a <code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">update</span></code>, then try again.</p>
+</div>
+<div class="section" id="building-bootstrap">
+<h2>Building Bootstrap<a class="headerlink" href="#building-bootstrap" title="Permalink to this headline">¶</a></h2>
+<p>Once everything is ready, you can run the following tasks inside the <em>ecs-bootstrap</em> directory:</p>
 <ul class="simple">
-<li><p><cite>grunt</cite>         Run grunt to run tests locally and compile the CSS and JavaScript into /dist. Uses Sass, Autoprefixer, and UglifyJS.</p></li>
-<li><p><cite>grunt dist</cite>    grunt dist creates the /dist directory with compiled files. Uses Sass, Autoprefixer, and UglifyJS.</p></li>
-<li><p><cite>grunt test</cite>    Runs scss-lint, ESLint and QUnit tests headlessly in PhantomJS (used for CI).</p></li>
-<li><p><cite>grunt docs</cite>    Builds and tests CSS, JavaScript, and other assets which are used when running the documentation locally via jekyll serve.</p></li>
-<li><p><cite>grunt watch</cite>   This is a convenience method for watching just Sass files and automatically building them whenever you save.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grunt</span></code>         Run grunt to run tests locally and compile the CSS and JavaScript into /dist. Uses Sass, Autoprefixer, and UglifyJS.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grunt</span> <span class="pre">dist</span></code>    grunt dist creates the /dist directory with compiled files. Uses Sass, Autoprefixer, and UglifyJS.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grunt</span> <span class="pre">test</span></code>    Runs scss-lint, ESLint and QUnit tests headlessly in PhantomJS (used for CI).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grunt</span> <span class="pre">docs</span></code>    Builds and tests CSS, JavaScript, and other assets which are used when running the documentation locally via jekyll serve.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grunt</span> <span class="pre">watch</span></code>   This is a convenience method for watching just Sass files and automatically building them whenever you save.</p></li>
 </ul>
-<p><cite>grunt dist</cite> builds all necessary files and puts them in the _dist_ directory.</p>
-<p>## Local documentation</p>
-<p>Running the documentation locally requires the use of [Jekyll](<a class="reference external" href="https://jekyllrb.com/">https://jekyllrb.com/</a>).</p>
-<ol class="arabic simple">
-<li><p>From the root bootstrap directory, run <cite>bundle exec jekyll serve</cite> in the command line.</p></li>
-<li><p>Open [<a class="reference external" href="http://localhost:9001](http://localhost:9001">http://localhost:9001](http://localhost:9001</a>) in your browser, and voilà.</p></li>
+<p><code class="docutils literal notranslate"><span class="pre">grunt</span> <span class="pre">dist</span></code> builds all necessary files and puts them in the <em>dist</em> directory.</p>
+</div>
+<div class="section" id="local-documentation">
+<h2>Local documentation<a class="headerlink" href="#local-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Running the documentation locally requires the use of <a class="reference external" href="https://jekyllrb.com/">Jekyll</a>.</p>
+<ol class="simple">
+<li><p>From the root bootstrap directory, run <code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">exec</span> <span class="pre">jekyll</span> <span class="pre">serve</span></code> in the command line.</p></li>
+<li><p>Open <a class="reference external" href="http://localhost:9001">http://localhost:9001</a> in your browser, and voilà.</p></li>
 </ol>
-<p>## Apply local patches to a new version of bootstrap</p>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt>Create a new branch starting with the unmodified new bootstrap version.</dt><dd><p>&gt;`git branch ecs_bootstrap-$new_version $new_version`
-&gt;`git checkout ecs_bootstrap-$new_version`</p>
-</dd>
-</dl>
+</div>
+<div class="section" id="apply-local-patches-to-a-new-version-of-bootstrap">
+<h2>Apply local patches to a new version of bootstrap<a class="headerlink" href="#apply-local-patches-to-a-new-version-of-bootstrap" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Create a new branch starting with the unmodified new bootstrap version.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">ecs_bootstrap-$new_version</span> <span class="pre">$new_version</span></code>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">ecs_bootstrap-$new_version</span></code></p>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Pull the local changes from the old version and resolve conflicts if any.</dt><dd><p>&gt;`git cherry-pick $old_version..ecs_bootstrap-$old_version`</p>
-</dd>
-</dl>
+<li><p>Pull the local changes from the old version and resolve conflicts if any.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">cherry-pick</span> <span class="pre">$old_version..ecs_bootstrap-$old_version</span></code></p>
+</div></blockquote>
 </li>
-<li><dl class="simple">
-<dt>Push the branch.</dt><dd><p>&gt;`git push -u origin ecs_bootstrap-$new_version`</p>
-</dd>
-</dl>
+<li><p>Push the branch.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">ecs_bootstrap-$new_version</span></code></p>
+</div></blockquote>
 </li>
 </ol>
 <p>Done!</p>
+</div>
+</div>
 
 
           </div>
@@ -98,6 +109,20 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to build Bootstrap 4</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#building-bootstrap">Building Bootstrap</a></li>
+<li><a class="reference internal" href="#local-documentation">Local documentation</a></li>
+<li><a class="reference internal" href="#apply-local-patches-to-a-new-version-of-bootstrap">Apply local patches to a new version of bootstrap</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Ecs Development Documentation</a></p>
 <form class="search" action="search.html" method="get">
   <input type="text" name="q"
    placeholder="type to search" />
@@ -112,15 +137,19 @@
   <div class="related bottom">
   <nav id="rellinks">
     <ul>
+        <li>
+          &larr;
+          <a href="index.html" title="Previous document">Ecs Development Documentation</a>
+        </li>
     </ul>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-development 2020-05-31@15:25 documentation</a></li> 
+      <li><a href="index.html">ecs-development 2020-05-31@16:11 documentation</a></li> 
     </ul>
   </nav>
   </div>
-  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg.
+  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe.
 
   </footer>
 
