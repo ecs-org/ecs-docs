@@ -17,12 +17,12 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-#import os
-#import sys
-#sys.path.insert(0, os.path.abspath('.'))
+# import os
+# import sys
+# sys.path.insert(0, os.path.abspath('.'))
 
 from datetime import datetime
-from recommonmark.parser import CommonMarkParser
+import recommonmark
 from recommonmark.transform import AutoStructify
 from better import better_theme_path
 
@@ -36,50 +36,52 @@ from better import better_theme_path
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.githubpages',
-    'sphinx.ext.graphviz',
-    'sphinx.ext.imgmath',
-    'sphinx_markdown_tables',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.ifconfig",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.githubpages",
+    "sphinx.ext.graphviz",
+    "sphinx.ext.imgmath",
+    "recommonmark",
+    "sphinx_markdown_tables",
 ]
 
 # change graphviz calling to prepend the c preprocessor to the calling chain
-graphviz_dot = '/usr/local/bin/cpp-dot'
+graphviz_dot = "/usr/local/bin/cpp-dot"
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['templates']
+templates_path = ["templates"]
 
-source_parsers = {
-    '.md': CommonMarkParser,
-}
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-source_suffix = ['.rst', '.md']
+source_suffix = [".rst", ".md"]
 # source_suffix = '.rst'
 
 # The encoding of source files.
 #
-source_encoding = 'utf-8'
+source_encoding = "utf-8"
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 # General information about the project.
-project = 'ecs-docs-generic'
-copyright = 'Copyright '+ datetime.now().strftime("%Y") +' Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg'
-author = 'ECS Development Team'
+project = "ecs-docs-generic"
+copyright = (
+    "Copyright "
+    + datetime.now().strftime("%Y")
+    + " Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe"
+)
+author = "ECS Development Team"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '2'
+version = "2"
 # The full version, including alpha/beta/rc tags.
 release = datetime.now().strftime("%Y-%m-%d@%H:%M")
 
@@ -88,7 +90,7 @@ release = datetime.now().strftime("%Y-%m-%d@%H:%M")
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
+language = "en"
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -102,7 +104,7 @@ language = 'en'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -124,7 +126,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = "sphinx"
 
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
@@ -141,20 +143,20 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'alabaster'
+# html_theme = 'alabaster'
 html_theme_path = [better_theme_path]
-html_theme = 'better'
+html_theme = "better"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
 html_theme_options = {
-    'showheader': False,
-    'cssfiles': ['static/custom.css'],
-    'showrelbartop': False,
-    'linktotheme': False,
-     'textcolor': '#292b2c',
+    "showheader": False,
+    "cssfiles": ["static/custom.css"],
+    "showrelbartop": False,
+    "linktotheme": False,
+    "textcolor": "#292b2c",
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -167,24 +169,24 @@ html_theme_options = {
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-#html_short_title = "Ecs Handbook"
+# html_short_title = "Ecs Handbook"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-#html_logo = 'images/logo-optimized.jpg'
+# html_logo = 'images/logo-optimized.jpg'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-#html_favicon = 'static/favicon.ico'
-html_favicon = 'static/favicon.ico'
+# html_favicon = 'static/favicon.ico'
+html_favicon = "static/favicon.ico"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['static']
+html_static_path = ["static"]
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -265,7 +267,7 @@ html_show_sphinx = False
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ecs-docs-genericdoc'
+htmlhelp_basename = "ecs-docs-genericdoc"
 
 # -- Options for LaTeX output ---------------------------------------------
 latex_elements = {
@@ -301,8 +303,13 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ecs-docs-generic.tex', 'Ecs Docs Generic Title',
-     'Latex Author Name', 'howto'),
+    (
+        master_doc,
+        "ecs-docs-generic.tex",
+        "Ecs Docs Generic Title",
+        "Latex Author Name",
+        "howto",
+    ),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -343,8 +350,7 @@ latex_domain_indices = False
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'ecs-docs-generic', 'ecs-docs-generic Documentation',
-     [author], 1)
+    (master_doc, "ecs-docs-generic", "ecs-docs-generic Documentation", [author], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -358,9 +364,15 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ecs-docs-generic', 'ecs-docs-generic Documentation',
-     author, 'ecs-docs-generic', 'One line description of project.',
-     'Miscellaneous'),
+    (
+        master_doc,
+        "ecs-docs-generic",
+        "ecs-docs-generic Documentation",
+        author,
+        "ecs-docs-generic",
+        "One line description of project.",
+        "Miscellaneous",
+    ),
 ]
 
 # Documents to append as an appendix to all manuals.
@@ -381,10 +393,17 @@ texinfo_documents = [
 
 
 # At the bottom of conf.py
-github_doc_root=""
+github_doc_root = ""
+
+
 def setup(app):
-    app.add_config_value('recommonmark_config', {
-            'url_resolver': lambda url: github_doc_root + url,
-            'auto_toc_tree_section': 'Contents',
-            }, True)
+    app.add_config_value(
+        "recommonmark_config",
+        {
+            "url_resolver": lambda url: github_doc_root + url,
+            "auto_toc_tree_section": "Contents",
+            "enable_eval_rst": True,
+        },
+        True,
+    )
     app.add_transform(AutoStructify)
