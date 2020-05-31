@@ -1,7 +1,7 @@
 Title: About
 order: 1
 
-The ethic commission system (ECS) is a Webservice supporting Clinical Trials approval, monitoring and the electronic management of the related data. 
+The ethic commission system (ECS) is a Webservice supporting Clinical Trials approval, monitoring and the electronic management of the related data.
 
 ECS constitutes an web-based, easily expendable open-source software solution, with manual and automatic quality control (audit protocol and track change). Its main features are online data input, reading of uploaded documents, generation of pdf documents from data input, flexible workflow and safe long-term data storage in encrypted form. Checklists are presented to external and internal reviewers and integrated into the session workflow. ECS generates session agenda and session protocols from data input and has an Email-linked internal communication system. The votes of the EC are digitally signed by the chair and automatically sent to the concerned parties. The workflow concerning post-vote issues allows upload of amendments, notifications and all safety-related reporting. Reminder functions support the investigators.
 
@@ -18,7 +18,7 @@ See [Development](development.html) for Sourcecode for ECS, ECS-Appliance and In
 ### License
 
 ECS is a a joint initiative of five universities in Austria.
-After the initial ecs version was open sourced by the medical university of vienna in 2012, 
+After the initial ecs version was open sourced by the medical university of vienna in 2012,
 a followup in 2016 broadend the ecs application to a more general audience.
 
 ```
@@ -28,6 +28,7 @@ Copyright 2020  Medizinische Universität Graz
 Copyright 2020  Johannes Kepler Universität Linz
 Copyright 2020  Karl Landsteiner Privatuniversität für Gesundheitswissenschaften
 Copyright 2020  Land Salzburg
+Copyright 2020  Vinzenz Gruppe
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
