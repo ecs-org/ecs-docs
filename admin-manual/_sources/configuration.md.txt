@@ -1,6 +1,6 @@
 ## Configure Appliance
 
-The Appliance is configured using a yaml configuration file 
+The Appliance is configured using a yaml configuration file
 which can be placed in one of the following locations:
 
 + local file at `/app/env.yml` (no-cloud config)
@@ -24,7 +24,7 @@ on an installed but unconfigured appliance:
     + `env-package.sh --requirements; env-package.sh /app/env.yml`
     + see `env-package.sh` for more options
     + transfer, print out "/app/env.yml.pdf" and store in a safe place.
-+ save an encrypted copy of env.yml in a safe place. 
++ save an encrypted copy of env.yml in a safe place.
 + **Important**: The **env.yml contains all needed secrets** for a working appliance and is **the only relevant piece of information** if you want to recover from backup in case of a storage failure.
 + **Warning**: Only use ascii charset in env.yml, saltstack expects yaml in ascii charset
 
@@ -50,7 +50,7 @@ for a development server:
 Any applied change in the config file will reconfigure the appliance on the next appliance restart run to the new values found in the configuration.
 
 Eg. if you want to change your backup target to a different location,
-just change the value and restart the appliance, it will detect and configure 
+just change the value and restart the appliance, it will detect and configure
 all needed changes to the environment.
 
 See the comments in the configuration for different possibilities for the appliance configuration.
@@ -163,7 +163,7 @@ ecs:
       DEBUG = False
       # SENTRY_DSN = 'https://url' # set to sentry url if available
       ETHICS_COMMISSION_UUID = 'ecececececececececececececececec'
-      # set ETHICS_COMMISSION_UUID to the desired UUID of the target commission 
+      # set ETHICS_COMMISSION_UUID to the desired UUID of the target commission
 
       SECRET_KEY = '{{ base64_secret() }}'
       REGISTRATION_SECRET = '{{ base64_secret() }}'
@@ -217,7 +217,7 @@ ecs:
 | 9f6b509e716e413f865d95bdd630e9bc | Ethikkommission Immunologische Tagesklinik
 | b17f32f604fa4452b5ff3a2baa9e0704 | Ethikkommission des Landes Niederösterreich
 | 6688ce16a3b84d42b1531389e6039891 | Ethikkommission Krankenhaus Elisabethinen
-| e4dcd05a31ad475ca72dea7b84ef030e | Ethikkommission des Landes Oberösterreich
+| e4dcd05a31ad475ca72dea7b84ef030e | Ethikkommission der Medizinischen Fakultät der JKU
 | e269491bb9c040aaad6a5f11df343f38 | Ethikkommission Krankenhaus Barmh.Brüder - Linz
 | 1cca34032077445d95dabf7802fade28 | Ethikkommission Krankenhaus Barmh.Schwestern - Linz
 | 39cbb589ef044d27bceb6ee5ac796ae7 | Ethikkommission für das Bundesland Salzburg
@@ -234,14 +234,14 @@ ecs:
 | 50dba0126a0746dc8802e6c0e0199dad | Ethik-Kommission der Vinzenz Gruppe Wien
 ```
 
-### First Activation 
+### First Activation
 
 on the target vm:
 ```
 # create a empty ecs database
 sudo -u postgres createdb ecs -T template0  -l de_DE.utf8
 
-# activate env 
+# activate env
 chmod 0600 /app/env.yml
 cp /app/env.yml /run/active-env.yml
 
@@ -259,7 +259,7 @@ the first internal office user, with a corresponding client certificate and disa
 
 ```
 # create first internal office user (f=female, m=male)
-create-internal-user.sh useremail@domain.name "First Name" "Second Name" "f" 
+create-internal-user.sh useremail@domain.name "First Name" "Second Name" "f"
 
 # create and send matching client certificate
 create-client-certificate.sh useremail@domain.name cert_name [daysvalid(default=7)]

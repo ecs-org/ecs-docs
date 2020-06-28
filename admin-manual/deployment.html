@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Deploy Appliance &#8212; ecs-admin-manual 2020-05-31@16:11 documentation</title>
+    <title>Deploy Appliance &#8212; ecs-admin-manual 2020-06-28@15:26 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -102,6 +102,7 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
 <li><p>The volatile volume must be labeled “ecs-volatile”, the data volume “ecs-data”.</p></li>
 <li><p>Setup will add mountpoints for /data and /volatile and mount them on startup.</p></li>
 <li><p>Use appliance:extra:states and :packages if storage setup needs additional packages installed.</p></li>
+<li><p>The root volume needs at least: 30GB (better 50GB) of space</p></li>
 </ul>
 </div>
 <div class="section" id="install-via-ssh-to-an-empty-xenial-vm">
@@ -194,7 +195,7 @@ These should be configured as a raid1 (mirroring) setup with lvm on top of it.</
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2020-05-31@16:11 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2020-06-28@15:26 documentation</a></li> 
     </ul>
   </nav>
   </div>

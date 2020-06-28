@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Requirements &#8212; ecs-admin-manual 2020-05-31@16:11 documentation</title>
+    <title>Requirements &#8212; ecs-admin-manual 2020-06-28@15:26 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -171,8 +171,7 @@ Some desktop “antivirus” products may need similar extra configuration to ha
 </ul>
 <p>Storage Calculation (10 Years):</p>
 <ul class="simple">
-<li><p>System: 5GB</p></li>
-<li><p>Temporary Workspace: 30GB</p></li>
+<li><p>System: 5GB + Temporary Workspace: 30GB = 35GB</p></li>
 <li><p>Database: (Studies-per-Month/ 12,5)GB</p></li>
 <li><p>Document-Storage: (120 * Studies-per-Month * 17)MB</p></li>
 </ul>
@@ -183,6 +182,7 @@ Some desktop “antivirus” products may need similar extra configuration to ha
 <p>Limits:
 The current ecs implementation can sustain 250 Studies per Month for 10 years.
 Larger implementations are possible with some refactoring in certain parts of the ecs.</p>
+<p>if using additional storge for data, the root volume needs at least: 30GB (better 50GB) of space</p>
 <div class="section" id="years-calculation">
 <h3>10 Years Calculation<a class="headerlink" href="#years-calculation" title="Permalink to this headline">¶</a></h3>
 <p>After 10 Years, the values noted will be reached.</p>
@@ -492,7 +492,7 @@ Larger implementations are possible with some refactoring in certain parts of th
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2020-05-31@16:11 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2020-06-28@15:26 documentation</a></li> 
     </ul>
   </nav>
   </div>
