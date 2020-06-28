@@ -7,6 +7,15 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2020.06.28
+----------
+
+Features:
+  + EK's: "Krankenhaus Elisabethinen", "Krankenhaus Barmh.Brüder - Linz",
+    "Krankenhaus Barmh.Schwestern - Linz"  wurden mit den Namenszusatz
+    "Nicht verwenden" in der Bezeichnung ergänzt, um eine irrtümliche
+    Zuordnung für Neueinreichungen auszuschließen.
+
 2020.05.31
 ----------
 
