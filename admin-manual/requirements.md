@@ -13,12 +13,12 @@ The ecs software is designed to run as an external available internet web-servic
 ### Hypervisor
 
 + The base of the virtual machine is a Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image.
-+ The appliance was tested on the following hypervisors: 
++ The appliance was tested on the following hypervisors:
   + KVM, XEN, VMware Sphere, HyperV
 + Rollouts to Amazon EC2, Google GCE or Openstack Clouds are not tested but meta data gathering from ec2, gce or openstack compatible meta data services is implemented but probably need some tweaking.
 + Follow the Assessment Chapter for the right sizing of CPU-cores, memory and harddisk.
 
-### Backup Storage 
+### Backup Storage
 
 + For storing backup data the appliance needs a storage space accessable via one of the 24 duplicity supported storage protocols.
 + In addition to the supported duplicity protocols the appliance has support for **cifs** (windows file sharing attached volumes, including automatic mount and unmount)
@@ -77,7 +77,7 @@ default._domainkey.sub  IN  TXT  "v=DKIM1; k=rsa; s=email; p=a-long-glibberish-k
 ### "Firewall"/Endpointprotection/"Antivirus" Security Products:
 
 **Warning**: many security products are known to disturb/break HTTPS Host
-Certificate and Client Certificate validation and weaken the transport protocols on the wire. 
+Certificate and Client Certificate validation and weaken the transport protocols on the wire.
 See the findings of [the Security Impact of HTTPS Interception](https://jhalderm.com/pub/papers/interception-ndss17.pdf) Paper.
 
 #### Firewall
@@ -91,10 +91,10 @@ The appliance uses LetsEncrypt to issue https/ssl host certificates and also tak
 
 #### Client Certificates
 
-The ecs appliance uses https client certificates for protection of elevated user rights. 
+The ecs appliance uses https client certificates for protection of elevated user rights.
 Https client certificates are issued by the appliance itself and can be done in selfservice as an internal ecs webfrontend user. There is no IT-Administration task involved in this process.
 
-**Warning**: If the hosting location has some mandatory security product, 
+**Warning**: If the hosting location has some mandatory security product,
 you probably need some extra configuration in the security product to fix support for Client Certificates.
 
 **This may also apply to to the pc's of internal ecs desktops.**
@@ -118,12 +118,11 @@ Core Calculation:
 
 Memory Calculation:
 + 2GB Base + 1GB per Core + Disk-size of Database (eg. 2GB)
-+ eg. 2 Cores = 4 GB + 1 GB Database= 5GB 
++ eg. 2 Cores = 4 GB + 1 GB Database= 5GB
 + eg. 8 Cores = 10 GB + 8 GB Database= 18GB
 
 Storage Calculation (10 Years):
-+ System: 5GB
-+ Temporary Workspace: 30GB
++ System: 5GB + Temporary Workspace: 30GB = 35GB
 + Database: (Studies-per-Month/ 12,5)GB
 + Document-Storage: (120 * Studies-per-Month * 17)MB
 
@@ -134,16 +133,18 @@ Limits:
 The current ecs implementation can sustain 250 Studies per Month for 10 years.
 Larger implementations are possible with some refactoring in certain parts of the ecs.
 
+if using additional storge for data, the root volume needs at least: 30GB (better 50GB) of space
+
 ### 10 Years Calculation
 
 After 10 Years, the values noted will be reached.
 
 #### 100 Studies per Month
 ```eval_rst
-==================  ======  ======================================== 
+==================  ======  ========================================
 Items               Size    Calculation
 ==================  ======  ========================================
-Base & Temp         50GB 
+Base & Temp         50GB
 Database            8GB     4074220 / 59 * 120
 Document-Storage    195GB   100684328 / 59 * 120
 Disksize            253GB   52428800 + 8286549 + 204781684
@@ -156,27 +157,27 @@ recommended Memory  16GB+   2+ 8+ 6
 #### 250 Studies per Month
 ```eval_rst
 ==================  ======
-Items               Size  
+Items               Size
 ==================  ======
-Base & Temp         50GB 
-Database            20GB 
-Document-Storage    500GB 
-Disksize            570GB 
+Base & Temp         50GB
+Database            20GB
+Document-Storage    500GB
+Disksize            570GB
 Backup              1332GB
-recommended Cores   8 
-recommended Memory  30GB+ 
+recommended Cores   8
+recommended Memory  30GB+
 ==================  ======
 ```
 
 #### 40 Studies per Month
 ```eval_rst
 ==================  ======
-Items               Size  
+Items               Size
 ==================  ======
-Base & Temp         50GB 
+Base & Temp         50GB
 Database            3,2GB
-Document-Storage    78GB 
-Disksize            131GB 
+Document-Storage    78GB
+Disksize            131GB
 Backup              178GB
 recommended Cores   4
 recommended Memory  9,5GB+
@@ -186,12 +187,12 @@ recommended Memory  9,5GB+
 #### 20 Studies per Month
 ```eval_rst
 ==================  ======
-Items               Size  
+Items               Size
 ==================  ======
-Base & Temp         50GB 
+Base & Temp         50GB
 Database            1,6GB
-Document-Storage    40GB 
-Disksize            92GB 
+Document-Storage    40GB
+Disksize            92GB
 Backup              89GB
 recommended Cores   2
 recommended Memory  6GB+
@@ -201,7 +202,7 @@ recommended Memory  6GB+
 #### Test Instance
 ```eval_rst
 ==================  =======
-Items               Size  
+Items               Size
 ==================  =======
 Disksize            20-40GB
 recommended Cores   1-2
@@ -244,4 +245,3 @@ Postgres Database:
   + Installation of the Java Signingsoftware [Mocca](https://webstart.buergerkarte.at/mocca/webstart/mocca.jnlp)
   + see [Digital signed pdf documents](./mocca_pdfas.html) for technical details
   + see [User-Manual (German) - Elektronische Signatur](../user-manual-de/commission/signature.html)
-

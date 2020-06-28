@@ -10,7 +10,7 @@ https://github.com/ecs-org/ecs-appliance/#quickstart).
 
 You either need:
 + a standard ubuntu cloud image from [Ubunu Xenial Cloud Images](http://cloud-images.ubuntu.com/xenial/current/)
-    + a cloud-init cidata iso volume with your public key 
+    + a cloud-init cidata iso volume with your public key
         + use the prebuilt cidata iso with the vagrant user and the insecure vagrant ssh key or password
             + [vagrant-publickey-growroot.iso](https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-publickey-growroot.iso)
             + [vagrant-password-growroot.iso](https://raw.githubusercontent.com/ecs-org/cidata-seed/master/vagrant-password-growroot.iso)
@@ -51,14 +51,14 @@ LV vg0 root / ext4 300G
 IMAGE /root/.oldroot/nfs/install/../images/Ubuntu-1604-xenial-64-minimal.tar.gz
 ```
 
-### Optional Network attached Storage 
+### Optional Network attached Storage
 
-+ The appliance supports two external network attached storage volumes, one for permanent data and one for volatile data. 
++ The appliance supports two external network attached storage volumes, one for permanent data and one for volatile data.
 + To have seperate volatile and/or data partitions, change storage:ignore:volatile and/or storage:ignore:data to false.
 + The volatile volume must be labeled "ecs-volatile", the data volume "ecs-data".
 + Setup will add mountpoints for /data and /volatile and mount them on startup.
 + Use appliance:extra:states and :packages if storage setup needs additional packages installed.
-
++ The root volume needs at least: 30GB (better 50GB) of space
 
 ### Install via ssh to an empty Xenial VM
 
@@ -102,4 +102,3 @@ if you also want the builder (for building the appliance image) installed:
 ```
 sudo salt-call state.highstate pillar='{"builder": {"enabled": true}, "appliance": {"enabled": true}}'
 ```
-
