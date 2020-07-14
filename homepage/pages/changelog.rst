@@ -7,6 +7,12 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2020.07.05
+----------
+
+Features:
+  + #726 Die Zertifikatsgenerierung verwendet jetzt die letsencrypt v2 api
+
 2020.06.28
 ----------
 
