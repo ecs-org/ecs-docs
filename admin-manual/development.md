@@ -2,6 +2,11 @@
 
 ### Service Architecture
 
+```eval_rst
+.. graphviz:: architecture.dot
+
+```
+
 + Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image
 
 + Saltstack salt is used for system installation
@@ -21,7 +26,7 @@
     + add headerfield "In-Reply-To" and "References" to emails originated via smtp
 
 + Services running inside docker container
-    + The ECS Application (Web, Worker, incoming Mail) 
+    + The ECS Application (Web, Worker, incoming Mail)
         + Django is served via uwsgi inside the web container
         + Celery is used for asynchronous worker & beat
         + python smtpd is used for incoming Mail processing
@@ -30,11 +35,6 @@
     + tomcat running PDF/AS for Electronic Signed PDF Generation
     + tomcat running Mocca for accessing the Digital ID-Card used for signed PDF-Generation
 
-
-```eval_rst
-.. graphviz:: architecture.dot
-
-```
 
 + The Appliance uses the default docker network (172.17.0.1/16) for docker container
 
@@ -126,9 +126,9 @@ Path                                  Description
 /app/ecs-gpg                          storage-vault gpg keys directory
                                       (symlink of /data/ecs-gpg)
 /app/ecs-cache                        temporary storage directory
-                                      (symlink of /volatile/ecs-cache)  
+                                      (symlink of /volatile/ecs-cache)
 /run/active-env.yml                   current activated configuration
-/run/appliance-failed                 flag that needs to be cleared, before a 
+/run/appliance-failed                 flag that needs to be cleared, before a
                                       restart of a failed appliance is possible
 /usr/local/share/appliance            scripts from the appliance salt source
 /usr/local/[s]bin                     user callable programs

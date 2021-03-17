@@ -198,7 +198,7 @@ ecs:
 
 ```
 
-#### Ethics Commission UUID's
+### Selecting the Ethics Commission UUID
 
 ```
 | 23d805c6b5f14d8b9196a12005fd2961 | Ethikkommission der Medizinischen Universität Wien
@@ -233,6 +233,95 @@ ecs:
 | dc1b115d9809461ba3ea9450b079ddd6 | Kommission für Scientific Integrity und Ethik der Karl Landsteiner Privatuniversität
 | 50dba0126a0746dc8802e6c0e0199dad | Ethik-Kommission der Vinzenz Gruppe Wien
 ```
+
+
+### Automatic Update Setup
+
+Updates are scheduled depending appliance:update:oncalendar once per day at 06:30 per default.
+
+Depending the types of updates available the update will take between 1 and 5 minutes in most cases, 5-10 minutes if the ecs container will be rebuild and up to 30 minutes if there are database migrations to be executed.
+
+The following items are updated:
++ appliance source will be updated and executed
++ all system packages are updated, special precautions are taken for docker, postgresql and the kernel including a reboot if needed
++ lets encrypt certificates are updated
++ ecs source will be updated and rebuild
+    + the ecs-docs source will be updated
+    + the corresponding support container will be updated
+    + database migrations will be executed (including a dump before doing so)
+
+**Warning**: Automatic updates are intended to run with Metric and Alert support, so you will get alerts to react and can investigate using the Metric Server to find the root cause. **If you do not make metric recording and alerting, we recommend updating only manual.** To do this, enter "False" under appliance:update:automatic in the file env.yml. For a manual update run call `systemctl start appliance-update`
+
+### Backup Configuration
+
++ Backup is done using duplicity, see [Duplicity Manual](http://duplicity.nongnu.org/duplicity.1.html) and [duply](http://duply.net/wiki/index.php/Duply-documentation)
++ Cycle: Backup is done once per day around 00:30
++ Safety Measures for backup:
+  + Database must exist
+  + Storage-Vault must not be empty
++ Contents:
+  + /data/ecs-storage-vault: All uploaded and all created documents
+  + /data/ecs-pgdump: Current database dump
++ Type, Rotation & Retention:
+    + Backup will start with a full backup and do incremental backups afterwards
+    + 2 Months after the first full backup a second full backup will be created
+    + Rotation: Every Backup (full or incremental) will be purged after 4 Months
+
+#### Extra Configuration needed for scp/sftp backup (ssh)
+
+if appliance:backup:url is using either scp or sftp (preferred):
+
++ add ssh host entry in /root/.ssh/known_hosts for duplicity to connect to the ssh server
++ create this entry by executing: `duply /root/.duply/appliance-backup status`
++ add this key to env.yml as extra:state:
+```
+appliance:
+  extra:
+    states: |
+        sftp_server_hostkey_into_known_hosts:
+          file.append:
+            - name: /root/.ssh/known_hosts
+            - makedirs: true
+            - text: |
+                [1.2.3.4]:12345 ssh-rsa XXXHOSTKEYXXX
+```
+
+
+### Metrics Collection Setup
+
++ if `appliance:metric:exporter` is set, metrics are exported from the subsystems
+    + export metrics of:
+        frontend nginx, redis, memcached, uwsgi, cadvisor,
+        process details(uwsgi, postgres, nginx, celery),
+        prometheus node(diskstats, entropy, filefd, filesystem, hwmon, loadavg,
+            mdadm, meminfo, netdev, netstat, stat, textfile, time, uname, vmstat)
+    + additional service metrics from: appliance-backup, appliance-update
++ if `appliance:metric:server` is set, these exported metrics are collected and
+    stored by a prometheus server and alerts are issued using email to root
+    using the prometheus alert server
+    + there are alerts for: NodeRebootsTooOften, NodeFilesystemFree, NodeMemoryUsageHigh, NodeLoadHigh, a.o.
+        + for a detailed alert list look at the [alert.rules.yml sourcefile](https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/metric/alert.rules.yml)
+        + to **add custom rules create rules** files in the config yaml using "file:*:contents" with a path of "/app/etc/prometheus-rules.d/*.rules.yml"
+    + the prometheus gui is at [http://172.17.0.1:9090](http://172.17.0.1:9090)
+    + the prometheus alert gui is at [http://172.17.0.1:9093](http://172.17.0.1:9093)
++ if `appliance:metric:gui` is set, a grafana server is started to display the collected metrics
+    + grafana is available at [http://localhost:3000](http://localhost:3000)
++ if `appliance:metric:pghero` is set, start a pghero instance for postgres inspection
+    + pghero is avaiable at [http://localhost:5081](http://localhost:5081)
+
+Use ssh port forwarding to access these ports, eg. for 172.17.0.1:9090 use `ssh root@hostname -L 9090:172.17.0.1:9090`
+
+### Alerting Setup
+
+if `ecs:settings["SENTRY_DSN"]` and `appliance:sentry:dsn` are defined,
+the appliance will report the following items to sentry:
+
++ python exceptions in web, worker, beat, smtpd
++ salt-call exceptions and state returns with error states
++ systemd service exceptions where appliance-failed or service-failed is triggered
++ shell calls to appliance.include: appliance_failed, appliance_exit, sentry_entry
++ internal mails to root, eg. prometheus alerts
+
 
 ### First Activation
 

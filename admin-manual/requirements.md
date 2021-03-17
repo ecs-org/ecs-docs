@@ -74,6 +74,18 @@ default._domainkey.sub  IN  TXT  "v=DKIM1; k=rsa; s=email; p=a-long-glibberish-k
     + port 443 - https: the appliance uses letsencrypt to issue a host certificate and lets internal user administer https client certificates in self-service
       + ICMP/ping - ping: for monitoring the system
 
+
+### Email Challenges
+
+Issue:
+Emails send from the appliance to a target mailserver that does greylisting will always be delayed.
+
+Resolution:
+To remove those delays, the greylisting whitelist of the target mailserver has to be extended with the domain of the ecs appliance.
+
+Technical Background:
+The appliance always uses a new unique email address for each outgoing mail (beside registration) and greylisting always delays the first email from an email address.
+
 ### "Firewall"/Endpointprotection/"Antivirus" Security Products:
 
 **Warning**: many security products are known to disturb/break HTTPS Host
