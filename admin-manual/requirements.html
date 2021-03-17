@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Requirements &#8212; ecs-admin-manual 2020-07-14@14:35 documentation</title>
+    <title>Requirements &#8212; ecs-admin-manual 2021-03-17@13:54 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -120,6 +120,15 @@
 </ul>
 </li>
 </ul>
+</div>
+<div class="section" id="email-challenges">
+<h3>Email Challenges<a class="headerlink" href="#email-challenges" title="Permalink to this headline">¶</a></h3>
+<p>Issue:
+Emails send from the appliance to a target mailserver that does greylisting will always be delayed.</p>
+<p>Resolution:
+To remove those delays, the greylisting whitelist of the target mailserver has to be extended with the domain of the ecs appliance.</p>
+<p>Technical Background:
+The appliance always uses a new unique email address for each outgoing mail (beside registration) and greylisting always delays the first email from an email address.</p>
 </div>
 <div class="section" id="firewall-endpointprotection-antivirus-security-products">
 <h3>“Firewall”/Endpointprotection/”Antivirus” Security Products:<a class="headerlink" href="#firewall-endpointprotection-antivirus-security-products" title="Permalink to this headline">¶</a></h3>
@@ -435,6 +444,7 @@ Larger implementations are possible with some refactoring in certain parts of th
 <li><a class="reference internal" href="#backup-storage">Backup Storage</a></li>
 <li><a class="reference internal" href="#dns-setup">DNS Setup</a></li>
 <li><a class="reference internal" href="#internet-connectivity">Internet Connectivity</a></li>
+<li><a class="reference internal" href="#email-challenges">Email Challenges</a></li>
 <li><a class="reference internal" href="#firewall-endpointprotection-antivirus-security-products">“Firewall”/Endpointprotection/”Antivirus” Security Products:</a><ul>
 <li><a class="reference internal" href="#firewall">Firewall</a></li>
 <li><a class="reference internal" href="#host-certificates">Host Certificates</a></li>
@@ -492,11 +502,11 @@ Larger implementations are possible with some refactoring in certain parts of th
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2020-07-14@14:35 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2021-03-17@13:54 documentation</a></li> 
     </ul>
   </nav>
   </div>
-  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe.
+  <footer id="pagefooter">&copy; Copyright 2021 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe.
 
   </footer>
 

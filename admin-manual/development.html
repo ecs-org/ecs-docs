@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Development &#8212; ecs-admin-manual 2020-07-14@14:35 documentation</title>
+    <title>Development &#8212; ecs-admin-manual 2021-03-17@13:54 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -30,42 +30,6 @@
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="service-architecture">
 <h2>Service Architecture<a class="headerlink" href="#service-architecture" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image</p></li>
-<li><p>Saltstack salt is used for system installation</p></li>
-<li><p>Letsencrypt is used for ssl host certificates</p></li>
-<li><p>Services running on the host system</p>
-<ul>
-<li><p>Webserver: NGINX 1.10 - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/nginx/nginx.conf">nginx.conf</a></p></li>
-<li><p>Database: Postgresql 9.5 Database <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/appliance/postgresql">postgres config</a></p></li>
-<li><p>SMTP/SSL Proxy: Stunnel - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/stunnel/stunnel.conf">stunnel.conf</a></p></li>
-<li><p>SSH Daemon: openssh <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/ssh">ssh config</a></p></li>
-<li><p>SMTP Outgoing: postfix - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf">main.cf</a></p></li>
-<li><p>SMTP Incoming: ecs - <a class="reference external" href="https://github.com/ecs-org/ecs/blob/master/ecs/communication/smtpd.py">smtpd.py</a></p></li>
-</ul>
-</li>
-<li><p>Compliance to <a class="reference external" href="https://tools.ietf.org/html/rfc3834">rfc3834 Recommendations for Automatic Responses to Electronic Mail</a></p>
-<ul>
-<li><p>set and evaluate headerfield “Auto-Submitted”</p></li>
-<li><p>add headerfield “In-Reply-To” and “References” to emails originated via smtp</p></li>
-</ul>
-</li>
-<li><p>Services running inside docker container</p>
-<ul>
-<li><p>The ECS Application (Web, Worker, incoming Mail)</p>
-<ul>
-<li><p>Django is served via uwsgi inside the web container</p></li>
-<li><p>Celery is used for asynchronous worker &amp; beat</p></li>
-<li><p>python smtpd is used for incoming Mail processing</p></li>
-</ul>
-</li>
-<li><p>Redis for Queuing Services</p></li>
-<li><p>Memcache for Caching Services</p></li>
-<li><p>tomcat running PDF/AS for Electronic Signed PDF Generation</p></li>
-<li><p>tomcat running Mocca for accessing the Digital ID-Card used for signed PDF-Generation</p></li>
-</ul>
-</li>
-</ul>
 <div class="graphviz"><img src="_images/graphviz-4f85b385e77ae6b134a8db88cddbb52af476bf7a.png" alt="#### perform execution via cpp | dot
 #include &quot;dot-style.h&quot;
 #define to -&gt;
@@ -106,6 +70,40 @@ PROCESSFLOW(&quot;ECS Service Interconnect&quot;)
     stunnel to ecs unidir(smtp)
 END" class="graphviz" /></div>
 <ul class="simple">
+<li><p>Ubuntu Xenial (16.04 LTS) 64Bit Standard Cloud Image</p></li>
+<li><p>Saltstack salt is used for system installation</p></li>
+<li><p>Letsencrypt is used for ssl host certificates</p></li>
+<li><p>Services running on the host system</p>
+<ul>
+<li><p>Webserver: NGINX 1.10 - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/nginx/nginx.conf">nginx.conf</a></p></li>
+<li><p>Database: Postgresql 9.5 Database <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/appliance/postgresql">postgres config</a></p></li>
+<li><p>SMTP/SSL Proxy: Stunnel - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/stunnel/stunnel.conf">stunnel.conf</a></p></li>
+<li><p>SSH Daemon: openssh <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/tree/master/salt/ssh">ssh config</a></p></li>
+<li><p>SMTP Outgoing: postfix - <a class="reference external" href="https://github.com/ecs-org/ecs-appliance/blob/master/salt/appliance/postfix/main.cf">main.cf</a></p></li>
+<li><p>SMTP Incoming: ecs - <a class="reference external" href="https://github.com/ecs-org/ecs/blob/master/ecs/communication/smtpd.py">smtpd.py</a></p></li>
+</ul>
+</li>
+<li><p>Compliance to <a class="reference external" href="https://tools.ietf.org/html/rfc3834">rfc3834 Recommendations for Automatic Responses to Electronic Mail</a></p>
+<ul>
+<li><p>set and evaluate headerfield “Auto-Submitted”</p></li>
+<li><p>add headerfield “In-Reply-To” and “References” to emails originated via smtp</p></li>
+</ul>
+</li>
+<li><p>Services running inside docker container</p>
+<ul>
+<li><p>The ECS Application (Web, Worker, incoming Mail)</p>
+<ul>
+<li><p>Django is served via uwsgi inside the web container</p></li>
+<li><p>Celery is used for asynchronous worker &amp; beat</p></li>
+<li><p>python smtpd is used for incoming Mail processing</p></li>
+</ul>
+</li>
+<li><p>Redis for Queuing Services</p></li>
+<li><p>Memcache for Caching Services</p></li>
+<li><p>tomcat running PDF/AS for Electronic Signed PDF Generation</p></li>
+<li><p>tomcat running Mocca for accessing the Digital ID-Card used for signed PDF-Generation</p></li>
+</ul>
+</li>
 <li><p>The Appliance uses the default docker network (172.17.0.1/16) for docker container</p></li>
 <li><p>Public (Outside) facing Ports</p>
 <ul>
@@ -474,11 +472,11 @@ but will use /run/active-env.yml if available</p></li>
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2020-07-14@14:35 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2021-03-17@13:54 documentation</a></li> 
     </ul>
   </nav>
   </div>
-  <footer id="pagefooter">&copy; Copyright 2020 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe.
+  <footer id="pagefooter">&copy; Copyright 2021 Medizinische Universität Wien, Medizinische Universität Innsbruck, Medizinische Universität Graz, Johannes Kepler Universität Linz, Karl Landsteiner Privatuniversität für Gesundheitswissenschaften, Land Salzburg, Vinzenz Gruppe.
 
   </footer>
 
