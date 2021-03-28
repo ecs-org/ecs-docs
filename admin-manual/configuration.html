@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Configure Appliance &#8212; ecs-admin-manual 2021-03-17@13:54 documentation</title>
+    <title>Configure Appliance &#8212; ecs-admin-manual 2021-03-28@13:50 documentation</title>
     <link rel="stylesheet" href="_static/better.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -376,8 +376,8 @@ the appliance will report the following items to sentry:</p>
 <li><p>internal mails to root, eg. prometheus alerts</p></li>
 </ul>
 </div>
-<div class="section" id="first-activation">
-<h2>First Activation<a class="headerlink" href="#first-activation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="first-activation-of-instance">
+<h2>First Activation of Instance<a class="headerlink" href="#first-activation-of-instance" title="Permalink to this headline">¶</a></h2>
 <p>on the target vm:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a empty ecs database</span>
 <span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">createdb</span> <span class="n">ecs</span> <span class="o">-</span><span class="n">T</span> <span class="n">template0</span>  <span class="o">-</span><span class="n">l</span> <span class="n">de_DE</span><span class="o">.</span><span class="n">utf8</span>
@@ -392,8 +392,9 @@ the appliance will report the following items to sentry:</p>
 </div>
 <p>While restarting, the appliance configures itself to the new environment.
 See the progress of the preperation by browsing to https://<em>domainname.domain</em> .</p>
-<div class="section" id="first-internal-user-setup">
-<h3>First Internal User setup<a class="headerlink" href="#first-internal-user-setup" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="create-first-internal-user">
+<h2>Create first internal User<a class="headerlink" href="#create-first-internal-user" title="Permalink to this headline">¶</a></h2>
 <p>After the appliance is ready and shows the login screen, login via ssh to create
 the first internal office user, with a corresponding client certificate and disable test user.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create first internal office user (f=female, m=male)</span>
@@ -410,8 +411,10 @@ the first internal office user, with a corresponding client certificate and disa
 <span class="n">EOF</span>
 </pre></div>
 </div>
-<p>After completing the First User Setup, import the created Client Certificate into a browser and login as Internal User and continue to configure the ECS as described in the <a class="reference external" href="https://ecs-org.github.io/ecs-docs/user-manual-de/commission/commissioning.html">User-Manual, Chapter Commissioning</a></p>
 </div>
+<div class="section" id="configure-ecs-settings-as-internal-office-user">
+<h2>configure ECS Settings as internal Office User<a class="headerlink" href="#configure-ecs-settings-as-internal-office-user" title="Permalink to this headline">¶</a></h2>
+<p>After completing the First User Setup, import the created Client Certificate into a browser and login as Internal User and continue to configure the ECS as described in the <a class="reference external" href="https://ecs-org.github.io/ecs-docs/user-manual-de/commission/commissioning.html">User-Manual, Chapter Commissioning</a></p>
 </div>
 </div>
 
@@ -434,10 +437,9 @@ the first internal office user, with a corresponding client certificate and disa
 </li>
 <li><a class="reference internal" href="#metrics-collection-setup">Metrics Collection Setup</a></li>
 <li><a class="reference internal" href="#alerting-setup">Alerting Setup</a></li>
-<li><a class="reference internal" href="#first-activation">First Activation</a><ul>
-<li><a class="reference internal" href="#first-internal-user-setup">First Internal User setup</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#first-activation-of-instance">First Activation of Instance</a></li>
+<li><a class="reference internal" href="#create-first-internal-user">Create first internal User</a></li>
+<li><a class="reference internal" href="#configure-ecs-settings-as-internal-office-user">configure ECS Settings as internal Office User</a></li>
 </ul>
 </li>
 </ul>
@@ -474,7 +476,7 @@ the first internal office user, with a corresponding client certificate and disa
   </nav>
   <nav id="breadcrumbs">
     <ul>
-      <li><a href="index.html">ecs-admin-manual 2021-03-17@13:54 documentation</a></li> 
+      <li><a href="index.html">ecs-admin-manual 2021-03-28@13:50 documentation</a></li> 
     </ul>
   </nav>
   </div>
