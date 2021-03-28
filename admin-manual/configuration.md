@@ -323,7 +323,7 @@ the appliance will report the following items to sentry:
 + internal mails to root, eg. prometheus alerts
 
 
-### First Activation
+### First Activation of Instance
 
 on the target vm:
 ```
@@ -341,7 +341,7 @@ systemctl restart appliance
 While restarting, the appliance configures itself to the new environment.
 See the progress of the preperation by browsing to https://*domainname.domain* .
 
-#### First Internal User setup
+### Create first internal User
 
 After the appliance is ready and shows the login screen, login via ssh to create
 the first internal office user, with a corresponding client certificate and disable test user.
@@ -361,5 +361,7 @@ User.objects.filter(profile__is_testuser=True).update(is_active=False)
 EOF
 
 ```
+
+### configure ECS Settings as internal Office User
 
 After completing the First User Setup, import the created Client Certificate into a browser and login as Internal User and continue to configure the ECS as described in the [User-Manual, Chapter Commissioning](https://ecs-org.github.io/ecs-docs/user-manual-de/commission/commissioning.html)

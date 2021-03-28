@@ -7,6 +7,13 @@ Veröffentlichungsinformationen
 
 Veröffentlichungen chronologisch absteigend seit der ersten Beta Release.
 
+2021.03.28
+----------
+
+Bugfixes:
+  + #749 Auch Studien im Expedited/Thesis/Lokale-EK Ablauf die in der Sitzung
+    vom Board abgelehnt werden übernehmen jetzt den Votumsvorbereitungstext
+
 2020.07.05
 ----------
 
